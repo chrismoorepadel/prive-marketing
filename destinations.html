@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
   <style>
 /* ═══════════════════════════════════════════════════════
    RESET & BASE
@@ -934,47 +935,58 @@ nav.scrolled .nav-cta{color:var(--navy);border-color:rgba(27,42,74,0.3);}
   border:1px solid rgba(255,255,255,.08);
   border-radius:2px;
   overflow:hidden;
-  height:480px;
+  height:540px;
   position:relative;
 }
-.map-placeholder{
-  width:100%;height:100%;
-  background:url('https://res.cloudinary.com/dfjqa5f05/image/upload/v1773543525/Priv%C3%A9_Map_q9edqb.jpg') center/cover;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.map-pin{
-  position:absolute;
-  width:8px;height:8px;
+#destinations-map{width:100%;height:100%;}
+
+/* Marker */
+.map-marker{
+  width:10px;height:10px;
   background:var(--gold);border-radius:50%;
   cursor:pointer;
 }
-.map-pin::before{
+.map-marker::before{
   content:'';
-  position:absolute;inset:-4px;
-  border:1px solid rgba(184,151,106,.4);
+  position:absolute;inset:-6px;
+  border:1px solid rgba(184,151,106,.35);
   border-radius:50%;
-  animation:ping 2s cubic-bezier(0,0,.2,1) infinite;
+  animation:ping 2.4s cubic-bezier(0,0,.2,1) infinite;
+  pointer-events:none;
 }
 @keyframes ping{
-  75%,100%{transform:scale(1.8);opacity:0;}
+  0%{transform:scale(1);opacity:.7;}
+  75%,100%{transform:scale(2.4);opacity:0;}
 }
-.map-legend{
-  position:absolute;bottom:20px;left:20px;
-  background:rgba(14,25,35,.85);
+
+/* Popup */
+.mapboxgl-popup{pointer-events:none;}
+.mapboxgl-popup-content{
+  background:rgba(14,25,35,.95) !important;
+  border:1px solid rgba(184,151,106,.3) !important;
+  border-radius:2px !important;
+  padding:10px 16px !important;
+  box-shadow:0 8px 32px rgba(0,0,0,.5) !important;
   backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.08);
-  padding:14px 18px;border-radius:2px;
 }
-.map-legend-row{
-  display:flex;align-items:center;gap:8px;
-  font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:300;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.5);margin-bottom:6px;
+.mapboxgl-popup-tip{display:none !important;}
+.popup-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:300;
+  color:var(--white);white-space:nowrap;
 }
-.map-legend-row:last-child{margin-bottom:0;}
-.map-legend-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* Nav controls */
+.mapboxgl-ctrl-group{
+  background:rgba(14,25,35,.9) !important;
+  border:1px solid rgba(255,255,255,.1) !important;
+  border-radius:2px !important;
+  box-shadow:none !important;
+}
+.mapboxgl-ctrl-group button{width:30px;height:30px;}
+.mapboxgl-ctrl-icon{filter:invert(1) opacity(.6);}
+.mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon{filter:invert(1) opacity(1);}
+.mapboxgl-ctrl-attrib{display:none !important;}
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
@@ -1713,33 +1725,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
       <h2 class="section-title light" style="font-size:clamp(32px,3vw,46px);">Privé destinations,<br><em style="font-style:italic;">worldwide.</em></h2>
     </div>
     <div class="map-container">
-      <div class="map-placeholder">
-        <!-- Confirmed partner locations -->
-        <div class="map-pin" style="top:28%;left:48.5%;" title="London — The Savoy"></div>
-        <div class="map-pin" style="top:28%;left:48.2%;" title="London — St. James Hotel"></div>
-        <div class="map-pin" style="top:33%;left:49.2%;" title="Marbella — Marbella Club"></div>
-        <div class="map-pin" style="top:33%;left:49.0%;" title="Marbella — Don Carlos"></div>
-        <div class="map-pin" style="top:33%;left:49.8%;" title="Girona — Camiral"></div>
-        <div class="map-pin" style="top:34%;left:49.5%;" title="Mallorca — Finca Serena"></div>
-        <div class="map-pin" style="top:34%;left:49.6%;" title="Mallorca — The Lodge"></div>
-        <div class="map-pin" style="top:33.5%;left:48.8%;" title="Andalucía — Finca la Bobadilla"></div>
-        <div class="map-pin" style="top:34%;left:50.2%;" title="Costa Brava — Mas De Torrent"></div>
-        <div class="map-pin" style="top:32%;left:47.5%;" title="Bordeaux — Château de Lussac"></div>
-        <div class="map-pin" style="top:32%;left:47.2%;" title="Portugal — Vila Vita Parc"></div>
-        <div class="map-pin" style="top:34%;left:53.8%;" title="Turkey — D Maris Bay"></div>
-        <div class="map-pin" style="top:33%;left:57.5%;" title="Oman — Al Baleed Resort"></div>
-        <div class="map-pin" style="top:30%;left:60.5%;" title="Dubai — The Biltmore"></div>
-        <div class="map-pin" style="top:44%;left:29%;" title="Mexico — Chablé Yucatán"></div>
-        <div class="map-pin" style="top:42%;left:33.5%;" title="Grenadines — Voaara"></div>
-        <div class="map-pin" style="top:50%;left:47%;" title="Madagascar — Voaara"></div>
-        <div class="map-pin" style="top:50%;left:79%;" title="Indonesia — Nay Palad"></div>
-        <div class="map-pin" style="top:51%;left:80%;" title="Indonesia — NIHI Sumba"></div>
-        <div class="map-pin" style="top:48%;left:72%;" title="Maldives — Patina"></div>
-        <div class="map-legend">
-          <div class="map-legend-row"><div class="map-legend-dot"></div>Active Partner</div>
-          <div class="map-legend-row" style="opacity:.5;"><div class="map-legend-dot" style="background:rgba(255,255,255,.2);"></div>Pipeline (2024–25)</div>
-        </div>
-      </div>
+      <div id="destinations-map"></div>
     </div>
   </section>
 </div>
@@ -1911,6 +1897,93 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('mainNav').classList.add('nav-dark');
   checkReveal();
   animateCounters();
+});
+</script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+<script>
+// ─── MAPBOX MAP ───────────────────────────────────────────
+mapboxgl.accessToken = 'YOUR_MAPBOX_TOKEN';
+
+const RESORTS = [
+  { name: 'Don Carlos Marbella',                  lat: 36.510,  lng: -4.895  },
+  { name: 'Château de Lussac',                    lat: 44.987,  lng: -0.082  },
+  { name: 'Vila Vita Parc',                        lat: 37.088,  lng: -8.433  },
+  { name: 'Chablé Yucatán',                       lat: 20.658,  lng: -89.982 },
+  { name: 'Camiral Resort',                        lat: 41.869,  lng:  2.803  },
+  { name: 'The Marbella Club',                     lat: 36.516,  lng: -4.930  },
+  { name: 'Finca La Bobadilla',                    lat: 37.298,  lng: -4.058  },
+  { name: 'The Savoy',                             lat: 51.510,  lng: -0.120  },
+  { name: "St. James's Hotel and Club",            lat: 51.507,  lng: -0.138  },
+  { name: 'Finca Serena',                          lat: 39.572,  lng:  3.055  },
+  { name: 'The Lodge',                             lat: 39.640,  lng:  3.094  },
+  { name: 'Mas De Torrent',                        lat: 41.978,  lng:  3.065  },
+  { name: 'Kimpton Aysla Mallorca',                lat: 39.669,  lng:  2.995  },
+  { name: 'The Biltmore Hotel Villas',             lat: 25.213,  lng: 55.282  },
+  { name: 'NIHI Sumba',                            lat: -9.648,  lng: 119.417 },
+  { name: 'Nay Palad Hideaway',                    lat:  9.748,  lng: 118.736 },
+  { name: 'Voaara Madagascar',                     lat: -15.716, lng: 46.316  },
+  { name: 'Fairmont Windsor Park',                 lat: 51.476,  lng: -0.614  },
+  { name: 'Al Baleed Resort Salalah by Anantara',  lat: 16.934,  lng: 54.093  },
+  { name: 'D Maris Bay',                           lat: 36.770,  lng: 27.680  },
+  { name: 'Etéreo, Auberge Collection',           lat: 20.651,  lng: -87.098 },
+  { name: 'Fairmont Royal Palm Marrakech',         lat: 31.578,  lng: -8.073  },
+  { name: 'Patina Maldives',                       lat:  4.308,  lng: 73.432  },
+  { name: 'Riviera Maya EDITION',                  lat: 20.597,  lng: -87.120 },
+  { name: 'The St. Regis Kanai Resort',            lat: 20.605,  lng: -87.068 },
+  { name: 'Tortuga Bay Puntacana Resort',          lat: 18.569,  lng: -68.366 },
+  { name: 'Vilalara Grand Hotel Algarve',          lat: 37.104,  lng: -8.465  },
+  { name: 'Hotel Royal Evian',                     lat: 46.395,  lng:  6.590  },
+  { name: 'Fairmont Century Plaza',               lat: 34.057,  lng: -118.416 },
+  { name: 'Hotel Único Madrid',                   lat: 40.426,  lng: -3.688  },
+  { name: 'The Maybourne Beverly Hills',           lat: 34.071,  lng: -118.400 },
+  { name: 'The Principal Madrid',                  lat: 40.420,  lng: -3.704  },
+  { name: 'The Surrey',                            lat: 40.774,  lng: -73.964 },
+  { name: 'One&Only Aesthesis',                    lat: 37.865,  lng: 23.757  },
+  { name: 'Elounda Mare Hotel',                    lat: 35.258,  lng: 25.730  },
+  { name: 'Elounda Peninsula Luxury Resort',       lat: 35.261,  lng: 25.732  },
+  { name: 'Porto Elounda Golf & Spa Resort',       lat: 35.257,  lng: 25.726  },
+  { name: 'Verdura Resort',                        lat: 37.499,  lng: 13.161  },
+  { name: 'One&Only Le Saint Géran',              lat: -20.212, lng: 57.775  },
+  { name: 'Rosewood Hong Kong',                    lat: 22.298,  lng: 114.172 },
+  { name: 'Banyan Tree Mayakoba',                  lat: 20.693,  lng: -87.055 },
+  { name: 'Hotel Pitrizza',                        lat: 41.117,  lng:  9.533  },
+  { name: 'Voaara Grenadines',                     lat: 12.601,  lng: -61.401 },
+];
+
+const map = new mapboxgl.Map({
+  container: 'destinations-map',
+  style: 'mapbox://styles/mapbox/dark-v11',
+  scrollZoom: false,
+  attributionControl: false,
+});
+
+map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'bottom-right');
+
+map.on('load', () => {
+  const bounds = new mapboxgl.LngLatBounds();
+
+  RESORTS.forEach(resort => {
+    bounds.extend([resort.lng, resort.lat]);
+
+    const el = document.createElement('div');
+    el.className = 'map-marker';
+
+    const popup = new mapboxgl.Popup({
+      offset: 14,
+      closeButton: false,
+      closeOnClick: false,
+      anchor: 'bottom',
+    }).setHTML(`<div class="popup-name">${resort.name}</div>`);
+
+    const marker = new mapboxgl.Marker({ element: el })
+      .setLngLat([resort.lng, resort.lat])
+      .addTo(map);
+
+    el.addEventListener('mouseenter', () => popup.setLngLat([resort.lng, resort.lat]).addTo(map));
+    el.addEventListener('mouseleave', () => popup.remove());
+  });
+
+  map.fitBounds(bounds, { padding: { top: 60, bottom: 80, left: 60, right: 60 }, duration: 0, maxZoom: 4 });
 });
 </script>
 </body>
