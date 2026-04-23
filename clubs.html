@@ -1450,7 +1450,7 @@ footer{
   .portfolio-card { height: 200px; }
   .benefits-bar { grid-template-columns: 1fr 1fr; }
   .bbi-desc { display: none; }
-  .steps-row { grid-template-columns: 1fr; gap: 32px; padding: 60px 24px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 32px; }
   .pricing-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 24px 60px; }
   .partners-grid { grid-template-columns: repeat(2,1fr); padding: 60px 24px; }
   .clubs-overview-hero { padding: 0 24px 48px; }
@@ -1583,6 +1583,21 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   text-align: center;
   width: fit-content;
 }
+
+/* ── Additional mobile overrides ─────────────────────────────── */
+@media (max-width: 768px) {
+  .how-it-works { padding: 60px 24px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+  .step-num { font-size: clamp(36px, 10vw, 56px); }
+  .membership-section { padding: 60px 24px; }
+  .membership-price { font-size: clamp(40px, 10vw, 64px); line-height: 1; }
+  .map-section { padding: 48px 24px 60px; }
+  .map-container { height: 320px; }
+  .partner-benefits { padding: 60px 24px; }
+  .benefits-showcase { grid-template-columns: 1fr; }
+  .benefits-bar { padding: 32px 24px; }
+  .exp-scroll-track { padding-right: 24px; }
+}
 </style>
 </head>
 <body>
@@ -1619,6 +1634,26 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
     <span></span><span></span><span></span>
   </button>
 </nav>
+<div id="mobileMenu" class="mobile-menu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <nav class="mobile-nav">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Travel Collection</div>
+      <a href="#" onclick="showPage('destinations')">Destinations</a>
+      <a href="#" onclick="showPage('club-partners')">Club Partners</a>
+      <a href="#" onclick="showPage('experiences')">Experiences</a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Privé Clubs</div>
+      <a href="#" onclick="showPage('club-coral-gables')">Coral Gables</a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Membership</div>
+      <a href="#" onclick="showPage('membership')">Privé Passport</a>
+      <a href="#" onclick="showPage('join')" class="mobile-nav-cta">Join Now</a>
+    </div>
+  </nav>
+</div>
 <div class="page active" id="page-clubs">
 
   <div style="height:var(--nav-h);"></div>
