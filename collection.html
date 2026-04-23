@@ -21,7 +21,6 @@ body{
   background:var(--cream);
   color:var(--navy);
   overflow-x:hidden;
-  cursor:none;
 }
 a{text-decoration:none;color:inherit;}
 img{display:block;max-width:100%;}
@@ -41,25 +40,6 @@ img{display:block;max-width:100%;}
   --nav-h: 72px;
 }
 
-/* ═══════════════════════════════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════════════════════════════ */
-.cursor{
-  position:fixed;width:8px;height:8px;
-  background:var(--gold);border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .25s,height .25s,background .25s;
-  mix-blend-mode:multiply;
-}
-.cursor-ring{
-  position:fixed;width:36px;height:36px;
-  border:1px solid rgba(184,151,106,0.4);border-radius:50%;
-  pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:transform .08s linear,width .25s,height .25s,border-color .25s;
-}
-body:hover .cursor{opacity:1;}
 
 /* ═══════════════════════════════════════════════════════
    NAV
@@ -1601,7 +1581,6 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
 <nav id="mainNav">
   <a class="nav-logo" href="#" onclick="showPage('home')">
     <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
@@ -1856,22 +1835,6 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 </footer>
 <script>
 
-// ─── CURSOR ──────────────────────────────────────────────
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursorRing');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
-  setTimeout(() => {
-    ring.style.left = e.clientX + 'px';
-    ring.style.top  = e.clientY + 'px';
-  }, 60);
-});
-document.querySelectorAll('a,button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '14px'; cursor.style.height = '14px';
-    ring.style.width = '50px';  ring.style.height = '50px';
-  });
   el.addEventListener('mouseleave', () => {
     cursor.style.width = '8px'; cursor.style.height = '8px';
     ring.style.width = '36px'; ring.style.height = '36px';
