@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privé Padel — Clubs</title>
+  <title>About — Privé Padel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link rel="dns-prefetch" href="https://res.cloudinary.com">
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773534707/Priv%C3%A9_Clubs_Montauk_xosq7b.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
 /* ═══════════════════════════════════════════════════════
@@ -59,15 +58,6 @@ nav.scrolled{
 }
 .logo-light { display: block; }
 .logo-dark  { display: none; }
-nav.scrolled .logo-light { display: none; }
-nav.scrolled .logo-dark  { display: block; }
-.nav-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-weight:300;font-size:17px;
-  letter-spacing:0.28em;text-transform:uppercase;
-  color:var(--white);
-  transition:color .4s;
-}
 nav.scrolled .logo-light { display: block; }
 .logo-dark  { display: none; }
 nav.scrolled .logo-light { display: none; }
@@ -196,7 +186,6 @@ nav.scrolled .nav-cta{color:var(--navy);border-color:rgba(27,42,74,0.3);}
     linear-gradient(180deg,rgba(14,25,35,.3) 0%,rgba(14,25,35,.05) 40%,rgba(14,25,35,.75) 100%),
     url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773183130/Priv%C3%A9_Padel_Website_d5gqes.jpg') center/cover no-repeat;
 }
-/* Simulated video grain */
 .hero-grain{
   position:absolute;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
@@ -1581,6 +1570,102 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .benefits-bar { padding: 32px 24px; }
   .exp-scroll-track { padding-right: 24px; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   ABOUT PAGE
+═══════════════════════════════════════════════════════ */
+.about-section {
+  padding: 120px 80px;
+}
+.about-section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.about-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.about-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: clamp(38px, 4.5vw, 64px);
+  margin-bottom: 48px;
+}
+.about-heading em { font-style: italic; }
+.about-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+.about-body + .about-body {
+  margin-top: 32px;
+}
+.about-gold-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 52px 0;
+}
+.about-closing {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+.about-disclaimer {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px, 1.1vw, 17px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+.about-large-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 2.8vw, 40px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+.about-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.05;
+}
+
+@media (max-width: 768px) {
+  .about-section { padding: 80px 24px; }
+  .about-section:first-of-type { padding-top: calc(80px + var(--nav-h)); }
+  .about-heading { font-size: clamp(32px, 9vw, 48px); margin-bottom: 32px; }
+  .about-body { font-size: 18px; }
+  .about-gold-rule { margin: 40px 0; }
+  .about-large-quote { font-size: clamp(20px, 6vw, 30px); }
+  .about-tagline { font-size: clamp(28px, 8vw, 40px); }
+}
 </style>
 </head>
 <body>
@@ -1593,7 +1678,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
     <li class="nav-item"><a class="nav-link" href="membership.html">Passport</a></li>
     <li class="nav-item"><a class="nav-link" href="club-montauk.html">Montauk</a></li>
     <li class="nav-item"><a class="nav-link" href="club-coral-gables.html">Miami</a></li>
-    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
   </ul>
   <div class="nav-right">
     <a class="nav-cta" href="join.html">Get Your Passport</a>
@@ -1617,52 +1702,49 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   </div>
 </div>
 
-<div class="page active" id="page-clubs">
-
-  <div style="height:var(--nav-h);"></div>
-
-  <section class="clubs-overview-hero">
-    <div class="clubs-overview-hero-bg"></div>
-    <div class="clubs-overview-content">
-      <div class="hero-pretitle" style="color:rgba(255,255,255,.5);">Privé Clubs</div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,84px);font-weight:300;color:var(--white);line-height:1.0;margin-bottom:20px;">Our own<br><em style="font-style:italic;">courts.</em></h1>
-      <p style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.06em;line-height:1.8;color:rgba(255,255,255,.5);max-width:500px;">Privé Clubs are Privé Padel's flagship operated locations — venues for play, social programming, and brand experiences at the intersection of sport and hospitality.</p>
-    </div>
-  </section>
-
-  <div class="clubs-overview-grid">
-    <div class="club-overview-card" style="cursor:default;">
-      <div class="club-overview-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773534707/Priv%C3%A9_Clubs_Montauk_xosq7b.jpg');"></div>
-      <div class="club-overview-overlay"></div>
-      <div class="club-overview-content">
-        <div class="club-overview-tag" style="opacity:0;">—</div>
-        <div class="club-overview-name">Montauk</div>
-        <div class="club-overview-loc">Coming Soon</div>
-        <div class="club-overview-desc" style="opacity:0;">Privé Padel at THesis Hotel — bringing the brand's editorial approach to padel to one of Miami's most refined hospitality addresses.</div>
-        <div class="club-overview-link" style="opacity:0;">Explore Montauk</div>
-      </div>
-    </div>
-    <div class="club-overview-card" onclick="showPage('club-coral-gables')">
-      <div class="club-overview-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773534709/Priv%C3%A9_Clubs_Thesis_qlqatj.jpg');"></div>
-      <div class="club-overview-overlay"></div>
-      <div class="club-overview-content">
-        <div class="club-overview-tag">Now Open — Spring 2026</div>
-        <div class="club-overview-name">Coral Gables</div>
-        <div class="club-overview-loc">THesis Hotel · Coral Gables, Miami</div>
-        <div class="club-overview-desc">Privé Padel at THesis Hotel — bringing the brand's editorial approach to padel to one of Miami's most refined hospitality addresses.</div>
-        <div class="club-overview-link">Explore Coral Gables</div>
-      </div>
-    </div>
+<!-- SECTION 1 — WORLDVIEW -->
+<section class="about-section" style="background:var(--dark);padding-top:calc(160px + var(--nav-h));">
+  <div class="about-section-inner reveal">
+    <div class="about-eyebrow">WORLDVIEW</div>
+    <h1 class="about-heading" style="color:var(--white);">A life well-lived is<br><em>a life played well.</em></h1>
+    <p class="about-body" style="color:rgba(245,240,232,.78);">We started with one question. Why is it that the people who live most fully — who travel best, eat best, build the most — also seem to play the most? Not perform, not compete. Play. For our members, padel is already part of how they live. The morning court, the standing game, the racquet that travels in the carry-on. We don't claim to invent the ritual. We exist for the part of the ritual that doesn't have a home — the trip, the new city, the long way somewhere. Privé is the membership that lets a life played well travel with you.</p>
+    <div class="about-gold-rule"></div>
+    <p class="about-closing" style="color:rgba(245,240,232,.45);">This is a brand for people already there. We do not need to call ourselves luxury. We let the destinations, the company, and the quality do the talking.</p>
   </div>
+</section>
 
-  <section style="padding:80px 80px 100px;background:var(--navy);text-align:center;">
-    <div class="section-eyebrow" style="justify-content:center;color:rgba(255,255,255,.3);">More Locations Coming</div>
-    <h2 class="section-title light" style="font-size:clamp(30px,3vw,44px);margin-bottom:20px;">The Privé Padel<br><em style="font-style:italic;">club footprint is growing.</em></h2>
-    <div class="gold-rule" style="margin:20px auto;"></div>
-    <p class="section-body light" style="max-width:480px;margin:0 auto 36px;">Future Privé Club locations will be announced to Passport members first. Join the membership to stay ahead of the opening calendar.</p>
-    <a href="#" class="btn-primary" onclick="showPage('membership')">Get Your Passport</a>
-  </section>
-</div>
+<!-- SECTION 2 — THE ROLE WE PLAY -->
+<section class="about-section" style="background:var(--cream);">
+  <div class="about-section-inner reveal">
+    <div class="about-eyebrow">THE ROLE WE PLAY</div>
+    <h2 class="about-heading" style="color:var(--navy);">Padel is the ritual.<br><em>Privé is the journey.</em></h2>
+    <p class="about-body" style="color:var(--navy);">Our members already have the ritual. The local club, the standing partner, the racquet they trust. Privé does not replace any of this. We exist for the moment the ritual has to travel — when home is somewhere else this week, or when the year asks for something new.</p>
+    <p class="about-body" style="color:var(--navy);">Privé Padel locations, Padel Destinations, Padel Experiences, and Padel Club Partners are four ways the membership keeps the game with you. A long weekend in Montauk. A seasonal trip to Mallorca. A retreat in Madagascar. A business week in a city where the club doors are already open. One membership. One reason to keep playing, wherever you are.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 — WHO IT'S FOR -->
+<section class="about-section" style="background:var(--cream);padding-top:0;">
+  <div class="about-section-inner reveal">
+    <div class="about-eyebrow">WHO IT'S FOR</div>
+    <h2 class="about-heading" style="color:var(--navy);">The people who<br><em>already know.</em></h2>
+    <p class="about-body" style="color:var(--navy);">They are in their thirties or older. They run companies, design things, manage portfolios, raise families. They have been to the places people travel to once and have started traveling to the places people return to. They have a club at home. A partner they play with most weeks. A racquet they replace before they need to.</p>
+    <p class="about-body" style="color:var(--navy);">They are the kind of person who chooses the better restaurant without making a thing of it. They do not need a membership to feel a certain way. They need one because the game keeps following them, and they would like the game to be ready when they arrive.</p>
+    <div class="about-gold-rule"></div>
+    <p class="about-disclaimer" style="color:var(--mid);">This brand is not for the person who needs a membership to feel arrived. The competitive player who wants ranking points. The traveler who wants the room with the best deal. The status seeker who is always introducing themselves. They will be happier somewhere else.</p>
+  </div>
+</section>
+
+<!-- SECTION 4 — THE LONG GAME -->
+<section class="about-section" style="background:var(--dark);">
+  <div class="about-section-inner reveal">
+    <div class="about-eyebrow">THE LONG GAME</div>
+    <p class="about-large-quote" style="color:rgba(245,240,232,.8);">A global network where members travel anywhere, stay at partner resorts, play padel, and find each other in the cities and coastlines that matter — all under a single membership ecosystem.</p>
+    <div class="about-gold-rule"></div>
+    <p class="about-tagline">A life played well.</p>
+  </div>
+</section>
+
 <footer>
   <div class="footer-top" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;">
     <div>
@@ -1710,85 +1792,12 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
     <div class="footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
   </div>
 </footer>
-<script>
 
+<script>
 // ─── NAV SCROLL ──────────────────────────────────────────
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ─── PAGE ROUTING ────────────────────────────────────────
-function showPage(id) {
-  const navMap = {
-    'home': 'index.html',
-    'collection': 'collection.html',
-    'destinations': 'destinations.html',
-    'membership': 'membership.html',
-    'join': 'join.html',
-    'club-partners': 'club-partners.html',
-    'experiences': 'experiences.html',
-    'clubs': 'clubs.html',
-    'club-montauk': 'club-montauk.html',
-    'club-coral-gables': 'club-coral-gables.html',
-  };
-  if (navMap[id]) { window.location.href = navMap[id]; }
-}
-
-// ─── SCROLL REVEAL ───────────────────────────────────────
-function checkReveal() {
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.9) {
-      el.classList.add('visible');
-    }
-  });
-}
-window.addEventListener('scroll', checkReveal);
-document.addEventListener('DOMContentLoaded', () => { checkReveal(); animateCounters(); });
-checkReveal();
-
-// ─── COUNTER ANIMATION ───────────────────────────────────
-function animateCounters() {
-  document.querySelectorAll('[data-target]').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && !el.dataset.done) {
-      el.dataset.done = true;
-      const target = parseInt(el.dataset.target);
-      const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
-      let current = 0;
-      const step = target / 40;
-      const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.innerHTML = Math.round(current) + suffix;
-        if (current >= target) clearInterval(timer);
-      }, 30);
-    }
-  });
-}
-window.addEventListener('scroll', animateCounters);
-animateCounters();
-
-// ─── NAV DROPDOWNS ───────────────────────────────────────
-document.querySelectorAll('.nav-item').forEach(item => {
-  let t;
-  item.addEventListener('mouseenter', () => {
-    clearTimeout(t);
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
-    item.classList.add('open');
-  });
-  item.addEventListener('mouseleave', () => {
-    t = setTimeout(() => item.classList.remove('open'), 200);
-  });
-});
-
-document.querySelectorAll('.nav-link[data-page]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
-    const page = this.getAttribute('data-page');
-    if (page) showPage(page);
-  });
 });
 
 // ─── MOBILE MENU ─────────────────────────────────────────
@@ -1796,30 +1805,26 @@ const hamburger = document.getElementById('navHamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileMenuClose');
 
-function openMobileMenu() {
+hamburger.addEventListener('click', () => {
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
-}
-function closeMobileMenu() {
+});
+mobileClose.addEventListener('click', () => {
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
-}
-
-if (hamburger) hamburger.addEventListener('click', openMobileMenu);
-if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
-
-// ─── CLOSE NAV ON OUTSIDE CLICK ──────────────────────────
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-item')) {
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
-  }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('mainNav').classList.add('nav-dark');
-  checkReveal();
-  animateCounters();
-});
+// ─── SCROLL REVEAL ───────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
