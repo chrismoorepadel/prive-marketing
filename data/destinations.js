@@ -159,7 +159,7 @@ window.DESTINATIONS = [
     region: 'MADAGASCAR',
     name: 'Voaara Madagascar',
     loc: 'Île Sainte-Marie, Madagascar',
-    image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Voaara_Madagascar_gxl5hx.jpg',
+    image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg',
     filter: 'middle-east-africa',
     featured: true,
     desc: 'The furthest point on the network. Voaara Madagascar occupies a private island off the northeast coast — the world\'s most remote padel courts, set beside a barrier reef where humpback whales pass in season. There is no other place quite like it.',
