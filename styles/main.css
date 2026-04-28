@@ -2371,3 +2371,163 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .closing-cta-title { font-size:40px; }
 }
 
+
+/* ═══════════════════════════════════════════════════════
+   CLUB PARTNERS PAGE
+═══════════════════════════════════════════════════════ */
+
+/* ── Shared eyebrow for both partners sections ── */
+.cp-section-eyebrow{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:10px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;
+}
+
+/* ── Live partners section ── */
+.cp-live-section{
+  background:var(--cream);
+  padding:100px 60px;
+}
+.cp-live-intro{
+  text-align:center;
+  margin-bottom:80px;
+}
+.cp-live-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;font-weight:300;
+  color:var(--navy);line-height:1.2;
+  margin:0;
+}
+.cp-live-headline em{font-style:italic;}
+
+/* ── Partner card grid ── */
+.cp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:36px;
+  max-width:1320px;
+  margin:0 auto;
+}
+.cp-card{text-align:left;}
+.cp-card-img-wrap{
+  aspect-ratio:4/5;
+  width:100%;
+  overflow:hidden;
+  background:var(--sand);
+  margin-bottom:26px;
+}
+.cp-card-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .7s ease;
+}
+.cp-card:hover .cp-card-img{transform:scale(1.04);}
+.cp-card-eyebrow{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:9px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.cp-card-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:400;
+  color:var(--navy);line-height:1.25;
+  margin:0;
+}
+.cp-card-headline em{font-style:italic;}
+.cp-card-pairing{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:14px;font-weight:300;
+  color:rgba(27,42,74,.7);line-height:1.4;
+  margin:12px 0 0;
+}
+.cp-card-fact{
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;font-weight:300;
+  color:rgba(27,42,74,.8);line-height:1.5;
+  margin:16px 0 0;
+}
+
+/* ── Cities in development section ── */
+.cp-dev-section{
+  background:var(--cream);
+  padding:80px 60px 100px;
+}
+.cp-dev-intro{
+  text-align:center;
+  margin-bottom:60px;
+}
+.cp-dev-rule{
+  width:36px;height:1px;
+  background:var(--gold);
+  margin:0 auto 36px;
+}
+.cp-dev-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:300;
+  color:var(--navy);line-height:1.2;
+  margin:0;
+}
+.cp-dev-headline em{font-style:italic;}
+.cp-dev-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:1080px;
+  margin:0 auto;
+}
+.cp-dev-card{
+  padding:40px 24px;
+  border-top:1px solid var(--gold);
+  text-align:center;
+}
+.cp-dev-card-city{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:9px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+}
+.cp-dev-card-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:14px;font-weight:300;
+  color:rgba(27,42,74,.6);
+}
+
+/* ── Club partners closing CTA ── */
+.cp-closing{
+  background:var(--dark);
+  padding:120px 60px 140px;
+  text-align:center;
+}
+.cp-closing-inner{
+  max-width:720px;
+  margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;
+}
+.cp-closing-eyebrow{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:10px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+}
+.cp-closing-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:300;
+  color:var(--cream);line-height:1.1;
+  margin:0;
+}
+.cp-closing-headline em{font-style:italic;}
+.cp-closing-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:16px;font-weight:300;
+  color:rgba(245,240,232,.75);line-height:1.5;
+  max-width:580px;margin-top:28px;
+}
+
+/* ── Club partners responsive ── */
+@media(max-width:900px){
+  .cp-live-section{padding:80px 24px;}
+  .cp-dev-section{padding:60px 24px 80px;}
+  .cp-closing{padding:80px 24px 100px;}
+  .cp-grid{grid-template-columns:1fr;gap:60px;max-width:480px;margin:0 auto;}
+  .cp-dev-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto;}
+  .cp-closing-headline{font-size:36px;}
+}
