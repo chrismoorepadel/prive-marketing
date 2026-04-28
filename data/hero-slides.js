@@ -7,7 +7,7 @@ window.HERO_SLIDES = [
   {
     eyebrow: 'WELCOME',
     headline: 'Introducing <em>Privé&nbsp;Passport.</em>',
-    sub:      'A global travel membership for padel players.',
+    sub:      'A global travel membership for padel players. Stay at the world\'s leading destinations, play at every one, and find a court wherever the year takes you.',
     primaryLabel:    'Get Your Passport',
     primaryHref:     'join.html',
     secondaryLabel:  'Explore the Network',
@@ -17,14 +17,14 @@ window.HERO_SLIDES = [
   },
   {
     eyebrow: 'PADEL DESTINATIONS',
-    headline: 'Forty-three places to <em>play.</em>',
-    sub:      'Member access to leading destinations in Spain, the Maldives, the Yucatán, and beyond. Preferred rates, room upgrades, and partner benefits at every property.',
+    headline: 'Over 40 places to stay and <em>play.</em>',
+    sub:      'Stay at leading hotels and resorts in Spain, the Maldives, the Yucatán, and beyond — each with padel courts ready when you arrive. Preferred rates, room upgrades, and member benefits across the network.',
     primaryLabel:    'Explore Destinations',
     primaryHref:     '/passport/destinations.html',
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
     image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390256/3_tbtq3c.png',
-    location: 'Marbella, Spain',
+    location: 'D Maris Bay, Turkey',
   },
   {
     eyebrow: 'PADEL EXPERIENCES',
@@ -35,7 +35,7 @@ window.HERO_SLIDES = [
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
     image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg',
-    location: 'Bordeaux, France',
+    location: 'Voaara Madagascar',
   },
   {
     eyebrow: 'PRIVÉ LOCATIONS · NOW OPEN IN MIAMI',
@@ -45,7 +45,7 @@ window.HERO_SLIDES = [
     primaryHref:     'miami.html',
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
-    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777389564/Untitled_design-93_epxtp4.png',
+    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777408711/Untitled_design-94_ea2ofp.png',
     location: 'THesis Hotel, Coral Gables',
   },
 ];
