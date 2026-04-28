@@ -34,7 +34,7 @@ window.HERO_SLIDES = [
     primaryHref:     '/passport/experiences.html',
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
-    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774910880/PHOTO00003_wwvkuu.jpg',
+    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg',
     location: 'Bordeaux, France',
   },
   {
