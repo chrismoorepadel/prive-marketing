@@ -23,7 +23,7 @@ window.HERO_SLIDES = [
     primaryHref:     '/passport/destinations.html',
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
-    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184110/Pillar_01_The_Travel_Collection_akhwr4.jpg',
+    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775996398/D_Maris_Bay_Tennis_Padel_Courts_copy_cv5ggl.jpg',
     location: 'Marbella, Spain',
   },
   {
