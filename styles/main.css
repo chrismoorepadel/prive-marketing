@@ -1731,7 +1731,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .feat-dest{padding:0 0 120px;background:var(--cream);}
 .feat-dest-inner{
   display:grid;grid-template-columns:55fr 45fr;
-  min-height:580px;
+  height:580px;
 }
 .feat-dest-img{overflow:hidden;}
 .feat-dest-img-fill{
@@ -1743,6 +1743,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .feat-dest-content{
   padding:80px;
   display:flex;flex-direction:column;justify-content:center;
+  overflow:auto;
 }
 .feat-dest-title{
   font-family:'Cormorant Garamond',serif;
@@ -1777,7 +1778,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .retreat-row{
   display:grid;grid-template-columns:2fr 2.5fr 1fr;
   border-bottom:1px solid var(--sand);
-  min-height:380px;
+  height:380px;
 }
 .retreat-row-img{overflow:hidden;}
 .retreat-row-img-fill{
