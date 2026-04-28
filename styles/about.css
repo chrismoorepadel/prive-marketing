@@ -2,6 +2,9 @@
    About Privé — Page-specific styles
    Loaded in addition to main.css on about.html only.
 ═══════════════════════════════════════════════════════ */
+.about-section { padding: 120px 80px; }
+.about-section-inner { max-width: 760px; }
+
 .about-eyebrow {
   font-family: 'Jost', sans-serif;
   font-size: 11px;
@@ -87,4 +90,3 @@
   .about-large-quote { font-size: clamp(20px, 6vw, 30px); }
   .about-tagline { font-size: clamp(28px, 8vw, 40px); }
 }
-</style>

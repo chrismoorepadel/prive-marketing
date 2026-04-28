@@ -112,4 +112,3 @@ document.addEventListener('DOMContentLoaded', function() {
   checkReveal();
   animateCounters();
 });
-</script>

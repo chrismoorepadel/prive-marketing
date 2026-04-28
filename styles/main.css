@@ -1649,81 +1649,123 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 /* ═══════════════════════════════════════════════════════
    BRAND ARCHITECTURE DIAGRAM
 ═══════════════════════════════════════════════════════ */
-.brand-arch{
-  padding:120px 0 140px;
-  background:var(--cream);
-  overflow:hidden;
+/* ═══════════════════════════════════════════════════════
+   BRAND ANCHOR — PART A
+═══════════════════════════════════════════════════════ */
+.brand-anchor{
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  background:#1B2A4A;
+  height:78vh;min-height:640px;
 }
-.brand-arch-diagram{
-  max-width:1200px;margin:0 auto;
+.brand-anchor-content{
   padding:0 40px;
+  max-width:900px;
 }
-.brand-arch-diagram svg{width:100%;height:auto;display:block;}
-/* SVG text styles — these apply to inline SVG text elements */
-.diag-eyebrow{
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:400;
-  letter-spacing:0.25em;fill:var(--gold);text-transform:uppercase;
+.padel-mark{
+  width:280px;
+  margin-bottom:36px;
+  display:block;
+  margin-left:auto;margin-right:auto;
 }
-.diag-brand{
-  font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;
-  fill:var(--navy);
+.hairline-rule{
+  width:1px;height:36px;
+  background:#B8976A;
+  margin:0 auto 20px;
 }
-.diag-label{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:300;
-  letter-spacing:0.22em;fill:var(--mid);text-transform:uppercase;
+.between-label{
+  font-family:'Jost',sans-serif;
+  font-weight:500;font-size:14px;
+  letter-spacing:0.35em;
+  color:#B8976A;
+  margin-bottom:20px;
 }
-.diag-passport{
-  font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;
-  font-style:italic;fill:var(--navy);
-}
-.diag-offering{
-  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;
-  fill:var(--navy);
-}
-.diag-qualifier{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:300;
-  letter-spacing:0.1em;fill:var(--mid);
-}
-.diag-link{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:300;
-  letter-spacing:0.14em;fill:var(--gold);cursor:pointer;
-  text-transform:uppercase;
-}
-.diag-link:hover{opacity:.7;}
-.diag-line{
-  stroke:var(--gold);stroke-width:.75;fill:none;
-  vector-effect:non-scaling-stroke;
-}
-/* Mobile fallback (hidden on desktop, visible <768) */
-.brand-arch-mobile{display:none;}
-.bam-header{padding:0 24px 40px;text-align:center;}
-.bam-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--sand);
-  border:1px solid var(--sand);
-}
-.bam-card{
-  background:var(--cream);
-  padding:36px 28px;
-}
-.bam-card-name{
+.membership-name{
   font-family:'Cormorant Garamond',serif;
-  font-size:22px;font-weight:300;color:var(--navy);
-  margin-bottom:8px;line-height:1.15;
+  font-style:italic;font-weight:400;font-size:56px;
+  color:#F5F0E8;
+  line-height:1;letter-spacing:-0.005em;
 }
-.bam-card-qual{
+
+/* ═══════════════════════════════════════════════════════
+   OFFERINGS ROW — PART B
+═══════════════════════════════════════════════════════ */
+.offerings-section{
+  background:#F5F0E8;
+  padding:100px 60px 140px;
+}
+.offerings-intro{
+  text-align:center;
+  margin:0 auto 80px;
+  max-width:720px;
+}
+.offerings-intro-eyebrow{
   font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:300;
-  letter-spacing:0.1em;color:var(--mid);
-  margin-bottom:16px;
+  font-weight:500;font-size:13px;
+  letter-spacing:0.35em;
+  color:#B8976A;
+  margin-bottom:22px;
 }
-.bam-card-link{
+.offerings-intro-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:38px;
+  color:#1B2A4A;
+  line-height:1.2;
+}
+.offerings-intro-headline em{font-style:italic;}
+.offerings-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:36px;
+  max-width:1480px;
+  margin:0 auto;
+}
+.offering{text-align:left;}
+.offering-image{
+  width:100%;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  margin-bottom:26px;
+  position:relative;
+  background:#D9CDB8;
+}
+.offering-image img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .7s ease;
+}
+.offering:hover .offering-image img{transform:scale(1.04);}
+.offering-eyebrow{
   font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:300;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--gold);display:inline-flex;align-items:center;gap:8px;
+  font-weight:500;font-size:9px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:#B8976A;
+  margin-bottom:14px;
 }
-.bam-card-link::after{content:'';width:16px;height:1px;background:var(--gold);}
+.offering-name{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;font-size:24px;
+  color:#1B2A4A;
+  line-height:1.25;margin-bottom:10px;
+}
+.offering-name em{font-style:italic;}
+.offering-qualifier{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:14px;
+  color:rgba(27,42,74,.7);
+  margin-bottom:22px;line-height:1.4;
+}
+.offering-link{
+  display:inline-block;
+  font-family:'Jost',sans-serif;
+  font-weight:400;font-size:10px;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:#B8976A;text-decoration:none;
+  border-bottom:1px solid transparent;
+  padding-bottom:3px;
+  transition:border-color .3s ease;
+}
+.offering-link:hover{border-bottom-color:#B8976A;}
 
 /* ═══════════════════════════════════════════════════════
    FEATURED DESTINATION
@@ -1880,6 +1922,187 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 }
 
 /* ═══════════════════════════════════════════════════════
+   PRIVÉ LOCATIONS — HOME TEASER
+═══════════════════════════════════════════════════════ */
+.locations-section{
+  background:var(--cream);
+  padding:100px 80px 120px;
+}
+.location-feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  max-width:1400px;
+  margin:0 auto;
+}
+.location-feature-img{
+  aspect-ratio:3/2;
+  background-size:cover;
+  background-position:center;
+}
+.location-coming-soon{
+  display:inline-block;
+  font-family:'Jost',sans-serif;
+  font-weight:500;font-size:10px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid var(--gold);
+  padding:6px 14px;
+  margin-bottom:28px;
+}
+.location-place{
+  font-family:'Jost',sans-serif;
+  font-weight:400;font-size:11px;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--mid);
+  margin-bottom:14px;
+}
+.location-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(36px,3.5vw,52px);
+  color:var(--navy);
+  line-height:1.1;
+  margin-bottom:36px;
+}
+.location-heading em{font-style:italic;}
+.location-stats{
+  display:flex;
+  gap:48px;
+  margin-bottom:36px;
+  padding-bottom:36px;
+  border-bottom:1px solid var(--sand);
+}
+.stat-num{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:48px;
+  color:var(--navy);
+  line-height:1;
+  margin-bottom:6px;
+}
+.stat-label{
+  display:block;
+  font-family:'Jost',sans-serif;
+  font-weight:500;font-size:9px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--mid);
+}
+.location-body{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:18px;
+  line-height:1.65;
+  color:var(--navy);
+  margin-bottom:40px;
+}
+@media(max-width:900px){
+  .locations-section{padding:80px 30px 100px;}
+  .location-feature{grid-template-columns:1fr;gap:40px;}
+  .location-stats{gap:32px;}
+  .stat-num{font-size:36px;}
+}
+
+/* ═══════════════════════════════════════════════════════
+   PRIVÉ LOCATIONS — DEDICATED PAGE
+═══════════════════════════════════════════════════════ */
+.locations-intro{
+  background:var(--navy);
+  padding:calc(100px + var(--nav-h)) 80px 80px;
+}
+.locations-intro .section-eyebrow{color:var(--gold);margin-bottom:24px;}
+.locations-intro-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(42px,5vw,68px);
+  color:var(--white);
+  line-height:1.1;
+  margin-bottom:28px;
+}
+.locations-intro-title em{font-style:italic;}
+.locations-intro-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:20px;
+  color:rgba(245,240,232,.7);
+  line-height:1.65;
+  max-width:580px;
+}
+.loc-entries-inner{
+  max-width:1360px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:80px;
+}
+.loc-entry{
+  display:grid;
+  grid-template-columns:55fr 45fr;
+  min-height:560px;
+}
+.loc-entry--flip{
+  grid-template-columns:45fr 55fr;
+}
+.loc-entry--flip .loc-entry-img{order:2;}
+.loc-entry--flip .loc-entry-content{order:1;}
+.loc-entry-img{
+  background-size:cover;
+  background-position:center;
+  min-height:420px;
+}
+.loc-entry-content{
+  padding:80px 72px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.loc-status{
+  display:inline-block;
+  font-family:'Jost',sans-serif;
+  font-weight:500;font-size:10px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid var(--gold);
+  padding:6px 14px;
+  margin-bottom:28px;
+  align-self:flex-start;
+}
+.loc-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(38px,4vw,58px);
+  color:var(--navy);
+  line-height:1.1;
+  margin-bottom:32px;
+}
+.loc-heading em{font-style:italic;}
+.loc-stats{
+  display:flex;
+  gap:40px;
+  margin-bottom:32px;
+  padding-bottom:32px;
+  border-bottom:1px solid var(--sand);
+}
+.loc-body{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:18px;
+  line-height:1.65;
+  color:var(--navy);
+  margin-bottom:40px;
+}
+@media(max-width:900px){
+  .loc-entries-inner{gap:60px;}
+  .loc-entry,.loc-entry--flip{grid-template-columns:1fr;}
+  .loc-entry--flip .loc-entry-img{order:0;}
+  .loc-entry--flip .loc-entry-content{order:1;}
+  .loc-entry-content{padding:48px 30px;}
+  .loc-stats{gap:28px;}
+}
+
+/* ═══════════════════════════════════════════════════════
    CLOSING CTA  (reuses .home-cta family)
 ═══════════════════════════════════════════════════════ */
 .closing-cta{
@@ -1924,10 +2147,12 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .hc-slide-actions { flex-direction:column; gap:12px; }
   .hc-dots { bottom:24px; }
 
-  .brand-arch { padding:80px 0 100px; }
-  .brand-arch-diagram { display:none; }
-  .brand-arch-mobile { display:block; padding:0 24px; }
-  .bam-grid { grid-template-columns:1fr 1fr; }
+  .brand-anchor { height:70vh; min-height:520px; }
+  .padel-mark { width:200px; }
+  .membership-name { font-size:38px; }
+  .offerings-section { padding:80px 30px 100px; }
+  .offerings-intro-headline { font-size:30px; }
+  .offerings-grid { grid-template-columns:1fr; gap:60px; max-width:480px; }
 
   .feat-dest-inner { grid-template-columns:1fr; }
   .feat-dest-img { height:280px; }
@@ -1945,6 +2170,65 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .closing-cta { padding:80px 24px; }
   .closing-cta-title { font-size:40px; }
 }
-@media (max-width: 480px) {
-  .bam-grid { grid-template-columns:1fr; }
+
+/* ═══════════════════════════════════════════════════════
+   PASSPORT PAGE — FOUR OFFERINGS
+═══════════════════════════════════════════════════════ */
+.offerings-section{padding:120px 80px;background:var(--cream);}
+.offerings-header{margin-bottom:72px;}
+.offerings-title{font-size:clamp(34px,3.2vw,50px);}
+.offering-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:100px;align-items:center;
+  padding:80px 0;border-top:1px solid var(--sand);
+}
+.offering-img{position:relative;height:480px;overflow:hidden;}
+.offering-img.featured{height:560px;}
+.offering-img-fill{
+  width:100%;height:100%;
+  background-size:cover;background-position:center;
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.offering-row:hover .offering-img-fill{transform:scale(1.03);}
+.offering-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:300;font-style:italic;
+  color:var(--gold);letter-spacing:0.1em;margin-bottom:16px;
+}
+.offering-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,2.6vw,36px);font-weight:300;
+  color:var(--navy);line-height:1.1;margin-bottom:20px;
+}
+.offering-body{
+  font-family:'Jost',sans-serif;
+  font-size:13px;font-weight:300;
+  letter-spacing:0.04em;line-height:1.9;
+  color:var(--mid);margin-bottom:24px;max-width:440px;
+}
+.offering-benefits{
+  list-style:none;display:flex;flex-direction:column;gap:10px;
+  margin-bottom:32px;
+}
+.offering-benefits li{
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  letter-spacing:0.04em;color:var(--mid);
+  display:flex;gap:10px;align-items:flex-start;
+}
+.offering-benefits li::before{content:'—';color:var(--gold);flex-shrink:0;}
+.offering-link{
+  font-family:'Jost',sans-serif;
+  font-size:9px;font-weight:300;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--navy);display:inline-flex;align-items:center;gap:12px;
+  transition:color .25s;
+}
+.offering-link::after{content:'';width:24px;height:1px;background:currentColor;transition:width .3s;}
+.offering-link:hover{color:var(--gold);}
+.offering-link:hover::after{width:36px;}
+@media (max-width: 768px) {
+  .offerings-section{padding:60px 24px;}
+  .offering-row{grid-template-columns:1fr;gap:40px;padding:60px 0;}
+  .offering-img{height:260px;}
+  .offering-img.featured{height:260px;}
 }
