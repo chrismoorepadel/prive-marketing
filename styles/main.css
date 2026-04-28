@@ -1991,6 +1991,14 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .retreat-action-btn:hover{color:var(--gold);}
 .retreats-footer{margin-top:56px;text-align:right;}
 
+/* ── Retreat row description ── */
+.retreat-row-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:300;
+  line-height:1.5;color:rgba(27,42,74,.85);
+  max-width:560px;margin:12px 0 16px;
+}
+
 /* ── Retreat row tags (replaces pills) ── */
 .retreat-row-tags{
   font-family:'Cormorant Garamond',serif;
