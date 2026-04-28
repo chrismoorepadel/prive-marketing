@@ -1979,16 +1979,16 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 }
 .retreat-action-btn{
   font-family:'Jost',sans-serif;
-  font-size:8px;font-weight:300;
+  font-size:11px;font-weight:400;
   letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--mid);
+  color:var(--navy);
   background:none;border:none;cursor:pointer;
-  writing-mode:vertical-rl;
-  transform:rotate(180deg);
-  transition:color .25s;
-  padding:20px 0;
+  border-bottom:1px solid var(--navy);
+  padding:0 0 3px;
+  transition:color .25s, border-color .25s;
+  white-space:nowrap;
 }
-.retreat-action-btn:hover{color:var(--gold);}
+.retreat-action-btn:hover{color:var(--gold);border-color:var(--gold);}
 .retreats-footer{margin-top:56px;text-align:right;}
 
 /* ── Retreat row description ── */
