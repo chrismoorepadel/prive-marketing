@@ -1119,6 +1119,40 @@ footer{
 /* ═══════════════════════════════════════════════════════
    PASSPORT PAGE — CLOSING CTA
 ═══════════════════════════════════════════════════════ */
+/* ── Passport cinematic quote ── */
+.passport-quote-visual{
+  position:relative;
+  height:70vh;min-height:560px;
+  overflow:hidden;
+}
+.passport-quote-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+}
+.passport-quote-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(14,25,35,.72) 0%, rgba(14,25,35,.18) 60%, transparent 100%);
+}
+.passport-quote-content{
+  position:absolute;bottom:0;left:0;
+  padding:0 80px 80px;
+  max-width:720px;
+}
+.passport-quote-eyebrow{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:11px;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.passport-quote-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(30px,3vw,38px);line-height:1.25;
+  color:var(--cream);margin:0;
+}
+@media(max-width:600px){
+  .passport-quote-content{padding:0 32px 48px;}
+  .passport-quote-text{font-size:26px;}
+}
+
 .passport-closing{
   background:var(--cream);
   padding:120px 60px 140px;
