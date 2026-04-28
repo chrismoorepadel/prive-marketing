@@ -185,7 +185,7 @@ nav.scrolled .nav-hamburger span{background:var(--navy);}
 
 /* ── FOOTER ── */
 footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:60px 80px 40px;}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:56px;}
+.footer-top{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;margin-bottom:56px;}
 .footer-brand-sub{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.04em;line-height:1.8;color:rgba(255,255,255,.3);max-width:280px;}
 .footer-col-title{font-family:'Jost',sans-serif;font-size:8.5px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:20px;}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
@@ -234,27 +234,13 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
     <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
   </a>
   <ul class="nav-links">
-    <li class="nav-item">
-      <a class="nav-link" href="collection.html">The Travel Collection <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/passport/destinations.html">Padel Destinations</a>
-        <a href="/passport/club-partners.html">Padel Club Partners</a>
-        <a href="/passport/experiences.html">Padel Experiences</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="clubs.html">Privé Clubs <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a style="opacity:0.35;pointer-events:none;cursor:default;">Montauk</a>
-        <a href="club-coral-gables.html">Coral Gables</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="membership.html">Membership</a>
-    </li>
+    <li class="nav-item"><a class="nav-link" href="passport.html">Privé Passport</a></li>
+    <li class="nav-item"><a class="nav-link" href="montauk.html">Privé Montauk</a></li>
+    <li class="nav-item"><a class="nav-link" href="miami.html">Privé Miami</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About Privé</a></li>
   </ul>
   <div class="nav-right">
-    <a class="nav-cta" href="join.html">Join Now</a>
+    <a class="nav-cta" href="join.html">Get Your Passport</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -265,19 +251,13 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
   <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
   <div class="mobile-nav">
     <div class="mobile-nav-group">
-      <div class="mobile-nav-label">Travel Collection</div>
-      <a href="/passport/destinations.html">Destinations</a>
-      <a href="/passport/club-partners.html">Club Partners</a>
-      <a href="/passport/experiences.html">Experiences</a>
+      <a href="passport.html">Privé Passport</a>
+      <a href="montauk.html">Privé Montauk</a>
+      <a href="miami.html">Privé Miami</a>
+      <a href="about.html">About Privé</a>
     </div>
     <div class="mobile-nav-group">
-      <div class="mobile-nav-label">Privé Clubs</div>
-      <a href="club-coral-gables.html">Coral Gables</a>
-    </div>
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-label">Membership</div>
-      <a href="membership.html">Privé Passport</a>
-      <a href="join.html" class="mobile-nav-cta">Join Now</a>
+      <a href="join.html" class="mobile-nav-cta">Get Your Passport</a>
     </div>
   </div>
 </div>
@@ -323,38 +303,46 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
 <footer>
   <div class="footer-top">
     <div>
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:128px;width:auto;" loading="lazy">
-      <p class="footer-brand-sub">Destination padel. Flagship clubs, resort partners worldwide, and Privé Passport — the membership that travels with you.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Travel Collection</div>
+      <div class="footer-col-title">Privé Passport</div>
       <ul class="footer-links">
-        <li><a href="/passport/destinations.html">Padel Destinations</a></li>
-        <li><a href="/passport/club-partners.html">Padel Club Partners</a></li>
-        <li><a href="/passport/experiences.html">Experiences</a></li>
+        <li><a href="passport/destinations.html">Padel Destinations</a></li>
+        <li><a href="passport/experiences.html">Padel Experiences</a></li>
+        <li><a href="passport/club-partners.html">Padel Club Partners</a></li>
+        <li><a href="locations.html">Privé Locations</a></li>
+        <li><a href="join.html" class="footer-cta-link">Get Your Passport</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Privé Clubs</div>
+      <div class="footer-col-title">Privé Montauk</div>
       <ul class="footer-links">
-        <li><a href="clubs.html">Montauk</a></li>
-        <li><a href="club-coral-gables.html">Coral Gables</a></li>
+        <li><a href="montauk.html">Visit</a></li>
+        <li><a href="join.html">Membership</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Membership</div>
+      <div class="footer-col-title">Privé Miami</div>
       <ul class="footer-links">
-        <li><a href="join.html">Join Now</a></li>
+        <li><a href="miami.html">Visit</a></li>
+        <li><a href="join.html">Membership</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">About Privé</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Privé</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2024 Privé Hospitality Corp. All rights reserved.</div>
-    <div class="footer-legal">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    <div class="footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
   </div>
 </footer>
 
