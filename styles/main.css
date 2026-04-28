@@ -1962,23 +1962,26 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 ═══════════════════════════════════════════════════════ */
 .worldview-moment{
   padding:160px 80px;
-  background:var(--dark);
+  background:var(--cream);
   display:flex;justify-content:center;align-items:center;
   text-align:center;
 }
 .wm-inner{max-width:640px;}
+.worldview-moment .btn-ghost{color:rgba(27,42,74,.55);}
+.worldview-moment .btn-ghost:hover{color:var(--navy);}
+.worldview-moment .btn-ghost-line{background:currentColor;}
 .wm-quote{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(40px,5vw,72px);
   font-weight:300;font-style:italic;
-  color:var(--white);line-height:1.05;
+  color:var(--navy);line-height:1.05;
   margin-bottom:28px;
 }
 .wm-sub{
   font-family:'Jost',sans-serif;
   font-size:13px;font-weight:300;
   letter-spacing:0.05em;line-height:1.85;
-  color:rgba(255,255,255,.45);
+  color:rgba(27,42,74,.55);
   margin-bottom:44px;
 }
 
