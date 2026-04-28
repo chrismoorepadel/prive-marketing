@@ -2,9 +2,6 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
-    { "source": "/", "destination": "/coming-soon.html" }
-  ],
   "redirects": [
     { "source": "/membership", "destination": "/membership.html", "permanent": false },
     { "source": "/destinations", "destination": "/destinations.html", "permanent": false },
