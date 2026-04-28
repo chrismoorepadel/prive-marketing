@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privé Padel — Join</title>
+  <title>Get Your Passport — Privé Padel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="dns-prefetch" href="https://res.cloudinary.com">
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187507/Where_padel_meets_destination_travel_bpqarf.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/join.css">
 </head>
 <body>
 <nav id="mainNav">
@@ -46,88 +44,90 @@
   </div>
 </div>
 
-<div class="page active" id="page-join">
 
-  <div style="height:var(--nav-h);"></div>
+<!-- ═════════════════════════════════════════════════════
+     SECTION 1 — HERO
+═════════════════════════════════════════════════════ -->
+<section class="join-hero">
+  <div class="join-hero-inner">
+    <div class="join-eyebrow">Privé Passport</div>
+    <h1 class="join-headline">Welcome to <em>the network.</em></h1>
+    <p class="join-subline">Annual membership. Cancel anytime.</p>
+  </div>
+</section>
 
-  <!-- HERO — minimal, atmospheric -->
-  <section id="join-hero" style="background:var(--dark);padding:80px 80px 60px;text-align:center;position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,151,106,0.08) 0%,transparent 70%);pointer-events:none;"></div>
-    <div class="section-eyebrow" style="justify-content:center;color:rgba(255,255,255,.25);">Privé Passport</div>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5vw,72px);font-weight:300;color:#fff;line-height:1.05;margin:16px 0 20px;">Join Privé Padel.</h1>
-    <p style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.1em;color:rgba(255,255,255,.4);max-width:400px;margin:0 auto;">Select the membership that fits how you play and travel.</p>
-  </section>
 
-  <!-- PRICING CARDS -->
-  <section id="join-pricing" style="background:var(--dark);padding:0 80px 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1200px;margin:0 auto;">
+<!-- ═════════════════════════════════════════════════════
+     SECTION 2 — TIER SELECTION
+═════════════════════════════════════════════════════ -->
+<section class="join-selection">
+  <div class="join-selection-inner">
+    <div class="tier-card">
 
-    <!-- Standard -->
-    <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:48px 40px;display:flex;flex-direction:column;">
-      <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Standard</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;line-height:1;">$595</div>
-      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:rgba(255,255,255,.3);margin-bottom:36px;">per year</div>
-      <div style="width:32px;height:1px;background:var(--gold);margin-bottom:36px;"></div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:16px;margin-bottom:40px;">
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);">Preferred court pricing at US partner clubs</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);">Invitations to partner club events</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);">Preferred hotel rates at Travel Collection properties</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);">Capped Privé Club visits per year</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);">Access to Privé Padel digital community</div>
+      <!-- Tier options -->
+      <div class="tier-options">
+
+        <label class="tier-option selected" id="option-standard">
+          <input type="radio" name="tier" value="standard" checked>
+          <span class="tier-marker" aria-hidden="true">◆</span>
+          <div class="tier-details">
+            <div class="tier-name">Standard</div>
+            <div class="tier-price">$595 / year</div>
+            <div class="tier-desc">Member access to forty-three partner destinations, padel experiences, and partner clubs. Standard access at Privé Locations in Montauk and Miami.</div>
+          </div>
+        </label>
+
+        <label class="tier-option" id="option-full">
+          <input type="radio" name="tier" value="full">
+          <span class="tier-marker" aria-hidden="true">◆</span>
+          <div class="tier-details">
+            <div class="tier-name">Full Access</div>
+            <div class="tier-price">$995 / year</div>
+            <div class="tier-desc">Everything in Standard, plus unlimited play at Privé Locations and priority retreat invitations.</div>
+          </div>
+        </label>
+
       </div>
-      <a href="#" style="display:block;text-align:center;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);background:var(--cream);padding:16px 24px;text-decoration:none;transition:opacity .2s;">Join — $595 / yr</a>
-    </div>
 
-    <!-- Full Access — featured -->
-    <div style="background:var(--navy);border:1px solid rgba(184,151,106,0.3);padding:48px 40px;display:flex;flex-direction:column;position:relative;">
-      <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);padding:6px 18px;white-space:nowrap;">Most Popular</div>
-      <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;margin-top:12px;">Full Access</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;line-height:1;">$995</div>
-      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:rgba(255,255,255,.3);margin-bottom:36px;">per year</div>
-      <div style="width:32px;height:1px;background:var(--gold);margin-bottom:36px;"></div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:16px;margin-bottom:40px;">
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.75);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);">Everything in Standard</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.75);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);">Unlimited Privé Club access — no visit caps</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.75);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);">Preferred hotel rates at Travel Collection properties</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.75);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);">Destination packages and retreat access</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.75);">Priority invitations to Privé events & retreats</div>
+      <!-- Partner add-on -->
+      <div class="partner-addon">
+        <label class="partner-label" id="label-partner">
+          <input type="checkbox" id="addPartner">
+          <span class="partner-marker" aria-hidden="true">◆</span>
+          <div class="partner-details">
+            <div class="partner-name">Add a partner — $95 / year</div>
+            <div class="partner-sub">Includes full membership benefits matching the primary tier.</div>
+          </div>
+        </label>
       </div>
-      <a href="#" style="display:block;text-align:center;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:16px 24px;text-decoration:none;transition:opacity .2s;">Join — $995 / yr</a>
-    </div>
 
-    <!-- Partner Add-on -->
-    <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:48px 40px;display:flex;flex-direction:column;">
-      <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Partner Add-On</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;line-height:1;">$95</div>
-      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:rgba(255,255,255,.3);margin-bottom:36px;">per year, per person</div>
-      <div style="width:32px;height:1px;background:var(--gold);margin-bottom:36px;"></div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:16px;margin-bottom:40px;">
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);">Add a partner to any Privé Passport tier</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);">Full access to all benefits matching your primary membership</div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.6);">Ideal for couples and travel companions</div>
-      </div>
-      <a href="#" style="display:block;text-align:center;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);background:var(--cream);padding:16px 24px;text-decoration:none;transition:opacity .2s;">Add a Partner</a>
-    </div>
+      <!-- Live total -->
+      <div class="join-total" id="totalDisplay">Total — $595 / year</div>
 
-  </section>
+      <!-- Checkout CTA -->
+      <button class="join-cta" id="checkoutBtn">PROCEED TO CHECKOUT →</button>
 
-  <!-- REASSURANCE BAR -->
-  <section style="background:var(--cream);padding:48px 80px;display:flex;gap:60px;align-items:center;justify-content:center;flex-wrap:wrap;border-top:1px solid var(--sand);">
-    <div style="text-align:center;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--navy);letter-spacing:0.05em;">Annual membership</div>
-      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:var(--mid);margin-top:4px;">Renews each year — cancel anytime</div>
+      <!-- Secure note -->
+      <p class="join-secure">Secure checkout via Stripe. Your Passport is activated immediately.</p>
+
     </div>
-    <div style="width:1px;height:32px;background:var(--sand);"></div>
-    <div style="text-align:center;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--navy);letter-spacing:0.05em;">Questions?</div>
-      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:var(--mid);margin-top:4px;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="751d1019191a3505071c031005141110195b161a18">[email&#160;protected]</a></div>
-    </div>
-    <div style="width:1px;height:32px;background:var(--sand);"></div>
-    <div style="text-align:center;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--navy);letter-spacing:0.05em;">Want to learn more first?</div>
-      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:var(--mid);margin-top:4px;"><a href="#" onclick="showPage('membership')" style="color:var(--gold);text-decoration:none;">View full membership details →</a></div>
-    </div>
-  </section>
-</div>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════
+     SECTION 3 — CLOSING REASSURANCE
+═════════════════════════════════════════════════════ -->
+<section class="join-reassurance">
+  <div class="join-reassurance-inner">
+    <div class="join-hairline"></div>
+    <p>Annual membership. Cancel anytime.</p>
+    <p>Member benefits activate the moment your Passport is issued.</p>
+    <p>Questions? <a href="mailto:hello@prive-padel.com">hello@prive-padel.com</a></p>
+  </div>
+</section>
+
+
 <footer>
   <div class="footer-top">
     <div>
@@ -174,5 +174,72 @@
   </div>
 </footer>
 <script src="/js/main.js"></script>
+<script>
+(function () {
+  var PRICES = { standard: 595, full: 995, partner: 95 };
+
+  function getTier() {
+    return document.querySelector('input[name="tier"]:checked').value;
+  }
+
+  function isPartner() {
+    return document.getElementById('addPartner').checked;
+  }
+
+  function updateTotal() {
+    var base = getTier() === 'standard' ? PRICES.standard : PRICES.full;
+    var total = base + (isPartner() ? PRICES.partner : 0);
+    document.getElementById('totalDisplay').textContent =
+      'Total — $' + total.toLocaleString() + ' / year';
+  }
+
+  function syncStyles() {
+    document.querySelectorAll('.tier-option').forEach(function (opt) {
+      var input = opt.querySelector('input[type="radio"]');
+      opt.classList.toggle('selected', input.checked);
+    });
+    var partnerLabel = document.getElementById('label-partner');
+    partnerLabel.classList.toggle('checked', isPartner());
+  }
+
+  document.querySelectorAll('input[name="tier"]').forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      syncStyles();
+      updateTotal();
+    });
+  });
+
+  document.getElementById('addPartner').addEventListener('change', function () {
+    syncStyles();
+    updateTotal();
+  });
+
+  document.getElementById('checkoutBtn').addEventListener('click', function () {
+    var btn = this;
+    btn.disabled = true;
+    btn.textContent = 'REDIRECTING…';
+
+    fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tier: getTier(), addPartner: isPartner() })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('checkout_unavailable');
+        return res.json();
+      })
+      .then(function (data) {
+        window.location.href = data.url;
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'PROCEED TO CHECKOUT →';
+      });
+  });
+
+  syncStyles();
+  updateTotal();
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome — Privé Padel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/join.css">
+</head>
+<body>
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html">
+    <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
+    <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item"><a class="nav-link" href="passport.html">Privé Passport</a></li>
+    <li class="nav-item"><a class="nav-link" href="montauk.html">Privé Montauk</a></li>
+    <li class="nav-item"><a class="nav-link" href="miami.html">Privé Miami</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About Privé</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-cta" href="join.html">Get Your Passport</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div id="mobileMenu" class="mobile-menu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <div class="mobile-nav">
+    <div class="mobile-nav-group">
+      <a href="passport.html">Privé Passport</a>
+      <a href="montauk.html">Privé Montauk</a>
+      <a href="miami.html">Privé Miami</a>
+      <a href="about.html">About Privé</a>
+    </div>
+    <div class="mobile-nav-group">
+      <a href="join.html" class="mobile-nav-cta">Get Your Passport</a>
+    </div>
+  </div>
+</div>
+
+
+<section class="welcome-section">
+  <div class="welcome-inner">
+    <div class="welcome-eyebrow" id="welcomeEyebrow">WELCOME</div>
+    <h1 class="welcome-headline">Your Passport is <em>ready.</em></h1>
+    <p class="welcome-subline">Check your email for activation details. Your member portal is open.</p>
+    <div class="welcome-ctas">
+      <a href="#" class="welcome-cta-primary">ENTER YOUR PORTAL →</a>
+      <a href="/passport/destinations.html" class="welcome-cta-secondary">EXPLORE THE NETWORK →</a>
+    </div>
+  </div>
+</section>
+
+
+<script src="/js/main.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get('session_id');
+  if (!sessionId) return;
+
+  fetch('/api/session?id=' + encodeURIComponent(sessionId))
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (data) {
+      if (data && data.firstName) {
+        document.getElementById('welcomeEyebrow').textContent =
+          'WELCOME, ' + data.firstName.toUpperCase();
+      }
+    })
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>
