@@ -12,7 +12,7 @@ window.HERO_SLIDES = [
     primaryHref:     'join.html',
     secondaryLabel:  'Explore the Network',
     secondaryHref:   '/passport/destinations.html',
-    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773183130/Priv%C3%A9_Padel_Website_d5gqes.jpg',
+    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390254/2_zd6wij.png',
     location: null,
   },
   {
@@ -23,7 +23,7 @@ window.HERO_SLIDES = [
     primaryHref:     '/passport/destinations.html',
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
-    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775996398/D_Maris_Bay_Tennis_Padel_Courts_copy_cv5ggl.jpg',
+    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390256/3_tbtq3c.png',
     location: 'Marbella, Spain',
   },
   {
