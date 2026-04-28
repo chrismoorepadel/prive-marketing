@@ -1991,6 +1991,103 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .retreat-action-btn:hover{color:var(--gold);}
 .retreats-footer{margin-top:56px;text-align:right;}
 
+/* ── Retreat row tags (replaces pills) ── */
+.retreat-row-tags{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:300;font-style:italic;
+  color:rgba(27,42,74,.7);line-height:1.5;
+}
+
+/* ── Retreat drawer ── */
+.retreat-drawer-overlay{
+  position:fixed;inset:0;
+  background:rgba(14,25,35,.55);
+  z-index:200;opacity:0;pointer-events:none;
+  transition:opacity .35s;
+}
+.retreat-drawer-overlay.open{opacity:1;pointer-events:all;}
+.retreat-drawer{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(520px,95vw);
+  background:var(--cream);z-index:201;
+  transform:translateX(105%);
+  transition:transform .42s cubic-bezier(.22,1,.36,1);
+  overflow-y:auto;display:flex;flex-direction:column;
+  box-shadow:-20px 0 60px rgba(14,25,35,.15);
+}
+.retreat-drawer.open{transform:translateX(0);}
+.retreat-drawer-close-btn{
+  position:sticky;top:0;align-self:flex-end;
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:300;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--mid);background:var(--cream);border:none;cursor:pointer;
+  transition:color .2s;padding:20px 20px 0;z-index:2;
+}
+.retreat-drawer-close-btn:hover{color:var(--navy);}
+.retreat-drawer-hero{
+  aspect-ratio:16/9;width:100%;flex-shrink:0;
+  background-size:cover;background-position:center;
+}
+.retreat-drawer-body{padding:36px 44px 64px;}
+.retreat-drawer-eyebrow{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+}
+.retreat-drawer-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;
+  color:var(--navy);line-height:1.1;margin-bottom:8px;
+}
+.retreat-drawer-title em{font-style:italic;}
+.retreat-drawer-venue{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:300;font-style:italic;
+  color:rgba(27,42,74,.55);margin-bottom:32px;
+}
+.retreat-drawer-leadin{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:300;font-style:italic;
+  color:rgba(27,42,74,.7);margin:0;
+}
+.retreat-drawer-itin-label{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:10px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-top:32px;margin-bottom:32px;
+}
+.retreat-drawer-day{padding-bottom:32px;}
+.retreat-day-rule{
+  width:40px;height:1px;background:var(--gold);
+  margin-bottom:32px;
+}
+.retreat-day-label{
+  font-family:'Jost',sans-serif;font-weight:500;font-size:10px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.retreat-day-title{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;font-weight:300;
+  color:var(--navy);margin-bottom:10px;
+}
+.retreat-day-content{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:300;
+  line-height:1.65;color:rgba(27,42,74,.9);
+  margin:0;
+}
+.retreat-drawer-cta{margin-top:48px;}
+@media(max-width:600px){
+  .retreat-drawer{
+    width:100%;top:auto;height:85vh;
+    border-radius:16px 16px 0 0;
+    transform:translateY(105%);
+  }
+  .retreat-drawer.open{transform:translateY(0);}
+  .retreat-drawer-overlay{display:flex;align-items:flex-end;}
+  .retreat-drawer-body{padding:28px 24px 56px;}
+}
+
 /* ═══════════════════════════════════════════════════════
    WORLDVIEW MOMENT
 ═══════════════════════════════════════════════════════ */
