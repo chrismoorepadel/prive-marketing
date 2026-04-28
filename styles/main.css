@@ -1819,14 +1819,15 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .offering-link{
   display:inline-block;
   font-family:'Jost',sans-serif;
-  font-weight:400;font-size:10px;
+  font-weight:500;font-size:10px;
   letter-spacing:0.25em;text-transform:uppercase;
-  color:#B8976A;text-decoration:none;
-  border-bottom:1px solid transparent;
-  padding-bottom:3px;
-  transition:border-color .3s ease;
+  color:#1B2A4A;text-decoration:none;
+  background:#B8976A;
+  border:1px solid #B8976A;
+  padding:12px 20px;
+  transition:background .25s,color .25s;
 }
-.offering-link:hover{border-bottom-color:#B8976A;}
+.offering-link:hover{background:transparent;color:#B8976A;}
 
 /* ═══════════════════════════════════════════════════════
    FEATURED DESTINATION
