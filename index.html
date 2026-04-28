@@ -46,333 +46,266 @@
   </div>
 </div>
 
-<div class="page active" id="page-home">
 
+<!-- ═════════════════════════════════════════════════════
+     HERO CAROUSEL
+═════════════════════════════════════════════════════ -->
+<section class="hero-carousel" id="heroCarousel" aria-label="Hero">
+  <div class="hc-slides" id="hcSlides"></div>
+  <div class="hc-dots" id="hcDots" role="tablist" aria-label="Slide navigation"></div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grain"></div>
-    <div class="hero-content">
-      <div class="hero-left">
-        <div class="hero-pretitle">PRIVÉ PASSPORT</div>
-        <h1 class="hero-hl">The game<br class="desktop-br">travels<br class="desktop-br"><em>with you.</em></h1>
-        <p class="hero-sub">A global travel membership for padel players. Member access to forty-plus partner destinations, two flagship venues, and a network of partner clubs.</p>
-        <div class="hero-actions">
-          <a href="join.html" class="btn-primary">Get Your Passport</a>
-          <a href="collection.html" class="btn-ghost"><span class="btn-ghost-line"></span>Explore the Network</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-scroll">Scroll</div>
-        <div class="hero-location">NIHI Sumba, Indonesia</div>
-      </div>
-    </div>
-  </section>
+<!-- ═════════════════════════════════════════════════════
+     BRAND ARCHITECTURE DIAGRAM
+═════════════════════════════════════════════════════ -->
+<section class="brand-arch reveal">
 
-  <!-- WHAT IS PRIVÉ -->
-  <section class="what-is reveal">
-    <div class="what-is-img">
-      <div class="img-fill"></div>
-    </div>
-    <div class="what-is-text">
-      <div class="section-eyebrow">About Privé Padel</div>
-      <div class="gold-rule"></div>
-      <p class="section-body">Privé Padel is built around one idea: destination padel. We operate flagship clubs in the world's most sought-after locations, place courts at resort and hotel partners worldwide, and through Privé Passport — our global membership — connect members with preferred access to forty-plus partner destinations.</p>
-      <div class="what-is-stats" style="background:none;border:none;gap:0;margin-top:40px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
-        <a href="#" class="btn-primary" onclick="showPage('membership')" style="font-size:10px;padding:16px 40px;letter-spacing:0.28em;">Join Now</a>
-        <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.14em;color:var(--mid);">Privé Passport — from $595 / year</div>
-      </div>
-    </div>
-  </section>
+  <!-- Desktop: inline SVG diagram -->
+  <div class="brand-arch-diagram">
+    <svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Privé Padel brand architecture: Privé Passport connects Padel Destinations, Padel Experiences, Padel Club Partners, and Privé Locations">
+      <defs>
+        <style>
+          .diag-eyebrow  { font-family:'Jost',sans-serif; font-size:11px; font-weight:400; letter-spacing:0.25em; fill:var(--gold); }
+          .diag-brand    { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; fill:var(--navy); }
+          .diag-label    { font-family:'Jost',sans-serif; font-size:9px; font-weight:300; letter-spacing:0.22em; fill:var(--mid); }
+          .diag-passport { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; font-style:italic; fill:var(--navy); }
+          .diag-offering { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; fill:var(--navy); }
+          .diag-qualifier{ font-family:'Jost',sans-serif; font-size:9px; font-weight:300; letter-spacing:0.1em; fill:var(--mid); }
+          .diag-link     { font-family:'Jost',sans-serif; font-size:9px; font-weight:300; letter-spacing:0.14em; fill:var(--gold); text-transform:uppercase; }
+          .diag-line     { stroke:var(--gold); stroke-width:.75; fill:none; vector-effect:non-scaling-stroke; }
+        </style>
+      </defs>
 
-  <!-- FOUR OFFERINGS -->
-  <section class="pillars">
-    <div class="pillars-header reveal">
-      <div>
-        <div class="section-eyebrow" style="color:rgba(255,255,255,.35);">Privé Passport</div>
-        <h2 class="pillars-title section-title light">One membership.<br><em style="font-style:italic;">Four ways to play.</em></h2>
-      </div>
-    </div>
-    <div class="pillars-grid" style="grid-template-columns:repeat(4,1fr);">
-      <div class="pillar" style="border-top:2px solid var(--gold);">
-        <div class="pillar-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184110/Pillar_01_The_Travel_Collection_akhwr4.jpg');"></div>
-        <div class="pillar-overlay"></div>
-        <div class="pillar-content">
-          <div class="pillar-num">01</div>
-          <div class="pillar-rule"></div>
-          <div class="pillar-title">Padel<br>Destinations</div>
-          <div class="pillar-body">Forty-three resort and hotel destinations worldwide — courts on site, preferred rates, room upgrades, and partner benefits at every property. The heart of the network, from Mallorca to the Maldives.</div>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184110/Pillar_03_Curated_Experiences_hzn3p8.jpg');"></div>
-        <div class="pillar-overlay"></div>
-        <div class="pillar-content">
-          <div class="pillar-num">02</div>
-          <div class="pillar-rule"></div>
-          <div class="pillar-title">Padel<br>Experiences</div>
-          <div class="pillar-body">Invitation-only retreats at destinations across the network — Bordeaux, Madagascar, Yucatán, Marbella. Booked separately; members receive first access and early-bird pricing.</div>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184110/Pillar_02_Priv%C3%A9_Clubs_tvjte4.jpg');"></div>
-        <div class="pillar-overlay"></div>
-        <div class="pillar-content">
-          <div class="pillar-num">03</div>
-          <div class="pillar-rule"></div>
-          <div class="pillar-title">Padel Club<br>Partners</div>
-          <div class="pillar-body">Wherever your Passport takes you — business travel, a city weekend, time between resort stays — a court is close. Partner clubs in key cities across the US and abroad, with preferred pricing at every one.</div>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773529329/Home_Page_-_Priv%C3%A9_Clubs_Thesis_f8lkmz.png');"></div>
-        <div class="pillar-overlay"></div>
-        <div class="pillar-content">
-          <div class="pillar-num">04</div>
-          <div class="pillar-rule"></div>
-          <div class="pillar-title">Privé<br>Locations</div>
-          <div class="pillar-body">Two Privé-operated venues: Montauk Beach House in the Hamptons and Privé Padel at THesis Hotel in Coral Gables. Courts, programming, and member access year-round.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- Master brand -->
+      <text class="diag-eyebrow"  x="600" y="36"  text-anchor="middle">PRIVÉ PADEL</text>
+      <text class="diag-brand"    x="600" y="88"  text-anchor="middle">Privé Padel</text>
 
-  <!-- COUNTER -->
-  <div class="counter-strip">
-    <div class="counter-item reveal">
-      <div class="counter-num" data-target="40">0<span>+</span></div>
-      <div class="counter-label">Partner Destinations</div>
-    </div>
-    <div class="counter-item reveal reveal-delay-1">
-      <div class="counter-num" data-target="18">0</div>
-      <div class="counter-label">Countries</div>
-    </div>
-    <div class="counter-item reveal reveal-delay-2">
-      <div class="counter-num" data-target="5">0</div>
-      <div class="counter-label">Continents</div>
-    </div>
-    <div class="counter-item reveal reveal-delay-3">
-      <div class="counter-num" data-target="2">0</div>
-      <div class="counter-label">Flagship Clubs</div>
-    </div>
-    <div class="counter-item reveal reveal-delay-4">
-      <div class="counter-num">$595<span style="font-size:16px;color:rgba(255,255,255,.3);font-family:'Jost';font-weight:300;vertical-align:middle;">/yr</span></div>
-      <div class="counter-label">Annual Membership</div>
-    </div>
+      <!-- Connector: master brand → membership -->
+      <line class="diag-line" x1="600" y1="98"  x2="600" y2="152"/>
+
+      <!-- Membership node -->
+      <text class="diag-label"    x="600" y="167" text-anchor="middle">THE MEMBERSHIP</text>
+      <text class="diag-passport" x="600" y="206" text-anchor="middle">Privé Passport</text>
+
+      <!-- Four fanning gold hairlines to offering columns -->
+      <line class="diag-line" x1="600" y1="218" x2="150"  y2="270"/>
+      <line class="diag-line" x1="600" y1="218" x2="450"  y2="270"/>
+      <line class="diag-line" x1="600" y1="218" x2="750"  y2="270"/>
+      <line class="diag-line" x1="600" y1="218" x2="1050" y2="270"/>
+
+      <!-- Column 1: Padel Destinations -->
+      <text class="diag-offering"  x="150"  y="290" text-anchor="middle">Padel Destinations</text>
+      <text class="diag-qualifier" x="150"  y="310" text-anchor="middle">43 worldwide</text>
+      <a href="destinations.html">
+        <text class="diag-link"    x="150"  y="342" text-anchor="middle">→ Explore</text>
+      </a>
+
+      <!-- Column 2: Padel Experiences -->
+      <text class="diag-offering"  x="450"  y="290" text-anchor="middle">Padel Experiences</text>
+      <text class="diag-qualifier" x="450"  y="310" text-anchor="middle">curated retreats</text>
+      <a href="experiences.html">
+        <text class="diag-link"    x="450"  y="342" text-anchor="middle">→ View Retreats</text>
+      </a>
+
+      <!-- Column 3: Padel Club Partners -->
+      <text class="diag-offering"  x="750"  y="290" text-anchor="middle">Padel Club Partners</text>
+      <text class="diag-qualifier" x="750"  y="310" text-anchor="middle">urban member access</text>
+      <a href="club-partners.html">
+        <text class="diag-link"    x="750"  y="342" text-anchor="middle">→ Find a Club</text>
+      </a>
+
+      <!-- Column 4: Privé Locations -->
+      <text class="diag-offering"  x="1050" y="290" text-anchor="middle">Privé Locations</text>
+      <text class="diag-qualifier" x="1050" y="310" text-anchor="middle">Montauk · Miami</text>
+      <a href="passport.html">
+        <text class="diag-link"    x="1050" y="342" text-anchor="middle">→ Our Venues</text>
+      </a>
+    </svg>
   </div>
 
-  <!-- DESTINATION PREVIEW -->
-  <section class="dest-preview">
-    <div class="dest-preview-header reveal">
-      <div>
-        <div class="section-eyebrow">The Travel Collection</div>
-        <h2 class="section-title dest-preview-title">Featured<br><em style="font-style:italic;">destinations.</em></h2>
-      </div>
-      <a href="#" class="view-all-link" onclick="showPage('collection')">View All Destinations</a>
+  <!-- Mobile fallback: 2×2 card grid -->
+  <div class="brand-arch-mobile">
+    <div class="bam-header">
+      <div class="section-eyebrow" style="justify-content:center;">Privé Passport</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:300;font-style:italic;color:var(--mid);text-align:center;margin-top:8px;">One membership. Four ways to play.</p>
     </div>
-    <div class="dest-grid reveal">
-      <div class="dest-card">
-        <div class="dest-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184347/Home_Page_Featured_Card_kkltqu.png'); height:100%;min-height:560px;"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <div class="dest-card-region">Yucatán, Mexico</div>
-          <div class="dest-card-name">Chablé Yucatán</div>
-          <div class="dest-card-loc">Mayan wellness sanctuary</div>
-        </div>
+    <div class="bam-grid">
+      <div class="bam-card">
+        <div class="bam-card-name">Padel<br>Destinations</div>
+        <div class="bam-card-qual">43 worldwide</div>
+        <a href="destinations.html" class="bam-card-link">Explore</a>
       </div>
-      <div class="dest-card">
-        <div class="dest-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184924/Featured_-_Villa_Vita_Parc_lghvbp.jpg');min-height:260px;height:100%;"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <div class="dest-card-region">Porches, Portugal</div>
-          <div class="dest-card-name">Vila Vita Parc</div>
-          <div class="dest-card-loc">Algarve clifftop resort</div>
-        </div>
+      <div class="bam-card">
+        <div class="bam-card-name">Padel<br>Experiences</div>
+        <div class="bam-card-qual">Curated retreats</div>
+        <a href="experiences.html" class="bam-card-link">View Retreats</a>
       </div>
-      <div class="dest-card">
-        <div class="dest-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184924/Featured_Hotel_-_Marbella_Club_nm1pcn.jpg');min-height:260px;height:100%;"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <div class="dest-card-region">Marbella, Spain</div>
-          <div class="dest-card-name">The Marbella Club</div>
-          <div class="dest-card-loc">Golden Mile icon</div>
-        </div>
+      <div class="bam-card">
+        <div class="bam-card-name">Padel Club<br>Partners</div>
+        <div class="bam-card-qual">Urban member access</div>
+        <a href="club-partners.html" class="bam-card-link">Find a Club</a>
       </div>
-      <div class="dest-card">
-        <div class="dest-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184924/Featured_Hotel_-_The_Savoy_s82cx9.jpg');min-height:260px;height:100%;"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <div class="dest-card-region">London, UK</div>
-          <div class="dest-card-name">The Savoy</div>
-          <div class="dest-card-loc">London landmark</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-card-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773184924/Featured_hotel_-_Quellenhoff_ysbozm.jpg');min-height:260px;height:100%;"></div>
-        <div class="dest-card-overlay"></div>
-        <div class="dest-card-content">
-          <div class="dest-card-region">Lazise, Italy</div>
-          <div class="dest-card-name">Quellenhof Luxury Resort Lazise</div>
-          <div class="dest-card-loc">Lake Garda retreat</div>
-        </div>
+      <div class="bam-card">
+        <div class="bam-card-name">Privé<br>Locations</div>
+        <div class="bam-card-qual">Montauk · Miami</div>
+        <a href="passport.html" class="bam-card-link">Our Venues</a>
       </div>
     </div>
-    <div class="dest-cta reveal">
-      <p class="dest-cta-text">Forty curated destinations across five continents.</p>
-      <a href="#" class="btn-primary" onclick="showPage('destinations')">Explore Full Portfolio</a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRIVÉ CLUBS -->
-  <section class="clubs-section">
-    <div class="reveal">
-      <div class="section-eyebrow">Privé Clubs</div>
-      <h2 class="section-title" style="font-size:clamp(34px,3.2vw,50px);">Our flagship<br><em style="font-style:italic;">locations.</em></h2>
+<!-- ═════════════════════════════════════════════════════
+     FEATURED DESTINATION
+═════════════════════════════════════════════════════ -->
+<section class="feat-dest reveal">
+  <div class="feat-dest-inner">
+    <div class="feat-dest-img">
+      <!-- PHOTO: Don Carlos Marbella hero — swap for higher-res or alternative property as needed -->
+      <div class="feat-dest-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774907438/Don_Carlos_Hero_rnmp5w.png');"></div>
     </div>
-    <div class="clubs-grid">
-      <div class="club-card reveal reveal-delay-1">
-        <div class="club-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187810/Home_Page_-_Priv%C3%A9_Clubs_Montauk_mbhwwn.jpg');"></div>
-        <div class="club-overlay"></div>
-        <div class="club-content">
-          <div class="club-tag">Flagship — Est. 2024</div>
-          <div class="club-name">Montauk</div>
-          <div class="club-loc">Coming Soon</div>
-          <span class="club-link">Explore Club</span>
-        </div>
+    <div class="feat-dest-content">
+      <div class="section-eyebrow">Featured Destination</div>
+      <div class="gold-rule"></div>
+      <h2 class="feat-dest-title">Don Carlos<br><em>Marbella.</em></h2>
+      <p class="feat-dest-region">Costa del Sol, Spain</p>
+      <p class="section-body feat-dest-body">Six courts, a resident padel academy, and the unhurried atmosphere of the Costa del Sol. Don Carlos has become the natural anchor of the Riviera's padel scene — a resort that understands the game as well as it understands the guest.</p>
+      <div class="feat-dest-pills">
+        <span class="feat-pill">6 Courts</span>
+        <span class="feat-pill">Padel Academy</span>
+        <span class="feat-pill">Preferred Rates</span>
+        <span class="feat-pill">Room Upgrades</span>
       </div>
-      <a class="club-card reveal reveal-delay-2" href="#" onclick="showPage('club-coral-gables')">
-        <div class="club-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773529329/Home_Page_-_Priv%C3%A9_Clubs_Thesis_f8lkmz.png');"></div>
-        <div class="club-overlay"></div>
-        <div class="club-content">
-          <div class="club-tag">Now Open — Spring 2026</div>
-          <div class="club-name">Coral Gables</div>
-          <div class="club-loc">THesis Hotel Miami, Florida</div>
-          <span class="club-link">Explore Club</span>
-        </div>
-      </a>
+      <a href="destinations.html" class="btn-primary">Explore Property</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="membership-section">
-    <div class="membership-inner">
-      <div class="membership-left reveal">
-        <div class="section-eyebrow" style="color:rgba(255,255,255,.3);">Privé Passport</div>
-        <h2 class="section-title" style="font-size:clamp(34px,3.2vw,50px);color:var(--white);margin-bottom:24px;">The membership<br><em style="font-style:italic;">that travels.</em></h2>
-        <div class="gold-rule"></div>
-        <p class="section-body light">Privé Passport is Privé Padel's global membership — giving you preferred rates and benefits at the world's finest resort hotels with padel, wherever you travel. One credential. Exceptional stays. The best courts on the planet.</p>
-        <div style="margin-top:40px;">
-          <div class="membership-price">$595<sub>/ year</sub></div>
-          <div style="margin-top:28px;">
-            <a href="#" class="btn-primary" onclick="showPage('membership')">Get Your Passport</a>
-          </div>
-        </div>
-      </div>
-      <div class="membership-right reveal reveal-delay-2">
-        <div class="benefit-row">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div class="benefit-text">
-            <div class="benefit-title">Preferred Hotel Rates</div>
-            <div class="benefit-desc">Member pricing below public rates at participating Travel Collection properties — applied at booking.</div>
-          </div>
-        </div>
-        <div class="benefit-row">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <div class="benefit-text">
-            <div class="benefit-title">Room Upgrades & Amenities</div>
-            <div class="benefit-desc">Preferential upgrade requests, early check-in, late checkout, and welcome amenities at partner hotels where available.</div>
-          </div>
-        </div>
-        <div class="benefit-row">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="benefit-text">
-            <div class="benefit-title">Spa & Dining Credits</div>
-            <div class="benefit-desc">Complimentary resort credits at participating properties — applied at check-in, no vouchers required.</div>
-          </div>
-        </div>
-        <div class="benefit-row">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="benefit-text">
-            <div class="benefit-title">Retreats & Experiences</div>
-            <div class="benefit-desc">Early notice and preferred pricing on Privé destination retreats before they open to the public — curated padel and travel programmes at partner resorts.</div>
-          </div>
-        </div>
-        <div class="benefit-row">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="benefit-text">
-            <div class="benefit-title">Preferred Court Pricing</div>
-            <div class="benefit-desc">Member rates on court bookings at every US partner club — a straightforward discount applied at the time of reservation.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ═════════════════════════════════════════════════════
+     CURATED PADEL RETREATS
+═════════════════════════════════════════════════════ -->
+<section class="retreats-section">
+  <div class="retreats-header reveal">
+    <div class="section-eyebrow">Experiences</div>
+    <h2 class="section-title retreats-title">Curated padel <em style="font-style:italic;">retreats.</em></h2>
+  </div>
 
-  <!-- EXPERIENCES -->
-  <section class="experiences-section">
-    <div class="exp-header reveal">
-      <div>
-        <div class="section-eyebrow">Upcoming Experiences</div>
-        <h2 class="section-title exp-title">Curated<br><em style="font-style:italic;">retreats.</em></h2>
-      </div>
-      <a href="#" class="view-all-link" onclick="showPage('experiences')">View All Experiences</a>
-    </div>
-    <div class="exp-scroll-track">
-      <div class="exp-card">
-        <div class="exp-img"><div class="exp-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773185489/Home_Page_Experiences_-_Bourdeaux_dxd5uj.jpg');"></div></div>
-        <div class="exp-tag">September 2026 · Bordeaux</div>
-        <div class="exp-name">Court & Cellar: A Bordeaux Padel & Wine Retreat</div>
-        <div class="exp-loc">Château de Lussac, France</div>
-        <div class="exp-desc">Four days of padel instruction and wine immersion among the vineyards of Saint-Émilion.</div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-img"><div class="exp-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773185489/Home_Page_Experiences_-_Madagascar_rwbvgj.jpg');"></div></div>
-        <div class="exp-tag">Winter 2026 · Madagascar</div>
-        <div class="exp-name">Voaara Madagascar — Indian Ocean Escape</div>
-        <div class="exp-loc">Voaara Madagascar</div>
-        <div class="exp-desc">Padel on the edge of the Indian Ocean — an untouched island setting, exceptional hospitality, and the world's most remote courts.</div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-img"><div class="exp-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773185490/Home_Page_Experiences_-_Yucatan_gtmxeq.jpg');"></div></div>
-        <div class="exp-tag">February 2027 · Yucatán</div>
-        <div class="exp-name">Chablé Jungle Retreat</div>
-        <div class="exp-loc">Chablé Yucatán, Mexico</div>
-        <div class="exp-desc">Padel at sunrise, cenote swims, Mayan spa rituals, and candlelit dinners in the jungle.</div>
-      </div>
-      <div class="exp-card">
-        <div class="exp-img"><div class="exp-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773185490/Home_Page_Experiences_-_Marbella_sh3zhs.jpg');"></div></div>
-        <div class="exp-tag">Spring 2027 · Marbella</div>
-        <div class="exp-name">Golden Mile Open: Marbella Member Classic</div>
-        <div class="exp-loc">Marbella Club, Spain</div>
-        <div class="exp-desc">A weekend padel tournament on the Golden Mile — member competition, social dinners, and beach leisure.</div>
-      </div>
-    </div>
-  </section>
+  <div class="retreat-rows">
 
-  <!-- CTA -->
-  <section class="home-cta">
-    <div class="home-cta-bg"></div>
-    <div class="home-cta-content">
-      <div class="home-cta-eyebrow">Privé Passport — from $595 / Year</div>
-      <h2 class="home-cta-title">The world,<br><em>played.</em></h2>
-      <p class="home-cta-sub">From the Hamptons to the Maldives, from Marbella to the Mayan jungle — Privé Passport is how you bring the brand with you.</p>
-      <div class="cta-buttons">
-        <a href="#" class="btn-primary" onclick="showPage('membership')">Get Your Passport</a>
-        <a href="#" class="btn-ghost" style="color:rgba(255,255,255,.6);" onclick="showPage('collection')"><span class="btn-ghost-line"></span>Explore Destinations</a>
+    <!-- Retreat 1: Court & Cellar, Bordeaux -->
+    <div class="retreat-row reveal">
+      <div class="retreat-row-img">
+        <!-- PHOTO: Court & Cellar retreat, Château de Lussac, Saint-Émilion -->
+        <div class="retreat-row-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774910880/PHOTO00003_wwvkuu.jpg');"></div>
+      </div>
+      <div class="retreat-row-content">
+        <div class="retreat-row-eyebrow">Bordeaux, France</div>
+        <h3 class="retreat-row-title">Court &amp; <em>Cellar</em></h3>
+        <p class="retreat-row-venue">Château de Lussac, Saint-Émilion</p>
+        <p class="retreat-row-body">Four days of padel instruction and wine immersion among the vineyards of Saint-Émilion. A retreat built around the finest things Bordeaux does — play, cellars, and the unhurried art of the table.</p>
+        <div class="retreat-pills">
+          <span class="retreat-pill">4 Days</span>
+          <span class="retreat-pill">Padel Instruction</span>
+          <span class="retreat-pill">Wine Immersion</span>
+          <span class="retreat-pill">Saint-Émilion</span>
+        </div>
+        <div class="retreat-status">
+          <span class="retreat-status-dot status-available"></span>
+          <span class="retreat-status-text">Spaces Available</span>
+        </div>
+      </div>
+      <div class="retreat-row-action">
+        <button class="retreat-action-btn" aria-label="View Court &amp; Cellar details">Details +</button>
       </div>
     </div>
-  </section>
-</div>
+
+    <!-- Retreat 2: Voaara Madagascar -->
+    <div class="retreat-row reveal reveal-delay-1">
+      <div class="retreat-row-img">
+        <!-- PHOTO: Voaara Madagascar, Île Sainte-Marie, Indian Ocean coastline -->
+        <div class="retreat-row-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg');"></div>
+      </div>
+      <div class="retreat-row-content">
+        <div class="retreat-row-eyebrow">Madagascar</div>
+        <h3 class="retreat-row-title">Voaara Madagascar — <em>Remote Island Escape</em></h3>
+        <p class="retreat-row-venue">Voaara Madagascar, Île Sainte-Marie</p>
+        <p class="retreat-row-body">Seven days on the edge of the Indian Ocean — the world's most remote padel courts, pristine reefs, pirate cemeteries, and whale watching. A retreat defined entirely by the extraordinary nature of the place.</p>
+        <div class="retreat-pills">
+          <span class="retreat-pill">7 Days</span>
+          <span class="retreat-pill">Remote Island</span>
+          <span class="retreat-pill">Indian Ocean</span>
+          <span class="retreat-pill">World's Most Remote Courts</span>
+        </div>
+        <div class="retreat-status">
+          <span class="retreat-status-dot status-waitlist"></span>
+          <span class="retreat-status-text">Limited — Waitlist Forming</span>
+        </div>
+      </div>
+      <div class="retreat-row-action">
+        <button class="retreat-action-btn" aria-label="View Madagascar retreat details">Details +</button>
+      </div>
+    </div>
+
+    <!-- Retreat 3: Nihi Sumba -->
+    <div class="retreat-row reveal reveal-delay-2">
+      <div class="retreat-row-img">
+        <!-- PHOTO: Nihi Sumba, wild Indian Ocean, Sumbanese landscape -->
+        <div class="retreat-row-img-fill" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775522159/JAsonChilds-1706-03107c_copy_sfpi7b.jpg');"></div>
+      </div>
+      <div class="retreat-row-content">
+        <div class="retreat-row-eyebrow">Sumba, Indonesia</div>
+        <h3 class="retreat-row-title">Nihi Sumba — <em>Wild Indian Ocean</em></h3>
+        <p class="retreat-row-venue">Nihi Sumba, Indonesia</p>
+        <p class="retreat-row-body">Padel on the edge of one of the world's most extraordinary resorts. Nihi Sumba combines wild Indian Ocean surf, Sumbanese culture, and extraordinary hospitality — courts unlike anything else on the network.</p>
+        <div class="retreat-pills">
+          <span class="retreat-pill">Nihi Sumba</span>
+          <span class="retreat-pill">Wild Surf</span>
+          <span class="retreat-pill">Indonesian Ocean</span>
+        </div>
+        <div class="retreat-status">
+          <span class="retreat-status-dot status-coming-soon"></span>
+          <span class="retreat-status-text">Coming Soon</span>
+        </div>
+      </div>
+      <div class="retreat-row-action">
+        <button class="retreat-action-btn" aria-label="View Nihi Sumba details">Details +</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="retreats-footer reveal">
+    <a href="experiences.html" class="view-all-link">View All Experiences</a>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════
+     WORLDVIEW MOMENT
+═════════════════════════════════════════════════════ -->
+<section class="worldview-moment">
+  <div class="wm-inner reveal">
+    <p class="wm-quote">A life played well.</p>
+    <p class="wm-sub">Privé Padel is the brand. Privé Passport is the membership that lets it travel with you.</p>
+    <a href="about.html" class="btn-ghost"><span class="btn-ghost-line"></span>Read the brand</a>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════
+     CLOSING CTA
+═════════════════════════════════════════════════════ -->
+<section class="closing-cta">
+  <div class="closing-cta-bg"></div>
+  <div class="closing-cta-inner reveal">
+    <div class="closing-cta-eyebrow">Privé Passport</div>
+    <h2 class="closing-cta-title">The world, <em>played.</em></h2>
+    <p class="closing-cta-sub">From the Hamptons to Madagascar, from Marbella to the Yucatán — Privé Passport is how the game travels with you.</p>
+    <div class="cta-buttons">
+      <a href="join.html" class="btn-primary">Get Your Passport</a>
+      <a href="destinations.html" class="btn-ghost"><span class="btn-ghost-line"></span>Explore the Network</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-top">
     <div>
@@ -419,5 +352,7 @@
   </div>
 </footer>
 <script src="/js/main.js"></script>
+<script src="/data/hero-slides.js"></script>
+<script src="/js/hero-carousel.js"></script>
 </body>
 </html>
