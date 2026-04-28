@@ -2469,27 +2469,31 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   margin:0;
 }
 .cp-dev-headline em{font-style:italic;}
-.cp-dev-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  max-width:1080px;
+.cp-dev-roster{
+  max-width:860px;
   margin:0 auto;
+  border-top:1px solid rgba(184,151,106,.35);
 }
-.cp-dev-card{
-  padding:40px 24px;
-  border-top:1px solid var(--gold);
-  text-align:center;
+.cp-dev-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  padding:28px 0;
+  border-bottom:1px solid rgba(184,151,106,.35);
+  transition:opacity .25s;
 }
-.cp-dev-card-city{
-  font-family:'Jost',sans-serif;font-weight:500;font-size:9px;
-  letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:10px;
-}
-.cp-dev-card-sub{
+.cp-dev-row:hover{opacity:.72;}
+.cp-dev-city-name{
   font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:14px;font-weight:300;
-  color:rgba(27,42,74,.6);
+  font-size:clamp(38px,4.5vw,56px);
+  font-weight:300;font-style:italic;
+  color:var(--navy);line-height:1;
+}
+.cp-dev-coming{
+  font-family:'Jost',sans-serif;font-weight:400;font-size:9px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(184,151,106,.7);
+  flex-shrink:0;margin-left:24px;
 }
 
 /* ── Club partners closing CTA ── */
@@ -2528,6 +2532,6 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .cp-dev-section{padding:60px 24px 80px;}
   .cp-closing{padding:80px 24px 100px;}
   .cp-grid{grid-template-columns:1fr;gap:60px;max-width:480px;margin:0 auto;}
-  .cp-dev-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto;}
+  .cp-dev-roster{max-width:100%;}
   .cp-closing-headline{font-size:36px;}
 }
