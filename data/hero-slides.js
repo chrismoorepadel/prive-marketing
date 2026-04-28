@@ -45,7 +45,7 @@ window.HERO_SLIDES = [
     primaryHref:     'miami.html',
     secondaryLabel:  'Get Your Passport',
     secondaryHref:   'join.html',
-    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777389213/ChatGPT_Image_Apr_28_2026_11_12_09_AM_fd8zsv.png',
+    image:    'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777389564/Untitled_design-93_epxtp4.png',
     location: 'THesis Hotel, Coral Gables',
   },
 ];
