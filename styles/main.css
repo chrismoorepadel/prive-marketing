@@ -2370,8 +2370,8 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .feat-dest-content { padding:40px 24px; }
 
   .retreats-section { padding:0 24px 80px; }
-  .retreat-row { grid-template-columns:1fr; }
-  .retreat-row-img { height:240px; }
+  .retreat-row { grid-template-columns:1fr !important; height:auto !important; min-height:unset !important; }
+  .retreat-row-img { height:260px; }
   .retreat-row-content { padding:28px 0; }
   .retreat-row-action { display:none; }
 
