@@ -1119,6 +1119,12 @@ footer{
   color:rgba(184,151,106,.75);
   line-height:1.4;padding-left:28px;
 }
+.pp-benefits-note{margin-top:24px;}
+.pp-benefits-rule{width:36px;height:1px;background:var(--gold);margin-bottom:12px;}
+.pp-benefits-disclaimer{
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  letter-spacing:0.06em;color:rgba(184,151,106,.6);
+}
 .pp-diamond{
   color:var(--gold);flex-shrink:0;
   font-size:9px;line-height:1.8;
