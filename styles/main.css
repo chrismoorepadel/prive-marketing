@@ -1498,7 +1498,7 @@ footer{
   .counter-num { font-size: 40px; }
   .dest-preview { padding: 60px 24px; }
   .dest-preview-header { flex-direction: column; gap: 16px; }
-  .dest-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .dest-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .dest-card { height: 240px !important; min-height: unset !important; }
   .clubs-section { padding: 60px 24px; }
   .clubs-grid { grid-template-columns: 1fr; }
