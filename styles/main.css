@@ -1485,7 +1485,7 @@ footer{
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
   nav { padding: 0 24px; }
-  .nav-logo img { height: 44px !important; }
+  .nav-logo img { height: 56px !important; }
   .nav-links, .nav-right { display: none; }
   .nav-logo { font-size: 14px; letter-spacing: 0.2em; }
   .hero-content { grid-template-columns: 1fr; padding: 0 24px 80px; }
