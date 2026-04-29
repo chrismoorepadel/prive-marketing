@@ -2381,7 +2381,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .retreat-row { grid-template-columns:1fr !important; height:auto !important; min-height:unset !important; }
   .retreat-row-img { height:260px; }
   .retreat-row-content { padding:28px 0; }
-  .retreat-row-action { display:none; }
+  .retreat-row-action { display:flex; border-left:none; border-top:1px solid var(--sand); justify-content:flex-start; padding:20px 0; }
 
   .worldview-moment { padding:100px 24px; }
   .wm-quote { font-size:clamp(34px,9vw,52px); }
