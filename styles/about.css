@@ -3,7 +3,7 @@
    Loaded in addition to main.css on about.html only.
 ═══════════════════════════════════════════════════════ */
 .about-section { padding: 120px 80px; }
-.about-section-inner { max-width: 760px; width: 100%; }
+.about-section-inner { max-width: 760px; }
 
 .about-eyebrow {
   font-family: 'Jost', sans-serif;
@@ -84,8 +84,8 @@
 @media (max-width: 768px) {
   .about-section { padding: 80px 24px; }
   .about-section:first-of-type { padding-top: calc(80px + var(--nav-h)); }
-  .about-heading { font-size: clamp(28px, 8vw, 40px); margin-bottom: 24px; }
-  .about-body { font-size: 15px; line-height: 1.75; }
+  .about-heading { font-size: clamp(32px, 9vw, 48px); margin-bottom: 32px; }
+  .about-body { font-size: 18px; }
   .about-gold-rule { margin: 40px 0; }
   .about-large-quote { font-size: clamp(20px, 6vw, 30px); }
   .about-tagline { font-size: clamp(28px, 8vw, 40px); }
