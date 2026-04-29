@@ -1350,7 +1350,7 @@ footer{
 }
 .club-about-title em{font-style:italic;}
 .club-about-body{
-  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
+  font-family:'Jost',sans-serif;font-size:15px;font-weight:300;
   line-height:1.9;letter-spacing:0.04em;color:var(--mid);
   margin-bottom:20px;
 }
@@ -1385,7 +1385,7 @@ footer{
   font-size:22px;font-weight:300;color:var(--white);margin-bottom:6px;
 }
 .club-facility-desc{
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
   letter-spacing:0.04em;line-height:1.7;color:rgba(255,255,255,.45);
 }
 
@@ -1413,7 +1413,7 @@ footer{
   font-size:24px;font-weight:300;color:var(--navy);margin-bottom:10px;
 }
 .club-event-desc{
-  font-family:'Jost',sans-serif;font-size:11.5px;font-weight:300;
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
   line-height:1.8;letter-spacing:0.04em;color:var(--mid);
 }
 .club-event-tag{
@@ -1444,10 +1444,10 @@ footer{
 }
 .club-play-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:400;color:var(--white);margin-bottom:6px;
+  font-size:22px;font-weight:400;color:var(--white);margin-bottom:6px;
 }
 .club-play-desc{
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
   letter-spacing:0.04em;line-height:1.7;color:rgba(255,255,255,.4);
 }
 
