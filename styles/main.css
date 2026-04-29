@@ -1507,12 +1507,12 @@ footer{
   .dest-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .dest-featured-section { padding: 0 0 60px; }
   .dest-featured-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .dest-card { height: 320px !important; min-height: unset !important; }
+  .dest-card { height: 340px !important; min-height: unset !important; }
   .dest-card:first-child { grid-row: auto !important; }
-  .dest-card-name { font-size: 26px; }
-  .dest-card:first-child .dest-card-name { font-size: 26px; }
-  .dest-card-content { padding: 24px 24px; }
-  .dest-card:first-child .dest-card-content { padding: 24px 24px; }
+  .dest-card-bg, .dest-card:first-child .dest-card-bg { min-height: 100%; }
+  .dest-card-overlay { background: linear-gradient(180deg, transparent 25%, rgba(14,25,35,.7) 60%, rgba(14,25,35,.96) 100%); }
+  .dest-card-name, .dest-card:first-child .dest-card-name { font-size: 32px; }
+  .dest-card-content, .dest-card:first-child .dest-card-content { padding: 32px 24px; }
   .clubs-section { padding: 60px 24px; }
   .clubs-grid { grid-template-columns: 1fr; }
   .club-card { height: 360px; }
