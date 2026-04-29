@@ -1188,7 +1188,7 @@ footer{
   .passport-pricing-inner{grid-template-columns:1fr;gap:60px;}
   .pp-price-col{position:static;}
   .pp-price-numeral{font-size:clamp(80px,18vw,120px);}
-  .pp-benefits-cols{grid-template-columns:1fr;gap:0;}
+  .pp-benefits-cols{grid-template-columns:1fr;gap:40px;}
   .pp-benefits-col + .pp-benefits-col{margin-top:0;}
   .passport-closing{padding:80px 30px 100px;}
   .passport-closing-title{font-size:40px;}
