@@ -1505,9 +1505,10 @@ footer{
   .dest-preview { padding: 60px 24px; }
   .dest-preview-header { flex-direction: column; gap: 16px; }
   .dest-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .dest-featured-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .dest-card { height: 240px !important; min-height: unset !important; }
-  .dest-card:first-child { grid-row: auto; }
+  .dest-featured-section { padding: 0 16px 60px; }
+  .dest-featured-grid { grid-template-columns: 1fr 1fr !important; grid-template-rows: auto; }
+  .dest-card { height: 180px !important; min-height: unset !important; }
+  .dest-card:first-child { grid-row: auto !important; }
   .clubs-section { padding: 60px 24px; }
   .clubs-grid { grid-template-columns: 1fr; }
   .club-card { height: 360px; }
