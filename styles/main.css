@@ -446,6 +446,12 @@ nav.scrolled .nav-cta{color:var(--navy);border-color:rgba(27,42,74,0.3);}
   grid-template-rows:auto auto;
   gap:3px;
 }
+.dest-featured-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:3px;
+}
 .dest-card{
   position:relative;overflow:hidden;cursor:pointer;
 }
@@ -1499,7 +1505,9 @@ footer{
   .dest-preview { padding: 60px 24px; }
   .dest-preview-header { flex-direction: column; gap: 16px; }
   .dest-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .dest-featured-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .dest-card { height: 240px !important; min-height: unset !important; }
+  .dest-card:first-child { grid-row: auto; }
   .clubs-section { padding: 60px 24px; }
   .clubs-grid { grid-template-columns: 1fr; }
   .club-card { height: 360px; }
