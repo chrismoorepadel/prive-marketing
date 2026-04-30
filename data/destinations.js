@@ -14,12 +14,12 @@ window.DESTINATIONS = [
     desc: 'Don Carlos is tucked into the Andalusian coastline in the iconic Costa del Sol region. Footsteps away you can find endless experiences in Marbella, from exciting nightlife to luxury shopping. Roam through stunning Puerto Banús where you can lounge on a yacht or swim with dolphins to your delight. Reserve your room in Marbella and we\'ll take care of the rest. Because this is Don Carlos and our invite is yours, truly.',
     courts: '2 Courts',
     images: [
-      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776466394/Don-Carlos-tenis-gym-piscina_3_copy_el6nj7.jpg',
-      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776465253/3b_wxrahn.jpg',
-      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774909424/699a20c909eef7ed814c6b5d_3_ifhiyu.jpg',
-      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774909575/MVC260011880-Hotel-Don-Carlos-Marbella-Spa-Pool-Web_ifm99n.jpg',
-      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774908590/Campari_Bar_Manero_nsavrv.jpg',
-      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776465328/9Z2A43622-2_copy_tbfpez.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776465328/9Z2A43622-2_copy_tbfpez.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774908213/Lucia_Summer_Club_gizbzz.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776465438/MVC260041351-Hotel-Don-Carlos-Marbella-Spa-Room-Deluxe-Web_glsvfj.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774908590/Los_Naranjos_xeb0vf.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774909425/699a20cab1118afbb47f0eab_1_pwvnhy.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774909576/MVC260011561-Hotel-Don-Carlos-Marbella-Lobby-bar-Web_ayia0b.jpg',
     ],
   },
   {
@@ -32,6 +32,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Just a stone\'s throw from Saint-Émilion, the Château de Lussac is an imposing 19th-century estate at the heart of the Lussac-Saint-Émilion appellation. Ten intimate guest rooms — six within the château itself, four in the gîte wing — are set within 30 hectares of working vineyards. Guests come for château life: breakfast on the terrace, walks through the vines, tours of the cellars, padel, and a pool. A Wine Ambassador is available to accompany guests throughout their stay — leading private tastings, guiding vineyard discovery, and curating the wine experience across each meal. It is also the exclusive setting for Privé\'s Court & Cellar retreat.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774911472/terroir-01-jpg_ywihml.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774911209/cave-05-jpg_wespnm.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774910892/PHOTO00016_tdr30o.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777253883/CDL_1_m8mb4o.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774910880/PHOTO00003_wwvkuu.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774910879/PHOTO00002_mb3zxh.png',
+    ],
   },
   {
     id: 'vila-vita-parc',
@@ -43,6 +51,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Perched above the Atlantic along Portugal\'s Algarve coast, Vila Vita Parc is a refined seaside retreat defined by timeless elegance and lush Mediterranean gardens. Located in Porches, just 40 minutes from Faro Airport, this five-star resort, member of The Leading Hotels of the World, blends clifftop scenery, understated luxury, and warm Portuguese hospitality. From sun-washed suites and private villas to curated culinary experiences and serene coastal walks, every detail is designed for effortless escape. Vila Vita Parc invites guests to slow down and savor life by the sea.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774911989/20220527Bayline_VistaDJI_0313_loupj7.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774911968/20190130VV_SPA_Sisley_X3A0133CB_igfwok.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774911980/699cc80a9247256e1ecb3cd7_Room_405_final_Deluxe_Room_process2_2_suvwmd.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774912294/Ocean_atrtao.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774912297/Vila_Vita_Tennis_z4jr0k.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774912596/32-Wine_Cellar_T_dfvauw.jpg',
+    ],
   },
   {
     id: 'chable-yucatan',
@@ -54,6 +70,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Set within a restored 19th-century hacienda in the heart of the Yucatán jungle, Chablé Yucatán is a secluded retreat defined by heritage, nature, and contemporary design. Located just outside Mérida, the estate unfolds across expansive grounds shaped by cenotes, gardens, and original architectural elements. Modern casitas are integrated into the landscape, balancing privacy with a strong sense of place. Chablé Yucatán offers an experience rooted in history, tranquility, and cultural continuity.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774913143/Copy_of_20230419_114811_Chable_Yucatan_28642_exdsoy.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774913296/Padel_Racket_and_Padel_Ball_on_a_Green_Court_in_the_Sunset_if8wiz.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774913195/699e38d69b645eec64cce674_Chable_Yucatan-p-2000_hl8qus.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774913153/Copia_de_ChableYucatan_IxiimRestaurant_FineDining_2_f67q4j.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774913289/699e34d463599dd8fbd8baff_Chable_Yucatan_3_ohtfbu.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/v1774913147/Copia_de_20230421_171104_Chable_Maroma_4365_2_hxhxvt.jpg',
+    ],
   },
   {
     id: 'camiral',
@@ -65,6 +89,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Nestled in the rolling pine forests of Costa Brava, Camiral Resort is a destination of refined Mediterranean elegance and world-class design. Just minutes from Girona and an hour from Barcelona, this five-star haven blends championship golf, serene landscapes, and sophisticated hospitality into an unforgettable Spanish escape. Home to the 2031 Ryder Cup Stadium Course.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775394756/camiral-duplex-superior-suite-41_pbdgao.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775394712/Shot_10d._Girls_in_Thermo_Pool-019__tuopbv.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775394681/220707-wellness306944-08865e6309d76d55047a3d6710602fb1_qi8hjq.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775394694/camiral-restaurant-origin-6_wkc2xs.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775394882/Tratamiento_crioterapia01_1___July_2024_copy_nwlhal.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775394690/wine_tasting_t6pr3i.jpg',
+    ],
   },
   {
     id: 'marbella-club',
@@ -76,6 +108,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set between the Mediterranean Sea and the La Concha Mountain, the Marbella Club is an iconic beachfront retreat defined by heritage, discretion, and timeless elegance. Located on Marbella\'s Golden Mile, the resort unfolds across lush gardens, whitewashed villas, and intimate courtyards. Originally established as a private residence, the Marbella Club retains a strong sense of place rooted in Andalusian tradition. The Marbella Club was home to the first padel court in Europe back in 1974. Today, it offers a refined Mediterranean escape shaped by calm, continuity, and culture.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775397438/BelAir01_toklxo.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775397444/Beach_sqkser.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775397919/mch-jun-2020-10457-a1-opt_vip49i.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775397453/Grill_05_kjwsrc.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775397467/Gym_wr3vzv.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775397473/Herbal_Garden_22_xxjipf.jpg',
+    ],
   },
   {
     id: 'finca-la-bobadilla',
@@ -87,6 +127,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'In the heart of Andalusia, nestled between the gentle hills of the Sierra de Loja, lies Finca La Bobadilla — an exclusive 350-hectare luxury retreat modelled on a charming Andalusian village, and part of The Leading Hotels of the World. Just 45 minutes from Málaga Airport and less than 30 minutes by high-speed train from Granada and Córdoba, this is one of southern Spain\'s most remarkable hideaways. Each of the 73 rooms and suites offers views over ancient olive groves.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775400421/Finca_La_Bobadilla_4_uyheqf.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775400564/Finca_La_Bobadilla_10_copy_fz6lwe.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775400591/3.1-Habitacion-Estandar_uhw6qv.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775400617/5-La-Finca-Terraza-Cubierta-1_b6rpqy.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775400687/0880__LB2_0782-1_pv3fxp.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775400440/Finca_La_Bobadilla_6_myxvjz.jpg',
+    ],
   },
   {
     id: 'the-savoy',
@@ -98,6 +146,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set along the banks of the River Thames, The Savoy is one of London\'s most iconic hotels, defined by history, elegance, and cultural significance. Located moments from Covent Garden and the West End, the hotel has long served as a landmark for theatre, dining, and society. Art Deco and Edwardian interiors frame a setting that feels both grand and intimate. The Savoy offers a distinctly London experience rooted in heritage and timeless style.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775398995/b02949fa61d3ae2390438eb2e52da787-2000x1411_ru3yra.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775399021/6942fccf3a12afe766553f39_Fullbleed_Gallery_5_tbtls1.avif',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775398926/68ba007bd53b11db014f18b355be4e31-2000x1500_xoujom.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775398964/49399119fd6b7ae14ac5ed99ac1ed9df-2000x1500_g2qhtp.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775399710/nathanhipgravevisuals_sleepgym-23_websize_jiixkg.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775398945/454652eef5b7086011528a48c7d937fb-2000x2999_c33qcv.jpg',
+    ],
   },
   {
     id: 'st-james-hotel',
@@ -109,6 +165,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set in a quietly magnificent Victorian townhouse on a cul-de-sac off St. James\'s Street, the Althoff St. James\'s Hotel & Club has been one of London\'s most discreet addresses since it opened as an elite gentlemen\'s club in 1857 — a heritage that endures. Winston Churchill and Ian Fleming were among its members. Today the hotel\'s 60 rooms and suites — some with private balconies and terraces — are complemented by the Francatelli restaurant and the Seven Park Place Bar & Lounge, where the widest selection of port in any London bar is poured. Privé Passport members receive privileged access to the Club, extending the full depth of this storied institution beyond the hotel\'s public rooms.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775484300/stjameshotelandclub-266_cx6yjm.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775484464/csm_IMG_5754_255b51efeb.jpg_qleojz.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775488771/csm_althoff-st-james-hotel-club-rooms-Superior_Room_405__c_Jannis_Hagels_7ca99f90df.jpg_ktf4g5.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776464576/8_ueniya.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775399710/nathanhipgravevisuals_sleepgym-23_websize_jiixkg.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775484464/csm_althoff-st-james-hotel-club-destination-jermyn-street-turnbull-asser__c_Jannis_Hagels11_0260b171ff.jpg_qi56pf.webp',
+    ],
   },
   {
     id: 'finca-serena',
@@ -120,6 +184,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'A 100-year-old farmhouse transformed into a quietly extraordinary adults-only retreat on a 40-hectare estate in the heart of Mallorca — surrounded by vineyards, olive groves, lavender fields, and orchards, and just 25 minutes from Palma Airport. Twenty-five elegantly appointed rooms and suites are scattered across the main house and standalone garden cottages. Restaurant Jacaranda, the award-winning Único Spa, and the estate\'s own DO Tierra de Mallorca wines make this one of the most complete and soulful small hotels in the Balearics.',
     courts: '',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775489716/copiade-fincaserenajunio2025-0162663_e5k7fk.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775489747/Copia-de-Spa-4-2_rzd1uo.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775489898/1-Deluxe-Garden_exogkb.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775490237/Copia-de-Jacaranda-Night-1_cb42t5.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775490308/TheLodge-DIA-1_0437-1_ouqmpz.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775490410/FincaSerenaJunio2025_0759_plmpzd.webp',
+    ],
   },
   {
     id: 'the-lodge-mallorca',
@@ -131,6 +203,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set on a 157-hectare private estate in the UNESCO-protected Serra de Tramuntana, The Lodge is a boutique sanctuary of 24 suites in a former farmhouse and standalone estate buildings, surrounded by lavender fields, almond trees, olive groves, and orchards. The Singular Restaurant — built around a philosophy of fire cooking over different native woods — is one of Mallorca\'s most talked-about dining experiences. With over 20km of private trails, an infinity pool, a Wellness Suite, and e-bikes, this is the quieter, more intimate side of the Balearics.',
     courts: '',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775491297/The_Lodge_Mallorca_1_copy_sjdx0o.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775491305/DSCF0432_r8c7pt.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775492407/1-Master-Garden-Suite_iggihx.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775492524/4d868d34-1b21-4e6d-ad97-5e24d90e8f62-1-2_m3wn2n.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775492647/Lodge__ehcwj3.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775492709/22DJI_0773-1-2-2_lxtl2o.webp',
+    ],
   },
   {
     id: 'mas-de-torrent',
@@ -142,6 +222,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'In the heart of the Empordà — the most authentic and chic corner of the Costa Brava — Mas de Torrent is an impeccably restored 18th-century Catalan farmhouse and a proud member of Relais & Châteaux. Thirty-nine suites, including seven with private pools, are set within spectacular gardens among olive groves and cypress trees. The award-winning Mas Spa, two restaurants, and a private yacht for coastal excursions complete a stay that is defined by the unique character of the Empordà. Two Michelin Keys. Salvador Dalí country.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775517158/masdetorrent-valentinakalaydjian.studio-63_pubol_beahwi.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775517257/A_SAILING_MAS_DE_TORRENT-53_Foto-MariaCapdevila_Direction-ValentinaKalaydjian-1_ip0lc7.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775517424/1-Classic-Doble-1_aennro.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775517600/MDT_winter2025_-79-1_zhypmf.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775517043/MasdeTorrent_Yoga130325_0080-1_c5ilxz.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775517719/0218__MDT_Julio25_0442-1_vipimj.webp',
+    ],
   },
   {
     id: 'kimpton-aysla',
@@ -153,6 +241,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Tucked behind garden walls in Santa Ponsa, 15 minutes from Palma, Kimpton Aysla Mallorca is a walled sanctuary of 79 rooms where Mediterranean calm meets contemporary luxury. It is the first Kimpton in Spain. Three pools including Mallorca\'s largest indoor pool, the award-winning Maison CODAGE Spa, three restaurants, the AYSLA Wellness Club, and direct access to both Mallorca Country Club\'s tennis and Golf Santa Ponça make it one of the most complete wellness and lifestyle resorts on the island.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775958112/4.-Outside-Pictures-1_wm2gqf.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775958119/GRAS_KIMPTON_DIA2_WEB_RES-3-1200x800_qikwmo.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775958342/2-Twin-Balcony-Room-2_pvvbxt.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775958395/2.2.-SABA-Bar-Bodega-6-1200x800_z7ykgs.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775958636/Hotel-Kimton-Aysla-254-1200x1799_mgvcr1.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775958109/GRAS_KIMPTON_DIA2_WEB_RES-4_vrfzyz.jpg',
+    ],
   },
   {
     id: 'voaara-madagascar',
@@ -164,6 +260,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Opened in September 2024 on the remote northwestern tip of Île Sainte-Marie — also known as Nosy Boraha — Voaara Madagascar is a 100-acre barefoot luxury estate on 1.5 kilometres of pristine white sand beach facing the Indian Ocean. Seven bungalows and one three-bedroom villa, built from natural materials and reclaimed wood, blend the wabi-sabi aesthetic with African soul: thatch roofs, driftwood beams, raffia lighting, and open-air bathrooms with rainfall showers and soaking tubs. Three meals a day, drinks, spa treatments, and activities are all included in the rate. Humpback whale season runs June through October.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775679556/Madagascar17282_DxO_copy_uhdbeg.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775679746/Beach_loungers_m72n6l.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775680025/Deluxe-Beach-Bungalow-interior_vyfknc.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775680317/restaurantbarbanner_hun3kk.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775681054/MAD_9063_copy_aijmjz.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775681223/dji_fly_20250815_073336_0042_1755797822616_photo_copy_og70lt.jpg',
+    ],
   },
   {
     id: 'voaara-grenadines',
@@ -175,6 +279,9 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Opening December 2026 on the private shores of Palm Island in St. Vincent and the Grenadines, Voaara Grenadines is the second property from Voaara Hotels — the barefoot luxury collection that debuted at Voaara Madagascar. Twenty-five bungalows and one state-of-the-art villa are designed by architect Luis F. Mira with interiors by Muza Labs: wabi-sabi meets Caribbean soul, with soft neutral palettes and natural materials that move with the rhythm of island life. Palm Island is a gateway to the wider archipelago — the Tobago Cays, Bequia, Canouan, Mustique, and Union Island are all within easy reach.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/w_600/v1776948242/palm-island_bu_wywa5f.jpg',
+    ],
   },
   {
     id: 'biltmore-dubai',
@@ -186,6 +293,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'A masterpiece of refined luxury in the heart of Dubai — minutes away from Mall of the Emirates and Ski Dubai — the Biltmore Hotel Villas is a collection of 20 ultra-luxurious villas, each a private residence with its own pool, cinema, elevator, and dedicated butler service. A member of The Leading Hotels of the World, the property balances the vibrancy of one of the world\'s most dynamic cities with an atmosphere of genuine serenity and total privacy.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775518916/Courtyard4_Large_qeouai.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775518961/Pool_Large_tkxljr.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775518954/Master_Bathroom_Large_wzm4hh.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775519659/Biltmore_breakfastroom_Resized_uegxlx.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775519012/WhatsApp_Image_2026-03-10_at_5.50.10_PM_1_Large_wl5rsv.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775519032/WhatsApp_Image_2026-03-10_at_5.50.11_PM_2_Large_rbmojb.jpg',
+    ],
   },
   {
     id: 'nihi-sumba',
@@ -197,6 +312,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Named the world\'s best hotel two years running, NIHI Sumba is a 567-acre private estate clinging to a hillside above a two-and-a-half-kilometre stretch of Nihiwatu beach on the remote western coast of Sumba Island — an hour east of Bali by plane. Twenty-seven villas of exceptional design, built in the style of traditional thatched Sumbanese structures, are set on private terraces above the Indian Ocean. The Boathouse, Ombak restaurant, Nio Beach Club, the Beach Spa, and the world-famous Occy\'s Left surf break complete a setting that is genuinely unlike anywhere else on earth.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775520200/DJI_20250409074225_0268_D_NIHI_April_25_-_alifeiimagined_copy_r1ywvc.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775520653/NihiokaSpa_byTanveerBadal-3_copy_f2646p.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775520956/NIHI_Sumba_-_Accommodation_-_Kanatar_Sumba_House_-_Bedroom_copy_sbwbrc.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775521715/ombak-restaurant-outdoor.jpg_bdz0p2.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775521966/JoeKelly_PaddleCourt_0552_copy_uby4fs.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775522159/JAsonChilds-1706-03107c_copy_sfpi7b.jpg',
+    ],
   },
   {
     id: 'nay-palad',
@@ -208,6 +331,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Passing through the gates of Nay Palad Hideaway, you leave the real world behind. Set on a private bay on the southern coast of Siargao Island — the surf capital of the Philippines — this all-inclusive boutique resort of ten villas is one of Southeast Asia\'s most distinctive luxury experiences. Every element is handcrafted from local materials; every activity, every spa treatment, every meal and drink is included in the rate. The resort sits between two worlds: a pristine private beach facing the Pacific on one side and ancient mangrove forest on the other.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775524659/NPH_Beach_view_with_Nestrest_copy_omxvyk.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775524842/NPH_Wellness_Hilot_massage_po3kto.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775525157/nph_villas-garden_2025_001_2_ydzqdx.avif',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775525410/slider-culinary-005_1_zuq3f7.avif',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775525551/NPH_Padel_in_the_jungle_x3z0a6.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775525735/NPH_Resort_beach_view_copy_moguhj.jpg',
+    ],
   },
   {
     id: 'fairmont-windsor-park',
@@ -219,6 +350,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set in 40 acres of grounds adjacent to Windsor Great Park, Fairmont Windsor Park is a grand English country house hotel that opened in 2021 and rapidly established itself as one of the UK\'s finest luxury destinations. Just 45 minutes from Central London and minutes from Windsor Castle, the hotel\'s 251 rooms and suites, award-winning spa, and seven restaurants and bars have made it a destination in its own right — blending the heritage of its location with state-of-the-art facilities including padel courts, a Hammam, and a 20-metre indoor pool.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682243/fairmont_windsorpark_1215terracebar_83753_s1djqw.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682219/DSC_2622_sqykqb.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682488/FWP-Eaves-Quees-Room-1-1804x1200_szsnv7.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682947/1215-Res-1800x1200_ecjfje.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682253/FWP_Padel_1_j5l2ty.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775683186/Untitled-3_0001_FWP-Reception-Fireplace_tsg1wx.jpg',
+    ],
   },
   {
     id: 'al-baleed-oman',
@@ -230,6 +369,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Nestled between a private white-sand beach and a freshwater lagoon, Al Baleed Resort Salalah by Anantara is the first and only luxury pool villa resort in Salalah — Oman\'s tropical southern city, defined by the annual Khareef monsoon season that transforms the surrounding desert into lush green landscape. Majestic architecture echoes Oman\'s ancient coastal fortresses, and the resort sits directly beside the UNESCO-listed Al Baleed Archaeological Park.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775993969/Infinity_Pool_03_-_Al_Baleed_Resort_Salalah_by_Anantara_zagzsu.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775994239/Al_Baleed_Resort_Salalah_By_Anantara_Spa_Treatment_Frankincense_01_copy_y4czjn.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775994459/al_baleed_resort_salalah_by_anantara_deluxe_room_726x392_u5dvgw.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775994633/Al_Baleed_Resort_Salalah_By_Anantara_Sakalan_Restaurant_klcudf.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775995135/Al_Baleed_Resort_Salalah_By_Anantara_Recreation_Facility_Beach_Surfing_01_copy_2_mxqguh.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775995224/Infinity_Pool_-_Al_Baleed_Resort_Salalah_by_Anantara_bg3cr1.jpg',
+    ],
   },
   {
     id: 'd-maris-bay',
@@ -241,6 +388,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set high on a protected pine-covered hillside of the Datça Peninsula — where the Aegean and Mediterranean converge — D Maris Bay is the finest and most remote resort on Türkiye\'s southern coast. Surrounded by lush forests, volcanic mountains, and breathtaking bays, the resort overlooks six private blue-flag beaches and a stretch of water where the two ancient seas meet. 196 rooms and suites, a world-class spa widely considered the best in Türkiye, five seaside restaurants, a National Geographic Dive Center, a private motor yacht, padel and tennis, and one of the most extraordinary natural settings in the Mediterranean complete a property of rare distinction.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775996400/000001059_d-maris-bay_la-guerite-beach-club-palm-trees_iymxfi.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775996403/000000909_d-maris-bay_indoor-spa-pool_k3lcwy.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777263553/D_Maris_Bay__Rooms_zq0cjs.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775995915/000003218_d-maris-bay_la-guerite-558x315px_edrkug.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775996923/000001494_tenniscourt_bcjubm.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776635186/D_Maris_Bay_Green_Hill_copy_sfdfbx.jpg',
+    ],
   },
   {
     id: 'etereo-kanai',
@@ -252,6 +407,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Floating atop a lush mangrove forest amidst the white sand beaches of Kanai — a 620-acre private nature reserve just minutes from Playa del Carmen — Etéreo is named for the ethereal: something spiritual, heavenly, and beyond the ordinary. Its 75 studio suites and villas, built above the mangrove canopy with floor-to-ceiling sliding doors and dramatic Caribbean views, are steeped in Mayan philosophy and animated by the work of celebrated Mexican artist Manuel Felguérez throughout. Every Guía (personal butler) at Etéreo is trained in both hospitality and local culture.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775998146/ETE_Pool_2022_DJI_0203_b2fte4.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775998128/ETE_Wellness_SANA_2024_16_nxdrfd.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775998413/Screenshot_2026-04-12_at_8.53.22_AM_c8bzcv.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775998144/ETE_Dine_Itzam_2022_052A6681_h9b740.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775998602/DJI_20211222_073842_451-768x1024_usgujr.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775998849/ETE_Wellness_SANA_2024_13_n7hpo1.jpg',
+    ],
   },
   {
     id: 'fairmont-royal-palm',
@@ -263,6 +426,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Set within 231 hectares of ancient olive groves, palm trees, and orange blossoms at the foot of the snow-capped Atlas Mountains, the Fairmont Royal Palm is an oasis of extraordinary scale. 135 rooms, suites, and villas overlook an 18-hole championship golf course designed by Cabell B. Robinson. A 3,500m² Fairmont Spa, four restaurants and two bars, a 2,000 sqm pool — Marrakech\'s largest — the Royal Palm Tennis & Padel Academy, and a fitness center create a destination where guests often stay for the entirety of their visit.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775999764/Fairmont_Royal_Palm_Marrakech11_qepqp1.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775999981/Fairmont-Royal-Palm-Marrakech00002-scaled-750x562_hcxulk.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776000243/TEMP_ASSET_HCM_P_1225524-3by2_l5v855.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776000462/9_-_L_Olivier_Restaurant_Fairmont_Royal_Palm_Marrakech_copy_an1t3z.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776000817/Fairmont_Spa_Fairmont_Royal_Palm_Marrakech_bbnswh.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776000815/21_-_Family_Moments_Fairmont_Royal_Palm_Marrakech_iqy8bn.jpg',
+    ],
   },
   {
     id: 'patina-maldives',
@@ -274,6 +445,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Within the spellbinding beauty of the Maldives\' North Malé Atoll lies Patina Maldives, Fari Islands, the first — and flagship — luxury resort under Patina Hotels and Resorts, a transformative luxury brand from the award-winning Capella Hotel Group. Just a 45-min speedboat ride from Malé, sophisticated villas and contemporary studios crafted from nature\'s materials and pure creativity blend harmoniously with breathtaking outdoor spaces, interspersed with a stunning range of 13 culinary concepts that showcase diverse cuisines from Nordic-Japanese fusion to plant-based creations. A private sanctuary that inspires immersive experiences, Patina Maldives is a transcendent journey into a destination of deep cultural character, connecting conscious travellers through originality, discovery and togetherness.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776001171/PATINA-MALDIVES_by_Georg-Roske_Yoga__21_LowRes_cfg48t.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776001601/media_18606f84152255488c2b1ceb83201023aa032452f.png_mkx5gw.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776001885/media_1448b733ff2630c55534e231fc34f49b733608de5.jpg_l6xtu6.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776002173/media_197bd5bf2f4d35be9a078e15392478833b12b13a6.png_btttu8.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776001593/media_135e760efbb03545de496179b3be87497c7b1082c.png_myb3ey.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776002307/PATINA-MALDIVES_by_Georg-Roske_BOAT__120_LowRes_phrg39.jpg',
+    ],
   },
   {
     id: 'riviera-maya-edition',
@@ -285,6 +464,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Mexico\'s first EDITION hotel rises from a forest of mangroves on a 620-acre coastal nature reserve — a collaboration between EDITION founder Ian Schrager and the pristine Caribbean coastline of the Yucatán. 186 minimalist guest rooms and suites, including North America\'s largest penthouse suite (the Sky Rooftop Villa at 2,500m²), are positioned to frame the turquoise Caribbean through floor-to-ceiling windows. Two of Mexico\'s most celebrated chef-restaurateurs lead five food and beverage venues.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776002831/ED_CUNEK_Beach_Club_Sool_pool_wgof0a.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776003356/eb-cunek-cunek-spa-vitality--18719-40861-Classic-Hor_wuhfmp.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776003264/eb-cunek-ed-cunek-premier-17930-62995-Classic-Hor_ksjs3v.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776003772/eb-cunek-kitchen-restaurant-36716-75182-Wide-Hor_ugf7nf.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776003528/eb-cunek-hobie-cat-activity-30047-Classic-Hor_i1zpmu.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776003737/ED_CUNEK_Forum_entrance_hjhy3e.jpg',
+    ],
   },
   {
     id: 'st-regis-kanai',
@@ -296,6 +483,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Rising above the mangrove forest of Kanai\'s nature reserve, The St. Regis Kanai is a mystical address where Mayan astronomy and the St. Regis legacy converge. The resort\'s circular buildings — inspired by the Pleiades star cluster, known as the celestial birthplace of the Mayans — float above the mangrove canopy on Mexico\'s Caribbean coast. 124 rooms and suites, all with ocean views and private terraces or plunge pools, are animated by Mayan artistic motifs, carved walnut headboards, and the signature St. Regis Butler Service. Eight dining and bar venues complete an address of rare distinction on the Riviera Maya.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776008263/STR_CUNXR_0115_fyxblu.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776008293/STR_CUNXR_spahydrotherapy_79190_2_i9r3d2.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776008633/xr-cunxr-dkng-bdrm1-78473-14706-Classic-Hor_fjfokb.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776008544/xr-cunxr-toroterrace2-14612-59826-Wide-Hor_eqrezf.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776009097/xr-cunxr-str-cunxr-fitness-27455-Classic-Ver_yxm46o.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776008272/STR_CUNXR_ceiba1_78142.V2_usczvp.jpg',
+    ],
   },
   {
     id: 'tortuga-bay',
@@ -307,6 +502,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'The only hotel in the world designed by Oscar de la Renta — a Dominican Republic native — Tortuga Bay is a private beachfront enclave of 13 luxurious villas within Puntacana Resort, set on three miles of pristine white sand. AAA Five Diamond awarded and a member of The Leading Hotels of the World, Tortuga Bay\'s singular distinction is its combination of extraordinary fashion-house design, Frette linens, and a level of personalised service — led by a dedicated Embajador for every guest from arrival to departure.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775684494/DJI_0059-copyV2_vjksbl.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775684737/intro-3_a5grwb.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777259040/DSCF7091-HDR_coyieo.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775685072/bamboo-restaurant_ukmexm.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775685415/_MG_9769_Editada-1_txf68u.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775685565/DSCF6990_ss36qh.jpg',
+    ],
   },
   {
     id: 'vilalara',
@@ -318,6 +521,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Perched on golden limestone cliffs above a private cove along the Algarve coast, Vilalara has been drawing the world\'s most discerning travellers since the 1960s — most who come specifically for its pioneering thalassotherapy. The resort now presents a collection of suites and residences, outdoor seawater pools, over six restaurants, and a comprehensive wellness offering — a rare combination of thalassa, spa, anti-ageing treatments, and holistic wellbeing that has been refined over five decades.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776014487/Vilalara_Restaurant_A-Costa_terrace_pool_copy_nvo1dy.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776015366/Vilalara_Club_WellnessClub_PoolSpa_copy_qyozzi.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776015320/Room_-_Ocean_Suite_-_2_h5hphj.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776015317/8P8A7093-Edit-scaled_k1xpke.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776015885/Vilalara_spa_thalassotherapy_soundhealing_1-scaled_mqmsvu.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776015325/DSC01010-2_gx4rdx.jpg',
+    ],
   },
   {
     id: 'hotel-royal-evian',
@@ -329,6 +540,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Built in honour of King Edward VII and inaugurated in 1909, the Hôtel Royal Évian is one of France\'s most distinguished Palace hotels — set within 47 acres of private grounds above the shores of Lake Geneva, with the French Alps and Swiss mountains as a permanent panorama. Behind its Belle Époque facade, 150 rooms, including 32 suites (the sixth floor features connecting suites with panoramic lake-view terraces) house a Michelin-starred restaurant, the new evian®SPA (France\'s Best Wellness Retreat 2024–2025), an 18-hole championship golf course that hosts the annual Amundi Evian Championship, and a 3,000m² organic kitchen garden.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777386904/Evian_Resort_H%C3%B4tel_Royal_fa%C3%A7ade_E.Guibaud_copy_gsmrcc.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775686444/046fafe406bc-HR_Galerie_photos_femme-piscine-interieure-evianspa.jpg_ohpuit.jxl',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775686910/2b82283b5ef1-Bloc-content-inverse-layout-droite-_-gauche-copie-HR-chambres.jpg-2_v00ckf.jxl',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775687048/8b0bd9d359e8-Moodboard-1.jpg-2_niorsi.jxl',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775686393/cce557aad631-HR_Galerie_photos_couple-parcours-hydrocontact.jpg_bxhhzg.jxl',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775687360/511d00852850-HR_Galerie_photos_couple-repas.jpg_x8rmp3.jxl',
+    ],
   },
   {
     id: 'fairmont-century-plaza',
@@ -340,6 +559,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Originally opened in 1966 and reimagined for 2021, Fairmont Century Plaza occupies one of Los Angeles\' most storied addresses — Avenue of the Stars in Century City, steps from Beverly Hills and Rodeo Drive. The curved crescent building, designed by Minoru Yamasaki, now houses 400 guestrooms and suites with private balconies, interiors by Yabu Pushelberg, a 14,000 sq ft spa, rooftop pool, and Lumière — a French brasserie set within an authentic Parisian-style courtyard. A landmark reborn as the definitive luxury address on the LA Westside.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776731585/Exterior_Lifestyle_4_copy_wv6jqd.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776731807/Spa_Amenity_Space_qp1qpl.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776731942/aja_p_6050-68_3by2_prmbkt.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776733052/aja_p_6119-46-8by10_njpqbb.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775956744/69c3a6b362505f06463012fc_PadleUp-344_thumbnail_koy37a.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776732789/Exterior_Lifestyle_2_copy_ifm4nm.jpg',
+    ],
   },
   {
     id: 'hotel-unico-madrid',
@@ -351,6 +578,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Set in a meticulously restored 19th-century palace on Calle Claudio Coello — the quiet heart of Madrid\'s Salamanca district — Hotel Único is a study in considered restraint. Behind an immaculate white façade, 44 rooms and suites arranged around a private courtyard garden feel more like a confidential residence than a hotel. On the city\'s Golden Mile, steps from its finest museums and boutiques, Único offers a pace of life that Madrid rarely permits: unhurried, discreet, and entirely its own.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775943595/213-Unico-Madrid-2025-_juangavilan-104-2-1_ofils4.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775944157/095-Unico-Madrid-2025-_luanafailla-123-2_yianjy.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775944124/1_deluxe_room-1_feydvs.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775944119/060-Unico-Madrid-2025-_luanafailla-064-3-1_uxdhiz.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775944114/052-The-Principal-Madrid-2025-_luanafailla-052-3_vrqolo.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775944109/054-Unico-Madrid-2025-_luanafailla-058_pah9dc.webp',
+    ],
   },
   {
     id: 'maybourne-beverly-hills',
@@ -362,6 +597,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'One block from Rodeo Drive, within Beverly Hills\' famed Golden Triangle, The Maybourne Beverly Hills is the American flagship of the group that owns Claridge\'s, The Connaught, and The Berkeley. Awarded two MICHELIN Keys in 2025, the hotel\'s 205 rooms and suites are designed in a warm, mid-century Californian style by Bryan O\'Sullivan — bespoke furniture, collectible artworks, and sumptuous marble bathrooms throughout. Six dining destinations span the property from garden to rooftop; a 20,000 sq ft spa anchors the wellness offering; and the ninth-floor pool, set among native palms and hummingbirds, frames panoramic views of the Hollywood Hills.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775956741/Medium-MBH-EXTERIOR-06_vpqmjw.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775956739/Low-MBH-SPA-01_hsuuqo.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775956735/MBH-DELUXE-ROOM-560-01_uoppkp.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775957022/MBH-DANTE-BEVERLY-HILLS-01-jpg_jlg7yv.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775956744/69c3a6b362505f06463012fc_PadleUp-344_thumbnail_koy37a.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775957229/Medium-Maybourne_Beverly_Hills_-_Pret_a_Portea_Red_Carpet_Collection_2025_n4sdh0.jpg',
+    ],
   },
   {
     id: 'the-principal-madrid',
@@ -373,6 +616,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Occupying the upper floors of a landmark early-20th-century building at the beginning of Gran Vía, The Principal Madrid is Madrid\'s only five-star hotel on the city\'s most iconic boulevard — and #1 in Spain in the Condé Nast Traveler Readers\' Choice Awards 2025. Seventy-seven rooms and suites, a Ramón Freixa-inspired dining floor, and a rooftop terrace with what may be the finest panoramic views in the city place this property in a category entirely of its own in Madrid\'s hotel landscape.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775946631/043-The-Principal-Madrid-2025-_luanafailla-043-4_v8pnvo.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775946576/047-The-Principal-Madrid-2025-_luanafailla-047-3_ls2jgq.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775946575/1_deluxe_city_views_et5e6z.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775946572/201-The-Principal-Madrid-2025-_luanafailla-120-1_qfnscj.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775946762/027-The-Principal-Madrid-2025-_luanafailla-027-1_x1m43c.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775946895/139-The-Principal-Madrid-2025-_luanafailla-058-4-1-2048x1366_i7fdgf.webp',
+    ],
   },
   {
     id: 'the-surrey',
@@ -384,6 +635,13 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'On East 76th Street — one of the quietest and most desirable blocks on the Upper East Side — The Surrey has been reimagined as Corinthia Hotels\' inaugural North American address. Behind a 1920s Art Deco façade, designer Martin Brudnizki has brought 70 rooms, 30 suites, and 14 private residences to life in a language of residential warmth and contemporary sophistication: handcrafted Murano chandeliers, bespoke cabinetry, and the unhurried atmosphere of a great private house. Casa Tua — the beloved Italian dining institution with homes in Miami, Paris, and Aspen — makes its New York debut here. The Surrey Spa partners with Sisley Paris. One block from Central Park, and a short walk from the Metropolitan Museum.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777259673/2025_CNY_Facilities_Lobby_WhatTheFox-0064_hgc8kj.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777259674/2025_CNY_Facilities_Spa_WhatTheFox-3578_c4rggk.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777259683/Corinthia_TheSurrey_DeluxeKing403_WhatTheFox-0105_ic3vut.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777259682/Corinthia_TheSurrey_CasaTua_TheLounge_0341_qap1db.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777259685/Corinthia_TheSurrey_ExecutiveKing311_0414_agxs6o.jpg',
+    ],
   },
   {
     id: 'only-aesthesis',
@@ -395,6 +653,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Set within 21 hectares of protected pine forest reserve in Glyfada — the gateway to the Athenian Riviera — One&Only Aesthesis evokes the glamour of the Aegean in its mid-century golden era, now fully reimagined. Thirty minutes from the ancient wonders of Athens, the resort\'s 141 keys include rooms, bungalows, residences, and villas that follow the coastline in complete privacy. Greece\'s first Guerlain Spa, three restaurants helmed by Michelin-starred chefs, a private beach, and Pardo Yachts for Saronic Gulf excursions combine into one of the most considered coastal retreats in the Mediterranean.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952018/One_Only_Aesthesis_P3_Cabana_Pool-3536_MASTER_szzkaq.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775951964/Untitled-3526_ntc2qi.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952148/OOAA_AesthesisRoom_SeaView_King_911_Wide_5341_FINAL_qmnfto.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952611/ora-by-ettore-botrini_ry9dhu.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952716/DSC00389_copie_bbojx5.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952816/R1-09211-0007_ndmqyq.webp',
+    ],
   },
   {
     id: 'elounda-mare',
@@ -406,6 +672,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'A Relais & Châteaux member since 1987 and one of the defining addresses on the northeast coast of Crete, Elounda Mare occupies a position of particular beauty on the shores of Mirabello Bay — where whitewashed bungalows sit in bougainvillea-filled courtyards, the Aegean is within reach of every terrace, and a sense of deep Mediterranean calm pervades the grounds. Part of the Elounda Collection alongside Porto Elounda Golf & Spa Resort and Elounda Peninsula, guests at Elounda Mare enjoy shared access — including a sea shuttle — to eight restaurants and four bars across all three properties. The Six Senses Spa, 500 metres away at Porto Elounda, is available to all guests.',
     courts: 'Golf & Padel',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776016974/038_Elounda_BD_Large_fmbkal.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776017162/1405_143-scaled-rjqnwmagdjtp54yc0c6mjwr7vig99szh46ez4ihik0_inpsoo.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776016999/Superior_Room_Large_uve4o8.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776017521/Old-Mill-1-2048x1151_tfjemq.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776017766/Rectangle-54_m8zw3v.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776017002/Superior_Bungalow_pool_Large_iqxxvj.jpg',
+    ],
   },
   {
     id: 'elounda-peninsula',
@@ -417,6 +691,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Occupying its own private peninsula on the northeast coast of Crete, Elounda Peninsula Luxury Resort is an all-suite hotel where no standard room exists: only suites, residences, and villas with private pools, panoramic sea views, and the extraordinary architectural ambition of a property built to match its setting. Named among the Top 10 Luxury Resorts in Greece by Condé Nast Traveler Readers\' Choice Awards 2025, the resort commands a 360° panorama of Mirabello Bay and the Aegean Sea. As part of the Elounda Collection, guests share access to the Six Senses Spa, eight restaurants, and the facilities of its sister properties via complimentary shuttle and sea ferry.',
     courts: 'Golf & Padel',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776018844/Elounda_-_Drone1-3_Large_wknrrg.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776018849/Six_Senses_3_Large_e7vzv7.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776019107/1405_435-scaled-rjql12ejgm2i3ndaoks8v1h3xcuja7w0vn39t40w1c_s6qcxe.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776019258/image00001-scaled-rjqktht4ur8dqdvfya8yw6a7g5571ui4i35ozkgj7w_c74qpy.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776017766/Rectangle-54_m8zw3v.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776018787/_Z8Q3060_Large_k7u6oc.jpg',
+    ],
   },
   {
     id: 'porto-elounda',
@@ -428,6 +710,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Spread across 40 acres of landscaped gardens along the shores of Crete\'s Mirabello Bay, Porto Elounda Golf & Spa Resort is one of the most comprehensively equipped luxury resorts in the Mediterranean. A private beach, the first Six Senses Spa in Europe, six restaurants spanning Greek, Italian, Pan-Asian, and Mediterranean cuisine, a 9-hole private golf course, and some of the largest seafront pool facilities on the island combine into a resort where the challenge is choosing how to spend the day. Part of the Elounda Collection alongside Elounda Mare and Elounda Peninsula, guests enjoy shared access to eight restaurants and four bars across all three properties.',
     courts: 'Golf & Padel',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776019852/Sailing_Large_mzduy9.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776019854/Six_Senses_3_Large_a8ytvc.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776020520/CK.SS_.image-13-scaled-rjqnis3zrcvq7t1ytcucuegx1anpy81qjonmrv065s_kdulqp.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776020602/Cosmos-Restaurant-entrance_fe5n9m.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776017766/Rectangle-54_m8zw3v.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776019859/Waterslides-scaled_Large_blrsth.jpg',
+    ],
   },
   {
     id: 'verdura-resort',
@@ -439,6 +729,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'On Sicily\'s unspoilt southern coast between Sciacca and Agrigento, Verdura Resort is a Rocco Forte estate of 230 hectares overlooking 1.8 kilometres of private coastline. Designed by Olga Polizzi to sit within the Sicilian landscape rather than impose upon it, the resort\'s 203 rooms, 50 suites, and three villas face the Mediterranean without exception. Eight restaurants and bars draw almost entirely from the resort\'s own organic farm; the Irene Forte Spa is one of Europe\'s largest; 45 holes of championship golf designed by Kyle Phillips have hosted multiple European Tour events; and padel, tennis, watersports, and a program of cultural excursions complete a resort where leaving rarely feels necessary.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776021125/13_RFH_Verdura_Resort_-_East_Course_0230_13th_JL_Sep_21_kbv5ms.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776021169/28_RFH_Verdura_Resort_-_Verdura_Spa_Relaxation_Room_4462_Jul_17_p9br4x.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776020937/3_RFH_Verdura_Resort_Deluxe_Room_133_16785_JG_Mar_23_2_aaavjp.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776020971/9_RFH_Verdura_Resort_-_Amare_22974_JG_May_23_2_ab9f9l.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776022369/Screenshot_2026-04-12_at_3.32.33_PM_b83v6e.png',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776021173/29_RFH_Verdura_Resort_-_Verdura_Spa_Pool_4841_Jul_17_kndrq5.jpg',
+    ],
   },
   {
     id: 'only-le-saint-geran',
@@ -450,6 +748,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Nestled on its own private peninsula in 60 acres of tropical gardens, enclosed on one side by the Indian Ocean and on the other by a protected lagoon of extraordinary stillness. Le Saint Géran was the first luxury hotel built in Mauritius and has had the finest pick of location ever since: northeast coast, Belle Mare, where the water turns the specific shade of turquoise that travel writers reach for adjectives to describe.',
     courts: '2 Courts',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776026904/Guerlain_Spa_Pool_copy_gximpi.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776026277/Guerlain_Spa_-_Retail_hge01s.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776026140/OO_Accommodation_Beach_Front_Room_xwdprt.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776025937/TAPASAKE_vvb03n.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776026542/Daily_Dives_1_cekryn.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776026751/250303_OOLSG_P1_Private_Homes_Aerial_0217_MASTER_V2_ailgwz.webp',
+    ],
   },
   {
     id: 'rosewood-hong-kong',
@@ -461,6 +767,14 @@ window.DESTINATIONS = [
     featured: true,
     desc: 'Rosewood Hong Kong is a world of endless, exceptional discovery, always mirroring the eclecticism of this ever-evolving city. The soaring city estate is a cultural centrepiece, abound with creativity and alive with legacy. Anchored at the heart of Victoria Harbour, this place is a catalyst for culture, its everchanging stage a pulsating platform from which residents can be enriched and local life can thrive. Eleven culinary journeys reflect Hong Kong\'s kaleidoscopic way of life. Each curation takes inspiration from around the world, but is deeply rooted in the surrounding community.',
     courts: 'Local Padel Access',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952977/Rosewood_Hong_Kong_Exterior_Asaya_Large_u4vrv8.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952948/Asaya_Spa_by_Guerlain_Large_ouyref.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952960/Grand_Harbour_View_Room_Large_asuney.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952984/The_Legacy_House_Large_nubvw0.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775954563/404A2285_avkd1r.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775952971/Manor_Club_Large_l7kfyb.jpg',
+    ],
   },
   {
     id: 'banyan-tree-mayakoba',
@@ -472,6 +786,14 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Nestled within a private gated community of lush mangroves, freshwater lagoons, and pristine coastline in the heart of Mexico\'s Riviera Maya, Banyan Tree Mayakoba is a sanctuary unlike any other. Forty-five minutes from Cancún International Airport, the resort\'s pool villas and multi-bedroom residences are linked by canal waterways — each one private, each one set within the tropical landscape. A Two Michelin Keys, AAA Five Diamond, Forbes Four-Star resort — with one of the most decorated spas in the Americas, seven dining venues, two beach clubs, and a Temazcal ritual led by a resident shaman.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777260717/Banyan_Dic_2021_0086_copy_patk7z.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777260780/BTMK_-_Spa_Rainforest_Vitality_Pool_High_Res_vj1v4q.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777261029/BTMXMY_DELUXE_POOL_VILLA_WITH_LIVING_ROOM_VIEW_ec6vsw.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777261165/Saffron_Dusk_Aerial-View_0_f5gogw.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777261410/BTMXMY_SPA_FULL_BODY_MASSAGES_1_py28ec.webp',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1777261504/BanyanTree-00012_orrarx.jpg',
+    ],
   },
   {
     id: 'hotel-pitrizza',
@@ -483,5 +805,13 @@ window.DESTINATIONS = [
     featured: false,
     desc: 'Designed in 1963 by Italian architect Luigi Vietti on the rolling hills of the Costa Smeralda, Hotel Pitrizza is an understated retreat by the Mediterranean — so naturally integrated into the landscape that, as Vietti himself noted, it cannot be seen from the sea, the land, or the sky. Set on the north-east coast of Sardinia just 5 km from the glamorous village of Porto Cervo, the hotel unfolds across 49 rooms and suites and 16 private villas perched above a saltwater pool, private beach, and the emerald waters of the Costa Smeralda. Quiet, deeply personal, and unlike any other address on the island.',
     courts: '1 Court',
+    images: [
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776729632/Hotel_Pitrizza_-_Pool_-_Vincent_Leroux_copy_arnnxp.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776729732/Hotel_Pitrizza_-_Beach_-_Vincent_Leroux_copy_slgha2.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776729991/Hotel_Pitrizza_-_Classic_Room_-_Oliver_Fly_-_2023_copy_x3ijpz.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776730481/Z_fTXOvxEdbNO2tm_WebRGB-HotelPitrizza-GrillRestaurant-VincentLeroux.jpg_pptdkf.avif',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776730912/Hotel_Pitrizza_-_Spa_-_Oliver_Fly_-_2023_copy_xep8ze.jpg',
+      'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776730923/Hotel_Pitrizza_-_Landscape_Pitrizza_-_Oliver_Fly_-_2023-2_copy_jhgqlb.jpg',
+    ],
   },
 ];

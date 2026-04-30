@@ -9,14 +9,8 @@
   function openDrawer(data) {
     var heroEl = document.getElementById('drawerHero');
     var bodyEl = drawer.querySelector('.drawer-body');
-    if (data.images && data.images.length) {
-      heroEl.style.display = 'none';
-      if (bodyEl) bodyEl.style.paddingTop = '72px';
-    } else {
-      heroEl.style.display = '';
-      heroEl.style.backgroundImage = 'url(\'' + data.image + '\')';
-      if (bodyEl) bodyEl.style.paddingTop = '';
-    }
+    heroEl.style.display = 'none';
+    if (bodyEl) bodyEl.style.paddingTop = '72px';
     document.getElementById('drawerRegion').textContent  = data.region;
     document.getElementById('drawerTitle').textContent   = data.name;
     document.getElementById('drawerLoc').textContent     = data.loc;
