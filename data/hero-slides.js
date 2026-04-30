@@ -7,7 +7,7 @@ window.HERO_SLIDES = [
   {
     eyebrow: 'WELCOME',
     headline: 'Introducing <em>Privé&nbsp;Passport.</em>',
-    sub:      'A global travel membership for padel players. Stay at the world\'s leading destinations, play at every one, and find a court wherever the year takes you.',
+    sub:      'A global travel membership for padel players. Preferred rates and benefits when staying at over 40 partner destinations — plus access to retreats, partner clubs, and Privé Locations in Montauk and Miami.',
     primaryLabel:    'Get Your Passport',
     primaryHref:     'join.html',
     secondaryLabel:  'Explore the Network',
