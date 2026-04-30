@@ -264,6 +264,13 @@
       }]
     });
 
+    fbq('track', 'InitiateCheckout', {
+      value:        getTier() === 'standard' ? 595 : 995,
+      currency:     'USD',
+      content_ids:  [getTier()],
+      content_type: 'product'
+    });
+
     fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
