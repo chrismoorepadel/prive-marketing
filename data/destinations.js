@@ -277,6 +277,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773540029/Destinations_-_Voaara_Grenadines_hhxo6b.jpg',
     filter: 'americas',
     featured: false,
+    comingSoon: true,
     desc: 'Opening December 2026 on the private shores of Palm Island in St. Vincent and the Grenadines, Voaara Grenadines is the second property from Voaara Hotels — the barefoot luxury collection that debuted at Voaara Madagascar. Twenty-five bungalows and one state-of-the-art villa are designed by architect Luis F. Mira with interiors by Muza Labs: wabi-sabi meets Caribbean soul, with soft neutral palettes and natural materials that move with the rhythm of island life. Palm Island is a gateway to the wider archipelago — the Tobago Cays, Bequia, Canouan, Mustique, and Union Island are all within easy reach.',
     courts: '1 Court',
     images: [

@@ -51,6 +51,13 @@
   display:grid;grid-template-columns:repeat(4,1fr);gap:3px;
 }
 .network-card.hidden{display:none;}
+.portfolio-card-badge{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-family:'Jost',sans-serif;font-size:7.5px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--navy);background:rgba(245,240,232,.88);
+  padding:5px 10px;
+}
 
 /* ── PROPERTY DRAWER ─────────────────────────────── */
 .drawer-overlay{

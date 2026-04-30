@@ -230,6 +230,7 @@
     card.innerHTML =
       '<div class="portfolio-card-bg" data-bg="' + d.image + '"></div>' +
       '<div class="portfolio-card-overlay"></div>' +
+      (d.comingSoon ? '<div class="portfolio-card-badge">Coming Soon</div>' : '') +
       '<div class="portfolio-card-info">' +
         '<div class="portfolio-card-region">' + d.region + '</div>' +
         '<div class="portfolio-card-name">' + d.name + '</div>' +
