@@ -20,6 +20,5 @@ export default async function handler(req, res) {
 
   const name = session.customer?.name || session.customer_details?.name || '';
   const firstName = name.split(' ')[0] || '';
-
   return res.status(200).json({ firstName });
 }
