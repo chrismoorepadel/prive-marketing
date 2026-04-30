@@ -62,7 +62,7 @@
 .drawer-overlay.open{opacity:1;pointer-events:all;}
 .property-drawer{
   position:fixed;top:0;right:0;bottom:0;
-  width:min(480px,95vw);
+  width:min(672px,95vw);
   background:var(--cream);z-index:201;
   transform:translateX(105%);
   transition:transform .42s cubic-bezier(.22,1,.36,1);
