@@ -5,8 +5,7 @@ export const config = {
 };
 
 export default function middleware(req) {
-  const cookie = req.cookies.get('prive-access');
-  if (cookie?.value === 'granted') return;
-  const url = new URL('/password.html', req.url);
-  return Response.redirect(url, 302);
+  const cookieHeader = req.headers.get('cookie') || '';
+  if (cookieHeader.includes('prive-access=granted')) return;
+  return Response.redirect(new URL('/password.html', req.url), 302);
 }
