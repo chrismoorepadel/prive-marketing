@@ -66,6 +66,7 @@ nav.scrolled .logo-dark  { display: block; }
 .nav-logo{color:var(--navy);}
 
 .nav-links{
+  position:absolute;left:50%;transform:translateX(-50%);
   display:flex;align-items:center;gap:36px;
   list-style:none;
 }
