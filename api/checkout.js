@@ -32,14 +32,13 @@ export default async function handler(req, res) {
     lineItems.push({ price: PRICE_IDS.partner, quantity: 1 });
   }
 
-  const origin = req.headers.origin || `https://${req.headers.host}`;
-
   const session = await stripe.checkout.sessions.create({
     mode:                 'subscription',
     line_items:           lineItems,
     allow_promotion_codes: true,
-    success_url:          `${origin}/welcome.html?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url:           `${origin}/join.html`,
+    metadata:             { tier, addPartner: addPartner ? 'true' : 'false' },
+    success_url:          `https://passport.prive-padel.com/welcome?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url:           `https://prive-padel.com/join`,
   });
 
   return res.status(200).json({ url: session.url });
