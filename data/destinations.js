@@ -11,7 +11,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_don_Carlos_ynwrph.jpg',
     filter: 'europe',
     featured: true,
-    desc: 'Set on the Costa del Sol, Don Carlos is one of Marbella\'s founding addresses — a resort that has shaped the standard for Andalusian hospitality for decades. Courts with views of the Mediterranean, a spa of exceptional depth, and the unhurried rhythm of the Spanish south.',
+    desc: 'Don Carlos is tucked into the Andalusian coastline in the iconic Costa del Sol region. Footsteps away you can find endless experiences in Marbella, from exciting nightlife to luxury shopping. Roam through stunning Puerto Banús where you can lounge on a yacht or swim with dolphins to your delight. Reserve your room in Marbella and we\'ll take care of the rest. Because this is Don Carlos and our invite is yours, truly.',
     courts: '2 Courts',
     images: [
       'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776466394/Don-Carlos-tenis-gym-piscina_3_copy_el6nj7.jpg',
@@ -30,7 +30,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Chateau_de_Lussac_u5tfxl.jpg',
     filter: 'europe',
     featured: true,
-    desc: 'A working wine estate in the Saint-Émilion appellation with padel courts set among the vines. The collision of serious wine culture and serious padel is entirely intentional. Arrive in time for the harvest. Leave with a case.',
+    desc: 'Just a stone\'s throw from Saint-Émilion, the Château de Lussac is an imposing 19th-century estate at the heart of the Lussac-Saint-Émilion appellation. Ten intimate guest rooms — six within the château itself, four in the gîte wing — are set within 30 hectares of working vineyards. Guests come for château life: breakfast on the terrace, walks through the vines, tours of the cellars, padel, and a pool. A Wine Ambassador is available to accompany guests throughout their stay — leading private tastings, guiding vineyard discovery, and curating the wine experience across each meal. It is also the exclusive setting for Privé\'s Court & Cellar retreat.',
     courts: '1 Court',
   },
   {
@@ -41,7 +41,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539952/Destinations_-_Vila_Vita_Parc_r1gjac.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'One of the Algarve\'s most complete resorts — cliffside setting, Michelin dining, and courts that catch the morning light off the Atlantic. A quieter choice than the Costa del Sol, and all the better for it.',
+    desc: 'Perched above the Atlantic along Portugal\'s Algarve coast, Vila Vita Parc is a refined seaside retreat defined by timeless elegance and lush Mediterranean gardens. Located in Porches, just 40 minutes from Faro Airport, this five-star resort, member of The Leading Hotels of the World, blends clifftop scenery, understated luxury, and warm Portuguese hospitality. From sun-washed suites and private villas to curated culinary experiences and serene coastal walks, every detail is designed for effortless escape. Vila Vita Parc invites guests to slow down and savor life by the sea.',
     courts: '1 Court',
   },
   {
@@ -52,7 +52,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Chable_Yucatan_xcfteo.jpg',
     filter: 'americas',
     featured: true,
-    desc: 'Set deep in the Mayan jungle, Chablé is where the resort architecture disappears into the landscape. Play in the morning before the humidity arrives. Spend the afternoon in the cenote. A destination that has nothing to prove and knows it.',
+    desc: 'Set within a restored 19th-century hacienda in the heart of the Yucatán jungle, Chablé Yucatán is a secluded retreat defined by heritage, nature, and contemporary design. Located just outside Mérida, the estate unfolds across expansive grounds shaped by cenotes, gardens, and original architectural elements. Modern casitas are integrated into the landscape, balancing privacy with a strong sense of place. Chablé Yucatán offers an experience rooted in history, tranquility, and cultural continuity.',
     courts: '1 Court',
   },
   {
@@ -63,7 +63,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_Camiral_w6spkd.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'A resort anchored around two of Europe\'s finest golf courses, with padel courts that match the standard. The Costa Brava hinterland — cork forests, red earth, the light of Catalonia — provides the setting.',
+    desc: 'Nestled in the rolling pine forests of Costa Brava, Camiral Resort is a destination of refined Mediterranean elegance and world-class design. Just minutes from Girona and an hour from Barcelona, this five-star haven blends championship golf, serene landscapes, and sophisticated hospitality into an unforgettable Spanish escape. Home to the 2031 Ryder Cup Stadium Course.',
     courts: '2 Courts',
   },
   {
@@ -74,7 +74,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_Marbella_Club_yla7o2.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'The original. Opened by Prince Alfonso von Hohenlohe in 1954, Marbella Club invented the Andalusian resort — and has been setting the standard ever since. Courts, beach club, and a guest list that has remained consistent for seventy years.',
+    desc: 'Set between the Mediterranean Sea and the La Concha Mountain, the Marbella Club is an iconic beachfront retreat defined by heritage, discretion, and timeless elegance. Located on Marbella\'s Golden Mile, the resort unfolds across lush gardens, whitewashed villas, and intimate courtyards. Originally established as a private residence, the Marbella Club retains a strong sense of place rooted in Andalusian tradition. The Marbella Club was home to the first padel court in Europe back in 1974. Today, it offers a refined Mediterranean escape shaped by calm, continuity, and culture.',
     courts: '1 Court',
   },
   {
@@ -85,7 +85,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_thesis_kwszrn.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'A Moorish village built into the hills of western Andalucía — sixty suites spread across forty hectares of olive groves and farmland. The courts sit on the edge of the estate. The silence here is the selling point.',
+    desc: 'In the heart of Andalusia, nestled between the gentle hills of the Sierra de Loja, lies Finca La Bobadilla — an exclusive 350-hectare luxury retreat modelled on a charming Andalusian village, and part of The Leading Hotels of the World. Just 45 minutes from Málaga Airport and less than 30 minutes by high-speed train from Granada and Córdoba, this is one of southern Spain\'s most remarkable hideaways. Each of the 73 rooms and suites offers views over ancient olive groves.',
     courts: '2 Courts',
   },
   {
@@ -96,7 +96,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_The_Savoy_hodmtl.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'The Savoy\'s padel access is the membership\'s most urban expression. Use it before a business dinner, between meetings, or as an excuse to stay at the Strand\'s finest address. The Beaufort Bar remains the post-game standard.',
+    desc: 'Set along the banks of the River Thames, The Savoy is one of London\'s most iconic hotels, defined by history, elegance, and cultural significance. Located moments from Covent Garden and the West End, the hotel has long served as a landmark for theatre, dining, and society. Art Deco and Edwardian interiors frame a setting that feels both grand and intimate. The Savoy offers a distinctly London experience rooted in heritage and timeless style.',
     courts: 'Local Padel Access',
   },
   {
@@ -107,7 +107,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_St_James_ivi6gb.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'In the heart of St. James\'s, London\'s quietest postcode. Small, discreet, and unchanged in the best possible way. Passport members play at the partner courts nearby and return to one of the city\'s finest small hotels.',
+    desc: 'Set in a quietly magnificent Victorian townhouse on a cul-de-sac off St. James\'s Street, the Althoff St. James\'s Hotel & Club has been one of London\'s most discreet addresses since it opened as an elite gentlemen\'s club in 1857 — a heritage that endures. Winston Churchill and Ian Fleming were among its members. Today the hotel\'s 60 rooms and suites — some with private balconies and terraces — are complemented by the Francatelli restaurant and the Seven Park Place Bar & Lounge, where the widest selection of port in any London bar is poured. Privé Passport members receive privileged access to the Club, extending the full depth of this storied institution beyond the hotel\'s public rooms.',
     courts: 'Local Padel Access',
   },
   {
@@ -118,7 +118,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Finca_Serena_sinieh.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'An estate hotel in the Mallorcan interior — stone farmhouse architecture, olive trees, and the kind of quiet that the coast cannot offer. Courts in the afternoon, wine from the estate at dinner.',
+    desc: 'A 100-year-old farmhouse transformed into a quietly extraordinary adults-only retreat on a 40-hectare estate in the heart of Mallorca — surrounded by vineyards, olive groves, lavender fields, and orchards, and just 25 minutes from Palma Airport. Twenty-five elegantly appointed rooms and suites are scattered across the main house and standalone garden cottages. Restaurant Jacaranda, the award-winning Único Spa, and the estate\'s own DO Tierra de Mallorca wines make this one of the most complete and soulful small hotels in the Balearics.',
     courts: '',
   },
   {
@@ -129,7 +129,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773540029/Destinations_-_The_Lodge_k5mchz.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'The Lodge occupies a former working farm in the heart of the island — intimate, unhurried, and far from the marina traffic of Palma. Courts, pool, and the Tramuntana mountains as a constant backdrop.',
+    desc: 'Set on a 157-hectare private estate in the UNESCO-protected Serra de Tramuntana, The Lodge is a boutique sanctuary of 24 suites in a former farmhouse and standalone estate buildings, surrounded by lavender fields, almond trees, olive groves, and orchards. The Singular Restaurant — built around a philosophy of fire cooking over different native woods — is one of Mallorca\'s most talked-about dining experiences. With over 20km of private trails, an infinity pool, a Wellness Suite, and e-bikes, this is the quieter, more intimate side of the Balearics.',
     courts: '',
   },
   {
@@ -140,7 +140,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_Mas_de_Torrent_yaaaus.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'A converted masía in the Alt Empordà — one of the Costa Brava\'s most consistently awarded small hotels. The architecture is Catalan farmhouse; the cooking is anything but rustic. Courts available seasonally.',
+    desc: 'In the heart of the Empordà — the most authentic and chic corner of the Costa Brava — Mas de Torrent is an impeccably restored 18th-century Catalan farmhouse and a proud member of Relais & Châteaux. Thirty-nine suites, including seven with private pools, are set within spectacular gardens among olive groves and cypress trees. The award-winning Mas Spa, two restaurants, and a private yacht for coastal excursions complete a stay that is defined by the unique character of the Empordà. Two Michelin Keys. Salvador Dalí country.',
     courts: '2 Courts',
   },
   {
@@ -151,7 +151,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773540030/Destinations_-_Kimpton_Aysla_Mallorca_b5mmqj.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'Aysla opened as Mallorca\'s most contemporary resort — modern architecture set against the Tramuntana, with courts that carry the same design ambition as the property itself. A newer addition to the network with an established following.',
+    desc: 'Tucked behind garden walls in Santa Ponsa, 15 minutes from Palma, Kimpton Aysla Mallorca is a walled sanctuary of 79 rooms where Mediterranean calm meets contemporary luxury. It is the first Kimpton in Spain. Three pools including Mallorca\'s largest indoor pool, the award-winning Maison CODAGE Spa, three restaurants, the AYSLA Wellness Club, and direct access to both Mallorca Country Club\'s tennis and Golf Santa Ponça make it one of the most complete wellness and lifestyle resorts on the island.',
     courts: '2 Courts',
   },
   {
@@ -162,7 +162,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg',
     filter: 'middle-east-africa',
     featured: true,
-    desc: 'The furthest point on the network. Voaara Madagascar occupies a private island off the northeast coast — the world\'s most remote padel courts, set beside a barrier reef where humpback whales pass in season. There is no other place quite like it.',
+    desc: 'Opened in September 2024 on the remote northwestern tip of Île Sainte-Marie — also known as Nosy Boraha — Voaara Madagascar is a 100-acre barefoot luxury estate on 1.5 kilometres of pristine white sand beach facing the Indian Ocean. Seven bungalows and one three-bedroom villa, built from natural materials and reclaimed wood, blend the wabi-sabi aesthetic with African soul: thatch roofs, driftwood beams, raffia lighting, and open-air bathrooms with rainfall showers and soaking tubs. Three meals a day, drinks, spa treatments, and activities are all included in the rate. Humpback whale season runs June through October.',
     courts: '1 Court',
   },
   {
@@ -173,7 +173,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773540029/Destinations_-_Voaara_Grenadines_hhxo6b.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'A private island resort at the southern end of the Grenadines — thirty-seven suites, forty hectares of palms, and courts set against the trade winds. The boat from St. Vincent takes forty minutes and leaves the rest of the Caribbean behind.',
+    desc: 'Opening December 2026 on the private shores of Palm Island in St. Vincent and the Grenadines, Voaara Grenadines is the second property from Voaara Hotels — the barefoot luxury collection that debuted at Voaara Madagascar. Twenty-five bungalows and one state-of-the-art villa are designed by architect Luis F. Mira with interiors by Muza Labs: wabi-sabi meets Caribbean soul, with soft neutral palettes and natural materials that move with the rhythm of island life. Palm Island is a gateway to the wider archipelago — the Tobago Cays, Bequia, Canouan, Mustique, and Union Island are all within easy reach.',
     courts: '1 Court',
   },
   {
@@ -184,7 +184,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_The_Biltmore_gimmte.jpg',
     filter: 'middle-east-africa',
     featured: false,
-    desc: 'Dubai\'s most discreet Biltmore address — villa-format suites in the Jumeirah district, away from the tower hotels of the Marina. Courts available to Passport members with access to the full Biltmore amenity stack.',
+    desc: 'A masterpiece of refined luxury in the heart of Dubai — minutes away from Mall of the Emirates and Ski Dubai — the Biltmore Hotel Villas is a collection of 20 ultra-luxurious villas, each a private residence with its own pool, cinema, elevator, and dedicated butler service. A member of The Leading Hotels of the World, the property balances the vibrancy of one of the world\'s most dynamic cities with an atmosphere of genuine serenity and total privacy.',
     courts: '1 Court',
   },
   {
@@ -195,7 +195,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Nihi_Sumba_njdefw.jpg',
     filter: 'asia-pacific',
     featured: true,
-    desc: 'Consistently ranked among the world\'s best resorts, NIHI occupies a wild stretch of the Sumbanese coast — surf, horses, and Sumbanese craft traditions alongside courts that face the Indian Ocean. Playing here is unlike playing anywhere else.',
+    desc: 'Named the world\'s best hotel two years running, NIHI Sumba is a 567-acre private estate clinging to a hillside above a two-and-a-half-kilometre stretch of Nihiwatu beach on the remote western coast of Sumba Island — an hour east of Bali by plane. Twenty-seven villas of exceptional design, built in the style of traditional thatched Sumbanese structures, are set on private terraces above the Indian Ocean. The Boathouse, Ombak restaurant, Nio Beach Club, the Beach Spa, and the world-famous Occy\'s Left surf break complete a setting that is genuinely unlike anywhere else on earth.',
     courts: '1 Court',
   },
   {
@@ -206,7 +206,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Nay_palad_Hideaway_ppyno2.jpg',
     filter: 'asia-pacific',
     featured: false,
-    desc: 'Hidden in the archipelago of Palawan — ten nipa huts over a lagoon, no phones, no staff uniforms. The courts are the most informal on the network. The surrounding sea is among the most beautiful.',
+    desc: 'Passing through the gates of Nay Palad Hideaway, you leave the real world behind. Set on a private bay on the southern coast of Siargao Island — the surf capital of the Philippines — this all-inclusive boutique resort of ten villas is one of Southeast Asia\'s most distinctive luxury experiences. Every element is handcrafted from local materials; every activity, every spa treatment, every meal and drink is included in the rate. The resort sits between two worlds: a pristine private beach facing the Pacific on one side and ancient mangrove forest on the other.',
     courts: '1 Court',
   },
   {
@@ -217,7 +217,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_Fairmont_Windsor_Park_kctszp.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'A new Fairmont on the edge of Windsor Great Park — forty minutes from London, a world away from the city. The courts are the best-appointed within an hour of Heathrow. Worth the early train.',
+    desc: 'Set in 40 acres of grounds adjacent to Windsor Great Park, Fairmont Windsor Park is a grand English country house hotel that opened in 2021 and rapidly established itself as one of the UK\'s finest luxury destinations. Just 45 minutes from Central London and minutes from Windsor Castle, the hotel\'s 251 rooms and suites, award-winning spa, and seven restaurants and bars have made it a destination in its own right — blending the heritage of its location with state-of-the-art facilities including padel courts, a Hammam, and a 20-metre indoor pool.',
     courts: '2 Courts',
   },
   {
@@ -228,7 +228,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_Al_Baleed_Resort_Salalah_mowldm.jpg',
     filter: 'middle-east-africa',
     featured: false,
-    desc: 'The southernmost point of Oman, where the monsoon brings lush green to a desert coast. Salalah is unlike anywhere else in the Gulf — cooler, quieter, and more surprising. Courts set within an Anantara resort of considerable scale.',
+    desc: 'Nestled between a private white-sand beach and a freshwater lagoon, Al Baleed Resort Salalah by Anantara is the first and only luxury pool villa resort in Salalah — Oman\'s tropical southern city, defined by the annual Khareef monsoon season that transforms the surrounding desert into lush green landscape. Majestic architecture echoes Oman\'s ancient coastal fortresses, and the resort sits directly beside the UNESCO-listed Al Baleed Archaeological Park.',
     courts: '1 Court',
   },
   {
@@ -239,7 +239,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539981/Destinations_-_D_Maris_Bay_mts1p9.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'Set on the Datça Peninsula — the narrow finger of land between the Aegean and the Mediterranean that most travelers never reach. D Maris Bay is as much sailing base as resort. The courts catch the Meltemi in late summer.',
+    desc: 'Set high on a protected pine-covered hillside of the Datça Peninsula — where the Aegean and Mediterranean converge — D Maris Bay is the finest and most remote resort on Türkiye\'s southern coast. Surrounded by lush forests, volcanic mountains, and breathtaking bays, the resort overlooks six private blue-flag beaches and a stretch of water where the two ancient seas meet. 196 rooms and suites, a world-class spa widely considered the best in Türkiye, five seaside restaurants, a National Geographic Dive Center, a private motor yacht, padel and tennis, and one of the most extraordinary natural settings in the Mediterranean complete a property of rare distinction.',
     courts: '2 Courts',
   },
   {
@@ -250,7 +250,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Etereo_Kanai_x8zqdg.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'Auberge Resorts\' most ambitious Mexico property — a boutique resort carved into the Mayan jungle at Kanai, with cenote access, a spa that integrates pre-Hispanic ritual, and courts that feel entirely of the place.',
+    desc: 'Floating atop a lush mangrove forest amidst the white sand beaches of Kanai — a 620-acre private nature reserve just minutes from Playa del Carmen — Etéreo is named for the ethereal: something spiritual, heavenly, and beyond the ordinary. Its 75 studio suites and villas, built above the mangrove canopy with floor-to-ceiling sliding doors and dramatic Caribbean views, are steeped in Mayan philosophy and animated by the work of celebrated Mexican artist Manuel Felguérez throughout. Every Guía (personal butler) at Etéreo is trained in both hospitality and local culture.',
     courts: '1 Court',
   },
   {
@@ -261,7 +261,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539955/Destinations_-_Fairmont_Royal_Palm_ab6sm8.jpg',
     filter: 'middle-east-africa',
     featured: true,
-    desc: 'Twelve minutes from Marrakech\'s medina, set on a golf estate of 231 hectares of olive and palm. The courts here benefit from the Atlas light — best played at dusk when the mountains turn red.',
+    desc: 'Set within 231 hectares of ancient olive groves, palm trees, and orange blossoms at the foot of the snow-capped Atlas Mountains, the Fairmont Royal Palm is an oasis of extraordinary scale. 135 rooms, suites, and villas overlook an 18-hole championship golf course designed by Cabell B. Robinson. A 3,500m² Fairmont Spa, four restaurants and two bars, a 2,000 sqm pool — Marrakech\'s largest — the Royal Palm Tennis & Padel Academy, and a fitness center create a destination where guests often stay for the entirety of their visit.',
     courts: '2 Courts',
   },
   {
@@ -272,7 +272,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773540029/Destinations_-_Patina_Maldives_am4hah.jpg',
     filter: 'asia-pacific',
     featured: false,
-    desc: 'The Maldives\' most architecturally considered resort — Patina\'s Fari Islands campus is built for those who want more from the archipelago than an overwater bungalow and room service. Courts over the lagoon. Worth the seaplane.',
+    desc: 'Within the spellbinding beauty of the Maldives\' North Malé Atoll lies Patina Maldives, Fari Islands, the first — and flagship — luxury resort under Patina Hotels and Resorts, a transformative luxury brand from the award-winning Capella Hotel Group. Just a 45-min speedboat ride from Malé, sophisticated villas and contemporary studios crafted from nature\'s materials and pure creativity blend harmoniously with breathtaking outdoor spaces, interspersed with a stunning range of 13 culinary concepts that showcase diverse cuisines from Nordic-Japanese fusion to plant-based creations. A private sanctuary that inspires immersive experiences, Patina Maldives is a transcendent journey into a destination of deep cultural character, connecting conscious travellers through originality, discovery and togetherness.',
     courts: '1 Court',
   },
   {
@@ -283,7 +283,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Riviera_Maya_Edition_cjcfh3.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'The EDITION arrives on the Riviera Maya — Ian Schrager\'s first Mexican property, set directly on the beach in the Xcaret corridor. Modern architecture, considered programming, and courts that face the Caribbean.',
+    desc: 'Mexico\'s first EDITION hotel rises from a forest of mangroves on a 620-acre coastal nature reserve — a collaboration between EDITION founder Ian Schrager and the pristine Caribbean coastline of the Yucatán. 186 minimalist guest rooms and suites, including North America\'s largest penthouse suite (the Sky Rooftop Villa at 2,500m²), are positioned to frame the turquoise Caribbean through floor-to-ceiling windows. Two of Mexico\'s most celebrated chef-restaurateurs lead five food and beverage venues.',
     courts: '1 Court',
   },
   {
@@ -294,7 +294,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773540643/Destinations_-_St_Regis_Kanai_puvtng.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'The newest St. Regis in the Americas, built within the Kanai master development on the Riviera Maya. Mangrove views, private beach, and courts that carry the St. Regis service standard across the net.',
+    desc: 'Rising above the mangrove forest of Kanai\'s nature reserve, The St. Regis Kanai is a mystical address where Mayan astronomy and the St. Regis legacy converge. The resort\'s circular buildings — inspired by the Pleiades star cluster, known as the celestial birthplace of the Mayans — float above the mangrove canopy on Mexico\'s Caribbean coast. 124 rooms and suites, all with ocean views and private terraces or plunge pools, are animated by Mayan artistic motifs, carved walnut headboards, and the signature St. Regis Butler Service. Eight dining and bar venues complete an address of rare distinction on the Riviera Maya.',
     courts: '1 Court',
   },
   {
@@ -305,7 +305,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Tortuga_Bay_Punta_Cana_cvjnbz.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'Oscar de la Renta\'s private vision for Caribbean luxury — thirty villa-style rooms, a beach designed by the man himself, and courts within a resort that Punta Cana has never quite been able to replicate.',
+    desc: 'The only hotel in the world designed by Oscar de la Renta — a Dominican Republic native — Tortuga Bay is a private beachfront enclave of 13 luxurious villas within Puntacana Resort, set on three miles of pristine white sand. AAA Five Diamond awarded and a member of The Leading Hotels of the World, Tortuga Bay\'s singular distinction is its combination of extraordinary fashion-house design, Frette linens, and a level of personalised service — led by a dedicated Embajador for every guest from arrival to departure.',
     courts: '2 Courts',
   },
   {
@@ -316,7 +316,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539962/Destinations_-_Vilalara_Grand_Hotel_Algarve_pfab0l.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'On the Algarve\'s western edge — a thalassotherapy resort that has been quietly excellent for decades. Less famous than Quinta do Lago, better for it. Courts, cliffs, and the kind of spa that European guests return to year after year.',
+    desc: 'Perched on golden limestone cliffs above a private cove along the Algarve coast, Vilalara has been drawing the world\'s most discerning travellers since the 1960s — most who come specifically for its pioneering thalassotherapy. The resort now presents a collection of suites and residences, outdoor seawater pools, over six restaurants, and a comprehensive wellness offering — a rare combination of thalassa, spa, anti-ageing treatments, and holistic wellbeing that has been refined over five decades.',
     courts: '1 Court',
   },
   {
@@ -327,7 +327,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539953/Destinations_-_Hotel_Royal_Evian_sdzajq.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'Belle Époque grandeur on the southern shore of Lake Geneva — a Danone-owned resort that has hosted the Évian Championship and served as a discreet retreat for European royalty since 1909. The courts overlook the Alps.',
+    desc: 'Built in honour of King Edward VII and inaugurated in 1909, the Hôtel Royal Évian is one of France\'s most distinguished Palace hotels — set within 47 acres of private grounds above the shores of Lake Geneva, with the French Alps and Swiss mountains as a permanent panorama. Behind its Belle Époque facade, 150 rooms, including 32 suites (the sixth floor features connecting suites with panoramic lake-view terraces) house a Michelin-starred restaurant, the new evian®SPA (France\'s Best Wellness Retreat 2024–2025), an 18-hole championship golf course that hosts the annual Amundi Evian Championship, and a 3,000m² organic kitchen garden.',
     courts: '1 Court',
   },
   {
@@ -338,7 +338,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776731589/bbcpz_exterior_goldenhour_copy_iy5yzr.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'Minoru Yamasaki\'s 1966 arc — just reopened after a $2.5bn renovation as the most architecturally significant hotel in Los Angeles. The Fairmont Century Plaza carries the legacy of the Space Age and the court access of the network.',
+    desc: 'Originally opened in 1966 and reimagined for 2021, Fairmont Century Plaza occupies one of Los Angeles\' most storied addresses — Avenue of the Stars in Century City, steps from Beverly Hills and Rodeo Drive. The curved crescent building, designed by Minoru Yamasaki, now houses 400 guestrooms and suites with private balconies, interiors by Yabu Pushelberg, a 14,000 sq ft spa, rooftop pool, and Lumière — a French brasserie set within an authentic Parisian-style courtyard. A landmark reborn as the definitive luxury address on the LA Westside.',
     courts: 'Local Padel Access',
   },
   {
@@ -349,7 +349,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775943499/Hotel_%C3%9Anico_Madrid_14_copy_lcdup6.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'A nineteenth-century palace on the Calle de Claudio Coello — the Salamanca district\'s most considered small hotel. Único means what it says. Forty-four rooms, a garden restaurant, and access to courts in Madrid\'s most livable neighborhood.',
+    desc: 'Set in a meticulously restored 19th-century palace on Calle Claudio Coello — the quiet heart of Madrid\'s Salamanca district — Hotel Único is a study in considered restraint. Behind an immaculate white façade, 44 rooms and suites arranged around a private courtyard garden feel more like a confidential residence than a hotel. On the city\'s Golden Mile, steps from its finest museums and boutiques, Único offers a pace of life that Madrid rarely permits: unhurried, discreet, and entirely its own.',
     courts: 'Local Padel Access',
   },
   {
@@ -360,7 +360,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775956743/Medium-MBH-EXTERIOR-02_ajagc9.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'The Maybourne brought its Mayfair discretion to Wilshire Boulevard — the group\'s first US property, on the corner of Canon Drive. Passport members access courts at a nearby partner facility and return to one of Beverly Hills\' quietest lobbies.',
+    desc: 'One block from Rodeo Drive, within Beverly Hills\' famed Golden Triangle, The Maybourne Beverly Hills is the American flagship of the group that owns Claridge\'s, The Connaught, and The Berkeley. Awarded two MICHELIN Keys in 2025, the hotel\'s 205 rooms and suites are designed in a warm, mid-century Californian style by Bryan O\'Sullivan — bespoke furniture, collectible artworks, and sumptuous marble bathrooms throughout. Six dining destinations span the property from garden to rooftop; a 20,000 sq ft spa anchors the wellness offering; and the ninth-floor pool, set among native palms and hummingbirds, frames panoramic views of the Hollywood Hills.',
     courts: 'Local Padel Access',
   },
   {
@@ -371,7 +371,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775946581/215-The-Principal-Madrid-2025-_juangavilan-084-3_n9mazj.webp',
     filter: 'europe',
     featured: false,
-    desc: 'A rooftop-terrace hotel above Gran Vía — the Principal has one of the finest views in central Madrid and a food programme serious enough to draw non-guests. Courts accessible to Passport members in the Salamanca and Retiro districts.',
+    desc: 'Occupying the upper floors of a landmark early-20th-century building at the beginning of Gran Vía, The Principal Madrid is Madrid\'s only five-star hotel on the city\'s most iconic boulevard — and #1 in Spain in the Condé Nast Traveler Readers\' Choice Awards 2025. Seventy-seven rooms and suites, a Ramón Freixa-inspired dining floor, and a rooftop terrace with what may be the finest panoramic views in the city place this property in a category entirely of its own in Madrid\'s hotel landscape.',
     courts: 'Local Padel Access',
   },
   {
@@ -382,7 +382,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776740306/Corinthia_TheSurrey_ExternalSignage_3418_sgoc4j.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'The Corinthia group\'s New York address — on East 76th Street, a block from Central Park. The Surrey is for guests who stay in New York without needing to announce it. Passport members access courts in the Upper East Side and Midtown.',
+    desc: 'On East 76th Street — one of the quietest and most desirable blocks on the Upper East Side — The Surrey has been reimagined as Corinthia Hotels\' inaugural North American address. Behind a 1920s Art Deco façade, designer Martin Brudnizki has brought 70 rooms, 30 suites, and 14 private residences to life in a language of residential warmth and contemporary sophistication: handcrafted Murano chandeliers, bespoke cabinetry, and the unhurried atmosphere of a great private house. Casa Tua — the beloved Italian dining institution with homes in Miami, Paris, and Aspen — makes its New York debut here. The Surrey Spa partners with Sisley Paris. One block from Central Park, and a short walk from the Metropolitan Museum.',
     courts: 'Local Padel Access',
   },
   {
@@ -393,7 +393,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775952019/240317_OOAA_Stories_Captain_Drone-2411_MASTER_wff7fa.webp',
     filter: 'europe',
     featured: true,
-    desc: 'The Athens Riviera\'s finest resort — a pine-forest setting on the peninsula south of the city, where the Aegean light is at its clearest. One&Only Aesthesis is the network\'s most elegant European opening in recent years.',
+    desc: 'Set within 21 hectares of protected pine forest reserve in Glyfada — the gateway to the Athenian Riviera — One&Only Aesthesis evokes the glamour of the Aegean in its mid-century golden era, now fully reimagined. Thirty minutes from the ancient wonders of Athens, the resort\'s 141 keys include rooms, bungalows, residences, and villas that follow the coastline in complete privacy. Greece\'s first Guerlain Spa, three restaurants helmed by Michelin-starred chefs, a private beach, and Pardo Yachts for Saronic Gulf excursions combine into one of the most considered coastal retreats in the Mediterranean.',
     courts: '1 Court',
   },
   {
@@ -404,7 +404,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776016979/Elounda_Mare_aerial_Large_jzfgwi.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'A founding member of Relais & Châteaux on Crete\'s northern coast — Elounda Mare has been defining the standard for Cretan hospitality since 1971. Bungalows with private pools, a lagoon, and courts that face Spinalonga.',
+    desc: 'A Relais & Châteaux member since 1987 and one of the defining addresses on the northeast coast of Crete, Elounda Mare occupies a position of particular beauty on the shores of Mirabello Bay — where whitewashed bungalows sit in bougainvillea-filled courtyards, the Aegean is within reach of every terrace, and a sense of deep Mediterranean calm pervades the grounds. Part of the Elounda Collection alongside Porto Elounda Golf & Spa Resort and Elounda Peninsula, guests at Elounda Mare enjoy shared access — including a sea shuttle — to eight restaurants and four bars across all three properties. The Six Senses Spa, 500 metres away at Porto Elounda, is available to all guests.',
     courts: 'Golf & Padel',
   },
   {
@@ -415,7 +415,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776018845/EloundaKokotos77_Large_cpcoc2.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'The peninsula resort that sits alongside Elounda Mare — same family, different character. The Peninsula is larger, more contemporary, and set on its own headland with 360-degree sea views. Courts available to Passport members at both properties.',
+    desc: 'Occupying its own private peninsula on the northeast coast of Crete, Elounda Peninsula Luxury Resort is an all-suite hotel where no standard room exists: only suites, residences, and villas with private pools, panoramic sea views, and the extraordinary architectural ambition of a property built to match its setting. Named among the Top 10 Luxury Resorts in Greece by Condé Nast Traveler Readers\' Choice Awards 2025, the resort commands a 360° panorama of Mirabello Bay and the Aegean Sea. As part of the Elounda Collection, guests share access to the Six Senses Spa, eight restaurants, and the facilities of its sister properties via complimentary shuttle and sea ferry.',
     courts: 'Golf & Padel',
   },
   {
@@ -426,7 +426,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776019838/Porto_Elounda_Aerial_Large_vuvhha.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'The third of the Elounda properties — a complete resort on the bay with golf, spa, and courts. Elounda has become the network\'s most concentrated single destination, where a member could spend a week moving between three properties.',
+    desc: 'Spread across 40 acres of landscaped gardens along the shores of Crete\'s Mirabello Bay, Porto Elounda Golf & Spa Resort is one of the most comprehensively equipped luxury resorts in the Mediterranean. A private beach, the first Six Senses Spa in Europe, six restaurants spanning Greek, Italian, Pan-Asian, and Mediterranean cuisine, a 9-hole private golf course, and some of the largest seafront pool facilities on the island combine into a resort where the challenge is choosing how to spend the day. Part of the Elounda Collection alongside Elounda Mare and Elounda Peninsula, guests enjoy shared access to eight restaurants and four bars across all three properties.',
     courts: 'Golf & Padel',
   },
   {
@@ -437,7 +437,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776020921/1_RFH_Verdura_Resort_-_Pool_4715_Jul_17_xyureq.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'Rocco Forte\'s Sicilian masterwork — set on a private stretch of the southwestern coast between Agrigento and Marsala. The most architecturally serious resort on the island, with courts that match the same intention.',
+    desc: 'On Sicily\'s unspoilt southern coast between Sciacca and Agrigento, Verdura Resort is a Rocco Forte estate of 230 hectares overlooking 1.8 kilometres of private coastline. Designed by Olga Polizzi to sit within the Sicilian landscape rather than impose upon it, the resort\'s 203 rooms, 50 suites, and three villas face the Mediterranean without exception. Eight restaurants and bars draw almost entirely from the resort\'s own organic farm; the Irene Forte Spa is one of Europe\'s largest; 45 holes of championship golf designed by Kyle Phillips have hosted multiple European Tour events; and padel, tennis, watersports, and a program of cultural excursions complete a resort where leaving rarely feels necessary.',
     courts: '2 Courts',
   },
   {
@@ -448,7 +448,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776026097/Resort_Aerial_View_copy_vnuaip.jpg',
     filter: 'middle-east-africa',
     featured: false,
-    desc: 'The Indian Ocean\'s most storied address — Le Saint Géran has been welcoming guests to Belle Mare since 1975. One&Only\'s renovation gave the property a new decade of relevance. Courts and lagoon access in equal measure.',
+    desc: 'Nestled on its own private peninsula in 60 acres of tropical gardens, enclosed on one side by the Indian Ocean and on the other by a protected lagoon of extraordinary stillness. Le Saint Géran was the first luxury hotel built in Mauritius and has had the finest pick of location ever since: northeast coast, Belle Mare, where the water turns the specific shade of turquoise that travel writers reach for adjectives to describe.',
     courts: '2 Courts',
   },
   {
@@ -459,7 +459,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1775952979/Rosewood_HK_Exterior_3_night_Large_oqqsyc.jpg',
     filter: 'asia-pacific',
     featured: true,
-    desc: 'The network\'s Asian anchor — a harbour-front address in Tsim Sha Tsui that has become Hong Kong\'s standard for contemporary luxury. The city never looked better than from a Rosewood room at night. Courts accessible to Passport members nearby.',
+    desc: 'Rosewood Hong Kong is a world of endless, exceptional discovery, always mirroring the eclecticism of this ever-evolving city. The soaring city estate is a cultural centrepiece, abound with creativity and alive with legacy. Anchored at the heart of Victoria Harbour, this place is a catalyst for culture, its everchanging stage a pulsating platform from which residents can be enriched and local life can thrive. Eleven culinary journeys reflect Hong Kong\'s kaleidoscopic way of life. Each curation takes inspiration from around the world, but is deeply rooted in the surrounding community.',
     courts: 'Local Padel Access',
   },
   {
@@ -470,7 +470,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776948242/lagoon-sunset-rooftop_bhkjqg.jpg',
     filter: 'americas',
     featured: false,
-    desc: 'On the Mayakoba lagoon — the most complete resort campus on the Riviera Maya, with Banyan Tree occupying its quietest and most considered corner. Courts sit at the edge of the mangroves. The boat transfer from reception is half the experience.',
+    desc: 'Nestled within a private gated community of lush mangroves, freshwater lagoons, and pristine coastline in the heart of Mexico\'s Riviera Maya, Banyan Tree Mayakoba is a sanctuary unlike any other. Forty-five minutes from Cancún International Airport, the resort\'s pool villas and multi-bedroom residences are linked by canal waterways — each one private, each one set within the tropical landscape. A Two Michelin Keys, AAA Five Diamond, Forbes Four-Star resort — with one of the most decorated spas in the Americas, seven dining venues, two beach clubs, and a Temazcal ritual led by a resident shaman.',
     courts: '1 Court',
   },
   {
@@ -481,7 +481,7 @@ window.DESTINATIONS = [
     image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776729531/Hotel_Pitrizza_-_Landscape_Pitrizza_-_Oliver_Fly_-_2023_copy_cvcqvy.jpg',
     filter: 'europe',
     featured: false,
-    desc: 'The smallest and most private of the three Aga Khan properties on the Costa Smeralda — fifty rooms built into the granite headland above Porto Cervo. The pool is salt water from the sea. The courts face it.',
+    desc: 'Designed in 1963 by Italian architect Luigi Vietti on the rolling hills of the Costa Smeralda, Hotel Pitrizza is an understated retreat by the Mediterranean — so naturally integrated into the landscape that, as Vietti himself noted, it cannot be seen from the sea, the land, or the sky. Set on the north-east coast of Sardinia just 5 km from the glamorous village of Porto Cervo, the hotel unfolds across 49 rooms and suites and 16 private villas perched above a saltwater pool, private beach, and the emerald waters of the Costa Smeralda. Quiet, deeply personal, and unlike any other address on the island.',
     courts: '1 Court',
   },
 ];
