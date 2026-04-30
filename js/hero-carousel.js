@@ -9,7 +9,7 @@
   var current  = 0;
   var timer    = null;
   var paused   = false;
-  var INTERVAL = 6500;
+  var INTERVAL = 7500;
 
   function buildSlide(s, index) {
     var el = document.createElement('div');
