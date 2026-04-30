@@ -195,7 +195,7 @@
     card.className = 'network-card portfolio-card';
     card.dataset.filter = d.filter;
     card.innerHTML =
-      '<div class="portfolio-card-bg" data-bg="' + d.image + '"></div>' +
+      '<div class="portfolio-card-bg" style="background-image:url('' + d.image + '');"></div>' +
       '<div class="portfolio-card-overlay"></div>' +
       '<div class="portfolio-card-info">' +
         '<div class="portfolio-card-region">' + d.region + '</div>' +
