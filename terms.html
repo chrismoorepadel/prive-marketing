@@ -9,153 +9,60 @@
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link rel="dns-prefetch" href="https://res.cloudinary.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
   <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
-img{display:block;max-width:100%;}
-
-:root{
-  --navy:#1B2A4A;--cream:#F5F0E8;--sand:#D9CDB8;--gold:#B8976A;
-  --dark:#0E1923;--white:#FFFFFF;--mid:#8A7F72;--light:#EDE8E0;--nav-h:72px;
-}
-
-
-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:1000;transition:background .4s,border-color .4s;}
-nav.scrolled,nav.nav-dark{background:rgba(245,240,232,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,151,106,0.2);}
-.logo-light{display:block;}.logo-dark{display:none;}
-nav.scrolled .logo-light,nav.nav-dark .logo-light{display:none;}
-nav.scrolled .logo-dark,nav.nav-dark .logo-dark{display:block;}
-.nav-logo{color:var(--navy);}
-.nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
-.nav-item{position:relative;}
-.nav-link{position:relative;z-index:1001;font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);transition:color .3s;display:flex;align-items:center;gap:6px;}
-.nav-link:hover,.nav-link.active{color:var(--gold) !important;}
-.nav-arrow{font-size:7px;opacity:0.5;transition:transform .25s;pointer-events:none;}
-.nav-item.open .nav-arrow{transform:rotate(180deg);}
-.nav-dropdown{position:absolute;top:calc(100% + 2px);left:-20px;background:var(--white);border:1px solid rgba(184,151,106,0.15);border-radius:2px;padding:24px 0 16px;min-width:200px;opacity:0;pointer-events:none;transform:translateY(-4px);transition:opacity .25s,transform .25s;box-shadow:0 16px 48px rgba(14,25,35,0.12);}
-.nav-item.open .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0);z-index:999;}
-.nav-dropdown a{display:block;padding:9px 24px;font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid);transition:color .2s,padding-left .2s;}
-.nav-dropdown a:hover{color:var(--navy);padding-left:30px;}
-.nav-right{display:flex;align-items:center;gap:24px;}
-.nav-cta{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);border:1px solid rgba(27,42,74,0.3);padding:10px 22px;border-radius:1px;transition:background .3s,color .3s,border-color .3s;}
-.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--white) !important;}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001;}
-.nav-hamburger span{display:block;width:22px;height:1px;background:var(--navy);transition:background .3s;}
-
-.page-hero-small{height:36vh;min-height:280px;position:relative;display:flex;align-items:flex-end;padding:0 80px 56px;}
-.page-hero-small-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
-.page-hero-small-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,25,35,.4) 0%,rgba(14,25,35,.8) 100%);}
-.page-hero-small-content{position:relative;z-index:2;}
-.page-hero-eyebrow{font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.page-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,60px);font-weight:300;color:var(--white);line-height:1.0;}
-
-.legal-section{padding:80px 80px 120px;background:var(--cream);}
-.legal-inner{max-width:800px;}
-.legal-intro{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.06em;color:var(--mid);margin-bottom:56px;line-height:1.8;}
-.legal-h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--navy);margin:52px 0 16px;padding-top:52px;border-top:1px solid var(--sand);}
-.legal-h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
-.legal-p{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.9;letter-spacing:0.03em;color:var(--mid);margin-bottom:16px;}
-.legal-p:last-child{margin-bottom:0;}
-.legal-ul{list-style:none;margin:0 0 16px;padding:0;}
-.legal-ul li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.9;letter-spacing:0.03em;color:var(--mid);padding-left:20px;position:relative;margin-bottom:6px;}
-.legal-ul li::before{content:'—';position:absolute;left:0;color:var(--gold);}
-.legal-contact{margin-top:56px;padding:36px 40px;background:var(--dark);border-left:2px solid var(--gold);}
-.legal-contact p{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;line-height:1.9;letter-spacing:0.04em;color:rgba(255,255,255,.5);}
-.legal-contact a{color:var(--gold);}
-
-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:60px 80px 40px;}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:56px;}
-.footer-brand-sub{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.04em;line-height:1.8;color:rgba(255,255,255,.3);max-width:280px;}
-.footer-col-title{font-family:'Jost',sans-serif;font-size:8.5px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:20px;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-links a{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,.4);transition:color .25s;}
-.footer-links a:hover{color:var(--gold);}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);}
-.footer-copy{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:rgba(255,255,255,.2);}
-.footer-legal{display:flex;gap:24px;}
-.footer-legal a{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.1em;color:rgba(255,255,255,.2);transition:color .25s;}
-.footer-legal a:hover{color:rgba(255,255,255,.5);}
-
-.mobile-menu{position:fixed;inset:0;background:var(--navy);z-index:2000;display:flex;flex-direction:column;padding:80px 40px 60px;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,1,.36,1);}
-.mobile-menu.open{transform:translateX(0);}
-.mobile-menu-close{position:absolute;top:24px;right:28px;background:none;border:none;color:rgba(255,255,255,.4);font-size:18px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:300;}
-.mobile-nav{display:flex;flex-direction:column;gap:36px;overflow-y:auto;}
-.mobile-nav-group{display:flex;flex-direction:column;gap:10px;}
-.mobile-nav-label{font-family:'Jost',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
-.mobile-nav a{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(255,255,255,.75);letter-spacing:0.02em;transition:color .2s;}
-.mobile-nav a:hover{color:var(--white);}
-.mobile-nav-cta{display:inline-block !important;margin-top:16px;font-family:'Jost',sans-serif !important;font-size:9px !important;letter-spacing:0.22em !important;text-transform:uppercase;color:var(--white) !important;border:1px solid rgba(184,151,106,.4);padding:16px 28px;text-align:center;width:fit-content;}
-
-@media(max-width:768px){
-  :root{--nav-h:60px;}
-  nav{padding:0 24px;}
-  .nav-logo img{height:44px !important;}
-  .nav-links,.nav-right{display:none;}
-  .nav-hamburger{display:flex;}
-  .page-hero-small{padding:0 24px 40px;}
-  .page-hero-title{font-size:clamp(30px,10vw,44px);}
-  .legal-section{padding:48px 24px 80px;}
-  .legal-h2{font-size:22px;}
-  .footer-top{grid-template-columns:1fr;gap:40px;padding:48px 24px;}
-  .footer-bottom{padding:20px 24px;flex-direction:column;gap:12px;text-align:center;}
-  .footer-legal{justify-content:center;}
-}
+    .legal-section{padding:80px 80px 120px;background:var(--cream);}
+    .legal-inner{max-width:800px;}
+    .legal-intro{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.06em;color:var(--mid);margin-bottom:56px;line-height:1.8;}
+    .legal-h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--navy);margin:52px 0 16px;padding-top:52px;border-top:1px solid var(--sand);}
+    .legal-h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+    .legal-p{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.9;letter-spacing:0.03em;color:var(--mid);margin-bottom:16px;}
+    .legal-p:last-child{margin-bottom:0;}
+    .legal-ul{list-style:none;margin:0 0 16px;padding:0;}
+    .legal-ul li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.9;letter-spacing:0.03em;color:var(--mid);padding-left:20px;position:relative;margin-bottom:6px;}
+    .legal-ul li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+    .legal-contact{margin-top:56px;padding:36px 40px;background:var(--dark);border-left:2px solid var(--gold);}
+    .legal-contact p{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;line-height:1.9;letter-spacing:0.04em;color:rgba(255,255,255,.5);}
+    .legal-contact a{color:var(--gold);}
+    @media(max-width:768px){
+      .legal-section{padding:48px 24px 80px;}
+      .legal-h2{font-size:22px;}
+    }
   </style>
 </head>
 <body>
 
-<nav id="mainNav" class="nav-dark">
+<nav id="mainNav">
   <a class="nav-logo" href="index.html">
     <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
     <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
   </a>
   <ul class="nav-links">
-    <li class="nav-item">
-      <a class="nav-link" href="collection.html">The Travel Collection <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/passport/destinations.html">Padel Destinations</a>
-        <a href="/passport/club-partners.html">Padel Club Partners</a>
-        <a href="/passport/experiences.html">Padel Experiences</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="clubs.html">Privé Clubs <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a style="opacity:0.35;pointer-events:none;cursor:default;">Montauk</a>
-        <a href="club-coral-gables.html">Coral Gables</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="membership.html">Membership</a>
-    </li>
+    <li class="nav-item"><a class="nav-link" href="passport.html">Privé Passport</a></li>
+    <li class="nav-item"><a class="nav-link" href="montauk.html">Privé Montauk</a></li>
+    <li class="nav-item"><a class="nav-link" href="miami.html">Privé Miami</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About Privé</a></li>
   </ul>
   <div class="nav-right">
-    <a class="nav-cta" href="join.html">Join Now</a>
+    <a class="nav-login" href="https://passport.prive-padel.com/login">Member Login</a>
+    <a class="nav-cta" href="join.html">Get Your Passport</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div id="mobileMenu" class="mobile-menu">
   <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
   <div class="mobile-nav">
     <div class="mobile-nav-group">
-      <div class="mobile-nav-label">Travel Collection</div>
-      <a href="/passport/destinations.html">Destinations</a>
-      <a href="/passport/club-partners.html">Club Partners</a>
-      <a href="/passport/experiences.html">Experiences</a>
+      <a href="passport.html">Privé Passport</a>
+      <a href="montauk.html">Privé Montauk</a>
+      <a href="miami.html">Privé Miami</a>
+      <a href="about.html">About Privé</a>
     </div>
     <div class="mobile-nav-group">
-      <div class="mobile-nav-label">Privé Clubs</div>
-      <a href="club-coral-gables.html">Coral Gables</a>
-    </div>
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-label">Membership</div>
-      <a href="membership.html">Privé Passport</a>
-      <a href="join.html" class="mobile-nav-cta">Join Now</a>
+      <a href="https://passport.prive-padel.com/login" class="mobile-nav-login">Member Login</a>
+      <a href="join.html" class="mobile-nav-cta">Get Your Passport</a>
     </div>
   </div>
 </div>
@@ -239,58 +146,49 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding
 <footer>
   <div class="footer-top">
     <div>
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:128px;width:auto;" loading="lazy">
-      <p class="footer-brand-sub">Destination padel. Flagship clubs, resort partners worldwide, and Privé Passport — the membership that travels with you.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Travel Collection</div>
+      <div class="footer-col-title">Privé Passport</div>
       <ul class="footer-links">
         <li><a href="/passport/destinations.html">Padel Destinations</a></li>
+        <li><a href="/passport/experiences.html">Padel Experiences</a></li>
         <li><a href="/passport/club-partners.html">Padel Club Partners</a></li>
-        <li><a href="/passport/experiences.html">Experiences</a></li>
+        <li><a href="/locations.html">Privé Locations</a></li>
+        <li><a href="join.html" class="footer-cta-link">Get Your Passport</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Privé Clubs</div>
+      <div class="footer-col-title">Privé Montauk</div>
       <ul class="footer-links">
-        <li><a href="clubs.html">Montauk</a></li>
-        <li><a href="club-coral-gables.html">Coral Gables</a></li>
+        <li><a href="montauk.html">Visit</a></li>
+        <li><a href="join.html">Membership</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Membership</div>
+      <div class="footer-col-title">Privé Miami</div>
       <ul class="footer-links">
-        <li><a href="join.html">Join Now</a></li>
+        <li><a href="miami.html">Visit</a></li>
+        <li><a href="join.html">Membership</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">About Privé</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Privé</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2024 Privé Hospitality Corp. All rights reserved.</div>
-    <div class="footer-legal">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    <div class="footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
   </div>
 </footer>
 
-<script>
-
-const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
-
-document.querySelectorAll('.nav-item').forEach(item => {
-  let t;
-  item.addEventListener('mouseenter', () => { clearTimeout(t); document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open')); item.classList.add('open'); });
-  item.addEventListener('mouseleave', () => { t = setTimeout(() => item.classList.remove('open'), 200); });
-});
-document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open')); });
-
-const hamburger = document.getElementById('navHamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileClose = document.getElementById('mobileMenuClose');
-if (hamburger) hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; });
-if (mobileClose) mobileClose.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow=''; });
-</script>
+<script src="/js/main.js" defer></script>
 </body>
 </html>
