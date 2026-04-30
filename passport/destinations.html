@@ -174,16 +174,28 @@
 <script src="/js/main.js" defer></script>
 <script src="/data/destinations.js"></script>
 <script>
-// Build full network grid
+// Build full network grid with lazy-loaded card backgrounds
 (function() {
   var grid = document.getElementById('networkGrid');
   if (!grid) return;
+
+  var observer = 'IntersectionObserver' in window
+    ? new IntersectionObserver(function(entries, obs) {
+        entries.forEach(function(e) {
+          if (!e.isIntersecting) return;
+          var bg = e.target.querySelector('.portfolio-card-bg');
+          if (bg && bg.dataset.bg) { bg.style.backgroundImage = 'url(' + bg.dataset.bg + ')'; }
+          obs.unobserve(e.target);
+        });
+      }, { rootMargin: '200px' })
+    : null;
+
   (window.DESTINATIONS || []).forEach(function(d) {
     var card = document.createElement('div');
     card.className = 'network-card portfolio-card';
     card.dataset.filter = d.filter;
     card.innerHTML =
-      '<div class="portfolio-card-bg" style="background-image:url(\'' + d.image + '\');"></div>' +
+      '<div class="portfolio-card-bg" data-bg="' + d.image + '"></div>' +
       '<div class="portfolio-card-overlay"></div>' +
       '<div class="portfolio-card-info">' +
         '<div class="portfolio-card-region">' + d.region + '</div>' +
@@ -192,6 +204,8 @@
       '</div>';
     card.addEventListener('click', function(){ window.openDestDrawer(d.id); });
     grid.appendChild(card);
+    if (observer) { observer.observe(card); }
+    else { var bg = card.querySelector('.portfolio-card-bg'); if (bg) bg.style.backgroundImage = 'url(' + d.image + ')'; }
   });
 })();
 </script>
