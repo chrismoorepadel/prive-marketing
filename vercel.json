@@ -2,6 +2,7 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/styles/(.*)",
@@ -24,14 +25,5 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }]
     }
   ],
-  "redirects": [
-    { "source": "/membership", "destination": "/membership.html", "permanent": false },
-    { "source": "/destinations", "destination": "/destinations.html", "permanent": false },
-    { "source": "/experiences", "destination": "/experiences.html", "permanent": false },
-    { "source": "/club-partners", "destination": "/club-partners.html", "permanent": false },
-    { "source": "/clubs", "destination": "/clubs.html", "permanent": false },
-    { "source": "/collection", "destination": "/collection.html", "permanent": false },
-    { "source": "/club-montauk", "destination": "/club-montauk.html", "permanent": false },
-    { "source": "/club-coral-gables", "destination": "/club-coral-gables.html", "permanent": false }
-  ]
+  "redirects": []
 }
