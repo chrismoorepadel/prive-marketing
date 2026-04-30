@@ -7,6 +7,7 @@
   if (!drawer || !overlay) return;
 
   function openDrawer(data) {
+    drawer.scrollTop = 0;
     var heroEl = document.getElementById('drawerHero');
     var bodyEl = drawer.querySelector('.drawer-body');
     heroEl.style.display = 'none';
