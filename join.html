@@ -229,6 +229,17 @@
     btn.disabled = true;
     btn.textContent = 'REDIRECTING…';
 
+    gtag('event', 'begin_checkout', {
+      currency: 'USD',
+      value: getTier() === 'standard' ? 595 : 995,
+      items: [{
+        item_id: getTier(),
+        item_name: getTier() === 'standard' ? 'Privé Passport Standard' : 'Privé Passport Full Access',
+        price: getTier() === 'standard' ? 595 : 995,
+        quantity: 1
+      }]
+    });
+
     fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
