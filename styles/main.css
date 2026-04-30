@@ -115,7 +115,8 @@ nav.scrolled .nav-link{color:var(--mid);}
   font-size:9px;font-weight:500;
   letter-spacing:0.22em;text-transform:uppercase;
   color:rgba(255,255,255,0.85);
-  text-decoration:underline;text-underline-offset:3px;
+  text-decoration:underline;text-underline-offset:2px;
+  -webkit-font-smoothing:antialiased;
   transition:color .3s;
 }
 .nav-login:hover{color:var(--white);}
