@@ -112,3 +112,31 @@ document.addEventListener('DOMContentLoaded', function() {
   checkReveal();
   animateCounters();
 });
+
+// ── Footer subscribe form ─────────────────────────────
+(function () {
+  var form = document.getElementById('footerSubForm');
+  if (!form) return;
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var field   = document.getElementById('footerSubField');
+  var btn     = document.getElementById('footerSubBtn');
+  var confirm = document.getElementById('footerSubConfirm');
+  var emailIn = document.getElementById('footerSubEmail');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = emailIn.value.trim();
+    if (!emailRe.test(email)) { field.classList.add('err'); return; }
+    field.classList.remove('err');
+    btn.disabled = true;
+    btn.textContent = 'SENDING…';
+    fetch('https://tally.so/r/RG8ZMl', {
+      method: 'POST', mode: 'no-cors',
+      body: new URLSearchParams({ email: email, source: 'footer_subscribe' })
+    })
+    .catch(function () {})
+    .then(function () {
+      form.style.display = 'none';
+      confirm.style.display = 'block';
+    });
+  });
+})();
