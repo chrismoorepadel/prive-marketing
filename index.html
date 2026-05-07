@@ -90,6 +90,9 @@
     .pp-confirm{display:none;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;font-style:italic;color:var(--white);line-height:1.6;text-align:center;padding:20px 0;}
     .pp-fo-note{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.02em;color:rgba(245,240,232,.28);text-align:center;margin:18px 0 0;line-height:1.65;}
     @media(max-width:520px){.pp-card{padding:44px 24px 36px;}.pp-fo-col{padding:0 12px;}}
+    .pp-tab{position:fixed;right:0;top:50%;transform:translateY(-50%) translateX(110%);z-index:9998;background:#0E1923;border:1px solid rgba(184,151,106,.35);border-right:none;border-radius:3px 0 0 3px;padding:18px 10px;cursor:pointer;transition:transform 420ms ease;writing-mode:vertical-rl;}
+    .pp-tab.visible{transform:translateY(-50%) translateX(0);}
+    .pp-tab span{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);transform:rotate(180deg);display:block;}
   </style>
 </head>
 <body>
@@ -484,6 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- ── Email capture popup (homepage only) ──────────── -->
+<button class="pp-tab" id="ppTab" aria-label="Open founding offer"><span>FOUNDING OFFER</span></button>
 <div id="privePopup" class="pp" role="dialog" aria-modal="true" aria-label="Founding Offer" aria-hidden="true">
   <div class="pp-overlay" id="ppOverlay"></div>
   <div class="pp-card">
@@ -522,46 +526,63 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <script>
 (function () {
-  // ── Config ────────────────────────────────────────────
-  var COOKIE          = 'prive_fo_v1';
-  var SCROLL_TRIGGER  = 0.50; // 50 % scroll depth
+  var COOKIE_DONE = 'prive_fo_v1';   // submitted — never show again
+  var COOKIE_SEEN = 'prive_fo_seen'; // dismissed — show tab on return
+  var SCROLL_TRIGGER = 0.50;
 
-  // ── Cookie helpers ────────────────────────────────────
-  function hasCookie() {
-    return document.cookie.split('; ').some(function (c) { return c.startsWith(COOKIE + '='); });
+  function hasCookie(name) {
+    return document.cookie.split('; ').some(function (c) { return c.startsWith(name + '='); });
   }
-  function setCookie(days) {
+  function setCookie(name, days) {
     var exp = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = COOKIE + '=1; expires=' + exp + '; path=/; SameSite=Lax';
+    document.cookie = name + '=1; expires=' + exp + '; path=/; SameSite=Lax';
   }
 
-  // ── Guard: skip if cookie already set ─────────────────
-  if (hasCookie()) return;
+  if (hasCookie(COOKIE_DONE)) return;
 
-  // ── DOM refs ──────────────────────────────────────────
-  var popup     = document.getElementById('privePopup');
-  var overlay   = document.getElementById('ppOverlay');
-  var closeBtn  = document.getElementById('ppClose');
-  var form      = document.getElementById('ppForm');
-  var submitBtn = document.getElementById('ppSubmit');
-  var confirm   = document.getElementById('ppConfirm');
+  var tab        = document.getElementById('ppTab');
+  var popup      = document.getElementById('privePopup');
+  var overlay    = document.getElementById('ppOverlay');
+  var closeBtn   = document.getElementById('ppClose');
+  var form       = document.getElementById('ppForm');
+  var submitBtn  = document.getElementById('ppSubmit');
+  var confirm    = document.getElementById('ppConfirm');
   var fieldName  = document.getElementById('ppFieldName');
   var fieldEmail = document.getElementById('ppFieldEmail');
 
-  // ── Open / close ──────────────────────────────────────
-  function open() {
+  function openPopup() {
+    tab.classList.remove('visible');
     popup.classList.add('open');
     popup.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
-  function close(days) {
+  function dismiss() {
     popup.classList.remove('open');
     popup.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setCookie(days || 30);
+    setCookie(COOKIE_SEEN, 60);
+    tab.classList.add('visible');
+  }
+  function done() {
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    tab.classList.remove('visible');
+    setCookie(COOKIE_DONE, 365);
   }
 
-  // ── Scroll trigger ────────────────────────────────────
+  tab.addEventListener('click', openPopup);
+  closeBtn.addEventListener('click', dismiss);
+  overlay.addEventListener('click', dismiss);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && popup.classList.contains('open')) dismiss();
+  });
+
+  if (hasCookie(COOKIE_SEEN)) {
+    tab.classList.add('visible');
+    return;
+  }
+
   var fired = false;
   function onScroll() {
     if (fired) return;
@@ -569,34 +590,25 @@ document.addEventListener('DOMContentLoaded', function() {
     if (total > 0 && window.scrollY / total >= SCROLL_TRIGGER) {
       fired = true;
       window.removeEventListener('scroll', onScroll);
-      open();
+      openPopup();
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // ── Dismiss handlers ──────────────────────────────────
-  closeBtn.addEventListener('click', function () { close(30); });
-  overlay.addEventListener('click',  function () { close(30); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && popup.classList.contains('open')) close(30);
-  });
-
-  // ── Validation ────────────────────────────────────────
   var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   function validate(name, email) {
     var ok = true;
-    if (!name)               { fieldName.classList.add('err');  ok = false; }
-    else                     { fieldName.classList.remove('err'); }
-    if (!emailRe.test(email)){ fieldEmail.classList.add('err'); ok = false; }
-    else                     { fieldEmail.classList.remove('err'); }
+    if (!name)                { fieldName.classList.add('err');   ok = false; }
+    else                      { fieldName.classList.remove('err'); }
+    if (!emailRe.test(email)) { fieldEmail.classList.add('err');  ok = false; }
+    else                      { fieldEmail.classList.remove('err'); }
     return ok;
   }
 
-  // ── Submission ────────────────────────────────────────
   function showConfirm() {
     form.style.display = 'none';
     confirm.style.display = 'block';
-    setTimeout(function () { close(365); }, 1500);
+    setTimeout(done, 1500);
   }
 
   form.addEventListener('submit', function (e) {
@@ -604,10 +616,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var name  = document.getElementById('ppFirstName').value.trim();
     var email = document.getElementById('ppEmail').value.trim();
     if (!validate(name, email)) return;
-
     submitBtn.disabled    = true;
     submitBtn.textContent = 'SENDING…';
-
     fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
