@@ -1,6 +1,7 @@
 import Stripe from 'stripe';
 
 const PRICE_IDS = {
+  founding:   process.env.STRIPE_PRICE_FOUNDING,
   standard:   process.env.STRIPE_PRICE_STANDARD,
   full:       process.env.STRIPE_PRICE_FULL_ACCESS,
   partner:    process.env.STRIPE_PRICE_PARTNER,
@@ -23,7 +24,7 @@ export default async function handler(req, res) {
 
   const lineItems = [
     {
-      price:    tier === 'full' ? PRICE_IDS.full : PRICE_IDS.standard,
+      price:    tier === 'full' ? PRICE_IDS.full : tier === 'founding' ? PRICE_IDS.founding : PRICE_IDS.standard,
       quantity: 1,
     },
   ];
