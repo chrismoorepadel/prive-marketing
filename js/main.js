@@ -129,9 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
     field.classList.remove('err');
     btn.disabled = true;
     btn.textContent = 'SENDING…';
-    fetch('https://tally.so/r/RG8ZMl', {
-      method: 'POST', mode: 'no-cors',
-      body: new URLSearchParams({ email: email, source: 'footer_subscribe' })
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'footer_subscribe' })
     })
     .catch(function () {})
     .then(function () {

@@ -504,7 +504,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 (function () {
   // ── Config ────────────────────────────────────────────
-  var TALLY_FORM_ID   = 'RG8ZMl';
   var COOKIE          = 'prive_popup_dismissed';
   var SCROLL_TRIGGER  = 0.50; // 50 % scroll depth
 
@@ -590,12 +589,12 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.disabled    = true;
     submitBtn.textContent = 'SENDING…';
 
-    fetch('https://tally.so/r/' + TALLY_FORM_ID, {
+    fetch('/api/subscribe', {
       method: 'POST',
-      mode:   'no-cors',
-      body:   new URLSearchParams({ first_name: name, email: email, source: 'homepage_popup' })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, firstName: name, source: 'homepage_popup' })
     })
-    .catch(function () {}) // response is opaque with no-cors; swallow network errors
+    .catch(function () {})
     .then(showConfirm);
   });
 })();
