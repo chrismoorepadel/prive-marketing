@@ -58,18 +58,25 @@
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/passport-sub.css">
   <style>
-    /* ── Email capture popup ──────────────────────────── */
+    /* ── Founding offer popup ─────────────────────────── */
     .pp{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;}
     .pp.open{visibility:visible;pointer-events:auto;}
     .pp-overlay{position:absolute;inset:0;background:rgba(14,25,35,.72);backdrop-filter:blur(4px);opacity:0;transition:opacity 400ms ease;}
     .pp.open .pp-overlay{opacity:1;}
-    .pp-card{position:relative;z-index:1;background:var(--dark);border:1px solid rgba(184,151,106,.2);padding:52px 48px 44px;width:100%;max-width:440px;border-radius:2px;opacity:0;transform:scale(.96);transition:opacity 400ms ease,transform 400ms ease;}
+    .pp-card{position:relative;z-index:1;background:#0E1923;border:1px solid rgba(184,151,106,.25);padding:52px 52px 44px;width:calc(100% - 32px);max-width:520px;border-radius:2px;opacity:0;transform:scale(.96);transition:opacity 400ms ease,transform 400ms ease;}
     .pp.open .pp-card{opacity:1;transform:scale(1);}
     .pp-close{position:absolute;top:18px;right:20px;background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:15px;color:rgba(245,240,232,.4);padding:6px;line-height:1;transition:color .2s;}
     .pp-close:hover{color:var(--white);}
-    .pp-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
-    .pp-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,32px);font-weight:300;color:var(--white);line-height:1.1;margin:0 0 14px;}
-    .pp-sub{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.7;letter-spacing:.01em;color:rgba(245,240,232,.6);margin:0 0 30px;}
+    .pp-fo-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;text-align:center;}
+    .pp-fo-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,36px);font-weight:300;font-style:italic;color:var(--white);line-height:1.28;margin:0 0 24px;text-align:center;}
+    .pp-fo-divider{width:48px;height:1px;background:rgba(184,151,106,.4);margin:0 auto 28px;}
+    .pp-fo-prices{display:flex;justify-content:center;margin-bottom:32px;}
+    .pp-fo-col{flex:1;text-align:center;padding:0 20px;}
+    .pp-fo-col+.pp-fo-col{border-left:1px solid rgba(255,255,255,.08);}
+    .pp-fo-label{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.4);margin-bottom:8px;}
+    .pp-fo-amount{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,68px);font-weight:300;line-height:1;margin-bottom:8px;color:var(--white);}
+    .pp-fo-amount.receive{color:var(--gold);font-style:italic;}
+    .pp-fo-detail{font-family:'Jost',sans-serif;font-size:8px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.4);line-height:1.7;}
     .pp-field{margin-bottom:12px;}
     .pp-field input{width:100%;box-sizing:border-box;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:1px;padding:13px 16px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;letter-spacing:.02em;color:var(--white);outline:none;transition:border-color .2s;}
     .pp-field input::placeholder{color:rgba(245,240,232,.3);}
@@ -80,9 +87,9 @@
     .pp-submit{width:100%;margin-top:10px;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;background:var(--gold);color:var(--white);border:none;cursor:pointer;padding:15px 32px;border-radius:1px;transition:background .3s;}
     .pp-submit:hover{background:#a07d56;}
     .pp-submit:disabled{opacity:.55;cursor:default;}
-    .pp-confirm{display:none;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--white);line-height:1.6;text-align:center;padding:20px 0;}
-    .pp-note{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.05em;color:rgba(245,240,232,.28);text-align:center;margin:18px 0 0;}
-    @media(max-width:480px){.pp-card{padding:44px 24px 36px;}}
+    .pp-confirm{display:none;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;font-style:italic;color:var(--white);line-height:1.6;text-align:center;padding:20px 0;}
+    .pp-fo-note{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.02em;color:rgba(245,240,232,.28);text-align:center;margin:18px 0 0;line-height:1.65;}
+    @media(max-width:520px){.pp-card{padding:44px 24px 36px;}.pp-fo-col{padding:0 12px;}}
   </style>
 </head>
 <body>
@@ -477,13 +484,25 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- ── Email capture popup (homepage only) ──────────── -->
-<div id="privePopup" class="pp" role="dialog" aria-modal="true" aria-label="Stay in the loop" aria-hidden="true">
+<div id="privePopup" class="pp" role="dialog" aria-modal="true" aria-label="Founding Offer" aria-hidden="true">
   <div class="pp-overlay" id="ppOverlay"></div>
   <div class="pp-card">
     <button class="pp-close" id="ppClose" aria-label="Dismiss">✕</button>
-    <div class="pp-eyebrow">PRIVÉ PADEL</div>
-    <h2 class="pp-headline">Be the first to know.</h2>
-    <p class="pp-sub">New destinations, retreats, and chapters as the Privé grows.</p>
+    <div class="pp-fo-eyebrow">THE FOUNDING OFFER &middot; FIRST 200</div>
+    <h2 class="pp-fo-headline">Pay the Standard price.<br>Receive Full Access.<br>For life.</h2>
+    <div class="pp-fo-divider"></div>
+    <div class="pp-fo-prices">
+      <div class="pp-fo-col">
+        <div class="pp-fo-label">You Pay</div>
+        <div class="pp-fo-amount">$595</div>
+        <div class="pp-fo-detail">ANNUALLY &middot; LOCKED<br>FOR LIFE</div>
+      </div>
+      <div class="pp-fo-col">
+        <div class="pp-fo-label">You Receive</div>
+        <div class="pp-fo-amount receive">$995</div>
+        <div class="pp-fo-detail">FULL ACCESS &middot; EVERY<br>BENEFIT</div>
+      </div>
+    </div>
     <form id="ppForm" novalidate>
       <div class="pp-field" id="ppFieldName">
         <input type="text" id="ppFirstName" name="first_name" placeholder="First Name" autocomplete="given-name">
@@ -493,12 +512,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <input type="email" id="ppEmail" name="email" placeholder="Email" autocomplete="email">
         <p class="pp-err">Please enter a valid email address.</p>
       </div>
-      <button type="submit" class="pp-submit" id="ppSubmit">SUBSCRIBE</button>
+      <button type="submit" class="pp-submit" id="ppSubmit">BECOME A FOUNDING MEMBER</button>
     </form>
     <div class="pp-confirm" id="ppConfirm">
-      Thank you. We'll be in touch when there's something worth sharing.
+      Check your inbox — your founding rate link is on the way.
     </div>
-    <p class="pp-note">No spam. Unsubscribe anytime.</p>
+    <p class="pp-fo-note">Limited to the first 200 members. Once filled, Full Access is $995 per year.<br>Founding members are not subject to periodic price increases.</p>
   </div>
 </div>
 <script>
@@ -592,7 +611,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, firstName: name, source: 'homepage_popup' })
+      body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer' })
     })
     .catch(function () {})
     .then(showConfirm);
