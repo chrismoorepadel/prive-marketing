@@ -36,6 +36,5 @@ export default async function handler(req, res) {
   if (klaviyoRes.status === 202) return res.status(200).json({ ok: true });
 
   const err = await klaviyoRes.text();
-  console.error('Klaviyo error:', klaviyoRes.status, err);
-  return res.status(500).json({ error: 'Subscription failed' });
+  return res.status(500).json({ error: 'Subscription failed', klaviyo: klaviyoRes.status, detail: err });
 }
