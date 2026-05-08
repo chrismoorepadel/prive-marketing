@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   }
 
   const profileAttributes = { email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } };
-  if (firstName) profileAttributes.first_name = firstName;
 
   const klaviyoRes = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
     method: 'POST',
@@ -36,5 +35,6 @@ export default async function handler(req, res) {
   if (klaviyoRes.status === 202) return res.status(200).json({ ok: true });
 
   const err = await klaviyoRes.text();
-  return res.status(500).json({ error: 'Subscription failed', klaviyo: klaviyoRes.status, detail: err });
+  console.error('Klaviyo error:', klaviyoRes.status, err);
+  return res.status(500).json({ error: 'Subscription failed' });
 }
