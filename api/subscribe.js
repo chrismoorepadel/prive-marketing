@@ -27,7 +27,7 @@ export default async function handler(req, res) {
           }
         },
         relationships: {
-          list: { data: { type: 'list', id: source === 'founding_offer' ? process.env.KLAVIYO_FOUNDING_LIST_ID : process.env.KLAVIYO_LIST_ID } }
+          list: { data: { type: 'list', id: (source === 'founding_offer' && process.env.KLAVIYO_FOUNDING_LIST_ID) ? process.env.KLAVIYO_FOUNDING_LIST_ID : process.env.KLAVIYO_LIST_ID } }
         }
       }
     })
