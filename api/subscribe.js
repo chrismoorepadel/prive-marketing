@@ -32,9 +32,26 @@ export default async function handler(req, res) {
     })
   });
 
-  if (klaviyoRes.status === 202) return res.status(200).json({ ok: true });
+  if (klaviyoRes.status !== 202) {
+    const err = await klaviyoRes.text();
+    console.error('Klaviyo error:', klaviyoRes.status, err);
+    return res.status(500).json({ error: 'Subscription failed' });
+  }
 
-  const err = await klaviyoRes.text();
-  console.error('Klaviyo error:', klaviyoRes.status, err);
-  return res.status(500).json({ error: 'Subscription failed' });
+  if (firstName) {
+    await fetch('https://a.klaviyo.com/api/profile-import/', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_PRIVATE_KEY}`,
+        'revision': '2024-10-15',
+        'Content-Type': 'application/vnd.api+json',
+        'Accept': 'application/vnd.api+json',
+      },
+      body: JSON.stringify({
+        data: { type: 'profile', attributes: { email, first_name: firstName } }
+      })
+    }).catch(() => {});
+  }
+
+  return res.status(200).json({ ok: true });
 }
