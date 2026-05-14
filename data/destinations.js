@@ -12,7 +12,33 @@ window.DESTINATIONS = [
     filter: 'europe',
     featured: true,
     desc: 'Don Carlos is tucked into the Andalusian coastline in the iconic Costa del Sol region. Footsteps away you can find endless experiences in Marbella, from exciting nightlife to luxury shopping. Roam through stunning Puerto Banús where you can lounge on a yacht or swim with dolphins to your delight. Reserve your room in Marbella and we\'ll take care of the rest. Because this is Don Carlos and our invite is yours, truly.',
+    descImage: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774909425/699a20cab1118afbb47f0eab_1_pwvnhy.jpg',
     courts: '2 Courts',
+    benefits: [
+      'Preferred member rates on room bookings',
+      'Complimentary room upgrade on arrival',
+      'Early check-in / late check-out',
+      'Daily breakfast for two',
+      '€100 resort credit per stay',
+      'Two hours complimentary court time',
+      'Welcome amenity on arrival',
+      'Dedicated Privé concierge contact',
+    ],
+    accommodations: {
+      headline: 'Rooms & Suites',
+      desc: 'Set across landscaped beachfront gardens, Don Carlos offers rooms and suites designed around the Andalusian light — each with a terrace or balcony. The collection ranges from garden-view Superior rooms to expansive oceanfront suites overlooking the Costa del Sol. Every room is finished with warm Mediterranean materials and direct access to the hotel\'s five pools and private beach.',
+      image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776465438/MVC260041351-Hotel-Don-Carlos-Marbella-Spa-Room-Deluxe-Web_glsvfj.jpg',
+    },
+    dining: {
+      headline: 'Restaurants & Bars',
+      desc: 'Lucía Beach Club serves Mediterranean cuisine at the water\'s edge — the social centre of Don Carlos in summer. Los Naranjos, the terrace restaurant, offers poolside dining through the warmer months. The Lobby Bar runs cocktails and tapas through the evening, while in-room dining is available around the clock.',
+      image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774908213/Lucia_Summer_Club_gizbzz.jpg',
+    },
+    padel: {
+      headline: 'Padel & Wellness',
+      desc: 'Two professional padel courts are available on property and bookable through the concierge — priority access is included with your Privé Passport. The Don Carlos Spa offers a full treatment menu, hydrotherapy circuit, and a dedicated fitness centre. The hotel\'s beachfront position adds direct access to watersports and a private stretch of Costa del Sol coastline.',
+      image: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776465328/9Z2A43622-2_copy_tbfpez.jpg',
+    },
     images: [
       'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1776465328/9Z2A43622-2_copy_tbfpez.jpg',
       'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1774908213/Lucia_Summer_Club_gizbzz.jpg',

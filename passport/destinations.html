@@ -59,28 +59,70 @@
   <link rel="stylesheet" href="/styles/about.css">
   <style>
     /* ── Property Lightbox ─────────────────────────────── */
-    .plb{position:fixed;inset:0;z-index:9999;overflow-y:auto;background:#F5F0E8;visibility:hidden;opacity:0;transform:translateY(24px);transition:opacity 380ms ease,transform 380ms ease,visibility 0s 380ms;}
+    .plb{position:fixed;inset:0;z-index:9999;overflow-y:auto;background:#F5F0E8;visibility:hidden;opacity:0;transform:translateY(20px);transition:opacity 380ms ease,transform 380ms ease,visibility 0s 380ms;}
     .plb.open{visibility:visible;opacity:1;transform:translateY(0);transition:opacity 380ms ease,transform 380ms ease;}
-    .plb-close{position:fixed;top:24px;right:28px;z-index:10000;background:rgba(14,25,35,.55);backdrop-filter:blur(6px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.14em;padding:10px 18px;cursor:pointer;transition:background .2s;}
-    .plb-close:hover{background:rgba(14,25,35,.8);}
-    .plb-hero{position:relative;width:100%;height:75vh;min-height:420px;background-size:cover;background-position:center;}
-    .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.18) 0%,rgba(14,25,35,.65) 100%);}
-    .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:48px 64px;}
-    .plb-hero-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold,#B8976A);margin-bottom:10px;}
-    .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:#F5F0E8;line-height:1.1;}
-    .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;color:rgba(245,240,232,.6);margin-top:8px;}
-    .plb-body{max-width:860px;margin:0 auto;padding:72px 40px 120px;}
-    .plb-courts{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#B8976A);border:1px solid rgba(184,151,106,.35);padding:6px 14px;border-radius:1px;margin-bottom:32px;}
-    .plb-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,1.8vw,22px);font-weight:300;line-height:1.75;color:#2a3540;margin-bottom:56px;}
-    .plb-rule{width:48px;height:1px;background:rgba(184,151,106,.4);margin:0 0 56px;}
-    .plb-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:64px;}
-    .plb-gallery-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
-    .plb-benefits-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(42,53,64,.5);margin-bottom:20px;}
-    .plb-benefits{list-style:none;padding:0;margin:0 0 56px;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;}
-    .plb-benefits li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:#2a3540;padding-left:18px;position:relative;line-height:1.5;}
-    .plb-benefits li::before{content:'—';position:absolute;left:0;color:var(--gold,#B8976A);}
-    .plb-cta{text-align:center;padding-top:16px;}
-    @media(max-width:640px){.plb-hero-foot{padding:32px 24px;}.plb-body{padding:48px 24px 80px;}.plb-gallery{grid-template-columns:repeat(2,1fr);}.plb-benefits{grid-template-columns:1fr;}.plb-close{top:16px;right:16px;}}
+    .plb-close{position:fixed;top:24px;right:28px;z-index:10000;background:rgba(14,25,35,.6);backdrop-filter:blur(8px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.18em;padding:10px 20px;cursor:pointer;transition:background .2s;}
+    .plb-close:hover{background:rgba(14,25,35,.9);}
+
+    /* Hero */
+    .plb-hero{position:relative;width:100%;height:82vh;min-height:480px;background-size:cover;background-position:center;}
+    .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.1) 0%,rgba(14,25,35,.72) 100%);}
+    .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:52px 72px;}
+    .plb-hero-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
+    .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,72px);font-weight:300;color:#F5F0E8;line-height:1.05;}
+    .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;color:rgba(245,240,232,.55);margin-top:10px;}
+
+    /* About section */
+    .plb-about{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .plb-about-text{padding:80px 64px 80px 72px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
+    .plb-about-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:20px;}
+    .plb-about-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,1.7vw,23px);font-weight:300;line-height:1.75;color:#1B2A4A;}
+    .plb-about-courts{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#B8976A;border:1px solid rgba(184,151,106,.4);padding:6px 14px;margin-top:28px;align-self:flex-start;}
+    .plb-about-img{width:100%;height:100%;min-height:480px;object-fit:cover;display:block;}
+
+    /* Benefits */
+    .plb-benefits-section{background:#0E1923;padding:80px 72px;}
+    .plb-benefits-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
+    .plb-benefits-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;color:#F5F0E8;margin:0 0 40px;}
+    .plb-benefits{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;}
+    .plb-benefits li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;letter-spacing:.02em;color:rgba(245,240,232,.75);padding-left:20px;position:relative;line-height:1.5;}
+    .plb-benefits li::before{content:'—';position:absolute;left:0;color:#B8976A;}
+
+    /* Content sections (accommodations, dining, padel) */
+    .plb-section{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .plb-section.reverse{direction:rtl;}
+    .plb-section.reverse>*{direction:ltr;}
+    .plb-section-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
+    .plb-section.alt .plb-section-text{background:#EDE8DF;}
+    .plb-section-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:16px;}
+    .plb-section-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.5vw,36px);font-weight:300;color:#1B2A4A;margin:0 0 20px;line-height:1.15;}
+    .plb-section-desc{font-family:'Jost',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.7);}
+    .plb-section-img{width:100%;height:100%;min-height:420px;object-fit:cover;display:block;}
+
+    /* Photo strip */
+    .plb-strip{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:0;}
+    .plb-strip::-webkit-scrollbar{display:none;}
+    .plb-strip-img{flex:0 0 auto;width:320px;height:220px;object-fit:cover;display:block;}
+
+    /* CTA */
+    .plb-cta-section{background:#0E1923;padding:80px 72px;text-align:center;}
+    .plb-cta-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:16px;}
+    .plb-cta-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,42px);font-weight:300;font-style:italic;color:#F5F0E8;margin:0 0 32px;}
+
+    @media(max-width:768px){
+      .plb-hero-foot{padding:32px 28px;}
+      .plb-about,.plb-section{grid-template-columns:1fr;}
+      .plb-about-text{padding:52px 28px;}
+      .plb-about-img{min-height:280px;height:280px;}
+      .plb-benefits-section{padding:52px 28px;}
+      .plb-benefits{grid-template-columns:1fr;}
+      .plb-section-text{padding:52px 28px;}
+      .plb-section.reverse{direction:ltr;}
+      .plb-section-img{min-height:260px;height:260px;}
+      .plb-strip-img{width:240px;height:160px;}
+      .plb-cta-section{padding:52px 28px;}
+      .plb-close{top:16px;right:16px;}
+    }
   </style>
 </head>
 <body>
@@ -257,6 +299,8 @@
 <!-- ── Property Lightbox ────────────────────────────────── -->
 <div class="plb" id="propLightbox" role="dialog" aria-modal="true" aria-label="Property detail">
   <button class="plb-close" id="plbClose">CLOSE ✕</button>
+
+  <!-- Hero -->
   <div class="plb-hero" id="plbHero">
     <div class="plb-hero-overlay"></div>
     <div class="plb-hero-foot">
@@ -265,16 +309,62 @@
       <div class="plb-hero-loc" id="plbLoc"></div>
     </div>
   </div>
-  <div class="plb-body">
-    <div class="plb-courts" id="plbCourts"></div>
-    <div class="plb-desc" id="plbDesc"></div>
-    <div class="plb-rule"></div>
-    <div class="plb-gallery" id="plbGallery"></div>
-    <div class="plb-benefits-eyebrow">PASSPORT BENEFITS</div>
-    <ul class="plb-benefits" id="plbBenefits"></ul>
-    <div class="plb-cta">
-      <a href="/join.html" class="btn-primary">GET YOUR PASSPORT →</a>
+
+  <!-- About: description + image -->
+  <div class="plb-about">
+    <div class="plb-about-text">
+      <div class="plb-about-eyebrow" id="plbAboutEyebrow"></div>
+      <div class="plb-about-desc" id="plbDesc"></div>
+      <div class="plb-about-courts" id="plbCourts"></div>
     </div>
+    <img class="plb-about-img" id="plbDescImage" src="" alt="">
+  </div>
+
+  <!-- Benefits -->
+  <div class="plb-benefits-section">
+    <div class="plb-benefits-eyebrow">PASSPORT BENEFITS</div>
+    <div class="plb-benefits-headline">What's included<br><em>with your membership.</em></div>
+    <ul class="plb-benefits" id="plbBenefits"></ul>
+  </div>
+
+  <!-- Accommodations -->
+  <div class="plb-section" id="plbAccomSection">
+    <div class="plb-section-text">
+      <div class="plb-section-eyebrow">ACCOMMODATIONS</div>
+      <div class="plb-section-headline" id="plbAccomHeadline"></div>
+      <div class="plb-section-desc" id="plbAccomDesc"></div>
+    </div>
+    <img class="plb-section-img" id="plbAccomImg" src="" alt="">
+  </div>
+
+  <!-- Dining -->
+  <div class="plb-section alt reverse" id="plbDiningSection">
+    <div class="plb-section-text">
+      <div class="plb-section-eyebrow">DINING</div>
+      <div class="plb-section-headline" id="plbDiningHeadline"></div>
+      <div class="plb-section-desc" id="plbDiningDesc"></div>
+    </div>
+    <img class="plb-section-img" id="plbDiningImg" src="" alt="">
+  </div>
+
+  <!-- Padel & Wellness -->
+  <div class="plb-section" id="plbPadelSection">
+    <div class="plb-section-text">
+      <div class="plb-section-eyebrow">PADEL & WELLNESS</div>
+      <div class="plb-section-headline" id="plbPadelHeadline"></div>
+      <div class="plb-section-desc" id="plbPadelDesc"></div>
+    </div>
+    <img class="plb-section-img" id="plbPadelImg" src="" alt="">
+  </div>
+
+  <!-- Photo strip -->
+  <div class="plb-strip" id="plbStrip"></div>
+
+  <!-- CTA -->
+  <div class="plb-cta-section">
+    <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
+    <div class="plb-cta-headline">Stay here. Play here.<br>Every year.</div>
+    <a href="/join.html" class="btn-primary">GET YOUR PASSPORT →</a>
   </div>
 </div>
 
@@ -323,34 +413,65 @@
 <script src="/js/destination-drawer.js" defer></script>
 <script>
 (function() {
-  var lb      = document.getElementById('propLightbox');
+  var lb       = document.getElementById('propLightbox');
   var closeBtn = document.getElementById('plbClose');
 
-  var DEFAULT_BENEFITS = [
-    'Preferred member rates',
-    'Room upgrade on arrival',
-    'Early check-in / late check-out',
-    'Complimentary court time',
-    'Welcome amenity',
-    'Priority booking',
-  ];
+  function set(id, val) { var el = document.getElementById(id); if (el) el.textContent = val || ''; }
+  function setImg(id, src, alt) { var el = document.getElementById(id); if (el) { el.src = src || ''; el.alt = alt || ''; } }
 
   window.openPropertyLightbox = function(d) {
-    document.getElementById('plbEyebrow').textContent = d.region || '';
-    document.getElementById('plbName').textContent    = d.name || '';
-    document.getElementById('plbLoc').textContent     = d.loc || '';
+    // Hero
+    set('plbEyebrow', d.region);
+    set('plbName', d.name);
+    set('plbLoc', d.loc);
     document.getElementById('plbHero').style.backgroundImage = 'url(' + d.image + ')';
-    document.getElementById('plbCourts').textContent  = d.courts || '';
-    document.getElementById('plbDesc').textContent    = d.desc || '';
 
-    var gallery = document.getElementById('plbGallery');
-    gallery.innerHTML = (d.images || []).map(function(u) {
-      return '<img class="plb-gallery-img" src="' + u + '" loading="lazy" alt="">';
-    }).join('');
+    // About
+    set('plbAboutEyebrow', d.region);
+    set('plbDesc', d.desc);
+    set('plbCourts', d.courts);
+    setImg('plbDescImage', d.descImage || (d.images && d.images[0]), d.name);
 
-    var benefits = d.benefits && d.benefits.length ? d.benefits : DEFAULT_BENEFITS;
+    // Benefits
+    var benefits = d.benefits || [];
     document.getElementById('plbBenefits').innerHTML = benefits.map(function(b) {
       return '<li>' + b + '</li>';
+    }).join('');
+
+    // Accommodations
+    if (d.accommodations) {
+      set('plbAccomHeadline', d.accommodations.headline);
+      set('plbAccomDesc', d.accommodations.desc);
+      setImg('plbAccomImg', d.accommodations.image, d.accommodations.headline);
+      document.getElementById('plbAccomSection').style.display = '';
+    } else {
+      document.getElementById('plbAccomSection').style.display = 'none';
+    }
+
+    // Dining
+    if (d.dining) {
+      set('plbDiningHeadline', d.dining.headline);
+      set('plbDiningDesc', d.dining.desc);
+      setImg('plbDiningImg', d.dining.image, d.dining.headline);
+      document.getElementById('plbDiningSection').style.display = '';
+    } else {
+      document.getElementById('plbDiningSection').style.display = 'none';
+    }
+
+    // Padel & Wellness
+    if (d.padel) {
+      set('plbPadelHeadline', d.padel.headline);
+      set('plbPadelDesc', d.padel.desc);
+      setImg('plbPadelImg', d.padel.image, d.padel.headline);
+      document.getElementById('plbPadelSection').style.display = '';
+    } else {
+      document.getElementById('plbPadelSection').style.display = 'none';
+    }
+
+    // Photo strip
+    var strip = document.getElementById('plbStrip');
+    strip.innerHTML = (d.images || []).map(function(u) {
+      return '<img class="plb-strip-img" src="' + u + '" loading="lazy" alt="">';
     }).join('');
 
     lb.scrollTop = 0;
