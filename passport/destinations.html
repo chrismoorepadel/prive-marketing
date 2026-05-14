@@ -57,6 +57,31 @@
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/passport-sub.css">
   <link rel="stylesheet" href="/styles/about.css">
+  <style>
+    /* ── Property Lightbox ─────────────────────────────── */
+    .plb{position:fixed;inset:0;z-index:9999;overflow-y:auto;background:#F5F0E8;visibility:hidden;opacity:0;transform:translateY(24px);transition:opacity 380ms ease,transform 380ms ease,visibility 0s 380ms;}
+    .plb.open{visibility:visible;opacity:1;transform:translateY(0);transition:opacity 380ms ease,transform 380ms ease;}
+    .plb-close{position:fixed;top:24px;right:28px;z-index:10000;background:rgba(14,25,35,.55);backdrop-filter:blur(6px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.14em;padding:10px 18px;cursor:pointer;transition:background .2s;}
+    .plb-close:hover{background:rgba(14,25,35,.8);}
+    .plb-hero{position:relative;width:100%;height:75vh;min-height:420px;background-size:cover;background-position:center;}
+    .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.18) 0%,rgba(14,25,35,.65) 100%);}
+    .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:48px 64px;}
+    .plb-hero-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold,#B8976A);margin-bottom:10px;}
+    .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:#F5F0E8;line-height:1.1;}
+    .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;color:rgba(245,240,232,.6);margin-top:8px;}
+    .plb-body{max-width:860px;margin:0 auto;padding:72px 40px 120px;}
+    .plb-courts{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#B8976A);border:1px solid rgba(184,151,106,.35);padding:6px 14px;border-radius:1px;margin-bottom:32px;}
+    .plb-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,1.8vw,22px);font-weight:300;line-height:1.75;color:#2a3540;margin-bottom:56px;}
+    .plb-rule{width:48px;height:1px;background:rgba(184,151,106,.4);margin:0 0 56px;}
+    .plb-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:64px;}
+    .plb-gallery-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+    .plb-benefits-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(42,53,64,.5);margin-bottom:20px;}
+    .plb-benefits{list-style:none;padding:0;margin:0 0 56px;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;}
+    .plb-benefits li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:#2a3540;padding-left:18px;position:relative;line-height:1.5;}
+    .plb-benefits li::before{content:'—';position:absolute;left:0;color:var(--gold,#B8976A);}
+    .plb-cta{text-align:center;padding-top:16px;}
+    @media(max-width:640px){.plb-hero-foot{padding:32px 24px;}.plb-body{padding:48px 24px 80px;}.plb-gallery{grid-template-columns:repeat(2,1fr);}.plb-benefits{grid-template-columns:1fr;}.plb-close{top:16px;right:16px;}}
+  </style>
 </head>
 <body>
 <nav id="mainNav">
@@ -229,6 +254,30 @@
     <div class="footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
   </div>
 </footer>
+<!-- ── Property Lightbox ────────────────────────────────── -->
+<div class="plb" id="propLightbox" role="dialog" aria-modal="true" aria-label="Property detail">
+  <button class="plb-close" id="plbClose">CLOSE ✕</button>
+  <div class="plb-hero" id="plbHero">
+    <div class="plb-hero-overlay"></div>
+    <div class="plb-hero-foot">
+      <div class="plb-hero-eyebrow" id="plbEyebrow"></div>
+      <div class="plb-hero-name" id="plbName"></div>
+      <div class="plb-hero-loc" id="plbLoc"></div>
+    </div>
+  </div>
+  <div class="plb-body">
+    <div class="plb-courts" id="plbCourts"></div>
+    <div class="plb-desc" id="plbDesc"></div>
+    <div class="plb-rule"></div>
+    <div class="plb-gallery" id="plbGallery"></div>
+    <div class="plb-benefits-eyebrow">PASSPORT BENEFITS</div>
+    <ul class="plb-benefits" id="plbBenefits"></ul>
+    <div class="plb-cta">
+      <a href="/join.html" class="btn-primary">GET YOUR PASSPORT →</a>
+    </div>
+  </div>
+</div>
+
 <script src="/js/main.js" defer></script>
 <script src="/data/destinations.js?v=2"></script>
 <script>
@@ -261,7 +310,10 @@
         '<div class="portfolio-card-name">' + d.name + '</div>' +
         '<div class="portfolio-card-loc">' + (d.courts || '') + '</div>' +
       '</div>';
-    card.addEventListener('click', function(){ window.openDestDrawer(d.id); });
+    card.addEventListener('click', function(){
+      if (d.id === 'don-carlos-marbella') { window.openPropertyLightbox(d); }
+      else { window.openDestDrawer(d.id); }
+    });
     grid.appendChild(card);
     if (observer) { observer.observe(card); }
     else { var bg = card.querySelector('.portfolio-card-bg'); if (bg) bg.style.backgroundImage = 'url(' + d.image + ')'; }
@@ -269,5 +321,53 @@
 })();
 </script>
 <script src="/js/destination-drawer.js" defer></script>
+<script>
+(function() {
+  var lb      = document.getElementById('propLightbox');
+  var closeBtn = document.getElementById('plbClose');
+
+  var DEFAULT_BENEFITS = [
+    'Preferred member rates',
+    'Room upgrade on arrival',
+    'Early check-in / late check-out',
+    'Complimentary court time',
+    'Welcome amenity',
+    'Priority booking',
+  ];
+
+  window.openPropertyLightbox = function(d) {
+    document.getElementById('plbEyebrow').textContent = d.region || '';
+    document.getElementById('plbName').textContent    = d.name || '';
+    document.getElementById('plbLoc').textContent     = d.loc || '';
+    document.getElementById('plbHero').style.backgroundImage = 'url(' + d.image + ')';
+    document.getElementById('plbCourts').textContent  = d.courts || '';
+    document.getElementById('plbDesc').textContent    = d.desc || '';
+
+    var gallery = document.getElementById('plbGallery');
+    gallery.innerHTML = (d.images || []).map(function(u) {
+      return '<img class="plb-gallery-img" src="' + u + '" loading="lazy" alt="">';
+    }).join('');
+
+    var benefits = d.benefits && d.benefits.length ? d.benefits : DEFAULT_BENEFITS;
+    document.getElementById('plbBenefits').innerHTML = benefits.map(function(b) {
+      return '<li>' + b + '</li>';
+    }).join('');
+
+    lb.scrollTop = 0;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+  });
+})();
+</script>
 </body>
 </html>
