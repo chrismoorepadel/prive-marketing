@@ -477,6 +477,10 @@
 <script src="/js/main.js" defer></script>
 <script src="/data/destinations.js?v=2"></script>
 <script>
+function clUrl(src, w) {
+  if (!src || !src.includes('res.cloudinary.com')) return src;
+  return src.replace('/upload/', '/upload/w_' + w + ',');
+}
 // Build full network grid with lazy-loaded card backgrounds
 (function() {
   var grid = document.getElementById('networkGrid');
@@ -508,6 +512,12 @@
       '</div>';
     card.addEventListener('click', function(){
       window.openPropertyLightbox(d);
+    });
+    card.addEventListener('mouseenter', function() {
+      var h = d.heroImg || d.image;
+      if (h) { (new Image()).src = clUrl(h, 1400); }
+      var a = d.img2 || (d.images && d.images[0]);
+      if (a) { (new Image()).src = clUrl(a, 800); }
     });
     grid.appendChild(card);
     if (observer) { observer.observe(card); }
@@ -576,7 +586,7 @@
 
   window.openPropertyLightbox = function(d) {
     // Hero
-    document.getElementById('plbHero').style.backgroundImage = 'url(' + (d.heroImg || d.image) + ')';
+    document.getElementById('plbHero').style.backgroundImage = 'url(' + clUrl(d.heroImg || d.image, 1400) + ')';
     document.getElementById('plbCollection').textContent = d.collection || '';
     document.getElementById('plbName').textContent = d.name || '';
     document.getElementById('plbLoc').textContent = d.loc || '';
@@ -589,7 +599,7 @@
     document.getElementById('plbAboutHeading').textContent = d.name || '';
     document.getElementById('plbAboutBody').textContent = d.about || d.desc || '';
     var aboutImg = document.getElementById('plbAboutImg');
-    aboutImg.src = d.img2 || (d.images && d.images[0]) || '';
+    aboutImg.src = clUrl(d.img2 || (d.images && d.images[0]) || '', 800);
     aboutImg.alt = d.name || '';
 
     // Benefits
@@ -607,7 +617,7 @@
     if (d.amenities && d.amenities.length) {
       aGrid.innerHTML = d.amenities.map(function(a) {
         return '<div class="plb-amenity-card">' +
-          '<img loading="lazy" src="' + a.img + '" alt="' + a.name + '">' +
+          '<img loading="lazy" src="' + clUrl(a.img, 600) + '" alt="' + a.name + '">' +
           '<div class="plb-amenity-overlay">' +
             '<div class="plb-amenity-name">' + a.name + '</div>' +
             '<div class="plb-amenity-desc">' + a.desc + '</div>' +
@@ -626,7 +636,7 @@
         d.accommodations.map(function(a, i) {
           var flip = i % 2 === 1 ? ' flip' : '';
           return '<div class="plb-accom-item' + flip + '">' +
-            '<div class="plb-accom-img-wrap"><img loading="lazy" src="' + a.img + '" alt="' + a.title + '"></div>' +
+            '<div class="plb-accom-img-wrap"><img loading="lazy" src="' + clUrl(a.img, 900) + '" alt="' + a.title + '"></div>' +
             '<div class="plb-accom-content">' +
               '<div class="plb-accom-tag">' + a.num + '</div>' +
               '<div class="plb-accom-title">' + a.title + '</div>' +
@@ -647,7 +657,7 @@
       _dineIdx = 0;
       track.innerHTML = d.restaurants.map(function(r) {
         return '<div class="plb-dining-card">' +
-          '<img class="plb-dining-img" loading="lazy" src="' + r.img + '" alt="' + r.name + '">' +
+          '<img class="plb-dining-img" loading="lazy" src="' + clUrl(r.img, 800) + '" alt="' + r.name + '">' +
           '<div class="plb-dining-body">' +
             '<div class="plb-dining-name">' + r.name + '</div>' +
             '<div class="plb-dining-desc">' + r.desc + '</div>' +
@@ -674,8 +684,8 @@
       }).join('');
       var imgs = w.imgs || [];
       document.getElementById('plbWellnessImgs').innerHTML = imgs.map(function(src, i) {
-        if (i === 0) return '<div class="plb-wellness-img-tall"><img loading="lazy" src="' + src + '" alt=""></div>';
-        return '<div><img loading="lazy" src="' + src + '" alt=""></div>';
+        if (i === 0) return '<div class="plb-wellness-img-tall"><img loading="lazy" src="' + clUrl(src, 800) + '" alt=""></div>';
+        return '<div><img loading="lazy" src="' + clUrl(src, 800) + '" alt=""></div>';
       }).join('');
       wellWrap.style.display = '';
     } else {
@@ -684,7 +694,7 @@
 
     // Photo strip
     document.getElementById('plbStrip').innerHTML = (d.photoStrip || d.images || []).map(function(src) {
-      return '<div class="plb-strip-item"><img loading="lazy" src="' + src + '" alt=""></div>';
+      return '<div class="plb-strip-item"><img loading="lazy" src="' + clUrl(src, 900) + '" alt=""></div>';
     }).join('');
 
     panel.scrollTop = 0;
