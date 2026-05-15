@@ -479,7 +479,10 @@
 <script>
 function clUrl(src, w) {
   if (!src || !src.includes('res.cloudinary.com')) return src;
-  return src.replace('/upload/', '/upload/w_' + w + ',');
+  return src.replace('/upload/', function() {
+    var after = src.split('/upload/')[1] || '';
+    return /^v\d+\//.test(after) ? '/upload/w_' + w + '/' : '/upload/w_' + w + ',';
+  });
 }
 // Build full network grid with lazy-loaded card backgrounds
 (function() {
