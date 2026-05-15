@@ -507,8 +507,7 @@
         '<div class="portfolio-card-loc">' + (d.courts || '') + '</div>' +
       '</div>';
     card.addEventListener('click', function(){
-      if (d.id === 'don-carlos-marbella') { window.openPropertyLightbox(d); }
-      else { window.openDestDrawer(d.id); }
+      window.openPropertyLightbox(d);
     });
     grid.appendChild(card);
     if (observer) { observer.observe(card); }
@@ -684,7 +683,7 @@
     }
 
     // Photo strip
-    document.getElementById('plbStrip').innerHTML = (d.photoStrip || []).map(function(src) {
+    document.getElementById('plbStrip').innerHTML = (d.photoStrip || d.images || []).map(function(src) {
       return '<div class="plb-strip-item"><img loading="lazy" src="' + src + '" alt=""></div>';
     }).join('');
 
