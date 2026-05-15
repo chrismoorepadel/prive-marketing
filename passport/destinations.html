@@ -59,69 +59,132 @@
   <link rel="stylesheet" href="/styles/about.css">
   <style>
     /* ── Property Lightbox ─────────────────────────────── */
-    .plb{position:fixed;inset:0;z-index:9999;overflow-y:auto;background:#F5F0E8;visibility:hidden;opacity:0;transform:translateY(20px);transition:opacity 380ms ease,transform 380ms ease,visibility 0s 380ms;}
-    .plb.open{visibility:visible;opacity:1;transform:translateY(0);transition:opacity 380ms ease,transform 380ms ease;}
-    .plb-close{position:fixed;top:24px;right:28px;z-index:10000;background:rgba(14,25,35,.6);backdrop-filter:blur(8px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.18em;padding:10px 20px;cursor:pointer;transition:background .2s;}
+    .plb{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;}
+    .plb.open{visibility:visible;pointer-events:auto;}
+    .plb-backdrop{position:absolute;inset:0;background:rgba(14,25,35,.78);backdrop-filter:blur(4px);opacity:0;transition:opacity 380ms ease;}
+    .plb.open .plb-backdrop{opacity:1;}
+    .plb-panel{position:relative;z-index:1;width:92%;max-width:1080px;height:90vh;overflow-y:auto;background:#F5F0E8;opacity:0;transform:translateY(16px);transition:opacity 380ms ease,transform 380ms ease;scrollbar-width:thin;scrollbar-color:rgba(184,151,106,.3) transparent;}
+    .plb.open .plb-panel{opacity:1;transform:translateY(0);}
+    .plb-panel::-webkit-scrollbar{width:4px;}
+    .plb-panel::-webkit-scrollbar-thumb{background:rgba(184,151,106,.35);border-radius:2px;}
+    .plb-close{position:absolute;top:20px;right:20px;z-index:10;background:rgba(14,25,35,.65);backdrop-filter:blur(6px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.16em;padding:9px 18px;cursor:pointer;transition:background .2s;}
     .plb-close:hover{background:rgba(14,25,35,.9);}
 
     /* Hero */
-    .plb-hero{position:relative;width:100%;height:82vh;min-height:480px;background-size:cover;background-position:center;}
-    .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.1) 0%,rgba(14,25,35,.72) 100%);}
-    .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:52px 72px;}
-    .plb-hero-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
-    .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,72px);font-weight:300;color:#F5F0E8;line-height:1.05;}
-    .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;color:rgba(245,240,232,.55);margin-top:10px;}
+    .plb-hero{position:relative;height:52vh;min-height:320px;background-size:cover;background-position:center;}
+    .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.08) 0%,rgba(14,25,35,.7) 100%);}
+    .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:40px 52px;}
+    .plb-hero-collection{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:8px;}
+    .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);font-weight:300;color:#F5F0E8;line-height:1.05;}
+    .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.08em;color:rgba(245,240,232,.5);margin-top:8px;}
+    .plb-hero-pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+    .plb-hero-pill{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.65);display:flex;align-items:center;gap:6px;}
+    .plb-hero-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:#B8976A;display:block;}
 
-    /* About section */
-    .plb-about{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-    .plb-about-text{padding:80px 64px 80px 72px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
-    .plb-about-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:20px;}
-    .plb-about-desc{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,1.7vw,23px);font-weight:300;line-height:1.75;color:#1B2A4A;}
-    .plb-about-courts{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#B8976A;border:1px solid rgba(184,151,106,.4);padding:6px 14px;margin-top:28px;align-self:flex-start;}
-    .plb-about-img{width:100%;height:100%;min-height:480px;object-fit:cover;display:block;}
+    /* About */
+    .plb-about{display:grid;grid-template-columns:1fr 1fr;}
+    .plb-about-text{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
+    .plb-section-label{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+    .plb-section-label-rule{flex:1;height:1px;background:rgba(27,42,74,.12);}
+    .plb-section-label-text{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(27,42,74,.45);white-space:nowrap;}
+    .plb-about-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
+    .plb-about-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;font-style:italic;color:#1B2A4A;margin:0 0 20px;line-height:1.2;}
+    .plb-about-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.85;color:rgba(27,42,74,.7);}
+    .plb-about-img{width:100%;height:100%;min-height:400px;object-fit:cover;display:block;}
 
     /* Benefits */
-    .plb-benefits-section{background:#0E1923;padding:80px 72px;}
-    .plb-benefits-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
-    .plb-benefits-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;color:#F5F0E8;margin:0 0 40px;}
-    .plb-benefits{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;}
-    .plb-benefits li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;letter-spacing:.02em;color:rgba(245,240,232,.75);padding-left:20px;position:relative;line-height:1.5;}
-    .plb-benefits li::before{content:'—';position:absolute;left:0;color:#B8976A;}
+    .plb-benefits-wrap{background:#0E1923;padding:60px 52px;}
+    .plb-benefits-bar-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:32px;}
+    .plb-benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+    .plb-benefit-cell{display:flex;flex-direction:column;gap:6px;}
+    .plb-benefit-icon{width:26px;height:26px;margin-bottom:4px;flex-shrink:0;}
+    .plb-benefit-name{font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.08em;color:#F5F0E8;}
+    .plb-benefit-detail{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(245,240,232,.45);line-height:1.4;}
 
-    /* Content sections (accommodations, dining, padel) */
-    .plb-section{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-    .plb-section.reverse{direction:rtl;}
-    .plb-section.reverse>*{direction:ltr;}
-    .plb-section-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
-    .plb-section.alt .plb-section-text{background:#EDE8DF;}
-    .plb-section-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:16px;}
-    .plb-section-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.5vw,36px);font-weight:300;color:#1B2A4A;margin:0 0 20px;line-height:1.15;}
-    .plb-section-desc{font-family:'Jost',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.7);}
-    .plb-section-img{width:100%;height:100%;min-height:420px;object-fit:cover;display:block;}
+    /* Amenities */
+    .plb-amenities-wrap{padding:60px 52px;background:#F5F0E8;}
+    .plb-amenities-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;color:#1B2A4A;margin:16px 0 32px;}
+    .plb-amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+    .plb-amenity-card{position:relative;overflow:hidden;aspect-ratio:4/3;}
+    .plb-amenity-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+    .plb-amenity-card:hover img{transform:scale(1.04);}
+    .plb-amenity-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,25,35,.82) 0%,transparent 55%);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;}
+    .plb-amenity-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#F5F0E8;margin-bottom:6px;}
+    .plb-amenity-desc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(245,240,232,.65);line-height:1.55;display:none;}
+    .plb-amenity-card:hover .plb-amenity-desc{display:block;}
+
+    /* Accommodations */
+    .plb-accom-wrap{padding:60px 52px;background:#EDE8DF;}
+    .plb-accom-item{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:3px;}
+    .plb-accom-item.flip .plb-accom-img-wrap{order:2;}
+    .plb-accom-item.flip .plb-accom-content{order:1;}
+    .plb-accom-img-wrap{overflow:hidden;}
+    .plb-accom-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+    .plb-accom-content{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
+    .plb-accom-tag{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(27,42,74,.4);margin-bottom:8px;}
+    .plb-accom-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,28px);font-weight:300;color:#1B2A4A;margin:0 0 14px;line-height:1.2;}
+    .plb-accom-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.65);}
+
+    /* Dining */
+    .plb-dining-wrap{padding:60px 52px;background:#0E1923;}
+    .plb-dining-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;}
+    .plb-dining-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);font-weight:300;color:#F5F0E8;line-height:1.15;}
+    .plb-dining-title em{font-style:italic;}
+    .plb-dining-count{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(245,240,232,.4);}
+    .plb-dining-controls{display:flex;align-items:center;gap:12px;}
+    .plb-slider-btn{background:none;border:1px solid rgba(245,240,232,.2);border-radius:1px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#F5F0E8;transition:border-color .2s;}
+    .plb-slider-btn:hover{border-color:rgba(245,240,232,.5);}
+    .plb-slider-btn:disabled{opacity:.3;cursor:default;}
+    .plb-slider-btn svg{width:12px;height:12px;stroke:#F5F0E8;stroke-width:1.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+    .plb-dining-counter{font-family:'Jost',sans-serif;font-size:11px;color:rgba(245,240,232,.4);}
+    .plb-dining-viewport{overflow:hidden;}
+    .plb-dining-track{display:flex;gap:2px;transition:transform 340ms ease;}
+    .plb-dining-card{flex:0 0 calc(50% - 1px);background:#152230;}
+    .plb-dining-img{width:100%;height:200px;object-fit:cover;display:block;}
+    .plb-dining-body{padding:24px 28px;}
+    .plb-dining-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#F5F0E8;margin-bottom:8px;}
+    .plb-dining-desc{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;line-height:1.7;color:rgba(245,240,232,.55);}
+    .plb-dining-progress{height:1px;background:rgba(245,240,232,.1);margin-top:20px;position:relative;}
+    .plb-dining-fill{height:100%;background:#B8976A;transition:width 340ms ease;}
+
+    /* Sport & Wellness */
+    .plb-wellness-wrap{padding:60px 52px;background:#F5F0E8;}
+    .plb-wellness-panel{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+    .plb-wellness-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;color:#1B2A4A;margin:12px 0 16px;}
+    .plb-wellness-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.65);margin-bottom:24px;}
+    .plb-wellness-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(27,42,74,.1);}
+    .plb-wellness-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(27,42,74,.1);}
+    .plb-wellness-name{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;color:#1B2A4A;}
+    .plb-wellness-badge{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(27,42,74,.5);text-align:right;}
+    .plb-wellness-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+    .plb-wellness-img-tall{grid-row:span 2;}
+    .plb-wellness-imgs img{width:100%;height:160px;object-fit:cover;display:block;}
+    .plb-wellness-img-tall img{height:323px;}
 
     /* Photo strip */
-    .plb-strip{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:0;}
-    .plb-strip::-webkit-scrollbar{display:none;}
-    .plb-strip-img{flex:0 0 auto;width:320px;height:220px;object-fit:cover;display:block;}
+    .plb-strip{display:flex;gap:3px;overflow:hidden;}
+    .plb-strip-item{flex:1;overflow:hidden;}
+    .plb-strip-item img{width:100%;height:180px;object-fit:cover;display:block;}
 
     /* CTA */
-    .plb-cta-section{background:#0E1923;padding:80px 72px;text-align:center;}
-    .plb-cta-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#B8976A;margin-bottom:16px;}
-    .plb-cta-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,42px);font-weight:300;font-style:italic;color:#F5F0E8;margin:0 0 32px;}
+    .plb-cta-wrap{background:#0E1923;padding:52px;text-align:center;}
+    .plb-cta-eyebrow{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
+    .plb-cta-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);font-weight:300;font-style:italic;color:#F5F0E8;margin:0 0 28px;}
 
-    @media(max-width:768px){
-      .plb-hero-foot{padding:32px 28px;}
-      .plb-about,.plb-section{grid-template-columns:1fr;}
-      .plb-about-text{padding:52px 28px;}
-      .plb-about-img{min-height:280px;height:280px;}
-      .plb-benefits-section{padding:52px 28px;}
-      .plb-benefits{grid-template-columns:1fr;}
-      .plb-section-text{padding:52px 28px;}
-      .plb-section.reverse{direction:ltr;}
-      .plb-section-img{min-height:260px;height:260px;}
-      .plb-strip-img{width:240px;height:160px;}
-      .plb-cta-section{padding:52px 28px;}
-      .plb-close{top:16px;right:16px;}
+    @media(max-width:700px){
+      .plb-panel{width:100%;height:100vh;max-width:100%;}
+      .plb-about,.plb-wellness-panel{grid-template-columns:1fr;}
+      .plb-about-img{min-height:240px;height:240px;}
+      .plb-benefits-grid{grid-template-columns:1fr 1fr;}
+      .plb-amenities-grid{grid-template-columns:1fr 1fr;}
+      .plb-accom-item,.plb-accom-item.flip{grid-template-columns:1fr;}
+      .plb-accom-item.flip .plb-accom-img-wrap,.plb-accom-item.flip .plb-accom-content{order:unset;}
+      .plb-dining-card{flex:0 0 85%;}
+      .plb-wellness-imgs{grid-template-columns:1fr;}
+      .plb-wellness-img-tall{grid-row:span 1;}
+      .plb-wellness-img-tall img{height:180px;}
+      .plb-about-text,.plb-benefits-wrap,.plb-amenities-wrap,.plb-accom-wrap,.plb-accom-content,.plb-dining-wrap,.plb-wellness-wrap,.plb-cta-wrap{padding-left:24px;padding-right:24px;}
+      .plb-hero-foot{padding:28px 24px;}
     }
   </style>
 </head>
@@ -298,74 +361,102 @@
 </footer>
 <!-- ── Property Lightbox ────────────────────────────────── -->
 <div class="plb" id="propLightbox" role="dialog" aria-modal="true" aria-label="Property detail">
-  <button class="plb-close" id="plbClose">CLOSE ✕</button>
+  <div class="plb-backdrop" id="plbBackdrop"></div>
+  <div class="plb-panel" id="plbPanel">
+    <button class="plb-close" id="plbClose">CLOSE ✕</button>
 
-  <!-- Hero -->
-  <div class="plb-hero" id="plbHero">
-    <div class="plb-hero-overlay"></div>
-    <div class="plb-hero-foot">
-      <div class="plb-hero-eyebrow" id="plbEyebrow"></div>
-      <div class="plb-hero-name" id="plbName"></div>
-      <div class="plb-hero-loc" id="plbLoc"></div>
+    <!-- Hero -->
+    <div class="plb-hero" id="plbHero">
+      <div class="plb-hero-overlay"></div>
+      <div class="plb-hero-foot">
+        <div class="plb-hero-collection" id="plbCollection"></div>
+        <div class="plb-hero-name" id="plbName"></div>
+        <div class="plb-hero-loc" id="plbLoc"></div>
+        <div class="plb-hero-pills" id="plbPills"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- About: description + image -->
-  <div class="plb-about">
-    <div class="plb-about-text">
-      <div class="plb-about-eyebrow" id="plbAboutEyebrow"></div>
-      <div class="plb-about-desc" id="plbDesc"></div>
-      <div class="plb-about-courts" id="plbCourts"></div>
+    <!-- About -->
+    <div class="plb-about">
+      <div class="plb-about-text">
+        <div class="plb-about-label" id="plbAboutLabel"></div>
+        <div class="plb-about-heading" id="plbAboutHeading"></div>
+        <div class="plb-about-body" id="plbAboutBody"></div>
+      </div>
+      <img class="plb-about-img" id="plbAboutImg" src="" alt="">
     </div>
-    <img class="plb-about-img" id="plbDescImage" src="" alt="">
-  </div>
 
-  <!-- Benefits -->
-  <div class="plb-benefits-section">
-    <div class="plb-benefits-eyebrow">PASSPORT BENEFITS</div>
-    <div class="plb-benefits-headline">What's included<br><em>with your membership.</em></div>
-    <ul class="plb-benefits" id="plbBenefits"></ul>
-  </div>
-
-  <!-- Accommodations -->
-  <div class="plb-section" id="plbAccomSection">
-    <div class="plb-section-text">
-      <div class="plb-section-eyebrow">ACCOMMODATIONS</div>
-      <div class="plb-section-headline" id="plbAccomHeadline"></div>
-      <div class="plb-section-desc" id="plbAccomDesc"></div>
+    <!-- Benefits -->
+    <div class="plb-benefits-wrap" id="plbBenefitsWrap">
+      <div class="plb-benefits-bar-label">PASSPORT MEMBER BENEFITS</div>
+      <div class="plb-benefits-grid" id="plbBenefitsGrid"></div>
     </div>
-    <img class="plb-section-img" id="plbAccomImg" src="" alt="">
-  </div>
 
-  <!-- Dining -->
-  <div class="plb-section alt reverse" id="plbDiningSection">
-    <div class="plb-section-text">
-      <div class="plb-section-eyebrow">DINING</div>
-      <div class="plb-section-headline" id="plbDiningHeadline"></div>
-      <div class="plb-section-desc" id="plbDiningDesc"></div>
+    <!-- Amenities -->
+    <div class="plb-amenities-wrap" id="plbAmenitiesWrap">
+      <div class="plb-section-label">
+        <span class="plb-section-label-text">MEMBERS ENJOY</span>
+        <span class="plb-section-label-rule"></span>
+      </div>
+      <h3 class="plb-amenities-heading">The property,<br><em>explored.</em></h3>
+      <div class="plb-amenities-grid" id="plbAmenitiesGrid"></div>
     </div>
-    <img class="plb-section-img" id="plbDiningImg" src="" alt="">
-  </div>
 
-  <!-- Padel & Wellness -->
-  <div class="plb-section" id="plbPadelSection">
-    <div class="plb-section-text">
-      <div class="plb-section-eyebrow">PADEL & WELLNESS</div>
-      <div class="plb-section-headline" id="plbPadelHeadline"></div>
-      <div class="plb-section-desc" id="plbPadelDesc"></div>
+    <!-- Accommodations -->
+    <div class="plb-accom-wrap" id="plbAccomWrap"></div>
+
+    <!-- Dining -->
+    <div class="plb-dining-wrap" id="plbDiningWrap">
+      <div class="plb-dining-header">
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:10px;">DINING</div>
+          <div class="plb-dining-title">Where every <em>meal matters.</em></div>
+        </div>
+        <div class="plb-dining-controls">
+          <button class="plb-slider-btn" id="plbDinePrev" aria-label="Previous">
+            <svg viewBox="0 0 12 12"><polyline points="8 2 4 6 8 10"/></svg>
+          </button>
+          <span class="plb-dining-counter" id="plbDineCounter">1 / 4</span>
+          <button class="plb-slider-btn" id="plbDineNext" aria-label="Next">
+            <svg viewBox="0 0 12 12"><polyline points="4 2 8 6 4 10"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="plb-dining-viewport">
+        <div class="plb-dining-track" id="plbDineTrack"></div>
+      </div>
+      <div class="plb-dining-progress">
+        <div class="plb-dining-fill" id="plbDineFill"></div>
+      </div>
     </div>
-    <img class="plb-section-img" id="plbPadelImg" src="" alt="">
-  </div>
 
-  <!-- Photo strip -->
-  <div class="plb-strip" id="plbStrip"></div>
+    <!-- Sport & Wellness -->
+    <div class="plb-wellness-wrap" id="plbWellnessWrap">
+      <div class="plb-section-label">
+        <span class="plb-section-label-text">SPORT & WELLNESS</span>
+        <span class="plb-section-label-rule"></span>
+      </div>
+      <div class="plb-wellness-panel">
+        <div>
+          <div class="plb-wellness-title" id="plbWellnessTitle"></div>
+          <div class="plb-wellness-body" id="plbWellnessBody"></div>
+          <div class="plb-wellness-list" id="plbWellnessList"></div>
+        </div>
+        <div class="plb-wellness-imgs" id="plbWellnessImgs"></div>
+      </div>
+    </div>
 
-  <!-- CTA -->
-  <div class="plb-cta-section">
-    <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
-    <div class="plb-cta-headline">Stay here. Play here.<br>Every year.</div>
-    <a href="/join.html" class="btn-primary">GET YOUR PASSPORT →</a>
-  </div>
+    <!-- Photo strip -->
+    <div class="plb-strip" id="plbStrip"></div>
+
+    <!-- CTA -->
+    <div class="plb-cta-wrap">
+      <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
+      <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
+      <a href="/join.html" class="btn-primary" style="margin-top:28px;display:inline-block;">GET YOUR PASSPORT →</a>
+    </div>
+
+  </div><!-- /plb-panel -->
 </div>
 
 <script src="/js/main.js" defer></script>
@@ -414,67 +505,149 @@
 <script>
 (function() {
   var lb       = document.getElementById('propLightbox');
+  var panel    = document.getElementById('plbPanel');
+  var backdrop = document.getElementById('plbBackdrop');
   var closeBtn = document.getElementById('plbClose');
 
-  function set(id, val) { var el = document.getElementById(id); if (el) el.textContent = val || ''; }
-  function setImg(id, src, alt) { var el = document.getElementById(id); if (el) { el.src = src || ''; el.alt = alt || ''; } }
+  var _dineItems = [], _dineIdx = 0;
+
+  function updateDineSlider() {
+    var track   = document.getElementById('plbDineTrack');
+    var counter = document.getElementById('plbDineCounter');
+    var fill    = document.getElementById('plbDineFill');
+    var prev    = document.getElementById('plbDinePrev');
+    var next    = document.getElementById('plbDineNext');
+    if (!track) return;
+    var perPage = window.innerWidth < 700 ? 1 : 2;
+    var cardW   = 100 / perPage;
+    track.style.transform = 'translateX(-' + (_dineIdx * cardW) + '%)';
+    counter.textContent = (_dineIdx + 1) + ' / ' + _dineItems.length;
+    fill.style.width = ((_dineIdx + 1) / _dineItems.length * 100) + '%';
+    prev.disabled = _dineIdx === 0;
+    next.disabled = _dineIdx >= _dineItems.length - perPage;
+  }
+
+  document.getElementById('plbDinePrev').addEventListener('click', function() {
+    if (_dineIdx > 0) { _dineIdx--; updateDineSlider(); }
+  });
+  document.getElementById('plbDineNext').addEventListener('click', function() {
+    var perPage = window.innerWidth < 700 ? 1 : 2;
+    if (_dineIdx < _dineItems.length - perPage) { _dineIdx++; updateDineSlider(); }
+  });
 
   window.openPropertyLightbox = function(d) {
     // Hero
-    set('plbEyebrow', d.region);
-    set('plbName', d.name);
-    set('plbLoc', d.loc);
-    document.getElementById('plbHero').style.backgroundImage = 'url(' + d.image + ')';
-
-    // About
-    set('plbAboutEyebrow', d.region);
-    set('plbDesc', d.desc);
-    set('plbCourts', d.courts);
-    setImg('plbDescImage', d.descImage || (d.images && d.images[0]), d.name);
-
-    // Benefits
-    var benefits = d.benefits || [];
-    document.getElementById('plbBenefits').innerHTML = benefits.map(function(b) {
-      return '<li>' + b + '</li>';
+    document.getElementById('plbHero').style.backgroundImage = 'url(' + (d.heroImg || d.image) + ')';
+    document.getElementById('plbCollection').textContent = d.collection || '';
+    document.getElementById('plbName').textContent = d.name || '';
+    document.getElementById('plbLoc').textContent = d.loc || '';
+    document.getElementById('plbPills').innerHTML = (d.pills || []).map(function(p) {
+      return '<span class="plb-hero-pill">' + p + '</span>';
     }).join('');
 
+    // About
+    document.getElementById('plbAboutLabel').textContent = d.region || '';
+    document.getElementById('plbAboutHeading').textContent = d.name || '';
+    document.getElementById('plbAboutBody').textContent = d.about || d.desc || '';
+    var aboutImg = document.getElementById('plbAboutImg');
+    aboutImg.src = d.img2 || (d.images && d.images[0]) || '';
+    aboutImg.alt = d.name || '';
+
+    // Benefits
+    var bGrid = document.getElementById('plbBenefitsGrid');
+    var benList = d.memberBenefits || d.benefits || [];
+    bGrid.innerHTML = benList.map(function(b) {
+      return '<div class="plb-benefit-cell"><div class="plb-benefit-name">' + b + '</div></div>';
+    }).join('');
+    document.getElementById('plbBenefitsWrap').style.display = benList.length ? '' : 'none';
+
+    // Amenities
+    var aGrid = document.getElementById('plbAmenitiesGrid');
+    var amenitiesWrap = document.getElementById('plbAmenitiesWrap');
+    if (d.amenities && d.amenities.length) {
+      aGrid.innerHTML = d.amenities.map(function(a) {
+        return '<div class="plb-amenity-card">' +
+          '<img loading="lazy" src="' + a.img + '" alt="' + a.name + '">' +
+          '<div class="plb-amenity-overlay">' +
+            '<div class="plb-amenity-name">' + a.name + '</div>' +
+            '<div class="plb-amenity-desc">' + a.desc + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      amenitiesWrap.style.display = '';
+    } else {
+      amenitiesWrap.style.display = 'none';
+    }
+
     // Accommodations
-    if (d.accommodations) {
-      set('plbAccomHeadline', d.accommodations.headline);
-      set('plbAccomDesc', d.accommodations.desc);
-      setImg('plbAccomImg', d.accommodations.image, d.accommodations.headline);
-      document.getElementById('plbAccomSection').style.display = '';
+    var accomWrap = document.getElementById('plbAccomWrap');
+    if (d.accommodations && d.accommodations.length) {
+      accomWrap.innerHTML = '<div class="plb-section-label" style="padding:60px 52px 32px;margin:0;"><span class="plb-section-label-text">ACCOMMODATIONS</span><span class="plb-section-label-rule"></span></div>' +
+        d.accommodations.map(function(a, i) {
+          var flip = i % 2 === 1 ? ' flip' : '';
+          return '<div class="plb-accom-item' + flip + '">' +
+            '<div class="plb-accom-img-wrap"><img loading="lazy" src="' + a.img + '" alt="' + a.title + '"></div>' +
+            '<div class="plb-accom-content">' +
+              '<div class="plb-accom-tag">' + a.num + '</div>' +
+              '<div class="plb-accom-title">' + a.title + '</div>' +
+              '<div class="plb-accom-body">' + a.body + '</div>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+      accomWrap.style.display = '';
     } else {
-      document.getElementById('plbAccomSection').style.display = 'none';
+      accomWrap.style.display = 'none';
     }
 
-    // Dining
-    if (d.dining) {
-      set('plbDiningHeadline', d.dining.headline);
-      set('plbDiningDesc', d.dining.desc);
-      setImg('plbDiningImg', d.dining.image, d.dining.headline);
-      document.getElementById('plbDiningSection').style.display = '';
+    // Dining slider
+    var dineWrap = document.getElementById('plbDiningWrap');
+    var track    = document.getElementById('plbDineTrack');
+    if (d.restaurants && d.restaurants.length) {
+      _dineItems = d.restaurants;
+      _dineIdx = 0;
+      track.innerHTML = d.restaurants.map(function(r) {
+        return '<div class="plb-dining-card">' +
+          '<img class="plb-dining-img" loading="lazy" src="' + r.img + '" alt="' + r.name + '">' +
+          '<div class="plb-dining-body">' +
+            '<div class="plb-dining-name">' + r.name + '</div>' +
+            '<div class="plb-dining-desc">' + r.desc + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      updateDineSlider();
+      dineWrap.style.display = '';
     } else {
-      document.getElementById('plbDiningSection').style.display = 'none';
+      dineWrap.style.display = 'none';
     }
 
-    // Padel & Wellness
-    if (d.padel) {
-      set('plbPadelHeadline', d.padel.headline);
-      set('plbPadelDesc', d.padel.desc);
-      setImg('plbPadelImg', d.padel.image, d.padel.headline);
-      document.getElementById('plbPadelSection').style.display = '';
+    // Sport & Wellness
+    var wellWrap = document.getElementById('plbWellnessWrap');
+    if (d.wellness) {
+      var w = d.wellness;
+      document.getElementById('plbWellnessTitle').textContent = w.title || '';
+      document.getElementById('plbWellnessBody').textContent = w.intro || '';
+      document.getElementById('plbWellnessList').innerHTML = (w.items || []).map(function(item) {
+        return '<div class="plb-wellness-item">' +
+          '<span class="plb-wellness-name">' + item.name + '</span>' +
+          '<span class="plb-wellness-badge">' + item.detail + '</span>' +
+        '</div>';
+      }).join('');
+      var imgs = w.imgs || [];
+      document.getElementById('plbWellnessImgs').innerHTML = imgs.map(function(src, i) {
+        if (i === 0) return '<div class="plb-wellness-img-tall"><img loading="lazy" src="' + src + '" alt=""></div>';
+        return '<div><img loading="lazy" src="' + src + '" alt=""></div>';
+      }).join('');
+      wellWrap.style.display = '';
     } else {
-      document.getElementById('plbPadelSection').style.display = 'none';
+      wellWrap.style.display = 'none';
     }
 
     // Photo strip
-    var strip = document.getElementById('plbStrip');
-    strip.innerHTML = (d.images || []).map(function(u) {
-      return '<img class="plb-strip-img" src="' + u + '" loading="lazy" alt="">';
+    document.getElementById('plbStrip').innerHTML = (d.photoStrip || []).map(function(src) {
+      return '<div class="plb-strip-item"><img loading="lazy" src="' + src + '" alt=""></div>';
     }).join('');
 
-    lb.scrollTop = 0;
+    panel.scrollTop = 0;
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   };
@@ -485,6 +658,7 @@
   }
 
   closeBtn.addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
   });
