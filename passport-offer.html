@@ -48,38 +48,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --dark: #0E1923;
+      --dark:  #0E1923;
       --dark2: #152230;
-      --white: #F5F0E8;
-      --gold: #B8976A;
-      --navy: #1B2A4A;
+      --cream: #F5F0E8;
+      --sand:  #EDE8DF;
+      --gold:  #B8976A;
+      --navy:  #1B2A4A;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--dark); font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { background: var(--dark); font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; color: var(--navy); }
 
-    /* ── STICKY HEADER ─────────────────────────────────── */
+    /* ── HEADER ──────────────────────────────────────────── */
     .lp-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
       padding: 20px 52px;
       background: linear-gradient(to bottom, rgba(14,25,35,.9) 0%, transparent 100%);
       transition: background .3s;
     }
-    .lp-header.scrolled { background: rgba(14,25,35,.97); }
-    .lp-logo img { height: 56px; width: auto; display: block; }
+    .lp-header.scrolled { background: rgba(14,25,35,.97); backdrop-filter: blur(8px); }
+    .lp-logo img { height: 52px; width: auto; display: block; }
     .lp-header-cta {
-      display: inline-block; font-family: 'Jost', sans-serif; font-size: 9px;
-      font-weight: 400; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--dark); background: var(--gold); text-decoration: none;
-      padding: 12px 28px; border-radius: 1px; cursor: pointer;
-      border: none; transition: opacity .2s;
+      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--dark); background: var(--gold);
+      padding: 12px 28px; border: none; border-radius: 1px;
+      cursor: pointer; transition: opacity .2s; white-space: nowrap;
     }
-    .lp-header-cta:hover { opacity: .88; }
+    .lp-header-cta:hover { opacity: .85; }
 
-    /* ── HERO ──────────────────────────────────────────── */
+    /* ── HERO ────────────────────────────────────────────── */
     .lp-hero {
       position: relative; height: 100vh; min-height: 640px;
       background: url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1800/v1775998157/ETE_Drone-Exterior-Kanai_2024_5_drrfnd.jpg') center/cover no-repeat;
@@ -87,209 +89,332 @@
     }
     .lp-hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(14,25,35,.25) 0%, rgba(14,25,35,.72) 60%, rgba(14,25,35,.92) 100%);
+      background: linear-gradient(to bottom, rgba(14,25,35,.2) 0%, rgba(14,25,35,.65) 55%, rgba(14,25,35,.95) 100%);
     }
     .lp-hero-inner {
-      position: relative; z-index: 1; width: 100%; max-width: 900px;
-      padding: 0 52px 80px; margin: 0 auto;
+      position: relative; z-index: 1; width: 100%; max-width: 860px;
+      padding: 0 52px 80px;
     }
     .lp-eyebrow {
       font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
       letter-spacing: .28em; text-transform: uppercase; color: var(--gold);
-      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
     }
-    .lp-eyebrow::before {
-      content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0;
-    }
+    .lp-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
     .lp-hero h1 {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 80px);
-      font-weight: 300; color: var(--white); line-height: 1.02; margin-bottom: 28px;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 76px);
+      font-weight: 300; color: var(--cream); line-height: 1.02; margin-bottom: 24px;
     }
     .lp-hero h1 em { font-style: italic; }
     .lp-hero-sub {
       font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
-      letter-spacing: .06em; color: rgba(245,240,232,.65); margin-bottom: 40px;
-      line-height: 1.6;
+      color: rgba(245,240,232,.6); margin-bottom: 40px; line-height: 1.7; max-width: 520px;
     }
     .lp-hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .lp-cta-primary {
+    .btn-gold {
       display: inline-block; font-family: 'Jost', sans-serif; font-size: 10px;
       font-weight: 400; letter-spacing: .24em; text-transform: uppercase;
-      color: var(--dark); background: var(--gold); text-decoration: none;
-      padding: 18px 48px; border-radius: 1px; border: none; cursor: pointer;
-      transition: opacity .2s; white-space: nowrap;
+      color: var(--dark); background: var(--gold);
+      padding: 18px 48px; border: none; border-radius: 1px;
+      cursor: pointer; transition: opacity .2s; text-decoration: none; white-space: nowrap;
     }
-    .lp-cta-primary:hover { opacity: .88; }
-    .lp-cta-primary:disabled { opacity: .5; cursor: default; }
+    .btn-gold:hover { opacity: .85; }
+    .btn-gold:disabled { opacity: .45; cursor: default; }
     .lp-hero-note {
       font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 300;
-      color: rgba(245,240,232,.38); letter-spacing: .04em;
+      color: rgba(245,240,232,.35); letter-spacing: .05em;
     }
 
-    /* ── PRICE CONTRAST BAR ────────────────────────────── */
-    .lp-price-bar {
-      background: var(--dark2); border-top: 1px solid rgba(184,151,106,.15);
-      border-bottom: 1px solid rgba(184,151,106,.15);
-      padding: 52px;
-    }
-    .lp-price-bar-inner {
-      max-width: 780px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center;
-    }
-    .lp-price-col { text-align: center; padding: 0 40px; }
-    .lp-price-label {
-      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400;
-      letter-spacing: .22em; text-transform: uppercase; color: rgba(245,240,232,.35);
-      margin-bottom: 12px;
-    }
-    .lp-price-num {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 80px);
-      font-weight: 300; color: var(--white); line-height: 1;
-    }
-    .lp-price-col:last-child .lp-price-num { color: var(--gold); font-style: italic; }
-    .lp-price-detail {
-      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 300;
-      letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.35);
-      margin-top: 10px; line-height: 1.7;
-    }
-    .lp-price-divider { background: rgba(255,255,255,.08); height: 80px; }
-
-    /* ── WHAT'S INCLUDED ───────────────────────────────── */
-    .lp-included {
-      background: var(--white); padding: 100px 52px;
-    }
-    .lp-included-inner { max-width: 1080px; margin: 0 auto; }
-    .lp-section-eyebrow {
+    /* ── SHARED SECTION LABELS ───────────────────────────── */
+    .sec-eyebrow {
       font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
-      letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
-      margin-bottom: 16px; text-align: center;
+      letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
     }
-    .lp-section-heading {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.5vw, 48px);
-      font-weight: 300; color: var(--navy); line-height: 1.1; text-align: center;
-      margin-bottom: 64px;
+    .sec-heading {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.5vw, 50px);
+      font-weight: 300; line-height: 1.08;
     }
-    .lp-section-heading em { font-style: italic; }
-    .lp-pillars {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;
+    .sec-heading em { font-style: italic; }
+    .sec-body {
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
+      line-height: 1.8; color: rgba(27,42,74,.68);
     }
-    .lp-pillar { position: relative; overflow: hidden; }
-    .lp-pillar-img {
-      width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
-      transition: transform .6s ease;
-    }
-    .lp-pillar:hover .lp-pillar-img { transform: scale(1.04); }
-    .lp-pillar-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(14,25,35,.88) 0%, rgba(14,25,35,.1) 55%);
-      padding: 28px 24px; display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .lp-pillar-num {
-      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 300;
-      letter-spacing: .18em; color: var(--gold); margin-bottom: 8px;
-    }
-    .lp-pillar-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300;
-      color: var(--white); line-height: 1.1; margin-bottom: 8px;
-    }
-    .lp-pillar-title em { font-style: italic; }
-    .lp-pillar-body {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300;
-      color: rgba(245,240,232,.6); line-height: 1.55;
+    .sec-body-light {
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
+      line-height: 1.8; color: rgba(245,240,232,.6);
     }
 
-    /* ── DESTINATION STRIP ─────────────────────────────── */
-    .lp-strip {
-      display: flex; gap: 3px; overflow: hidden; background: var(--dark);
+    /* ── VIDEO + INTRO ───────────────────────────────────── */
+    .lp-intro { background: var(--dark); }
+    .lp-intro-grid {
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 560px;
     }
+    .lp-intro-video {
+      position: relative; overflow: hidden; background: var(--dark2);
+      min-height: 400px;
+    }
+    .lp-intro-video video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    /* Fallback poster shown until video URL is dropped in */
+    .lp-video-poster {
+      position: absolute; inset: 0;
+      background: url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1776614154/D_Maris_Bay_Panoramic_copy_s6rpeh.jpg') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lp-video-play {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(184,151,106,.9); display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform .2s, background .2s;
+    }
+    .lp-video-play:hover { transform: scale(1.08); background: var(--gold); }
+    .lp-video-play svg { width: 22px; height: 22px; fill: var(--dark); margin-left: 3px; }
+    .lp-intro-text {
+      padding: 80px 64px; display: flex; flex-direction: column; justify-content: center;
+      border-left: 1px solid rgba(255,255,255,.06);
+    }
+    .lp-intro-text .sec-heading { color: var(--cream); margin-bottom: 24px; }
+    .lp-intro-bullets { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .lp-intro-bullet { display: flex; gap: 16px; align-items: flex-start; }
+    .lp-intro-bullet-dot {
+      width: 4px; height: 4px; border-radius: 50%; background: var(--gold);
+      flex-shrink: 0; margin-top: 7px;
+    }
+    .lp-intro-bullet-text {
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
+      color: rgba(245,240,232,.65); line-height: 1.6;
+    }
+    .lp-intro-bullet-text strong {
+      color: rgba(245,240,232,.9); font-weight: 400;
+    }
+
+    /* ── WHAT THE PASSPORT OPENS ─────────────────────────── */
+    .lp-opens { background: var(--cream); padding: 100px 52px; }
+    .lp-opens-inner { max-width: 1100px; margin: 0 auto; }
+    .lp-opens-header { text-align: center; margin-bottom: 64px; }
+    .lp-opens-header .sec-heading { color: var(--navy); }
+    .lp-opens-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; }
+    .lp-open-card { position: relative; overflow: hidden; }
+    .lp-open-card-img {
+      width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
+      transition: transform .65s ease;
+    }
+    .lp-open-card:hover .lp-open-card-img { transform: scale(1.04); }
+    .lp-open-card-body {
+      padding: 32px 36px; background: var(--dark2);
+    }
+    .lp-open-card-num {
+      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400;
+      letter-spacing: .2em; color: var(--gold); margin-bottom: 10px;
+    }
+    .lp-open-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2vw, 26px);
+      font-weight: 300; color: var(--cream); margin-bottom: 12px; line-height: 1.15;
+    }
+    .lp-open-card-title em { font-style: italic; }
+    .lp-open-card-desc {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+      color: rgba(245,240,232,.55); line-height: 1.7;
+    }
+    .lp-open-card-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+    }
+    .lp-open-tag {
+      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(184,151,106,.7); border: 1px solid rgba(184,151,106,.25);
+      padding: 5px 10px; border-radius: 1px;
+    }
+
+    /* ── IMAGE STRIP ─────────────────────────────────────── */
+    .lp-strip { display: flex; gap: 3px; background: var(--dark); overflow: hidden; }
     .lp-strip-item { flex: 1; overflow: hidden; }
     .lp-strip-item img {
-      width: 100%; height: 260px; object-fit: cover; display: block;
+      width: 100%; height: 240px; object-fit: cover; display: block;
       transition: transform .6s ease;
     }
-    .lp-strip-item:hover img { transform: scale(1.04); }
+    .lp-strip-item:hover img { transform: scale(1.05); }
 
-    /* ── FOUNDING TERMS ────────────────────────────────── */
-    .lp-terms { background: var(--dark); padding: 100px 52px; }
-    .lp-terms-inner { max-width: 780px; margin: 0 auto; }
-    .lp-terms-heading {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3vw, 42px);
-      font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 48px;
+    /* ── DESTINATIONS MAP ────────────────────────────────── */
+    .lp-map-section { background: var(--dark); padding-bottom: 0; }
+    .lp-map-header { padding: 80px 52px 48px; max-width: 700px; }
+    .lp-map-header .sec-heading { color: var(--cream); }
+    .lp-map-header p { margin-top: 18px; }
+    #destinationsMap {
+      height: 500px; width: 100%;
+      border-top: 1px solid rgba(255,255,255,.06);
     }
-    .lp-terms-heading em { font-style: italic; }
-    .lp-terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-    .lp-term-item {
-      background: var(--dark2); padding: 32px 36px;
-      border: 1px solid rgba(255,255,255,.05);
+    .leaflet-container { background: #0a1520 !important; }
+
+    /* ── FULL BREAKDOWN ──────────────────────────────────── */
+    .lp-breakdown { background: var(--sand); padding: 100px 52px; }
+    .lp-breakdown-inner { max-width: 1100px; margin: 0 auto; }
+    .lp-breakdown-header { margin-bottom: 64px; }
+    .lp-breakdown-header .sec-heading { color: var(--navy); }
+    .lp-breakdown-header p { margin-top: 18px; max-width: 600px; }
+
+    /* Benefit categories */
+    .lp-benefit-category { margin-bottom: 3px; }
+    .lp-benefit-cat-header {
+      background: var(--dark); padding: 28px 36px;
+      display: flex; align-items: center; gap: 20px; cursor: pointer;
     }
-    .lp-term-icon {
-      width: 20px; height: 1px; background: var(--gold); margin-bottom: 20px;
+    .lp-benefit-cat-num {
+      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400;
+      letter-spacing: .2em; color: var(--gold); flex-shrink: 0;
     }
-    .lp-term-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-      color: var(--white); margin-bottom: 8px; line-height: 1.2;
+    .lp-benefit-cat-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px);
+      font-weight: 300; color: var(--cream); flex: 1;
     }
-    .lp-term-body {
+    .lp-benefit-cat-title em { font-style: italic; }
+    .lp-benefit-cat-count {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 300;
+      color: rgba(245,240,232,.35); letter-spacing: .08em;
+    }
+    .lp-benefit-cat-body { background: var(--cream); }
+    .lp-benefit-rows { display: grid; grid-template-columns: 1fr 1fr; }
+    .lp-benefit-row {
+      padding: 28px 36px; border-bottom: 1px solid rgba(27,42,74,.07);
+      border-right: 1px solid rgba(27,42,74,.07);
+    }
+    .lp-benefit-row:nth-child(even) { border-right: none; }
+    .lp-benefit-row-label {
+      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+    }
+    .lp-benefit-row-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .lp-benefit-row-body {
       font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+      color: rgba(27,42,74,.6); line-height: 1.65;
+    }
+
+    /* Full Access upgrade section */
+    .lp-full-access {
+      margin-top: 3px; background: var(--dark); padding: 52px 36px;
+      border-top: 2px solid rgba(184,151,106,.3);
+    }
+    .lp-full-access-eyebrow {
+      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
+      letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+    }
+    .lp-full-access-heading {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 300; color: var(--cream); margin-bottom: 32px; line-height: 1.1;
+    }
+    .lp-full-access-heading em { font-style: italic; }
+    .lp-full-access-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+    .lp-fa-item { background: var(--dark2); padding: 28px 28px; }
+    .lp-fa-rule { width: 18px; height: 1px; background: var(--gold); margin-bottom: 16px; }
+    .lp-fa-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
+      color: var(--cream); margin-bottom: 8px; line-height: 1.2;
+    }
+    .lp-fa-body {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300;
       color: rgba(245,240,232,.5); line-height: 1.65;
     }
-    .lp-terms-note {
-      margin-top: 40px; padding-top: 40px;
+    .lp-fa-note {
+      margin-top: 28px; padding-top: 28px;
       border-top: 1px solid rgba(255,255,255,.07);
       font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300;
-      color: rgba(245,240,232,.32); line-height: 1.7; text-align: center;
+      color: rgba(245,240,232,.35); line-height: 1.7;
     }
 
-    /* ── CHECKOUT ──────────────────────────────────────── */
-    .lp-checkout {
-      background: #EDE8DF; padding: 100px 52px;
+    /* ── PRICE CALLOUT ───────────────────────────────────── */
+    .lp-price { background: var(--dark2); padding: 100px 52px; text-align: center; }
+    .lp-price-inner { max-width: 860px; margin: 0 auto; }
+    .lp-price-headline {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 56px);
+      font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 12px;
     }
+    .lp-price-headline em { font-style: italic; }
+    .lp-price-sub {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+      color: rgba(245,240,232,.45); letter-spacing: .06em; margin-bottom: 60px;
+    }
+    .lp-price-cols {
+      display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center;
+      margin-bottom: 48px;
+    }
+    .lp-price-col { padding: 0 48px; }
+    .lp-price-col-label {
+      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(245,240,232,.3); margin-bottom: 12px;
+    }
+    .lp-price-col-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 7vw, 88px); font-weight: 300;
+      color: var(--cream); line-height: 1;
+    }
+    .lp-price-col:last-child .lp-price-col-amount { color: var(--gold); font-style: italic; }
+    .lp-price-col-detail {
+      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 300;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(245,240,232,.3); margin-top: 10px; line-height: 1.7;
+    }
+    .lp-price-divider { background: rgba(255,255,255,.08); height: 100px; }
+    .lp-price-founding {
+      background: rgba(184,151,106,.08); border: 1px solid rgba(184,151,106,.2);
+      padding: 28px 36px; display: inline-flex; align-items: center; gap: 20px;
+    }
+    .lp-price-founding-badge {
+      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(184,151,106,.4);
+      padding: 6px 14px; white-space: nowrap;
+    }
+    .lp-price-founding-text {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+      color: rgba(245,240,232,.6); line-height: 1.5; text-align: left;
+    }
+
+    /* ── CHECKOUT ────────────────────────────────────────── */
+    .lp-checkout { background: var(--sand); padding: 100px 52px; }
     .lp-checkout-inner { max-width: 560px; margin: 0 auto; }
-    .lp-checkout-card {
-      background: var(--white); padding: 52px;
-      border: 1px solid rgba(27,42,74,.1);
-    }
+    .lp-checkout-card { background: var(--cream); padding: 52px; border: 1px solid rgba(27,42,74,.1); }
     .lp-checkout-eyebrow {
       font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
-      letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
-      margin-bottom: 8px;
+      letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
     }
     .lp-checkout-headline {
       font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300;
-      font-style: italic; color: var(--navy); margin-bottom: 6px; line-height: 1.1;
+      font-style: italic; color: var(--navy); margin-bottom: 4px; line-height: 1.1;
     }
     .lp-checkout-subline {
       font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300;
-      color: rgba(27,42,74,.5); margin-bottom: 36px; letter-spacing: .04em;
+      color: rgba(27,42,74,.45); margin-bottom: 36px; letter-spacing: .04em;
     }
-    .lp-checkout-rule {
-      height: 1px; background: rgba(27,42,74,.1); margin-bottom: 28px;
-    }
-    .lp-tier-row {
+    .lp-checkout-rule { height: 1px; background: rgba(27,42,74,.1); margin-bottom: 28px; }
+    .lp-checkout-tier {
       display: flex; justify-content: space-between; align-items: flex-start;
       padding: 20px 0; border-bottom: 1px solid rgba(27,42,74,.08);
     }
-    .lp-tier-name {
+    .lp-checkout-tier-name {
       font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
       color: var(--navy); margin-bottom: 4px;
     }
-    .lp-tier-desc {
+    .lp-checkout-tier-desc {
       font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300;
-      color: rgba(27,42,74,.5); line-height: 1.5; max-width: 280px;
+      color: rgba(27,42,74,.5); line-height: 1.55; max-width: 260px;
     }
-    .lp-tier-price {
+    .lp-checkout-tier-price {
       font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300;
-      color: var(--navy); white-space: nowrap; margin-left: 20px;
+      color: var(--navy); white-space: nowrap; margin-left: 16px;
     }
     .lp-partner-row {
-      display: flex; align-items: flex-start; gap: 16px;
+      display: flex; align-items: flex-start; gap: 14px;
       padding: 20px 0; border-bottom: 1px solid rgba(27,42,74,.08);
       cursor: pointer; user-select: none;
     }
     .lp-partner-check {
-      width: 18px; height: 18px; border: 1px solid rgba(27,42,74,.25);
-      border-radius: 1px; flex-shrink: 0; margin-top: 2px; position: relative;
-      transition: border-color .15s; background: transparent;
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
+      border: 1px solid rgba(27,42,74,.2); border-radius: 1px;
+      position: relative; transition: border-color .15s, background .15s;
     }
     .lp-partner-row.checked .lp-partner-check {
       border-color: var(--gold); background: var(--gold);
@@ -300,198 +425,282 @@
       border-right: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
       transform: rotate(45deg);
     }
-    .lp-partner-check-input { display: none; }
-    .lp-partner-label-text { flex: 1; }
-    .lp-partner-label-name {
+    .lp-partner-row input[type=checkbox] { display: none; }
+    .lp-partner-body { flex: 1; }
+    .lp-partner-name {
       font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
       color: var(--navy); margin-bottom: 3px;
     }
-    .lp-partner-label-sub {
+    .lp-partner-sub {
       font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300;
       color: rgba(27,42,74,.5); line-height: 1.5;
     }
     .lp-partner-price {
       font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
-      color: rgba(27,42,74,.6); white-space: nowrap; margin-left: 20px; margin-top: 2px;
+      color: rgba(27,42,74,.55); white-space: nowrap; margin-left: 12px; margin-top: 3px;
     }
-    .lp-total {
+    .lp-total-row {
       display: flex; justify-content: space-between; align-items: baseline;
-      padding: 24px 0 0;
+      padding: 22px 0 0;
     }
     .lp-total-label {
       font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400;
-      letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.4);
+      letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.38);
     }
     .lp-total-amount {
-      font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300;
-      color: var(--navy);
+      font-family: 'Cormorant Garamond', serif; font-size: 28px;
+      font-weight: 300; color: var(--navy);
     }
     .lp-checkout-btn {
       display: block; width: 100%; margin-top: 28px;
-      padding: 18px 36px; background: var(--gold);
+      padding: 18px; background: var(--gold);
       color: var(--dark); border: none; cursor: pointer;
       font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400;
-      letter-spacing: .24em; text-transform: uppercase; text-align: center;
+      letter-spacing: .24em; text-transform: uppercase;
       transition: opacity .2s; border-radius: 1px;
     }
-    .lp-checkout-btn:hover:not(:disabled) { opacity: .88; }
-    .lp-checkout-btn:disabled { opacity: .5; cursor: default; }
+    .lp-checkout-btn:hover:not(:disabled) { opacity: .85; }
+    .lp-checkout-btn:disabled { opacity: .45; cursor: default; }
     .lp-checkout-secure {
       font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 300;
-      color: rgba(27,42,74,.4); text-align: center; margin-top: 16px;
-      letter-spacing: .04em;
+      color: rgba(27,42,74,.38); text-align: center; margin-top: 16px; letter-spacing: .04em;
     }
 
-    /* ── FAQ ───────────────────────────────────────────── */
-    .lp-faq { background: var(--white); padding: 80px 52px; }
-    .lp-faq-inner { max-width: 680px; margin: 0 auto; }
-    .lp-faq-item {
-      padding: 28px 0; border-bottom: 1px solid rgba(27,42,74,.1);
-    }
-    .lp-faq-item:first-child { border-top: 1px solid rgba(27,42,74,.1); }
+    /* ── FAQ ─────────────────────────────────────────────── */
+    .lp-faq { background: var(--cream); padding: 100px 52px; }
+    .lp-faq-inner { max-width: 720px; margin: 0 auto; }
+    .lp-faq-header { margin-bottom: 52px; }
+    .lp-faq-header .sec-heading { color: var(--navy); }
+    .lp-faq-item { border-bottom: 1px solid rgba(27,42,74,.1); }
+    .lp-faq-item:first-of-type { border-top: 1px solid rgba(27,42,74,.1); }
     .lp-faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0; text-align: left; gap: 20px;
+    }
+    .lp-faq-q-text {
       font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-      color: var(--navy); margin-bottom: 10px;
+      color: var(--navy); line-height: 1.2;
     }
+    .lp-faq-icon {
+      width: 20px; height: 20px; flex-shrink: 0; position: relative;
+    }
+    .lp-faq-icon::before, .lp-faq-icon::after {
+      content: ''; position: absolute; background: var(--gold); border-radius: 1px;
+    }
+    .lp-faq-icon::before { width: 100%; height: 1px; top: 50%; transform: translateY(-50%); }
+    .lp-faq-icon::after { width: 1px; height: 100%; left: 50%; transform: translateX(-50%); transition: transform .2s, opacity .2s; }
+    .lp-faq-item.open .lp-faq-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
     .lp-faq-a {
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(27,42,74,.6); line-height: 1.7;
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
+      color: rgba(27,42,74,.65); line-height: 1.8;
+      overflow: hidden; max-height: 0; transition: max-height .3s ease, padding .3s ease;
+      padding-bottom: 0;
     }
-    .lp-faq-a a { color: rgba(27,42,74,.6); text-underline-offset: 2px; }
+    .lp-faq-item.open .lp-faq-a { max-height: 400px; padding-bottom: 24px; }
+    .lp-faq-a a { color: rgba(27,42,74,.65); text-underline-offset: 2px; }
 
-    /* ── FOOTER ────────────────────────────────────────── */
+    /* ── FOOTER ──────────────────────────────────────────── */
     .lp-footer {
-      background: var(--dark); padding: 28px 52px;
+      background: var(--dark); padding: 24px 52px;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
     }
     .lp-footer-copy {
       font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 300;
-      color: rgba(245,240,232,.25); letter-spacing: .04em;
+      color: rgba(245,240,232,.22); letter-spacing: .04em;
     }
     .lp-footer-links { display: flex; gap: 24px; }
     .lp-footer-links a {
       font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 300;
-      color: rgba(245,240,232,.25); text-decoration: none; letter-spacing: .04em;
+      color: rgba(245,240,232,.22); text-decoration: none; letter-spacing: .04em;
     }
     .lp-footer-links a:hover { color: rgba(245,240,232,.5); }
 
-    /* ── MOBILE ────────────────────────────────────────── */
+    /* ── MOBILE ──────────────────────────────────────────── */
     @media (max-width: 768px) {
       .lp-header { padding: 16px 24px; }
       .lp-logo img { height: 44px; }
       .lp-hero-inner { padding: 0 24px 60px; }
-      .lp-price-bar { padding: 40px 24px; }
-      .lp-price-bar-inner { grid-template-columns: 1fr; gap: 32px; }
+      .lp-intro-grid { grid-template-columns: 1fr; }
+      .lp-intro-video { min-height: 280px; }
+      .lp-intro-text { padding: 52px 28px; border-left: none; border-top: 1px solid rgba(255,255,255,.06); }
+      .lp-opens { padding: 72px 24px; }
+      .lp-opens-grid { grid-template-columns: 1fr; }
+      .lp-strip-item img { height: 140px; }
+      .lp-map-header { padding: 60px 24px 36px; }
+      #destinationsMap { height: 380px; }
+      .lp-breakdown { padding: 72px 24px; }
+      .lp-benefit-rows { grid-template-columns: 1fr; }
+      .lp-benefit-row { border-right: none; }
+      .lp-full-access-grid { grid-template-columns: 1fr; }
+      .lp-price { padding: 72px 24px; }
+      .lp-price-cols { grid-template-columns: 1fr; gap: 36px; }
       .lp-price-divider { display: none; }
       .lp-price-col { padding: 0; }
-      .lp-included { padding: 72px 24px; }
-      .lp-pillars { grid-template-columns: 1fr 1fr; }
-      .lp-pillar-img { aspect-ratio: 1/1; }
-      .lp-strip-item img { height: 160px; }
-      .lp-terms { padding: 72px 24px; }
-      .lp-terms-grid { grid-template-columns: 1fr; }
+      .lp-price-founding { flex-direction: column; align-items: flex-start; }
       .lp-checkout { padding: 72px 24px; }
       .lp-checkout-card { padding: 32px 24px; }
-      .lp-faq { padding: 60px 24px; }
+      .lp-faq { padding: 72px 24px; }
       .lp-footer { padding: 24px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── HEADER ──────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════ -->
 <header class="lp-header" id="lpHeader">
-  <a class="lp-logo" href="/">
-    <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel">
+  <a href="/">
+    <img class="lp-logo" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:52px;width:auto;display:block;">
   </a>
   <button class="lp-header-cta" id="headerCta">LOCK IN YOUR RATE →</button>
 </header>
 
 
-<!-- ── HERO ────────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
 <section class="lp-hero">
   <div class="lp-hero-overlay"></div>
   <div class="lp-hero-inner">
-    <div class="lp-eyebrow">The Founding Offer &nbsp;·&nbsp; First 200</div>
+    <div class="lp-eyebrow">The Founding Offer &nbsp;·&nbsp; First 200 Members</div>
     <h1>One passport.<br><em>The world's finest courts.</em></h1>
     <p class="lp-hero-sub">
-      40+ luxury partner destinations. Curated padel retreats. Partner club access in four cities.<br>
-      Founding members lock in at $595/year — permanently. Standard rate is $995.
+      Preferred rates and member benefits at 40+ luxury hotels worldwide. Curated padel retreats.
+      Partner club access in four cities. Founding members lock in at $595/year — permanently.
     </p>
     <div class="lp-hero-actions">
-      <button class="lp-cta-primary" id="heroCta">LOCK IN YOUR RATE →</button>
-      <span class="lp-hero-note">First 200 spots only &nbsp;·&nbsp; Activates immediately</span>
+      <button class="btn-gold" id="heroCta">LOCK IN YOUR RATE →</button>
+      <span class="lp-hero-note">First 200 spots only &nbsp;·&nbsp; Standard rate $995/yr</span>
     </div>
   </div>
 </section>
 
 
-<!-- ── PRICE CONTRAST ───────────────────────────────────── -->
-<div class="lp-price-bar">
-  <div class="lp-price-bar-inner">
-    <div class="lp-price-col">
-      <div class="lp-price-label">You Pay</div>
-      <div class="lp-price-num">$595</div>
-      <div class="lp-price-detail">ANNUALLY &middot; LOCKED<br>FOR LIFE</div>
+<!-- ══════════════════════════════════════════════════════
+     VIDEO + INTRO
+══════════════════════════════════════════════════════ -->
+<section class="lp-intro">
+  <div class="lp-intro-grid">
+
+    <!-- Left: video — replace VIDEO_URL_HERE with Cloudinary .mp4 URL -->
+    <div class="lp-intro-video">
+      <div class="lp-video-poster" id="videoPoster">
+        <div class="lp-video-play" id="videoPlayBtn">
+          <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+        </div>
+      </div>
+      <!-- Uncomment and replace src when video is ready:
+      <video id="passportVideo" autoplay muted loop playsinline
+        poster="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1776614154/D_Maris_Bay_Panoramic_copy_s6rpeh.jpg">
+        <source src="VIDEO_URL_HERE.mp4" type="video/mp4">
+      </video>
+      -->
     </div>
-    <div class="lp-price-divider"></div>
-    <div class="lp-price-col">
-      <div class="lp-price-label">You Receive</div>
-      <div class="lp-price-num">$995</div>
-      <div class="lp-price-detail">FULL ACCESS &middot; EVERY<br>BENEFIT</div>
+
+    <!-- Right: description -->
+    <div class="lp-intro-text">
+      <div class="sec-eyebrow">Privé Passport</div>
+      <h2 class="sec-heading" style="color:var(--cream);">A travel membership<br><em>built for the game.</em></h2>
+      <div class="lp-intro-bullets">
+        <div class="lp-intro-bullet">
+          <div class="lp-intro-bullet-dot"></div>
+          <div class="lp-intro-bullet-text"><strong>One annual membership</strong> unlocks preferred rates and curated benefits at over 40 luxury partner hotels — from the Maldives to Mallorca, Sardinia to Sumba.</div>
+        </div>
+        <div class="lp-intro-bullet">
+          <div class="lp-intro-bullet-dot"></div>
+          <div class="lp-intro-bullet-text"><strong>Padel is the constant.</strong> Every partner destination has a court on-property or paired access at a partner club in the same city.</div>
+        </div>
+        <div class="lp-intro-bullet">
+          <div class="lp-intro-bullet-dot"></div>
+          <div class="lp-intro-bullet-text"><strong>Retreats, clubs, and locations</strong> round out the membership — curated small-group travel, club courts in LA, New York, London, and Hong Kong, and Privé's own venues in Montauk and Miami.</div>
+        </div>
+        <div class="lp-intro-bullet">
+          <div class="lp-intro-bullet-dot"></div>
+          <div class="lp-intro-bullet-text"><strong>Founding members</strong> lock in at $595/year — the Standard price — and receive Full Access benefits, permanently.</div>
+        </div>
+      </div>
     </div>
+
   </div>
-</div>
+</section>
 
 
-<!-- ── WHAT'S INCLUDED ─────────────────────────────────── -->
-<section class="lp-included">
-  <div class="lp-included-inner">
-    <div class="lp-section-eyebrow">What's Included</div>
-    <h2 class="lp-section-heading">Everything the passport <em>opens.</em></h2>
-    <div class="lp-pillars">
+<!-- ══════════════════════════════════════════════════════
+     EVERYTHING THE PASSPORT OPENS
+══════════════════════════════════════════════════════ -->
+<section class="lp-opens">
+  <div class="lp-opens-inner">
+    <div class="lp-opens-header">
+      <div class="sec-eyebrow">What's Included</div>
+      <h2 class="sec-heading" style="color:var(--navy);">Everything the passport <em>opens.</em></h2>
+    </div>
+    <div class="lp-opens-grid">
 
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_600/v1776614154/D_Maris_Bay_Panoramic_copy_s6rpeh.jpg"
-          alt="Luxury partner destinations">
-        <div class="lp-pillar-overlay">
-          <div class="lp-pillar-num">01</div>
-          <div class="lp-pillar-title">40+ Luxury<br><em>Destinations</em></div>
-          <div class="lp-pillar-body">Preferred rates and member benefits at partner hotels across Europe, the Americas, Asia, and beyond.</div>
+      <div class="lp-open-card">
+        <img class="lp-open-card-img" loading="lazy"
+          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1776614154/D_Maris_Bay_Panoramic_copy_s6rpeh.jpg"
+          alt="Partner Destinations">
+        <div class="lp-open-card-body">
+          <div class="lp-open-card-num">01</div>
+          <div class="lp-open-card-title">40+ Luxury Partner <em>Destinations</em></div>
+          <div class="lp-open-card-desc">Preferred rates and member-specific benefits at partner hotels across Europe, the Americas, Asia, the Middle East, and the Indian Ocean. Each property has been selected for quality of court access alongside the accommodation experience.</div>
+          <div class="lp-open-card-tags">
+            <span class="lp-open-tag">Preferred Rates</span>
+            <span class="lp-open-tag">Room Upgrades</span>
+            <span class="lp-open-tag">F&amp;B Credits</span>
+            <span class="lp-open-tag">VIP Arrival</span>
+          </div>
         </div>
       </div>
 
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_600/v1774913141/Copia_de_ChableYucatan_AlbercaPrincipal_zxneod.jpg"
-          alt="Curated padel retreats">
-        <div class="lp-pillar-overlay">
-          <div class="lp-pillar-num">02</div>
-          <div class="lp-pillar-title">Curated Padel<br><em>Retreats</em></div>
-          <div class="lp-pillar-body">Small-group retreats at exceptional properties — coaching, competition, and destination in one.</div>
+      <div class="lp-open-card">
+        <img class="lp-open-card-img" loading="lazy"
+          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1774913141/Copia_de_ChableYucatan_AlbercaPrincipal_zxneod.jpg"
+          alt="Padel Retreats">
+        <div class="lp-open-card-body">
+          <div class="lp-open-card-num">02</div>
+          <div class="lp-open-card-title">Curated Padel <em>Retreats</em></div>
+          <div class="lp-open-card-desc">Small-group retreats at exceptional partner properties — combining coaching, competition, and destination travel in one curated format. Held across multiple properties per year. Passport members receive priority booking before retreats open to the public.</div>
+          <div class="lp-open-card-tags">
+            <span class="lp-open-tag">Priority Access</span>
+            <span class="lp-open-tag">Professional Coaching</span>
+            <span class="lp-open-tag">8–16 Players</span>
+          </div>
         </div>
       </div>
 
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_600/v1775956744/69c3a6b362505f06463012fc_PadleUp-344_thumbnail_koy37a.webp"
-          alt="Partner club access">
-        <div class="lp-pillar-overlay">
-          <div class="lp-pillar-num">03</div>
-          <div class="lp-pillar-title">Club Access in<br><em>Four Cities</em></div>
-          <div class="lp-pillar-body">Partner club access in Los Angeles, New York, London, and Hong Kong — included with a destination stay.</div>
+      <div class="lp-open-card">
+        <img class="lp-open-card-img" loading="lazy"
+          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1775956744/69c3a6b362505f06463012fc_PadleUp-344_thumbnail_koy37a.webp"
+          alt="Partner Club Access">
+        <div class="lp-open-card-body">
+          <div class="lp-open-card-num">03</div>
+          <div class="lp-open-card-title">Partner Club Access in <em>Four Cities</em></div>
+          <div class="lp-open-card-desc">When staying at a linked Privé Destination, court access at the partner club in the same city is included with your Passport — no separate booking fee. Los Angeles · New York · London · Hong Kong.</div>
+          <div class="lp-open-card-tags">
+            <span class="lp-open-tag">Los Angeles</span>
+            <span class="lp-open-tag">New York</span>
+            <span class="lp-open-tag">London</span>
+            <span class="lp-open-tag">Hong Kong</span>
+          </div>
         </div>
       </div>
 
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_600/v1776001178/DJI_0145_p3ovyg.jpg"
+      <div class="lp-open-card">
+        <img class="lp-open-card-img" loading="lazy"
+          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1776001178/DJI_0145_p3ovyg.jpg"
           alt="Privé Locations">
-        <div class="lp-pillar-overlay">
-          <div class="lp-pillar-num">04</div>
-          <div class="lp-pillar-title">Privé Locations<br><em>Montauk &amp; Miami</em></div>
-          <div class="lp-pillar-body">Member rates at Privé's own padel venues in Montauk and Miami, included for up to four visits a month.</div>
+        <div class="lp-open-card-body">
+          <div class="lp-open-card-num">04</div>
+          <div class="lp-open-card-title">Privé Locations — <em>Montauk &amp; Miami</em></div>
+          <div class="lp-open-card-desc">Member rates at Privé's own padel venues in Montauk, NY and Miami, FL — included as part of your Passport. Standard members play at member rates for up to four visits per month. Full Access members play year-round with no limit.</div>
+          <div class="lp-open-card-tags">
+            <span class="lp-open-tag">Privé Montauk</span>
+            <span class="lp-open-tag">Privé Miami</span>
+            <span class="lp-open-tag">Member Rates</span>
+          </div>
         </div>
       </div>
 
@@ -500,70 +709,220 @@
 </section>
 
 
-<!-- ── DESTINATION STRIP ────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════
+     IMAGE STRIP
+══════════════════════════════════════════════════════ -->
 <div class="lp-strip">
-  <div class="lp-strip-item">
-    <img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="">
-  </div>
-  <div class="lp-strip-item">
-    <img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg" alt="">
-  </div>
-  <div class="lp-strip-item">
-    <img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775682232/Exterior-300523_120-3_Res_ohhdz4.jpg" alt="">
-  </div>
-  <div class="lp-strip-item">
-    <img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775993915/Al_Baleed_Resort_Salalah_By_Anantara_Beach_Pool_Aerial_06_2_copy_okaxcn.jpg" alt="">
-  </div>
-  <div class="lp-strip-item">
-    <img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775394753/hotel-camiral-pool-18_tdfleh.jpg" alt="">
-  </div>
-  <div class="lp-strip-item">
-    <img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1776729531/Hotel_Pitrizza_-_Landscape_Pitrizza_-_Oliver_Fly_-_2023_copy_cvcqvy.jpg" alt="">
-  </div>
+  <div class="lp-strip-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt=""></div>
+  <div class="lp-strip-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg" alt=""></div>
+  <div class="lp-strip-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775682232/Exterior-300523_120-3_Res_ohhdz4.jpg" alt=""></div>
+  <div class="lp-strip-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775993915/Al_Baleed_Resort_Salalah_By_Anantara_Beach_Pool_Aerial_06_2_copy_okaxcn.jpg" alt=""></div>
+  <div class="lp-strip-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1775394753/hotel-camiral-pool-18_tdfleh.jpg" alt=""></div>
+  <div class="lp-strip-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_500/v1776729531/Hotel_Pitrizza_-_Landscape_Pitrizza_-_Oliver_Fly_-_2023_copy_cvcqvy.jpg" alt=""></div>
 </div>
 
 
-<!-- ── FOUNDING TERMS ──────────────────────────────────── -->
-<section class="lp-terms">
-  <div class="lp-terms-inner">
-    <div class="lp-section-eyebrow" style="text-align:left;margin-bottom:20px;">The Founding Offer</div>
-    <h2 class="lp-terms-heading">What founding members<br><em>lock in — forever.</em></h2>
-    <div class="lp-terms-grid">
+<!-- ══════════════════════════════════════════════════════
+     DESTINATIONS MAP
+══════════════════════════════════════════════════════ -->
+<section class="lp-map-section">
+  <div class="lp-map-header">
+    <div class="sec-eyebrow">40+ Destinations</div>
+    <h2 class="sec-heading" style="color:var(--cream);">From Sardinia to Sumba.<br><em>The passport travels with you.</em></h2>
+    <p class="sec-body-light" style="margin-top:18px;">Partner destinations span Europe, the Americas, Asia Pacific, the Middle East, and the Indian Ocean — with more added each quarter.</p>
+  </div>
+  <div id="destinationsMap"></div>
+</section>
 
-      <div class="lp-term-item">
-        <div class="lp-term-icon"></div>
-        <div class="lp-term-title">$595 Annual Rate</div>
-        <div class="lp-term-body">Your rate never increases — regardless of what the standard price becomes. $595/year, locked permanently from the moment you join.</div>
-      </div>
 
-      <div class="lp-term-item">
-        <div class="lp-term-icon"></div>
-        <div class="lp-term-title">Full Access from Day One</div>
-        <div class="lp-term-body">Founding members receive every benefit in the Full Access tier — 40+ destinations, retreats, club access, and Privé Locations — at the Standard price.</div>
-      </div>
-
-      <div class="lp-term-item">
-        <div class="lp-term-icon"></div>
-        <div class="lp-term-title">First Invitations to Retreats</div>
-        <div class="lp-term-body">Founding members receive priority access to every curated padel retreat — before spots open to the general membership.</div>
-      </div>
-
-      <div class="lp-term-item">
-        <div class="lp-term-icon"></div>
-        <div class="lp-term-title">Partner Add-On Available</div>
-        <div class="lp-term-body">Add a second passport for $95/year — also locked at founding rates. Full membership benefits for one additional person at your tier.</div>
-      </div>
-
+<!-- ══════════════════════════════════════════════════════
+     FULL BENEFITS BREAKDOWN
+══════════════════════════════════════════════════════ -->
+<section class="lp-breakdown">
+  <div class="lp-breakdown-inner">
+    <div class="lp-breakdown-header">
+      <div class="sec-eyebrow">The Full Breakdown</div>
+      <h2 class="sec-heading" style="color:var(--navy);">Every benefit, <em>explained.</em></h2>
+      <p class="sec-body" style="margin-top:18px;">Here is exactly what your Passport includes — and what founding members get at Full Access, for the Standard price.</p>
     </div>
-    <div class="lp-terms-note">
-      Limited to the first 200 members. Once filled, Full Access is $995 per year.<br>
-      Founding members are not subject to periodic price increases.
+
+    <!-- Category 1: Partner Destinations -->
+    <div class="lp-benefit-category">
+      <div class="lp-benefit-cat-header">
+        <div class="lp-benefit-cat-num">01</div>
+        <div class="lp-benefit-cat-title">Partner <em>Destinations</em></div>
+        <div class="lp-benefit-cat-count">40+ Properties Worldwide</div>
+      </div>
+      <div class="lp-benefit-cat-body">
+        <div class="lp-benefit-rows">
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Preferred Rates</div>
+            <div class="lp-benefit-row-title">Best Available Rate or Better</div>
+            <div class="lp-benefit-row-body">Members access the best available room rate at every partner destination — often at a discount not available through any other channel. Rates vary by property; specific discounts are detailed in the Passport member portal.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Room Benefits</div>
+            <div class="lp-benefit-row-title">Upgrade, Early In, Late Out</div>
+            <div class="lp-benefit-row-body">Room upgrades upon availability, complimentary early check-in, and late check-out at every partner destination — requested at booking, confirmed by the property's guest relations team.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">On-Property Credits</div>
+            <div class="lp-benefit-row-title">F&amp;B Credits &amp; Dining Discounts</div>
+            <div class="lp-benefit-row-body">Many partner properties include a daily food and beverage credit — typically $100–$200 USD per stay — plus discounts at on-property dining venues and spas. Specific credits are listed for each destination in the Passport portal.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Arrival Experience</div>
+            <div class="lp-benefit-row-title">VIP Treatment Upon Arrival</div>
+            <div class="lp-benefit-row-body">Properties are notified of Passport member arrivals in advance. Welcome amenities, priority check-in, and dedicated attention from guest relations are standard across the collection.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 2: Padel Retreats -->
+    <div class="lp-benefit-category">
+      <div class="lp-benefit-cat-header">
+        <div class="lp-benefit-cat-num">02</div>
+        <div class="lp-benefit-cat-title">Padel <em>Retreats</em></div>
+        <div class="lp-benefit-cat-count">Multiple Per Year</div>
+      </div>
+      <div class="lp-benefit-cat-body">
+        <div class="lp-benefit-rows">
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Format</div>
+            <div class="lp-benefit-row-title">Small-Group, Destination Travel</div>
+            <div class="lp-benefit-row-body">Privé Retreats bring 8–16 players together at a partner destination for 3–5 days of coached padel, competition, and curated resort access. Each retreat is designed around the destination — what you play is shaped by where you are.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Access</div>
+            <div class="lp-benefit-row-title">Priority Booking for Members</div>
+            <div class="lp-benefit-row-body">Retreat spots open to Passport members first — before any public availability. Full Access members receive the first invitation for each retreat in the calendar.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 3: Partner Clubs -->
+    <div class="lp-benefit-category">
+      <div class="lp-benefit-cat-header">
+        <div class="lp-benefit-cat-num">03</div>
+        <div class="lp-benefit-cat-title">Partner Club <em>Access</em></div>
+        <div class="lp-benefit-cat-count">LA · New York · London · Hong Kong</div>
+      </div>
+      <div class="lp-benefit-cat-body">
+        <div class="lp-benefit-rows">
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Los Angeles</div>
+            <div class="lp-benefit-row-title">Padel Up, West Hollywood</div>
+            <div class="lp-benefit-row-body">Six indoor courts in the heart of West Hollywood — the first dedicated padel club in Los Angeles. Included with a stay at the Maybourne Beverly Hills or Fairmont Century City.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">New York</div>
+            <div class="lp-benefit-row-title">Padel Haus — Brooklyn</div>
+            <div class="lp-benefit-row-body">Three locations across Dumbo, Williamsburg, and Greenpoint. Included with a stay at The Surrey on the Upper East Side.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">London</div>
+            <div class="lp-benefit-row-title">Racketeer, Kingly Court</div>
+            <div class="lp-benefit-row-body">Rooftop courts in Soho's Kingly Court — members-room culture in the heart of central London. Included with stays at The Savoy and St James's Hotel and Club.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Hong Kong</div>
+            <div class="lp-benefit-row-title">Go Park, Kai Tak</div>
+            <div class="lp-benefit-row-body">A multi-court facility at Kai Tak Sports Park — Hong Kong's largest sports development. Included with a stay at Rosewood Hong Kong.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 4: Privé Locations -->
+    <div class="lp-benefit-category">
+      <div class="lp-benefit-cat-header">
+        <div class="lp-benefit-cat-num">04</div>
+        <div class="lp-benefit-cat-title">Privé <em>Locations</em></div>
+        <div class="lp-benefit-cat-count">Montauk &amp; Miami</div>
+      </div>
+      <div class="lp-benefit-cat-body">
+        <div class="lp-benefit-rows">
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Privé Montauk</div>
+            <div class="lp-benefit-row-title">Member Rates, Included</div>
+            <div class="lp-benefit-row-body">Standard members play at member rates for up to four visits per month. Public day rates apply beyond that threshold. Full Access members have no visit limit — member rates year-round, every visit.</div>
+          </div>
+          <div class="lp-benefit-row">
+            <div class="lp-benefit-row-label">Privé Miami</div>
+            <div class="lp-benefit-row-title">Member Rates, Included</div>
+            <div class="lp-benefit-row-body">The same structure as Montauk. Standard members: up to four visits per month at member rates. Full Access members: unlimited access at member rates, no cap.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Access upgrade -->
+    <div class="lp-full-access">
+      <div class="lp-full-access-eyebrow">Full Access — $995 / Year</div>
+      <h3 class="lp-full-access-heading">What Full Access <em>adds.</em></h3>
+      <div class="lp-full-access-grid">
+        <div class="lp-fa-item">
+          <div class="lp-fa-rule"></div>
+          <div class="lp-fa-title">Unlimited Privé Montauk</div>
+          <div class="lp-fa-body">No visit cap. Play at member rates every time — through the full season and beyond, without counting visits.</div>
+        </div>
+        <div class="lp-fa-item">
+          <div class="lp-fa-rule"></div>
+          <div class="lp-fa-title">Unlimited Privé Miami</div>
+          <div class="lp-fa-body">The same unlimited access at Privé Miami — member rates on every visit, no monthly threshold.</div>
+        </div>
+        <div class="lp-fa-item">
+          <div class="lp-fa-rule"></div>
+          <div class="lp-fa-title">First Retreat Invitations</div>
+          <div class="lp-fa-body">Full Access members receive the first invitation for every Privé Retreat — before spots open to Standard members or the public.</div>
+        </div>
+      </div>
+      <div class="lp-fa-note">
+        Founding members receive Full Access benefits at the Standard price of $595/year — locked for life. Once the 200 founding spots close, Full Access is $995/year.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PRICE CALLOUT
+══════════════════════════════════════════════════════ -->
+<section class="lp-price">
+  <div class="lp-price-inner">
+    <div class="sec-eyebrow" style="margin-bottom:16px;">The Founding Offer</div>
+    <h2 class="lp-price-headline">Pay the Standard price.<br><em>Receive Full Access. For life.</em></h2>
+    <p class="lp-price-sub">Limited to the first 200 members.</p>
+    <div class="lp-price-cols">
+      <div class="lp-price-col">
+        <div class="lp-price-col-label">You Pay</div>
+        <div class="lp-price-col-amount">$595</div>
+        <div class="lp-price-col-detail">ANNUALLY &middot; LOCKED<br>FOR LIFE</div>
+      </div>
+      <div class="lp-price-divider"></div>
+      <div class="lp-price-col">
+        <div class="lp-price-col-label">You Receive</div>
+        <div class="lp-price-col-amount">$995</div>
+        <div class="lp-price-col-detail">FULL ACCESS &middot; EVERY<br>BENEFIT</div>
+      </div>
+    </div>
+    <div class="lp-price-founding">
+      <div class="lp-price-founding-badge">FOUNDING OFFER</div>
+      <div class="lp-price-founding-text">
+        $595/year, locked permanently. Never subject to periodic price increases.<br>
+        Once 200 spots fill, this offer closes. Standard rate: $995/year.
+      </div>
     </div>
   </div>
 </section>
 
 
-<!-- ── CHECKOUT ─────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════
+     CHECKOUT
+══════════════════════════════════════════════════════ -->
 <section class="lp-checkout" id="checkout">
   <div class="lp-checkout-inner">
     <div class="lp-checkout-card">
@@ -572,28 +931,25 @@
       <div class="lp-checkout-subline">First 200 only &nbsp;·&nbsp; $595/year locked for life</div>
       <div class="lp-checkout-rule"></div>
 
-      <!-- Founding tier -->
-      <div class="lp-tier-row">
+      <div class="lp-checkout-tier">
         <div>
-          <div class="lp-tier-name">Founding Passport</div>
-          <div class="lp-tier-desc">40+ destinations · Retreats · Club access · Privé Locations · Rate locked permanently</div>
+          <div class="lp-checkout-tier-name">Founding Passport</div>
+          <div class="lp-checkout-tier-desc">40+ destinations · Retreats · Club access · Privé Locations · Full Access · Rate locked permanently</div>
         </div>
-        <div class="lp-tier-price">$595<span style="font-size:14px;font-weight:300;color:rgba(27,42,74,.45)">/yr</span></div>
+        <div class="lp-checkout-tier-price">$595<span style="font-size:13px;font-weight:300;color:rgba(27,42,74,.4)">/yr</span></div>
       </div>
 
-      <!-- Partner add-on -->
       <label class="lp-partner-row" id="partnerRow">
-        <input type="checkbox" class="lp-partner-check-input" id="addPartner">
+        <input type="checkbox" id="addPartner">
         <div class="lp-partner-check"></div>
-        <div class="lp-partner-label-text">
-          <div class="lp-partner-label-name">Add a partner</div>
-          <div class="lp-partner-label-sub">Full founding benefits for one additional person</div>
+        <div class="lp-partner-body">
+          <div class="lp-partner-name">Add a partner</div>
+          <div class="lp-partner-sub">Full founding benefits for one additional person, rate locked</div>
         </div>
-        <div class="lp-partner-price">+$95<span style="font-size:12px;color:rgba(27,42,74,.4)">/yr</span></div>
+        <div class="lp-partner-price">+$95<span style="font-size:12px;color:rgba(27,42,74,.38)">/yr</span></div>
       </label>
 
-      <!-- Total -->
-      <div class="lp-total">
+      <div class="lp-total-row">
         <div class="lp-total-label">Total</div>
         <div class="lp-total-amount" id="totalDisplay">$595 / year</div>
       </div>
@@ -605,35 +961,71 @@
 </section>
 
 
-<!-- ── FAQ ──────────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════════════ -->
 <section class="lp-faq">
   <div class="lp-faq-inner">
-
-    <div class="lp-faq-item">
-      <div class="lp-faq-q">When does my Passport activate?</div>
-      <div class="lp-faq-a">Immediately after checkout. You'll receive your Passport credentials by email and can begin booking member rates at partner destinations the same day.</div>
+    <div class="lp-faq-header">
+      <div class="sec-eyebrow">Questions</div>
+      <h2 class="sec-heading" style="color:var(--navy);">Everything you <em>need to know.</em></h2>
     </div>
 
     <div class="lp-faq-item">
-      <div class="lp-faq-q">What happens after the 200 spots fill?</div>
-      <div class="lp-faq-a">The founding offer closes permanently. The standard Full Access rate is $995/year. Founding members keep their $595 rate for as long as their membership is active — it will never increase.</div>
+      <button class="lp-faq-q">
+        <span class="lp-faq-q-text">When does my Passport activate?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">Immediately after checkout. You'll receive Passport credentials by email and can begin booking member rates at partner destinations the same day through the Passport member portal.</div>
     </div>
 
     <div class="lp-faq-item">
-      <div class="lp-faq-q">What are Privé Locations?</div>
-      <div class="lp-faq-a">Privé operates its own padel venues in Montauk, NY and Miami, FL. Members receive member rates included for up to four visits per month — public day rates apply after that. Full Access members play at member rates year-round with no visit limit.</div>
+      <button class="lp-faq-q">
+        <span class="lp-faq-q-text">What exactly does the founding rate lock in?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">Your $595/year rate is locked for the lifetime of your membership — regardless of future price changes. Founding members are not subject to any periodic price increases. As long as your membership remains active, you pay $595. The standard Full Access rate after founding spots close is $995/year.</div>
     </div>
 
     <div class="lp-faq-item">
-      <div class="lp-faq-q">Can I cancel?</div>
-      <div class="lp-faq-a">Yes. Privé Passport is an annual subscription. You can cancel before your renewal date and will retain access through the end of your paid period. Questions? <a href="mailto:info@prive-padel.com">info@prive-padel.com</a></div>
+      <button class="lp-faq-q">
+        <span class="lp-faq-q-text">How do partner destination benefits work?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">When booking a stay at a partner destination, you book through the Passport member portal, which applies your member rate and flags your reservation for member benefits. The property's guest relations team is notified in advance. Benefits like F&B credits and room upgrades are applied at the property, consistent with each hotel's specific offer.</div>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q">
+        <span class="lp-faq-q-text">How does partner club access work?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">When you're staying at a paired Privé Destination (for example, The Savoy in London), your Passport unlocks court access at the linked partner club (Racketeer in London). You book through the Passport portal — there's no additional court fee. This applies in all four cities: LA, New York, London, and Hong Kong.</div>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q">
+        <span class="lp-faq-q-text">What are Privé Montauk and Privé Miami?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">Privé operates its own padel venues in Montauk, NY and Miami, FL. These are Privé properties — not partner hotels. Passport members play at member rates at both locations. Standard members have up to four visits per month at member rates; public day rates apply after that. As a founding member (Full Access), you play at member rates with no visit limit, at both locations, year-round.</div>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q">
+        <span class="lp-faq-q-text">Can I cancel?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">Yes. Privé Passport is an annual subscription billed through Stripe. You can cancel before your renewal date and retain access through the end of your paid period. Note: if you cancel a founding membership and later re-subscribe, the founding rate will no longer apply — you would rejoin at the current standard rate. Questions? <a href="mailto:info@prive-padel.com">info@prive-padel.com</a></div>
     </div>
 
   </div>
 </section>
 
 
-<!-- ── FOOTER ───────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
 <footer class="lp-footer">
   <div class="lp-footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
   <div class="lp-footer-links">
@@ -643,64 +1035,150 @@
 </footer>
 
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function () {
-  // Sticky header
+
+  /* ── Sticky header ────────────────────────────────────── */
   var header = document.getElementById('lpHeader');
   window.addEventListener('scroll', function () {
     header.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // Partner toggle
-  var partnerRow   = document.getElementById('partnerRow');
-  var partnerInput = document.getElementById('addPartner');
-  var totalEl      = document.getElementById('totalDisplay');
-
-  function updateTotal() {
-    var total = partnerInput.checked ? 690 : 595;
-    totalEl.textContent = '$' + total.toLocaleString() + ' / year';
-  }
-
-  partnerRow.addEventListener('click', function () {
-    partnerInput.checked = !partnerInput.checked;
-    partnerRow.classList.toggle('checked', partnerInput.checked);
-    updateTotal();
-  });
-
-  // Scroll to checkout
+  /* ── CTA scroll ───────────────────────────────────────── */
   function scrollToCheckout() {
     document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
   }
   document.getElementById('headerCta').addEventListener('click', scrollToCheckout);
   document.getElementById('heroCta').addEventListener('click', scrollToCheckout);
 
-  // Checkout
-  var checkoutBtn = document.getElementById('checkoutBtn');
-  checkoutBtn.addEventListener('click', function () {
-    checkoutBtn.disabled = true;
-    checkoutBtn.textContent = 'REDIRECTING…';
+  /* ── Partner toggle ───────────────────────────────────── */
+  var partnerRow   = document.getElementById('partnerRow');
+  var partnerInput = document.getElementById('addPartner');
+  var totalEl      = document.getElementById('totalDisplay');
 
+  partnerRow.addEventListener('click', function () {
+    partnerInput.checked = !partnerInput.checked;
+    partnerRow.classList.toggle('checked', partnerInput.checked);
+    totalEl.textContent = '$' + (partnerInput.checked ? '690' : '595') + ' / year';
+  });
+
+  /* ── Checkout ─────────────────────────────────────────── */
+  var btn = document.getElementById('checkoutBtn');
+  btn.addEventListener('click', function () {
+    btn.disabled = true;
+    btn.textContent = 'REDIRECTING…';
     gtag('event', 'begin_checkout', {
       currency: 'USD', value: 595,
       items: [{ item_id: 'founding', item_name: 'Privé Passport Founding', price: 595, quantity: 1 }]
     });
     fbq('track', 'InitiateCheckout', { value: 595, currency: 'USD', content_ids: ['founding'], content_type: 'product' });
-
     fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier: 'founding', addPartner: partnerInput.checked })
     })
-      .then(function (res) {
-        if (!res.ok) throw new Error();
-        return res.json();
-      })
-      .then(function (data) { window.location.href = data.url; })
-      .catch(function () {
-        checkoutBtn.disabled = false;
-        checkoutBtn.textContent = 'LOCK IN YOUR RATE →';
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (d) { window.location.href = d.url; })
+      .catch(function () { btn.disabled = false; btn.textContent = 'LOCK IN YOUR RATE →'; });
+  });
+
+  /* ── FAQ accordion ────────────────────────────────────── */
+  document.querySelectorAll('.lp-faq-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.closest('.lp-faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.lp-faq-item').forEach(function (i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* ── Destinations map ─────────────────────────────────── */
+  var map = L.map('destinationsMap', {
+    center: [28, 18], zoom: 2,
+    zoomControl: false, scrollWheelZoom: false,
+    minZoom: 2, maxZoom: 6,
+    attributionControl: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+
+  var destinations = [
+    // Americas
+    { name: 'Privé Montauk',              lat: 41.04,  lng: -71.95 },
+    { name: 'Privé Miami',                lat: 25.77,  lng: -80.19 },
+    { name: 'The Surrey, New York',        lat: 40.77,  lng: -73.96 },
+    { name: 'Padel Haus, Brooklyn',        lat: 40.69,  lng: -73.99 },
+    { name: 'Maybourne Beverly Hills',     lat: 34.07,  lng: -118.40 },
+    { name: 'Fairmont Century City',       lat: 34.06,  lng: -118.41 },
+    { name: 'Padel Up, Los Angeles',       lat: 34.09,  lng: -118.36 },
+    { name: 'Chablé Yucatán',             lat: 20.93,  lng: -89.62 },
+    { name: 'Hotel Kanai',                 lat: 20.70,  lng: -87.06 },
+    { name: 'Riviera Maya Edition',        lat: 20.50,  lng: -87.14 },
+    { name: 'Banyan Tree Mayakoba',        lat: 20.69,  lng: -87.10 },
+    { name: 'Tortuga Bay, Puntacana',      lat: 18.50,  lng: -68.37 },
+    // Europe
+    { name: 'The Savoy, London',           lat: 51.51,  lng: -0.12  },
+    { name: 'St James\'s Hotel & Club',   lat: 51.50,  lng: -0.14  },
+    { name: 'Racketeer, London',           lat: 51.51,  lng: -0.14  },
+    { name: 'Fairmont Windsor Park',       lat: 51.44,  lng: -0.61  },
+    { name: 'Hotel Único Madrid',          lat: 40.43,  lng: -3.69  },
+    { name: 'The Principal Madrid',        lat: 40.42,  lng: -3.70  },
+    { name: 'Hotel Royal Evian',           lat: 46.40,  lng: 6.59   },
+    { name: 'Hotel Camiral',               lat: 41.91,  lng: 2.82   },
+    { name: 'Finca La Bobadilla',          lat: 37.18,  lng: -4.02  },
+    { name: 'Mas de Torrent',              lat: 41.91,  lng: 3.07   },
+    { name: 'Finca Serena Mallorca',       lat: 39.64,  lng: 2.99   },
+    { name: 'The Lodge Mallorca',          lat: 39.73,  lng: 2.91   },
+    { name: 'Vilalara Grand Hotel',        lat: 37.12,  lng: -8.65  },
+    { name: 'Verdura Resort',              lat: 37.49,  lng: 13.09  },
+    { name: 'Hotel Pitrizza',              lat: 41.12,  lng: 9.53   },
+    { name: 'One&Only Aesthesis',          lat: 37.86,  lng: 23.72  },
+    { name: 'Elounda Mare',                lat: 35.26,  lng: 25.72  },
+    { name: 'Elounda Peninsula',           lat: 35.27,  lng: 25.73  },
+    { name: 'Porto Elounda',               lat: 35.28,  lng: 25.74  },
+    { name: 'D Maris Bay',                 lat: 36.79,  lng: 28.29  },
+    // Middle East
+    { name: 'Al Baleed Resort Salalah',    lat: 17.02,  lng: 54.10  },
+    // Asia / Pacific
+    { name: 'Rosewood Hong Kong',          lat: 22.30,  lng: 114.18 },
+    { name: 'Go Park Hong Kong',           lat: 22.33,  lng: 114.21 },
+    { name: 'Patina Maldives',             lat: 4.28,   lng: 73.54  },
+    { name: 'Nihi Sumba',                  lat: -9.61,  lng: 119.48 },
+    { name: 'Dwarika\'s Resort, Nepal',   lat: 27.68,  lng: 85.43  },
+    // Africa / Indian Ocean
+    { name: 'Voaara Madagascar',           lat: -20.0,  lng: 44.0   },
+  ];
+
+  var dotStyle = {
+    radius: 5, fillColor: '#B8976A', color: 'rgba(184,151,106,.3)',
+    weight: 6, fillOpacity: 1
+  };
+
+  destinations.forEach(function (d) {
+    L.circleMarker([d.lat, d.lng], dotStyle)
+      .addTo(map)
+      .bindTooltip(d.name, {
+        permanent: false, direction: 'top', offset: [0, -8],
+        className: 'lp-map-tooltip'
       });
   });
+
+  /* Tooltip styling injected after Leaflet loads */
+  var style = document.createElement('style');
+  style.textContent = [
+    '.lp-map-tooltip {',
+    '  background: #0E1923; border: 1px solid rgba(184,151,106,.3);',
+    '  color: #F5F0E8; font-family: "Jost", sans-serif; font-size: 11px;',
+    '  font-weight: 300; letter-spacing: .04em; padding: 6px 12px;',
+    '  border-radius: 1px; box-shadow: none; white-space: nowrap;',
+    '}',
+    '.lp-map-tooltip::before { display: none; }',
+  ].join('');
+  document.head.appendChild(style);
+
 })();
 </script>
 </body>
