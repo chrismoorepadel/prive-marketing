@@ -253,43 +253,51 @@
     .lp-breakdown-header .sec-heading { color: var(--navy); }
     .lp-breakdown-header p { margin-top: 18px; max-width: 600px; }
 
-    /* Benefit categories */
-    .lp-benefit-category { margin-bottom: 3px; }
-    .lp-benefit-cat-header {
-      background: var(--dark); padding: 28px 36px;
-      display: flex; align-items: center; gap: 20px; cursor: pointer;
+    /* ── TAB NAVIGATION ─────────────────────────────── */
+    .lp-tab-nav {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: rgba(14,25,35,.18);
     }
-    .lp-benefit-cat-num {
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 400;
-      letter-spacing: .2em; color: var(--gold); flex-shrink: 0;
+    .lp-tab-btn {
+      background: var(--dark2); border: none; border-bottom: 3px solid transparent;
+      cursor: pointer; padding: 28px 30px; text-align: left;
+      display: flex; flex-direction: column; gap: 7px;
+      transition: border-color .2s, background .2s; outline: none;
     }
-    .lp-benefit-cat-title {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px);
-      font-weight: 300; color: var(--cream); flex: 1;
+    .lp-tab-btn:hover { background: rgba(14,25,35,.96); }
+    .lp-tab-btn.active { border-bottom-color: var(--gold); background: var(--dark); }
+    .lp-tab-num {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: .22em; color: var(--gold);
     }
-    .lp-benefit-cat-title em { font-style: italic; }
-    .lp-benefit-cat-count {
-      font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
-      color: rgba(245,240,232,.35); letter-spacing: .08em;
+    .lp-tab-label {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 1.5vw, 21px);
+      font-weight: 300; color: var(--cream); line-height: 1.15;
     }
-    .lp-benefit-cat-body { background: var(--cream); }
+    .lp-tab-label em { font-style: italic; }
+    .lp-tab-sub {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+      color: rgba(245,240,232,.32); letter-spacing: .04em;
+    }
+    .lp-tab-panel { display: none; background: var(--cream); }
+    .lp-tab-panel.active { display: block; }
     .lp-benefit-rows { display: grid; grid-template-columns: 1fr 1fr; }
     .lp-benefit-row {
-      padding: 28px 36px; border-bottom: 1px solid rgba(27,42,74,.07);
+      padding: 36px 40px; border-bottom: 1px solid rgba(27,42,74,.07);
       border-right: 1px solid rgba(27,42,74,.07);
     }
     .lp-benefit-row:nth-child(even) { border-right: none; }
     .lp-benefit-row-label {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 400;
-      letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
     }
     .lp-benefit-row-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
-      color: var(--navy); margin-bottom: 6px;
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
+      color: var(--navy); margin-bottom: 8px;
     }
     .lp-benefit-row-body {
       font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(27,42,74,.6); line-height: 1.65;
+      color: rgba(27,42,74,.6); line-height: 1.7;
     }
 
     /* Full Access upgrade section */
@@ -530,8 +538,11 @@
       .lp-map-header { padding: 60px 24px 36px; }
       #destinationsMap { height: 380px; }
       .lp-breakdown { padding: 72px 24px; }
+      .lp-tab-nav { grid-template-columns: repeat(2, 1fr); }
+      .lp-tab-btn { padding: 20px 18px; gap: 5px; }
+      .lp-tab-sub { display: none; }
       .lp-benefit-rows { grid-template-columns: 1fr; }
-      .lp-benefit-row { border-right: none; }
+      .lp-benefit-row { border-right: none; padding: 28px 24px; }
       .lp-full-access-grid { grid-template-columns: 1fr; }
       .lp-price { padding: 72px 24px; }
       .lp-price-cols { grid-template-columns: 1fr; gap: 36px; }
@@ -746,114 +757,110 @@
       <p class="sec-body" style="margin-top:18px;">Here is exactly what your Passport includes — and what founding members get at Full Access, for the Standard price.</p>
     </div>
 
-    <!-- Category 1: Partner Destinations -->
-    <div class="lp-benefit-category">
-      <div class="lp-benefit-cat-header">
-        <div class="lp-benefit-cat-num">01</div>
-        <div class="lp-benefit-cat-title">Partner <em>Destinations</em></div>
-        <div class="lp-benefit-cat-count">40+ Properties Worldwide</div>
-      </div>
-      <div class="lp-benefit-cat-body">
-        <div class="lp-benefit-rows">
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Preferred Rates</div>
-            <div class="lp-benefit-row-title">Best Available Rate or Better</div>
-            <div class="lp-benefit-row-body">Members access the best available room rate at every partner destination — often at a discount not available through any other channel. Rates vary by property; specific discounts are detailed in the Passport member portal.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Room Benefits</div>
-            <div class="lp-benefit-row-title">Upgrade, Early In, Late Out</div>
-            <div class="lp-benefit-row-body">Room upgrades upon availability, complimentary early check-in, and late check-out at every partner destination — requested at booking, confirmed by the property's guest relations team.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">On-Property Credits</div>
-            <div class="lp-benefit-row-title">F&amp;B Credits &amp; Dining Discounts</div>
-            <div class="lp-benefit-row-body">Many partner properties include a daily food and beverage credit — typically $100–$200 USD per stay — plus discounts at on-property dining venues and spas. Specific credits are listed for each destination in the Passport portal.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Arrival Experience</div>
-            <div class="lp-benefit-row-title">VIP Treatment Upon Arrival</div>
-            <div class="lp-benefit-row-body">Properties are notified of Passport member arrivals in advance. Welcome amenities, priority check-in, and dedicated attention from guest relations are standard across the collection.</div>
-          </div>
+    <!-- Tab navigation -->
+    <div class="lp-tab-nav">
+      <button class="lp-tab-btn active" data-tab="destinations">
+        <span class="lp-tab-num">01</span>
+        <span class="lp-tab-label">Partner <em>Destinations</em></span>
+        <span class="lp-tab-sub">40+ Properties Worldwide</span>
+      </button>
+      <button class="lp-tab-btn" data-tab="retreats">
+        <span class="lp-tab-num">02</span>
+        <span class="lp-tab-label">Padel <em>Retreats</em></span>
+        <span class="lp-tab-sub">Multiple Per Year</span>
+      </button>
+      <button class="lp-tab-btn" data-tab="clubs">
+        <span class="lp-tab-num">03</span>
+        <span class="lp-tab-label">Partner Club <em>Access</em></span>
+        <span class="lp-tab-sub">LA · New York · London · Hong Kong</span>
+      </button>
+      <button class="lp-tab-btn" data-tab="locations">
+        <span class="lp-tab-num">04</span>
+        <span class="lp-tab-label">Privé <em>Locations</em></span>
+        <span class="lp-tab-sub">Montauk &amp; Miami</span>
+      </button>
+    </div>
+
+    <!-- Panel 1: Partner Destinations -->
+    <div class="lp-tab-panel active" data-panel="destinations">
+      <div class="lp-benefit-rows">
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Preferred Rates</div>
+          <div class="lp-benefit-row-title">Best Available Rate or Better</div>
+          <div class="lp-benefit-row-body">Members access the best available room rate at every partner destination — often at a discount not available through any other channel. Rates vary by property; specific discounts are detailed in the Passport member portal.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Room Benefits</div>
+          <div class="lp-benefit-row-title">Upgrade, Early In, Late Out</div>
+          <div class="lp-benefit-row-body">Room upgrades upon availability, complimentary early check-in, and late check-out at every partner destination — requested at booking, confirmed by the property's guest relations team.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">On-Property Credits</div>
+          <div class="lp-benefit-row-title">F&amp;B Credits &amp; Dining Discounts</div>
+          <div class="lp-benefit-row-body">Many partner properties include a daily food and beverage credit — typically $100–$200 USD per stay — plus discounts at on-property dining venues and spas. Specific credits are listed for each destination in the Passport portal.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Arrival Experience</div>
+          <div class="lp-benefit-row-title">VIP Treatment Upon Arrival</div>
+          <div class="lp-benefit-row-body">Properties are notified of Passport member arrivals in advance. Welcome amenities, priority check-in, and dedicated attention from guest relations are standard across the collection.</div>
         </div>
       </div>
     </div>
 
-    <!-- Category 2: Padel Retreats -->
-    <div class="lp-benefit-category">
-      <div class="lp-benefit-cat-header">
-        <div class="lp-benefit-cat-num">02</div>
-        <div class="lp-benefit-cat-title">Padel <em>Retreats</em></div>
-        <div class="lp-benefit-cat-count">Multiple Per Year</div>
-      </div>
-      <div class="lp-benefit-cat-body">
-        <div class="lp-benefit-rows">
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Format</div>
-            <div class="lp-benefit-row-title">Small-Group, Destination Travel</div>
-            <div class="lp-benefit-row-body">Privé Retreats bring 8–16 players together at a partner destination for 3–5 days of coached padel, competition, and curated resort access. Each retreat is designed around the destination — what you play is shaped by where you are.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Access</div>
-            <div class="lp-benefit-row-title">Priority Booking for Members</div>
-            <div class="lp-benefit-row-body">Retreat spots open to Passport members first — before any public availability. Full Access members receive the first invitation for each retreat in the calendar.</div>
-          </div>
+    <!-- Panel 2: Padel Retreats -->
+    <div class="lp-tab-panel" data-panel="retreats">
+      <div class="lp-benefit-rows">
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Format</div>
+          <div class="lp-benefit-row-title">Small-Group, Destination Travel</div>
+          <div class="lp-benefit-row-body">Privé Retreats bring 8–16 players together at a partner destination for 3–5 days of coached padel, competition, and curated resort access. Each retreat is designed around the destination — what you play is shaped by where you are.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Access</div>
+          <div class="lp-benefit-row-title">Priority Booking for Members</div>
+          <div class="lp-benefit-row-body">Retreat spots open to Passport members first — before any public availability. Full Access members receive the first invitation for each retreat in the calendar.</div>
         </div>
       </div>
     </div>
 
-    <!-- Category 3: Partner Clubs -->
-    <div class="lp-benefit-category">
-      <div class="lp-benefit-cat-header">
-        <div class="lp-benefit-cat-num">03</div>
-        <div class="lp-benefit-cat-title">Partner Club <em>Access</em></div>
-        <div class="lp-benefit-cat-count">LA · New York · London · Hong Kong</div>
-      </div>
-      <div class="lp-benefit-cat-body">
-        <div class="lp-benefit-rows">
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Los Angeles</div>
-            <div class="lp-benefit-row-title">Padel Up, West Hollywood</div>
-            <div class="lp-benefit-row-body">Six indoor courts in the heart of West Hollywood — the first dedicated padel club in Los Angeles. Included with a stay at the Maybourne Beverly Hills or Fairmont Century City.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">New York</div>
-            <div class="lp-benefit-row-title">Padel Haus — Brooklyn</div>
-            <div class="lp-benefit-row-body">Three locations across Dumbo, Williamsburg, and Greenpoint. Included with a stay at The Surrey on the Upper East Side.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">London</div>
-            <div class="lp-benefit-row-title">Racketeer, Kingly Court</div>
-            <div class="lp-benefit-row-body">Rooftop courts in Soho's Kingly Court — members-room culture in the heart of central London. Included with stays at The Savoy and St James's Hotel and Club.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Hong Kong</div>
-            <div class="lp-benefit-row-title">Go Park, Kai Tak</div>
-            <div class="lp-benefit-row-body">A multi-court facility at Kai Tak Sports Park — Hong Kong's largest sports development. Included with a stay at Rosewood Hong Kong.</div>
-          </div>
+    <!-- Panel 3: Partner Clubs -->
+    <div class="lp-tab-panel" data-panel="clubs">
+      <div class="lp-benefit-rows">
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Los Angeles</div>
+          <div class="lp-benefit-row-title">Padel Up, West Hollywood</div>
+          <div class="lp-benefit-row-body">Six indoor courts in the heart of West Hollywood — the first dedicated padel club in Los Angeles. Included with a stay at the Maybourne Beverly Hills or Fairmont Century Plaza.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">New York</div>
+          <div class="lp-benefit-row-title">Padel Haus — Brooklyn</div>
+          <div class="lp-benefit-row-body">Three locations across Dumbo, Williamsburg, and Greenpoint. Included with a stay at The Surrey on the Upper East Side.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">London</div>
+          <div class="lp-benefit-row-title">Racketeer, Kingly Court</div>
+          <div class="lp-benefit-row-body">Rooftop courts in Soho's Kingly Court — members-room culture in the heart of central London. Included with stays at The Savoy and St James's Hotel and Club.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Hong Kong</div>
+          <div class="lp-benefit-row-title">Go Park, Kai Tak</div>
+          <div class="lp-benefit-row-body">A multi-court facility at Kai Tak Sports Park — Hong Kong's largest sports development. Included with a stay at Rosewood Hong Kong.</div>
         </div>
       </div>
     </div>
 
-    <!-- Category 4: Privé Locations -->
-    <div class="lp-benefit-category">
-      <div class="lp-benefit-cat-header">
-        <div class="lp-benefit-cat-num">04</div>
-        <div class="lp-benefit-cat-title">Privé <em>Locations</em></div>
-        <div class="lp-benefit-cat-count">Montauk &amp; Miami</div>
-      </div>
-      <div class="lp-benefit-cat-body">
-        <div class="lp-benefit-rows">
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Privé Montauk</div>
-            <div class="lp-benefit-row-title">Member Rates, Included</div>
-            <div class="lp-benefit-row-body">Standard members play at member rates for up to four visits per month. Public day rates apply beyond that threshold. Full Access members have no visit limit — member rates year-round, every visit.</div>
-          </div>
-          <div class="lp-benefit-row">
-            <div class="lp-benefit-row-label">Privé Miami</div>
-            <div class="lp-benefit-row-title">Member Rates, Included</div>
-            <div class="lp-benefit-row-body">The same structure as Montauk. Standard members: up to four visits per month at member rates. Full Access members: unlimited access at member rates, no cap.</div>
-          </div>
+    <!-- Panel 4: Privé Locations -->
+    <div class="lp-tab-panel" data-panel="locations">
+      <div class="lp-benefit-rows">
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Privé Montauk</div>
+          <div class="lp-benefit-row-title">Member Rates, Included</div>
+          <div class="lp-benefit-row-body">Standard members play at member rates for up to four visits per month. Public day rates apply beyond that threshold. Full Access members have no visit limit — member rates year-round, every visit.</div>
+        </div>
+        <div class="lp-benefit-row">
+          <div class="lp-benefit-row-label">Privé Miami</div>
+          <div class="lp-benefit-row-title">Member Rates, Included</div>
+          <div class="lp-benefit-row-body">The same structure as Montauk. Standard members: up to four visits per month at member rates. Full Access members: unlimited access at member rates, no cap.</div>
         </div>
       </div>
     </div>
@@ -1081,6 +1088,17 @@
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })
       .catch(function () { btn.disabled = false; btn.textContent = 'LOCK IN YOUR RATE →'; });
+  });
+
+  /* ── Benefit tabs ────────────────────────────────────── */
+  document.querySelectorAll('.lp-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var tab = btn.dataset.tab;
+      document.querySelectorAll('.lp-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('.lp-tab-panel').forEach(function (p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelector('[data-panel="' + tab + '"]').classList.add('active');
+    });
   });
 
   /* ── FAQ accordion ────────────────────────────────────── */
