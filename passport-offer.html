@@ -144,48 +144,94 @@
       line-height: 1.8; color: rgba(245,240,232,.6);
     }
 
-    /* ── VIDEO + INTRO ───────────────────────────────────── */
-    .lp-intro { background: var(--dark); }
-    .lp-intro-grid {
-      display: grid; grid-template-columns: 1fr 1fr; min-height: 560px;
+    /* ── HERO PROOF TOKEN ───────────────────────────────── */
+    .lp-hero-proof {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
+      color: rgba(245,240,232,.38); letter-spacing: .08em; margin-bottom: 32px;
     }
-    .lp-intro-video {
-      position: relative; overflow: hidden; background: var(--dark2);
-      min-height: 400px;
+
+    /* ── VALUE MOMENT ───────────────────────────────────── */
+    .lp-value { background: var(--cream); padding: 100px 52px; }
+    .lp-value-inner { max-width: 760px; margin: 0 auto; }
+    .lp-value-lead {
+      font-family: 'Jost', sans-serif; font-size: 17px; font-weight: 300;
+      line-height: 1.85; color: rgba(27,42,74,.68); margin-top: 28px; margin-bottom: 40px;
     }
-    .lp-intro-video video {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+    .lp-value-details {
+      border-top: 1px solid rgba(27,42,74,.12);
+      border-bottom: 1px solid rgba(27,42,74,.12);
     }
-    /* Fallback poster shown until video URL is dropped in */
-    .lp-video-poster {
-      position: absolute; inset: 0;
-      background: url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1776614154/D_Maris_Bay_Panoramic_copy_s6rpeh.jpg') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
+    .lp-value-summary {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; cursor: pointer; list-style: none; gap: 16px;
+      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
+      color: rgba(27,42,74,.5); letter-spacing: .04em; transition: color .2s;
     }
-    .lp-video-play {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(184,151,106,.9); display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: transform .2s, background .2s;
+    .lp-value-summary::-webkit-details-marker { display: none; }
+    .lp-value-summary:hover { color: rgba(27,42,74,.8); }
+    .lp-value-chevron {
+      width: 18px; height: 18px; flex-shrink: 0; transition: transform .25s; color: var(--gold);
     }
-    .lp-video-play:hover { transform: scale(1.08); background: var(--gold); }
-    .lp-video-play svg { width: 22px; height: 22px; fill: var(--dark); margin-left: 3px; }
-    .lp-intro-text {
-      padding: 80px 64px; display: flex; flex-direction: column; justify-content: center;
-      border-left: 1px solid rgba(255,255,255,.06);
+    .lp-value-details[open] .lp-value-chevron { transform: rotate(180deg); }
+    .lp-value-expanded {
+      padding: 32px 0 40px; display: flex; flex-direction: column; gap: 20px;
+      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
+      color: rgba(27,42,74,.68); line-height: 1.85;
     }
-    .lp-intro-text .sec-heading { color: var(--cream); margin-bottom: 24px; }
-    .lp-intro-bullets { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
-    .lp-intro-bullet { display: flex; gap: 16px; align-items: flex-start; }
-    .lp-intro-bullet-dot {
-      width: 4px; height: 4px; border-radius: 50%; background: var(--gold);
-      flex-shrink: 0; margin-top: 7px;
+    .lp-value-expanded em { font-style: italic; color: rgba(27,42,74,.85); }
+    .lp-value-expanded strong { color: var(--navy); font-weight: 500; }
+    .lp-value-expanded ul { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .lp-value-expanded li { padding-left: 4px; }
+    .lp-value-disclaimer {
+      font-size: 14px; color: rgba(27,42,74,.4);
+      border-top: 1px solid rgba(27,42,74,.07); padding-top: 18px;
     }
-    .lp-intro-bullet-text {
+    .lp-value-upside {
+      background: rgba(184,151,106,.06); border-left: 2px solid rgba(184,151,106,.45);
+      padding: 22px 26px;
+    }
+    .lp-value-closing {
       font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
-      color: rgba(245,240,232,.65); line-height: 1.6;
+      color: rgba(27,42,74,.4); margin-top: 28px; letter-spacing: .02em;
     }
-    .lp-intro-bullet-text strong {
-      color: rgba(245,240,232,.9); font-weight: 400;
+
+    /* ── PRIVÉ LOCATIONS SPOTLIGHT ──────────────────────── */
+    .lp-spot { background: var(--dark); padding: 100px 52px; }
+    .lp-spot-inner { max-width: 1100px; margin: 0 auto; }
+    .lp-spot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 56px; }
+    .lp-spot-card { background: var(--dark2); padding: 52px 48px; }
+    .lp-spot-discount {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 8vw, 100px);
+      font-weight: 300; color: var(--gold); font-style: italic; line-height: 1; margin-bottom: 6px;
+    }
+    .lp-spot-name {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: .24em; text-transform: uppercase;
+      color: rgba(245,240,232,.45); margin-bottom: 28px;
+    }
+    .lp-spot-rule { width: 20px; height: 1px; background: var(--gold); margin-bottom: 24px; }
+    .lp-spot-body {
+      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
+      color: rgba(245,240,232,.52); line-height: 1.75; margin-bottom: 28px;
+    }
+    .lp-spot-tag {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(184,151,106,.28);
+      padding: 6px 14px; display: inline-block;
+    }
+
+    /* ── FINAL CTA ──────────────────────────────────────── */
+    .lp-final-cta { background: var(--dark); padding: 120px 52px; text-align: center; }
+    .lp-final-cta-inner { max-width: 700px; margin: 0 auto; }
+    .lp-final-cta-headline {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 24px;
+    }
+    .lp-final-cta-headline em { font-style: italic; }
+    .lp-final-cta-body {
+      font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
+      color: rgba(245,240,232,.5); line-height: 1.85; max-width: 520px; margin: 0 auto;
     }
 
     /* ── WHAT THE PASSPORT OPENS ─────────────────────────── */
@@ -549,6 +595,11 @@
       .lp-price-divider { display: none; }
       .lp-price-col { padding: 0; }
       .lp-price-founding { flex-direction: column; align-items: flex-start; }
+      .lp-value { padding: 72px 24px; }
+      .lp-spot { padding: 72px 24px; }
+      .lp-spot-grid { grid-template-columns: 1fr; }
+      .lp-spot-card { padding: 36px 28px; }
+      .lp-final-cta { padding: 80px 24px; }
       .lp-checkout { padding: 72px 24px; }
       .lp-checkout-card { padding: 32px 24px; }
       .lp-faq { padding: 72px 24px; }
@@ -578,62 +629,51 @@
     <div class="lp-eyebrow">The Founding Offer &nbsp;·&nbsp; First 200 Members</div>
     <h1>One passport.<br><em>The world's finest courts.</em></h1>
     <p class="lp-hero-sub">
-      Preferred rates and member benefits at 40+ luxury hotels worldwide. Curated padel retreats.
-      Partner club access in four cities. Founding members lock in at $595/year — permanently.
+      Preferred rates and member benefits at 40+ partner hotels worldwide, curated padel retreats, and partner-club access in four cities. Founding members receive Full Access — $995 value — at the Standard price of $595, locked for life.
     </p>
+    <div class="lp-hero-proof">$995 Full Access &nbsp;·&nbsp; yours at $595 &nbsp;·&nbsp; locked permanently</div>
     <div class="lp-hero-actions">
       <button class="btn-gold" id="heroCta">LOCK IN YOUR RATE →</button>
-      <span class="lp-hero-note">First 200 spots only &nbsp;·&nbsp; Standard rate $995/yr</span>
+      <span class="lp-hero-note">First 200 members only</span>
     </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════════
-     VIDEO + INTRO
+     VALUE MOMENT
 ══════════════════════════════════════════════════════ -->
-<section class="lp-intro">
-  <div class="lp-intro-grid">
-
-    <!-- Left: video — replace VIDEO_URL_HERE with Cloudinary .mp4 URL -->
-    <div class="lp-intro-video">
-      <div class="lp-video-poster" id="videoPoster">
-        <div class="lp-video-play" id="videoPlayBtn">
-          <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+<section class="lp-value">
+  <div class="lp-value-inner">
+    <div class="sec-eyebrow">Why It Pays</div>
+    <h2 class="sec-heading" style="color:var(--navy);">A single stay <em>returns more than the membership.</em></h2>
+    <p class="lp-value-lead">
+      Between your founding rate and the preferred rates at every partner destination, the Passport earns back its cost in one trip — and keeps returning value for the rest of the year. Most members never think about the price again.
+    </p>
+    <details class="lp-value-details">
+      <summary class="lp-value-summary">
+        <span>How the membership returns its value</span>
+        <span class="lp-value-chevron">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 7.5l5 5 5-5"/></svg>
+        </span>
+      </summary>
+      <div class="lp-value-expanded">
+        <p><em>A representative stay.</em> Take a seven-night stay at a partner destination at $650 per night — $4,550.</p>
+        <ul>
+          <li>Your founding rate captures <strong>$400</strong> the moment you join: Full Access is $995; you pay $595, locked for life.</li>
+          <li>Member preferred rates run <strong>up to 20%</strong> off. At a conservative 12% on this stay, that's roughly <strong>$546</strong> returned.</li>
+        </ul>
+        <p>That's <strong>$946 against a $595 membership — before</strong> a single night at Privé Montauk or Miami, before partner-club access, and before the welcome amenities, dining, or spa benefits many properties extend on arrival.</p>
+        <div class="lp-value-upside">
+          <p>And that is before a single Privé Experience. Members attend our retreats at the member rate — <strong>20% off</strong> — which on a single Privé Experience puts <strong>$800 to $2,000</strong> back in your pocket. One retreat can return several times the cost of the membership.</p>
         </div>
+        <p class="lp-value-disclaimer"><em>The math is intentionally conservative. Real partner rates reach 20%, and most members travel more than once a year.</em></p>
       </div>
-      <!-- Uncomment and replace src when video is ready:
-      <video id="passportVideo" autoplay muted loop playsinline
-        poster="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1776614154/D_Maris_Bay_Panoramic_copy_s6rpeh.jpg">
-        <source src="VIDEO_URL_HERE.mp4" type="video/mp4">
-      </video>
-      -->
+    </details>
+    <p class="lp-value-closing">Everything beyond that first stay is simply more of what you joined for.</p>
+    <div style="margin-top:40px;">
+      <button class="btn-gold" id="valueCta">LOCK IN YOUR RATE →</button>
     </div>
-
-    <!-- Right: description -->
-    <div class="lp-intro-text">
-      <div class="sec-eyebrow">Privé Passport</div>
-      <h2 class="sec-heading" style="color:var(--cream);">A travel membership<br><em>built for the game.</em></h2>
-      <div class="lp-intro-bullets">
-        <div class="lp-intro-bullet">
-          <div class="lp-intro-bullet-dot"></div>
-          <div class="lp-intro-bullet-text"><strong>One annual membership</strong> unlocks preferred rates and curated benefits at over 40 luxury partner hotels — from the Maldives to Mallorca, Sardinia to Sumba.</div>
-        </div>
-        <div class="lp-intro-bullet">
-          <div class="lp-intro-bullet-dot"></div>
-          <div class="lp-intro-bullet-text"><strong>Padel is the constant.</strong> Every partner destination has a court on-property or paired access at a partner club in the same city.</div>
-        </div>
-        <div class="lp-intro-bullet">
-          <div class="lp-intro-bullet-dot"></div>
-          <div class="lp-intro-bullet-text"><strong>Retreats, clubs, and locations</strong> round out the membership — curated small-group travel, club courts in LA, New York, London, and Hong Kong, and Privé's own venues in Montauk and Miami.</div>
-        </div>
-        <div class="lp-intro-bullet">
-          <div class="lp-intro-bullet-dot"></div>
-          <div class="lp-intro-bullet-text"><strong>Founding members</strong> lock in at $595/year — the Standard price — and receive Full Access benefits, permanently.</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -673,8 +713,9 @@
         <div class="lp-open-card-body">
           <div class="lp-open-card-num">02</div>
           <div class="lp-open-card-title">Curated Padel <em>Retreats</em></div>
-          <div class="lp-open-card-desc">Small-group retreats at exceptional partner properties — combining coaching, competition, and destination travel in one curated format. Held across multiple properties per year. Passport members receive priority booking before retreats open to the public.</div>
+          <div class="lp-open-card-desc">Small-group retreats at exceptional partner properties — coaching, competition, and destination travel in one curated format, held across multiple properties each year. Members attend at the member rate — 20% off — and receive priority booking before retreats open publicly.</div>
           <div class="lp-open-card-tags">
+            <span class="lp-open-tag">20% Member Rate</span>
             <span class="lp-open-tag">Priority Access</span>
             <span class="lp-open-tag">Professional Coaching</span>
             <span class="lp-open-tag">8–16 Players</span>
@@ -706,11 +747,11 @@
         <div class="lp-open-card-body">
           <div class="lp-open-card-num">04</div>
           <div class="lp-open-card-title">Privé Locations — <em>Montauk &amp; Miami</em></div>
-          <div class="lp-open-card-desc">Member rates at Privé's own padel venues in Montauk, NY and Miami, FL — included as part of your Passport. Standard members play at member rates for up to four visits per month. Full Access members play year-round with no limit.</div>
+          <div class="lp-open-card-desc">Member rates at Privé's own padel venues — 50% off at Montauk, 20% off at Miami. Standard members play at member rates up to four visits per month; Full Access members play year-round, unlimited.</div>
           <div class="lp-open-card-tags">
-            <span class="lp-open-tag">Privé Montauk</span>
-            <span class="lp-open-tag">Privé Miami</span>
-            <span class="lp-open-tag">Member Rates</span>
+            <span class="lp-open-tag">50% Off Montauk</span>
+            <span class="lp-open-tag">20% Off Miami</span>
+            <span class="lp-open-tag">Founding = Unlimited</span>
           </div>
         </div>
       </div>
@@ -719,6 +760,33 @@
   </div>
 </section>
 
+
+<!-- ══════════════════════════════════════════════════════
+     PRIVÉ LOCATIONS SPOTLIGHT
+══════════════════════════════════════════════════════ -->
+<section class="lp-spot">
+  <div class="lp-spot-inner">
+    <div class="sec-eyebrow" style="color:var(--gold);">Privé's Own Venues</div>
+    <h2 class="sec-heading" style="color:var(--cream);">Where the Passport <em>comes home.</em></h2>
+    <p class="sec-body-light" style="margin-top:18px;max-width:600px;">Beyond the partner collection, the Passport opens Privé's own courts — with a fixed member rate, every visit. These are Privé properties, not partner hotels: the rate never varies.</p>
+    <div class="lp-spot-grid">
+      <div class="lp-spot-card">
+        <div class="lp-spot-discount">50%</div>
+        <div class="lp-spot-name">Privé Montauk</div>
+        <div class="lp-spot-rule"></div>
+        <p class="lp-spot-body">Members play at half the public rate, every visit. As a founding member with Full Access, there is no monthly limit — play through the full season, year-round, at 50% off.</p>
+        <div class="lp-spot-tag">Founding: Unlimited Visits</div>
+      </div>
+      <div class="lp-spot-card">
+        <div class="lp-spot-discount">20%</div>
+        <div class="lp-spot-name">Privé Miami</div>
+        <div class="lp-spot-rule"></div>
+        <p class="lp-spot-body">The same member-rate structure in Miami — 20% off the public rate, every visit. Full Access means no cap, year-round.</p>
+        <div class="lp-spot-tag">Founding: Unlimited Visits</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════════════════════════════════════════
      IMAGE STRIP
@@ -740,7 +808,7 @@
   <div class="lp-map-header">
     <div class="sec-eyebrow">40+ Destinations</div>
     <h2 class="sec-heading" style="color:var(--cream);">From Sardinia to Sumba.<br><em>The passport travels with you.</em></h2>
-    <p class="sec-body-light" style="margin-top:18px;">Partner destinations span Europe, the Americas, Asia Pacific, the Middle East, and the Indian Ocean — with more added each quarter.</p>
+    <p class="sec-body-light" style="margin-top:18px;">Partner destinations span Europe, the Americas, Asia Pacific, the Middle East, and the Indian Ocean — with more added each quarter. Every property is paired with a court on-site or at a partner club in the same city. Padel is the constant; the destination is yours to choose.</p>
   </div>
   <div id="destinationsMap"></div>
 </section>
@@ -797,7 +865,7 @@
         <div class="lp-benefit-row">
           <div class="lp-benefit-row-label">On-Property Credits</div>
           <div class="lp-benefit-row-title">F&amp;B Credits &amp; Dining Discounts</div>
-          <div class="lp-benefit-row-body">Many partner properties include a daily food and beverage credit — typically $100–$200 USD per stay — plus discounts at on-property dining venues and spas. Specific credits are listed for each destination in the Passport portal.</div>
+          <div class="lp-benefit-row-body">Many partner properties extend a welcome amenity on arrival — a dining benefit, spa credit, or on-property credit. Specifics vary by property and are listed for each destination in the member portal.</div>
         </div>
         <div class="lp-benefit-row">
           <div class="lp-benefit-row-label">Arrival Experience</div>
@@ -813,7 +881,7 @@
         <div class="lp-benefit-row">
           <div class="lp-benefit-row-label">Format</div>
           <div class="lp-benefit-row-title">Small-Group, Destination Travel</div>
-          <div class="lp-benefit-row-body">Privé Retreats bring 8–16 players together at a partner destination for 3–5 days of coached padel, competition, and curated resort access. Each retreat is designed around the destination — what you play is shaped by where you are.</div>
+          <div class="lp-benefit-row-body">Privé Retreats bring 8–16 players together at a partner destination for 3–5 days of coached padel, competition, and curated resort access. Each retreat is designed around the destination — what you play is shaped by where you are. Members attend at the member rate: 20% off every Privé Experience.</div>
         </div>
         <div class="lp-benefit-row">
           <div class="lp-benefit-row-label">Access</div>
@@ -855,12 +923,12 @@
         <div class="lp-benefit-row">
           <div class="lp-benefit-row-label">Privé Montauk</div>
           <div class="lp-benefit-row-title">Member Rates, Included</div>
-          <div class="lp-benefit-row-body">Standard members play at member rates for up to four visits per month. Public day rates apply beyond that threshold. Full Access members have no visit limit — member rates year-round, every visit.</div>
+          <div class="lp-benefit-row-body">Members play at 50% off the public rate — every visit. Standard members: up to four visits per month at this rate. Full Access members: no visit limit, member rate year-round, every visit.</div>
         </div>
         <div class="lp-benefit-row">
           <div class="lp-benefit-row-label">Privé Miami</div>
           <div class="lp-benefit-row-title">Member Rates, Included</div>
-          <div class="lp-benefit-row-body">The same structure as Montauk. Standard members: up to four visits per month at member rates. Full Access members: unlimited access at member rates, no cap.</div>
+          <div class="lp-benefit-row-body">Members play at 20% off the public rate — every visit. Standard members: up to four visits per month. Full Access members: unlimited access at the member rate, no cap.</div>
         </div>
       </div>
     </div>
@@ -868,26 +936,26 @@
     <!-- Full Access upgrade -->
     <div class="lp-full-access">
       <div class="lp-full-access-eyebrow">Full Access — $995 / Year</div>
-      <h3 class="lp-full-access-heading">What Full Access <em>adds.</em></h3>
+      <h3 class="lp-full-access-heading">What founding members <em>receive.</em></h3>
       <div class="lp-full-access-grid">
         <div class="lp-fa-item">
           <div class="lp-fa-rule"></div>
           <div class="lp-fa-title">Unlimited Privé Montauk</div>
-          <div class="lp-fa-body">No visit cap. Play at member rates every time — through the full season and beyond, without counting visits.</div>
+          <div class="lp-fa-body">No visit cap. 50% off the public rate, every visit — through the full season and beyond, without counting visits.</div>
         </div>
         <div class="lp-fa-item">
           <div class="lp-fa-rule"></div>
           <div class="lp-fa-title">Unlimited Privé Miami</div>
-          <div class="lp-fa-body">The same unlimited access at Privé Miami — member rates on every visit, no monthly threshold.</div>
+          <div class="lp-fa-body">The same unlimited access at Privé Miami — 20% off the public rate on every visit, no monthly threshold.</div>
         </div>
         <div class="lp-fa-item">
           <div class="lp-fa-rule"></div>
           <div class="lp-fa-title">First Retreat Invitations</div>
-          <div class="lp-fa-body">Full Access members receive the first invitation for every Privé Retreat — before spots open to Standard members or the public.</div>
+          <div class="lp-fa-body">Founding members receive the first invitation for every Privé Retreat — ahead of Standard members and the public.</div>
         </div>
       </div>
       <div class="lp-fa-note">
-        Founding members receive Full Access benefits at the Standard price of $595/year — locked for life. Once the 200 founding spots close, Full Access is $995/year.
+        Founding members pay the Standard rate of $595 and receive every Full Access benefit — a $995 membership — locked for life. Once the 200 founding spots close, Full Access returns to $995/year.
       </div>
     </div>
 
@@ -919,7 +987,7 @@
     <div class="lp-price-founding">
       <div class="lp-price-founding-badge">FOUNDING OFFER</div>
       <div class="lp-price-founding-text">
-        $595/year, locked permanently. Never subject to periodic price increases.<br>
+        You capture <strong>$400</strong> the moment you join — and your rate never rises. $595/year, locked permanently, never subject to a price increase.<br>
         Once 200 spots fill, this offer closes. Standard rate: $995/year.
       </div>
     </div>
@@ -999,7 +1067,7 @@
         <span class="lp-faq-q-text">How do partner destination benefits work?</span>
         <span class="lp-faq-icon"></span>
       </button>
-      <div class="lp-faq-a">When booking a stay at a partner destination, you book through the Passport member portal, which applies your member rate and flags your reservation for member benefits. The property's guest relations team is notified in advance. Benefits like F&B credits and room upgrades are applied at the property, consistent with each hotel's specific offer.</div>
+      <div class="lp-faq-a">When booking through the Passport member portal, your member rate is applied and your reservation is flagged for member benefits. The property's guest relations team is notified in advance. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed for each destination in the member portal.</div>
     </div>
 
     <div class="lp-faq-item">
@@ -1020,12 +1088,36 @@
 
     <div class="lp-faq-item">
       <button class="lp-faq-q">
+        <span class="lp-faq-q-text">Is the Passport worth it if I only travel once or twice a year?</span>
+        <span class="lp-faq-icon"></span>
+      </button>
+      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination — at a representative rate — returns more than the membership costs, between your founding rate and member preferred rates. Beyond that first trip, Privé Montauk and Miami access, partner-club courts, and the member rate on Privé Experiences are included for the year. A single retreat at the 20% member rate can return several times the membership on its own. Most members find the question answers itself on the first booking.</div>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q">
         <span class="lp-faq-q-text">Can I cancel?</span>
         <span class="lp-faq-icon"></span>
       </button>
       <div class="lp-faq-a">Yes. Privé Passport is an annual subscription billed through Stripe. You can cancel before your renewal date and retain access through the end of your paid period. Note: if you cancel a founding membership and later re-subscribe, the founding rate will no longer apply — you would rejoin at the current standard rate. Questions? <a href="mailto:info@prive-padel.com">info@prive-padel.com</a></div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════════════════ -->
+<section class="lp-final-cta">
+  <div class="lp-final-cta-inner">
+    <div class="sec-eyebrow" style="color:var(--gold);margin-bottom:20px;">The Founding Offer</div>
+    <h2 class="lp-final-cta-headline">200 founding memberships.<br><em>Then the door closes.</em></h2>
+    <p class="lp-final-cta-body">Lock in Full Access at the Standard price — $595/year, for life. A single stay returns the membership; a single Privé Experience returns several times over.</p>
+    <div style="margin-top:44px;">
+      <button class="btn-gold" id="finalCta">LOCK IN YOUR RATE →</button>
+    </div>
+    <div style="margin-top:20px;" class="lp-hero-note">First 200 members only &nbsp;·&nbsp; Secure checkout via Stripe</div>
   </div>
 </section>
 
@@ -1058,6 +1150,8 @@
   }
   document.getElementById('headerCta').addEventListener('click', scrollToCheckout);
   document.getElementById('heroCta').addEventListener('click', scrollToCheckout);
+  document.getElementById('valueCta').addEventListener('click', scrollToCheckout);
+  document.getElementById('finalCta').addEventListener('click', scrollToCheckout);
 
   /* ── Partner toggle ───────────────────────────────────── */
   var partnerRow   = document.getElementById('partnerRow');
