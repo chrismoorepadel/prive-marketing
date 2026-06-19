@@ -590,11 +590,35 @@
     .lp-pillar-price-row { display: flex; justify-content: space-between; align-items: baseline; }
     .lp-pillar-price-label { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: .06em; color: rgba(27,42,74,.5); }
     .lp-pillar-price-label.member { color: var(--navy); font-weight: 400; }
-    .lp-pillar-price-public { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: rgba(27,42,74,.4); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .lp-pillar-price-public { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: rgba(27,42,74,.45); }
     .lp-pillar-price-passport { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; font-style: italic; color: var(--navy); line-height: 1; }
-    .lp-pillar-save { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
     .lp-retreats-foot { text-align: center; margin-top: 44px; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300; color: rgba(27,42,74,.5); letter-spacing: .02em; }
     .lp-retreats-foot a { color: var(--navy); text-underline-offset: 3px; }
+
+    /* ══ HOME COURTS (Montauk + Miami pillars) ══════════════ */
+    .lp-home { background: var(--dark2); padding: 100px 52px; }
+    .lp-home-inner { max-width: 1080px; margin: 0 auto; }
+    .lp-home-head { text-align: center; margin-bottom: 52px; }
+    .lp-home-head .sec-heading { color: var(--cream); }
+    .lp-home-intro { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.75; margin: 16px auto 0; max-width: 600px; }
+    .lp-home-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .lp-home-pillar { background: var(--dark); border: 1px solid rgba(245,240,232,.08); overflow: hidden; display: flex; flex-direction: column; }
+    .lp-home-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+    .lp-home-body { padding: 32px 32px 36px; display: flex; flex-direction: column; flex: 1; }
+    .lp-home-eyebrow { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .lp-home-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 12px; }
+    .lp-home-name em { font-style: italic; }
+    .lp-home-text { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.7; margin-bottom: 24px; }
+    .lp-home-tag { margin-top: auto; border-top: 1px solid rgba(245,240,232,.1); padding-top: 18px; display: flex; align-items: center; gap: 10px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .06em; color: rgba(245,240,232,.72); }
+    .lp-home-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* ══ ARC CLOSING CTA ════════════════════════════════════ */
+    .lp-arccta { background: var(--navy); padding: 88px 52px; text-align: center; }
+    .lp-arccta-inner { max-width: 660px; margin: 0 auto; }
+    .lp-arccta-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .lp-arccta-head { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.4vw, 46px); font-weight: 300; color: var(--cream); line-height: 1.12; margin-bottom: 20px; }
+    .lp-arccta-head em { font-style: italic; }
+    .lp-arccta-sub { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.55); line-height: 1.8; margin-bottom: 36px; }
 
     /* ══ PROPERTY LIGHTBOX (ported from destinations page) ══ */
     .plb{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;}
@@ -702,6 +726,9 @@
       .lp-benefits-grid { grid-template-columns: repeat(2, 1fr); }
       .lp-retreats { padding: 72px 24px; }
       .lp-pillars { grid-template-columns: 1fr; gap: 20px; }
+      .lp-home { padding: 72px 24px; }
+      .lp-home-pillars { grid-template-columns: 1fr; gap: 20px; }
+      .lp-arccta { padding: 64px 24px; }
     }
     @media (max-width: 700px) {
       .plb-panel{width:100%;height:100vh;max-width:100%;}
@@ -883,40 +910,43 @@
 
 
 <!-- ══════════════════════════════════════════════════════
-     §3 FOR PADEL PLAYERS (the hook)
+     §3 FULL ACCESS — HOME COURTS (Montauk + Miami)
 ══════════════════════════════════════════════════════ -->
-<section class="lp-hook">
-  <div class="lp-hook-inner">
-    <h2 class="sec-heading">Wherever you go, <em>there's a court.</em></h2>
+<section class="lp-home">
+  <div class="lp-home-inner">
 
-    <div class="lp-hook-row">
-      <div class="lp-hook-icon">
-        <svg><use href="#ico-pin"/></svg>
-      </div>
-      <div>
-        <div class="lp-hook-title">A court everywhere you land</div>
-        <p class="lp-hook-body">Every partner hotel has a court on-property, or paired access at a club in the same city. Los Angeles · New York · London · Hong Kong.</p>
-      </div>
+    <div class="lp-home-head">
+      <div class="sec-eyebrow">Full Access Membership</div>
+      <h2 class="sec-heading">Wherever you go, <em>there's a court.</em></h2>
+      <p class="lp-home-intro">It begins with two home courts — Privé Montauk and Privé Miami, yours to play unlimited at the member rate — and opens onto 40+ destinations, curated retreats, and member benefits the world over.</p>
     </div>
 
-    <div class="lp-hook-row">
-      <div class="lp-hook-icon">
-        <svg><use href="#ico-trophy"/></svg>
-      </div>
-      <div>
-        <div class="lp-hook-title">Retreats built to play</div>
-        <p class="lp-hook-body">Small-group Privé Experiences: coaching, competition, and destination travel, at the member rate. 20% off every retreat, priority booking before public release.</p>
-      </div>
-    </div>
+    <div class="lp-home-pillars">
 
-    <div class="lp-hook-row">
-      <div class="lp-hook-icon">
-        <svg><use href="#ico-home"/></svg>
+      <div class="lp-home-pillar">
+        <img class="lp-home-img" loading="lazy"
+          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png"
+          alt="Privé Montauk">
+        <div class="lp-home-body">
+          <div class="lp-home-eyebrow">Opens July 1 · Montauk, New York</div>
+          <div class="lp-home-name">Privé <em>Montauk.</em></div>
+          <p class="lp-home-text">The original — two courts on Lake Montauk, where Privé Padel first took shape. Back for the season at a new home on the water.</p>
+          <div class="lp-home-tag">Unlimited play, year-round · member rate</div>
+        </div>
       </div>
-      <div>
-        <div class="lp-hook-title">Your home courts</div>
-        <p class="lp-hook-body">Privé Montauk at 50% off, Privé Miami at 20% off. Founding members play unlimited, year-round, no visit cap.</p>
+
+      <div class="lp-home-pillar">
+        <img class="lp-home-img" loading="lazy"
+          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777408711/Untitled_design-94_ea2ofp.png"
+          alt="Privé Miami">
+        <div class="lp-home-body">
+          <div class="lp-home-eyebrow">Now open · Coral Gables, Miami</div>
+          <div class="lp-home-name">Privé <em>Miami.</em></div>
+          <p class="lp-home-text">At THesis Hotel in Coral Gables — a dedicated court and a year-round calendar built around the city and its international membership.</p>
+          <div class="lp-home-tag">Unlimited play, year-round · member rate</div>
+        </div>
       </div>
+
     </div>
 
   </div>
@@ -931,8 +961,8 @@
 
     <div class="lp-retreats-head">
       <div class="sec-eyebrow">Privé Experiences</div>
-      <h2 class="sec-heading">Three retreats. <em>Member pricing.</em></h2>
-      <p class="lp-retreats-intro">Small-group padel journeys built around the game and the place. Members travel at the member rate — and book before public release.</p>
+      <h2 class="sec-heading">Three retreats. <em>Members first.</em></h2>
+      <p class="lp-retreats-intro">Small-group padel journeys built around the game and the place. Members travel at the member rate, with priority booking before each retreat opens to the public.</p>
     </div>
 
     <div class="lp-pillars">
@@ -955,7 +985,6 @@
               <span class="lp-pillar-price-label member">Passport rate</span>
               <span class="lp-pillar-price-passport">$6,600</span>
             </div>
-            <div class="lp-pillar-save">You save $1,650</div>
           </div>
         </div>
       </div>
@@ -978,7 +1007,6 @@
               <span class="lp-pillar-price-label member">Passport rate</span>
               <span class="lp-pillar-price-passport">$3,360</span>
             </div>
-            <div class="lp-pillar-save">You save $840</div>
           </div>
         </div>
       </div>
@@ -1001,14 +1029,13 @@
               <span class="lp-pillar-price-label member">Passport rate</span>
               <span class="lp-pillar-price-passport">$9,600</span>
             </div>
-            <div class="lp-pillar-save">You save $2,400</div>
           </div>
         </div>
       </div>
 
     </div>
 
-    <p class="lp-retreats-foot">Passport rates reflect the 20% member rate. <a href="/passport/experiences.html">See full itineraries →</a></p>
+    <p class="lp-retreats-foot">Member rates shown · priority booking before public release. <a href="/passport/experiences.html">See full itineraries →</a></p>
 
   </div>
 </section>
@@ -1093,6 +1120,19 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     ARC CLOSING CTA (value recap → checkout)
+══════════════════════════════════════════════════════ -->
+<section class="lp-arccta">
+  <div class="lp-arccta-inner">
+    <div class="lp-arccta-eyebrow">One Membership</div>
+    <h2 class="lp-arccta-head">Home courts, 40+ destinations, <em>every retreat.</em></h2>
+    <p class="lp-arccta-sub">Privé Montauk and Miami, 40+ destinations worldwide, every Privé Experience, and the full member benefits — all carried on a single Passport.</p>
+    <button class="btn-gold" id="arcCta">LOCK IN YOUR RATE →</button>
   </div>
 </section>
 
@@ -1372,6 +1412,7 @@
   document.getElementById('valueCta').addEventListener('click', scrollToCheckout);
   document.getElementById('stickyCta').addEventListener('click', scrollToCheckout);
   document.getElementById('finalCta').addEventListener('click', scrollToCheckout);
+  document.getElementById('arcCta').addEventListener('click', scrollToCheckout);
 
   /* ── Partner toggle ───────────────────────────────────── */
   var partnerRow   = document.getElementById('partnerRow');
