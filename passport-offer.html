@@ -1633,11 +1633,20 @@
   /* ── Curated tile grid + "browse all" toggle ───────────── */
   var grid = document.getElementById('destTileGrid');
   if (grid) {
-    var all      = window.DESTINATIONS.slice();
-    var featured = all.filter(function(d) { return d.featured; });
-    var rest     = all.filter(function(d) { return !d.featured; });
-    var ordered  = featured.concat(rest);
-    var CURATED  = featured.length || 8;
+    // Curated set for this page (independent of the shared `featured` flag).
+    // Retreat venues are intentionally excluded — they appear in the pillars above.
+    var CURATED_IDS = [
+      'don-carlos-marbella', 'the-savoy', 'chable-yucatan', 'patina-maldives',
+      'fairmont-royal-palm', 'only-aesthesis', 'al-baleed-oman', 'rosewood-hong-kong'
+    ];
+    var byId = {};
+    window.DESTINATIONS.forEach(function(d) { byId[d.id] = d; });
+    var curated = CURATED_IDS.map(function(id) { return byId[id]; }).filter(Boolean);
+    var inCurated = {};
+    curated.forEach(function(d) { inCurated[d.id] = true; });
+    var rest     = window.DESTINATIONS.filter(function(d) { return !inCurated[d.id]; });
+    var ordered  = curated.concat(rest);
+    var CURATED  = curated.length;
 
     ordered.forEach(function(d, i) {
       var tile = document.createElement('div');
