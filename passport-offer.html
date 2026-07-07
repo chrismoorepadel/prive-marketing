@@ -745,6 +745,82 @@
       .plb-about-text,.plb-benefits-wrap,.plb-amenities-wrap,.plb-accom-wrap,.plb-accom-content,.plb-dining-wrap,.plb-wellness-wrap,.plb-cta-wrap{padding-left:24px;padding-right:24px;}
       .plb-hero-foot{padding:28px 24px;}
     }
+
+    /* ══ PRESS BAR (as featured in) ═════════════════════════ */
+    .lp-press { background: var(--cream); padding: 40px 52px; }
+    .lp-press-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+    .lp-press-label {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400;
+      letter-spacing: .26em; text-transform: uppercase; color: rgba(27,42,74,.4); margin-bottom: 26px;
+    }
+    .lp-press-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px 30px; }
+    .lp-press-logos img {
+      height: 23px; width: auto; max-width: 104px; object-fit: contain;
+      opacity: .5; transition: opacity .2s;
+    }
+    .lp-press-logos img:hover { opacity: .82; }
+
+    /* ══ CHECKOUT: TWO-STEP + TRUST ═════════════════════════ */
+    .lp-step { display: none; }
+    .lp-step.active { display: block; }
+    .lp-step-head { display: flex; align-items: center; gap: 12px; margin: 24px 0 16px; }
+    .lp-step-badge {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 5px 10px; border-radius: 1px;
+    }
+    .lp-step-name {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(27,42,74,.45);
+    }
+    .lp-field { margin-bottom: 12px; }
+    .lp-field input {
+      width: 100%; padding: 15px 16px;
+      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: var(--navy);
+      background: #fff; border: 1px solid rgba(27,42,74,.16); border-radius: 2px; transition: border-color .15s;
+    }
+    .lp-field input::placeholder { color: rgba(27,42,74,.4); }
+    .lp-field input:focus { outline: none; border-color: var(--gold); }
+    .lp-field-err { display: none; margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300; color: #A4472F; }
+    .lp-field.invalid input { border-color: #C98B76; }
+    .lp-field.invalid .lp-field-err { display: block; }
+    .lp-review { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(27,42,74,.62); line-height: 1.6; margin-bottom: 18px; }
+    .lp-review strong { color: var(--navy); font-weight: 500; }
+    .lp-edit-link {
+      background: none; border: none; cursor: pointer; padding: 0 0 0 4px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 2px;
+    }
+    .lp-trust {
+      list-style: none; margin: 22px 0 0; padding: 22px 0 0;
+      border-top: 1px solid rgba(27,42,74,.1); display: flex; flex-direction: column; gap: 12px;
+    }
+    .lp-trust li {
+      position: relative; padding-left: 26px;
+      font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.65); line-height: 1.4;
+    }
+    .lp-trust li::before { content: ''; position: absolute; left: 0; top: 2px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--gold); }
+    .lp-trust li::after { content: ''; position: absolute; left: 5px; top: 5px; width: 4px; height: 7px; border-right: 1.3px solid var(--gold); border-bottom: 1.3px solid var(--gold); transform: rotate(45deg); }
+    .lp-card-logos { margin-top: 18px; text-align: center; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(27,42,74,.4); }
+
+    /* ══ TESTIMONIALS ═══════════════════════════════════════ */
+    .lp-testis { background: var(--cream); padding: 100px 52px; }
+    .lp-testis-inner { max-width: 1080px; margin: 0 auto; }
+    .lp-testis-head { text-align: center; margin-bottom: 52px; }
+    .lp-testis-head .sec-eyebrow { justify-content: center; }
+    .lp-testis-head .sec-heading { color: var(--navy); }
+    .lp-testis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .lp-testi { background: #fff; border: 1px solid rgba(27,42,74,.1); padding: 34px 32px; display: flex; flex-direction: column; }
+    .lp-testi-stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 16px; }
+    .lp-testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; font-style: italic; color: rgba(27,42,74,.82); line-height: 1.5; margin: 0 0 20px; flex: 1; }
+    .lp-testi-attrib { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .06em; color: rgba(27,42,74,.5); }
+
+    @media (max-width: 768px) {
+      .lp-press { padding: 32px 24px; }
+      .lp-press-logos { gap: 20px 26px; }
+      .lp-press-logos img { height: 19px; max-width: 96px; }
+      .lp-testis { padding: 72px 24px; }
+      .lp-testis-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -832,11 +908,32 @@
   </video>
   <div class="lp-hero-overlay"></div>
   <div class="lp-hero-inner">
-    <div class="lp-eyebrow">First 200 Members</div>
-    <h1>If you play padel, <em>you travel.</em></h1>
-    <p class="lp-hero-sub">The membership built for where the game takes you — 40+ destinations, member rates, courts in every city.</p>
-    <div class="lp-hero-proof">$995 Full Access &nbsp;·&nbsp; yours at $595 &nbsp;·&nbsp; for life</div>
+    <div class="lp-eyebrow">Founding Membership · First 200</div>
+    <h1>If you play padel, <em>you already travel.</em></h1>
+    <p class="lp-hero-sub">One membership for the way you already move — preferred rates at 40+ destinations worldwide, your home courts in Montauk &amp; Miami, and 20% off every Privé retreat.</p>
+    <div class="lp-hero-proof">Full Access is $995 — the first 200 members lock it in at <strong style="color:rgba(245,240,232,.92);font-weight:400;">$595, for life.</strong></div>
     <button class="btn-gold" id="heroCta">LOCK IN YOUR RATE →</button>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     §1.5 PRESS (as featured in)
+══════════════════════════════════════════════════════ -->
+<section class="lp-press">
+  <div class="lp-press-inner">
+    <div class="lp-press-label">As featured in</div>
+    <div class="lp-press-logos">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451122/goop_oohm01.png" alt="goop" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451129/haute-living_zvofdg.png" alt="Haute Living" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451133/iconic-life_viet1g.png" alt="Iconic Life" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451127/observer_il47nz.png" alt="Observer" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451130/modern-luxury-hamptons_jc2u4n.png" alt="Modern Luxury Hamptons" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451125/resident_gye8ap.png" alt="Hotels Above Par" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -846,7 +943,7 @@
 ══════════════════════════════════════════════════════ -->
 <section class="lp-s2">
   <div class="lp-s2-inner">
-    <h2 class="sec-heading">One pass. <em>Pays for itself in a stay.</em></h2>
+    <h2 class="sec-heading">One membership. <em>Pays for itself in a single trip.</em></h2>
 
     <div class="lp-stat-grid">
       <div class="lp-stat-tile">
@@ -854,33 +951,33 @@
           <svg><use href="#ico-hotel"/></svg>
         </div>
         <div class="lp-stat-num">40+</div>
-        <div class="lp-stat-label">partner hotels worldwide</div>
+        <div class="lp-stat-label">destinations worldwide</div>
       </div>
       <div class="lp-stat-tile">
         <div class="lp-stat-icon">
           <svg><use href="#ico-discount"/></svg>
         </div>
         <div class="lp-stat-num">up to 20%</div>
-        <div class="lp-stat-label">member rates on stays</div>
+        <div class="lp-stat-label">off every partner stay</div>
       </div>
       <div class="lp-stat-tile">
         <div class="lp-stat-icon">
-          <svg><use href="#ico-tennis"/></svg>
+          <svg><use href="#ico-home"/></svg>
         </div>
-        <div class="lp-stat-num">4 cities</div>
-        <div class="lp-stat-label">club court access</div>
+        <div class="lp-stat-num">2 courts</div>
+        <div class="lp-stat-label">home clubs — Montauk &amp; Miami</div>
       </div>
       <div class="lp-stat-tile">
         <div class="lp-stat-icon">
           <svg><use href="#ico-plane"/></svg>
         </div>
-        <div class="lp-stat-num">$800–2k</div>
-        <div class="lp-stat-label">back per Privé retreat</div>
+        <div class="lp-stat-num">$2,400</div>
+        <div class="lp-stat-label">back on a single retreat</div>
       </div>
     </div>
 
     <div class="lp-pays-bar">
-      One seven-night stay returns roughly <strong>$946</strong> — more than the membership costs.
+      A single retreat at the member rate returns up to <strong>$2,400</strong> — the Passport pays for itself in one trip.
     </div>
 
     <details class="lp-expand">
@@ -1125,6 +1222,37 @@
 
 
 <!-- ══════════════════════════════════════════════════════
+     TESTIMONIALS (PLACEHOLDER content)
+══════════════════════════════════════════════════════ -->
+<section class="lp-testis">
+  <div class="lp-testis-inner">
+    <div class="lp-testis-head">
+      <div class="sec-eyebrow">Members</div>
+      <h2 class="sec-heading">Why they <em>joined.</em></h2>
+    </div>
+    <!-- PLACEHOLDER copy — swap these for real member quotes before relying on them -->
+    <div class="lp-testis-grid">
+      <div class="lp-testi">
+        <div class="lp-testi-stars">★★★★★</div>
+        <p class="lp-testi-quote">“It paid for itself on the first trip. The room upgrade and dining credit at check-in were the kind of thing I'd never get booking direct.”</p>
+        <div class="lp-testi-attrib">— Sofia M., Miami</div>
+      </div>
+      <div class="lp-testi">
+        <div class="lp-testi-stars">★★★★★</div>
+        <p class="lp-testi-quote">“I travel for work constantly and now there's always a court. Booking through the portal takes two minutes and the member rates are real.”</p>
+        <div class="lp-testi-attrib">— James K., London</div>
+      </div>
+      <div class="lp-testi">
+        <div class="lp-testi-stars">★★★★★</div>
+        <p class="lp-testi-quote">“The retreats alone are worth it. A week of padel with a group of players was the best trip we took all year — and members get first invitations.”</p>
+        <div class="lp-testi-attrib">— Elena V., Los Angeles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
      ARC CLOSING CTA (value recap → checkout)
 ══════════════════════════════════════════════════════ -->
 <section class="lp-arccta">
@@ -1186,8 +1314,39 @@
         <div class="lp-total-amount" id="totalDisplay">$595 / year</div>
       </div>
 
-      <button class="lp-checkout-btn" id="checkoutBtn">LOCK IN YOUR RATE →</button>
-      <div class="lp-checkout-secure">Secure checkout via Stripe &nbsp;·&nbsp; Activates instantly</div>
+      <!-- STEP 1 · details -->
+      <div class="lp-step active" id="stepOne">
+        <div class="lp-step-head">
+          <span class="lp-step-badge">Step 1 of 2</span>
+          <span class="lp-step-name">Your details</span>
+        </div>
+        <div class="lp-field">
+          <input type="text" id="fName" placeholder="First name" autocomplete="given-name">
+        </div>
+        <div class="lp-field">
+          <input type="email" id="fEmail" placeholder="Email address" autocomplete="email" inputmode="email">
+          <p class="lp-field-err">Enter your name and a valid email to continue.</p>
+        </div>
+        <button class="lp-checkout-btn" id="continueBtn">CONTINUE →</button>
+        <div class="lp-checkout-secure">We'll hold your founding rate — no card required at this step.</div>
+      </div>
+
+      <!-- STEP 2 · pay -->
+      <div class="lp-step" id="stepTwo">
+        <div class="lp-step-head">
+          <span class="lp-step-badge">Step 2 of 2</span>
+          <span class="lp-step-name">Confirm &amp; lock in</span>
+        </div>
+        <div class="lp-review">Joining as <strong id="reviewName"></strong> &nbsp;·&nbsp; <span id="reviewEmail"></span><button type="button" class="lp-edit-link" id="editLink">Edit</button></div>
+        <button class="lp-checkout-btn" id="checkoutBtn">LOCK IN YOUR RATE →</button>
+      </div>
+
+      <ul class="lp-trust">
+        <li>Secure checkout via Stripe — we never see your card details.</li>
+        <li>Your founding rate is locked for life — it never rises.</li>
+        <li>Your Passport activates the moment you join.</li>
+      </ul>
+      <div class="lp-card-logos">Visa &nbsp;·&nbsp; Mastercard &nbsp;·&nbsp; Amex &nbsp;·&nbsp; Apple Pay</div>
     </div>
 
   </div>
@@ -1425,6 +1584,42 @@
     totalEl.textContent = '$' + (partnerInput.checked ? '690' : '595') + ' / year';
   });
 
+  /* ── Two-step: capture details → confirm → Stripe ─────── */
+  var stepOne = document.getElementById('stepOne');
+  var stepTwo = document.getElementById('stepTwo');
+  var fName   = document.getElementById('fName');
+  var fEmail  = document.getElementById('fEmail');
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  document.getElementById('continueBtn').addEventListener('click', function () {
+    var name = fName.value.trim(), email = fEmail.value.trim();
+    var nameOk = name.length >= 1, emailOk = validEmail(email);
+    fName.parentNode.classList.toggle('invalid', !nameOk);
+    fEmail.parentNode.classList.toggle('invalid', !emailOk);
+    if (!nameOk || !emailOk) { (nameOk ? fEmail : fName).focus(); return; }
+
+    /* Lead micro-conversion — captures the paid click even if they don't reach Stripe */
+    gtag('event', 'generate_lead', { currency: 'USD', value: 595 });
+    fbq('track', 'Lead', { content_name: 'Founding Passport' });
+
+    /* Route to the founding Klaviyo list; never block checkout if it fails */
+    fetch('/api/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer' })
+    }).catch(function () {});
+
+    document.getElementById('reviewName').textContent  = name;
+    document.getElementById('reviewEmail').textContent = email;
+    stepOne.classList.remove('active');
+    stepTwo.classList.add('active');
+  });
+
+  document.getElementById('editLink').addEventListener('click', function () {
+    stepTwo.classList.remove('active');
+    stepOne.classList.add('active');
+    fName.focus();
+  });
+
   /* ── Checkout ─────────────────────────────────────────── */
   var btn = document.getElementById('checkoutBtn');
   btn.addEventListener('click', function () {
@@ -1438,7 +1633,7 @@
     fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tier: 'founding', addPartner: partnerInput.checked })
+      body: JSON.stringify({ tier: 'founding', addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim() })
     })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })
