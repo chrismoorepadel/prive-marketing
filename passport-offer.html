@@ -821,6 +821,44 @@
       .lp-testis { padding: 72px 24px; }
       .lp-testis-grid { grid-template-columns: 1fr; gap: 20px; }
     }
+
+    /* ══ §2 PILLAR SHOWCASE (featured destinations + 2) ═════ */
+    .lp-s2-head { max-width: 720px; margin: 0 auto 52px; text-align: center; }
+    .lp-s2-head .sec-eyebrow { text-align: center; }
+    .lp-s2-head .sec-heading { color: var(--navy); text-align: center; margin-bottom: 0; }
+    .lp-s2-intro {
+      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
+      color: rgba(27,42,74,.6); line-height: 1.75; margin: 16px auto 0; max-width: 560px;
+    }
+    .lp-pillars3 { max-width: 1080px; margin: 0 auto; }
+    .lp-feat { position: relative; display: block; height: 440px; overflow: hidden; text-decoration: none; }
+    .lp-feat-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
+    .lp-feat:hover .lp-feat-img { transform: scale(1.04); }
+    .lp-feat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.9) 0%, rgba(14,25,35,.28) 55%, rgba(14,25,35,.08) 100%); }
+    .lp-feat-content { position: absolute; left: 0; bottom: 0; padding: 48px 52px; z-index: 2; max-width: 640px; }
+    .lp-feat-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .lp-feat-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.4vw, 46px); font-weight: 300; color: var(--cream); line-height: 1.06; margin-bottom: 14px; }
+    .lp-feat-sub { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.72); line-height: 1.7; margin-bottom: 22px; }
+    .lp-feat-cta { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid var(--gold); padding-bottom: 5px; transition: color .2s; }
+    .lp-feat:hover .lp-feat-cta { color: var(--gold); }
+    .lp-pillar2-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 3px; }
+    .lp-pillar2 { position: relative; display: block; height: 300px; overflow: hidden; text-decoration: none; }
+    .lp-pillar2-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
+    .lp-pillar2:hover .lp-pillar2-img { transform: scale(1.04); }
+    .lp-pillar2-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.88) 0%, rgba(14,25,35,.24) 60%, rgba(14,25,35,.05) 100%); }
+    .lp-pillar2-content { position: absolute; left: 0; bottom: 0; padding: 32px 34px; z-index: 2; }
+    .lp-pillar2-eyebrow { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .lp-pillar2-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 8px; }
+    .lp-pillar2-sub { font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300; color: rgba(245,240,232,.62); line-height: 1.6; }
+    .lp-s2-foot { max-width: 800px; margin: 56px auto 0; }
+
+    @media (max-width: 768px) {
+      .lp-feat { height: 360px; }
+      .lp-feat-content { padding: 32px 28px; }
+      .lp-pillar2-row { grid-template-columns: 1fr; }
+      .lp-pillar2 { height: 240px; }
+      .lp-s2-foot { margin-top: 40px; }
+    }
   </style>
 </head>
 <body>
@@ -909,8 +947,8 @@
   <div class="lp-hero-overlay"></div>
   <div class="lp-hero-inner">
     <div class="lp-eyebrow">Founding Membership · First 200</div>
-    <h1>If you play padel, <em>you already travel.</em></h1>
-    <p class="lp-hero-sub">One membership for the way you already move — preferred rates at 40+ destinations worldwide, your home courts in Montauk &amp; Miami, and 20% off every Privé retreat.</p>
+    <h1>Your passport to <em>40+ padel destinations.</em></h1>
+    <p class="lp-hero-sub">Member rates at 40+ properties worldwide, your own Privé Clubs in Montauk &amp; Miami, and 20% off every Privé Experience.</p>
     <div class="lp-hero-proof">Full Access is $995 — the first 200 members lock it in at <strong style="color:rgba(245,240,232,.92);font-weight:400;">$595, for life.</strong></div>
     <button class="btn-gold" id="heroCta">LOCK IN YOUR RATE →</button>
   </div>
@@ -942,40 +980,50 @@
      §2 WHAT IS PRIVÉ PASSPORT? (visual value)
 ══════════════════════════════════════════════════════ -->
 <section class="lp-s2">
-  <div class="lp-s2-inner">
-    <h2 class="sec-heading">One membership. <em>Pays for itself in a single trip.</em></h2>
+  <div class="lp-s2-head">
+    <div class="sec-eyebrow">One Membership</div>
+    <h2 class="sec-heading">Everywhere <em>the game takes you.</em></h2>
+    <p class="lp-s2-intro">A global collection of destinations, your own Privé Clubs, and curated Privé Experiences — all on a single Passport.</p>
+  </div>
 
-    <div class="lp-stat-grid">
-      <div class="lp-stat-tile">
-        <div class="lp-stat-icon">
-          <svg><use href="#ico-hotel"/></svg>
-        </div>
-        <div class="lp-stat-num">40+</div>
-        <div class="lp-stat-label">destinations worldwide</div>
+  <div class="lp-pillars3">
+
+    <!-- Featured · The Travel Collection -->
+    <a class="lp-feat" href="#checkout">
+      <div class="lp-feat-img" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1600/v1776001178/DJI_0145_p3ovyg.jpg')"></div>
+      <div class="lp-feat-overlay"></div>
+      <div class="lp-feat-content">
+        <div class="lp-feat-eyebrow">The Travel Collection</div>
+        <div class="lp-feat-title">40+ padel destinations worldwide</div>
+        <p class="lp-feat-sub">Member rates at luxury properties across 18 countries — play, then stay, wherever the game takes you.</p>
+        <span class="lp-feat-cta">Lock in your rate →</span>
       </div>
-      <div class="lp-stat-tile">
-        <div class="lp-stat-icon">
-          <svg><use href="#ico-discount"/></svg>
+    </a>
+
+    <div class="lp-pillar2-row">
+      <a class="lp-pillar2" href="#checkout">
+        <div class="lp-pillar2-img" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png')"></div>
+        <div class="lp-pillar2-overlay"></div>
+        <div class="lp-pillar2-content">
+          <div class="lp-pillar2-eyebrow">Privé Clubs</div>
+          <div class="lp-pillar2-title">Montauk &amp; Miami</div>
+          <p class="lp-pillar2-sub">Your own clubs — play year-round at the member rate.</p>
         </div>
-        <div class="lp-stat-num">up to 20%</div>
-        <div class="lp-stat-label">off every partner stay</div>
-      </div>
-      <div class="lp-stat-tile">
-        <div class="lp-stat-icon">
-          <svg><use href="#ico-home"/></svg>
+      </a>
+      <a class="lp-pillar2" href="#checkout">
+        <div class="lp-pillar2-img" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg')"></div>
+        <div class="lp-pillar2-overlay"></div>
+        <div class="lp-pillar2-content">
+          <div class="lp-pillar2-eyebrow">Privé Experiences</div>
+          <div class="lp-pillar2-title">Curated retreats</div>
+          <p class="lp-pillar2-sub">20% off and first invitations to every journey.</p>
         </div>
-        <div class="lp-stat-num">2 courts</div>
-        <div class="lp-stat-label">home clubs — Montauk &amp; Miami</div>
-      </div>
-      <div class="lp-stat-tile">
-        <div class="lp-stat-icon">
-          <svg><use href="#ico-plane"/></svg>
-        </div>
-        <div class="lp-stat-num">$2,400</div>
-        <div class="lp-stat-label">back on a single retreat</div>
-      </div>
+      </a>
     </div>
 
+  </div>
+
+  <div class="lp-s2-foot">
     <div class="lp-pays-bar">
       A single retreat at the member rate returns up to <strong>$2,400</strong> — the Passport pays for itself in one trip.
     </div>
@@ -991,9 +1039,9 @@
           <li>Your founding rate captures <strong>$400</strong> the moment you join: Full Access is $995; you pay $595, locked for life.</li>
           <li>Member rates run <strong>up to 20%</strong>. At a conservative 12% on this stay, that's roughly <strong>$546</strong> back.</li>
         </ul>
-        <p>That's <strong>~$946 against a $595 membership — before</strong> a night at Privé Montauk or Miami, before partner-club access, and before the welcome amenities, dining, or spa benefits many properties extend on arrival.</p>
+        <p>That's <strong>~$946 against a $595 membership — before</strong> a night at your Privé Clubs, before partner-club access, and before the welcome amenities, dining, or spa benefits many properties extend on arrival.</p>
         <div class="lp-expand-upside">
-          <p>And that is before a single Privé Experience: members attend retreats at the member rate — <strong>20% off</strong> — which puts <strong>$800 to $2,000</strong> back on one retreat alone.</p>
+          <p>And that is before a single Privé Experience: members attend retreats at the member rate — <strong>20% off</strong> — which puts <strong>$800 to $2,400</strong> back on one retreat alone.</p>
         </div>
         <p class="lp-expand-disclaimer">The math is intentionally conservative. Real partner rates reach 20%, and most members travel more than once a year.</p>
       </div>
@@ -1007,7 +1055,7 @@
 
 
 <!-- ══════════════════════════════════════════════════════
-     §3 FULL ACCESS — HOME COURTS (Montauk + Miami)
+     §3 FULL ACCESS — PRIVÉ CLUBS (Montauk + Miami)
 ══════════════════════════════════════════════════════ -->
 <section class="lp-home">
   <div class="lp-home-inner">
@@ -1015,7 +1063,7 @@
     <div class="lp-home-head">
       <div class="sec-eyebrow">Full Access Membership</div>
       <h2 class="sec-heading">Wherever you go, <em>there's a court.</em></h2>
-      <p class="lp-home-intro">It begins with two home courts — Privé Montauk and Privé Miami, yours to play unlimited at the member rate — and opens onto 40+ destinations, curated retreats, and member benefits the world over.</p>
+      <p class="lp-home-intro">It begins with two Privé Clubs — Privé Montauk and Privé Miami, yours to play unlimited at the member rate — and opens onto 40+ destinations, curated retreats, and member benefits the world over.</p>
     </div>
 
     <div class="lp-home-pillars">
@@ -1210,7 +1258,7 @@
 
         <div class="lp-benefit">
           <span class="lp-benefit-ico"><svg><use href="#ico-home"/></svg></span>
-          <div class="lp-benefit-name">Home courts</div>
+          <div class="lp-benefit-name">Privé Clubs</div>
           <div class="lp-benefit-desc">Privé Montauk at 50% off, Privé Miami at 20% off — unlimited play.</div>
         </div>
 
@@ -1258,7 +1306,7 @@
 <section class="lp-arccta">
   <div class="lp-arccta-inner">
     <div class="lp-arccta-eyebrow">One Membership</div>
-    <h2 class="lp-arccta-head">Home courts, 40+ destinations, <em>every retreat.</em></h2>
+    <h2 class="lp-arccta-head">Privé Clubs, 40+ destinations, <em>every retreat.</em></h2>
     <p class="lp-arccta-sub">Privé Montauk and Miami, 40+ destinations worldwide, every Privé Experience, and the full member benefits — all carried on a single Passport.</p>
     <button class="btn-gold" id="arcCta">LOCK IN YOUR RATE →</button>
   </div>
