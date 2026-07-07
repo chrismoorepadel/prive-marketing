@@ -8,6 +8,14 @@ export default async function handler(req, res) {
 
   const profileAttributes = { email, subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } } };
 
+  // Route each capture source to its own Klaviyo list; fall back to the default
+  // list if that source's list isn't configured yet.
+  const LIST_BY_SOURCE = {
+    founding_offer: process.env.KLAVIYO_FOUNDING_LIST_ID,
+    join_checkout:  process.env.KLAVIYO_JOIN_LIST_ID,
+  };
+  const listId = LIST_BY_SOURCE[source] || process.env.KLAVIYO_LIST_ID;
+
   const klaviyoRes = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
     method: 'POST',
     headers: {
@@ -26,7 +34,7 @@ export default async function handler(req, res) {
           }
         },
         relationships: {
-          list: { data: { type: 'list', id: (source === 'founding_offer' && process.env.KLAVIYO_FOUNDING_LIST_ID) ? process.env.KLAVIYO_FOUNDING_LIST_ID : process.env.KLAVIYO_LIST_ID } }
+          list: { data: { type: 'list', id: listId } }
         }
       }
     })
