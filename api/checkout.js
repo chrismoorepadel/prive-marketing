@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: 'Checkout not yet configured' });
   }
 
-  const { tier, addPartner } = req.body;
+  const { tier, addPartner, email, firstName } = req.body;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-04-10',
@@ -33,11 +33,17 @@ export default async function handler(req, res) {
     lineItems.push({ price: PRICE_IDS.partner, quantity: 1 });
   }
 
+  // Name/email captured in step one of the on-page checkout. Prefill Stripe so the
+  // member never retypes, and carry the name through on the subscription metadata.
+  const metadata = { tier, addPartner: addPartner ? 'true' : 'false', firstName: firstName || '' };
+
   const session = await stripe.checkout.sessions.create({
     mode:                 'subscription',
     line_items:           lineItems,
     allow_promotion_codes: true,
-    metadata:             { tier, addPartner: addPartner ? 'true' : 'false' },
+    ...(email ? { customer_email: email } : {}),
+    metadata,
+    subscription_data:    { metadata },
     success_url:          `https://passport.prive-padel.com/welcome?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url:           `https://prive-padel.com/join`,
   });
