@@ -34,6 +34,12 @@ export default async function handler(req, res) {
     const value   = session.amount_total ? session.amount_total / 100 : 0;
     const email   = session.customer_details?.email || session.customer_email || '';
 
+    // Stripe delivers checkout.session.completed to the Passport portal too, which
+    // owns conversion tracking — so GA4/Meta Purchase are OFF here by default to
+    // avoid double-counting. Set ENABLE_MARKETING_ANALYTICS=true only if the portal
+    // does NOT already send server-side Purchase events.
+    const sendAnalytics = process.env.ENABLE_MARKETING_ANALYTICS === 'true';
+
     try {
       await Promise.all([
 
@@ -62,8 +68,8 @@ export default async function handler(req, res) {
           })
         })] : []),
 
-        // GA4 Measurement Protocol
-        fetch(
+        // GA4 Measurement Protocol (gated — see ENABLE_MARKETING_ANALYTICS above)
+        ...(sendAnalytics ? [fetch(
           `https://www.google-analytics.com/mp/collect?measurement_id=G-V7WWTFXWSE&api_secret=${process.env.GA4_API_SECRET}`,
           {
             method:  'POST',
@@ -86,10 +92,10 @@ export default async function handler(req, res) {
               }],
             }),
           }
-        ),
+        )] : []),
 
-        // Meta Conversions API
-        fetch(
+        // Meta Conversions API (gated — see ENABLE_MARKETING_ANALYTICS above)
+        ...(sendAnalytics ? [fetch(
           `https://graph.facebook.com/v19.0/2265018770516086/events?access_token=${process.env.META_PIXEL_ACCESS_TOKEN}`,
           {
             method:  'POST',
@@ -115,7 +121,7 @@ export default async function handler(req, res) {
               }],
             }),
           }
-        ),
+        )] : []),
 
       ]);
     } catch (err) {
