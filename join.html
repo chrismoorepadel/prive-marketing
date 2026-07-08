@@ -445,7 +445,7 @@
     fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, firstName: name, source: 'join_checkout' })
+      body: JSON.stringify({ email: email, firstName: name, source: 'join_checkout', tier: getTier(), value: tierPrice() })
     }).catch(function () {});
 
     document.getElementById('reviewName').textContent  = name;

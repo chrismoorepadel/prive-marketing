@@ -1634,7 +1634,7 @@
     /* Route to the founding Klaviyo list; never block checkout if it fails */
     fetch('/api/subscribe', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer' })
+      body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer', tier: 'founding', value: 595 })
     }).catch(function () {});
 
     document.getElementById('reviewName').textContent  = name;

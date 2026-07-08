@@ -32,9 +32,35 @@ export default async function handler(req, res) {
     const session = event.data.object;
     const tier    = session.metadata?.tier || 'standard';
     const value   = session.amount_total ? session.amount_total / 100 : 0;
+    const email   = session.customer_details?.email || session.customer_email || '';
 
     try {
       await Promise.all([
+
+        // Klaviyo "Placed Order" — the exclusion signal for the abandoned-checkout
+        // flow. Matched to the captured profile by email, so the flow filter
+        // ("has not Placed Order since starting") skips anyone who converted.
+        ...(email ? [fetch('https://a.klaviyo.com/api/events/', {
+          method:  'POST',
+          headers: {
+            'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_PRIVATE_KEY}`,
+            'revision': '2024-10-15',
+            'Content-Type': 'application/vnd.api+json',
+            'Accept': 'application/vnd.api+json',
+          },
+          body: JSON.stringify({
+            data: {
+              type: 'event',
+              attributes: {
+                metric:    { data: { type: 'metric', attributes: { name: 'Placed Order' } } },
+                profile:   { data: { type: 'profile', attributes: { email } } },
+                properties: { tier },
+                value,
+                unique_id: session.id,
+              }
+            }
+          })
+        })] : []),
 
         // GA4 Measurement Protocol
         fetch(
