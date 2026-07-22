@@ -409,7 +409,7 @@
     .imgrow::-webkit-scrollbar { display: none; }
     .imgrow-item { position: relative; flex: 0 0 auto; width: 216px; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; scroll-snap-align: center; border: 1px solid rgba(245,240,232,.08); }
     .imgrow-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .imgrow-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 12px 10px; text-align: center; font-size: 8.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.92); background: linear-gradient(to top, rgba(14,25,35,.85), transparent); }
+    .imgrow-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 16px 10px 14px; text-align: center; font-size: 12.5px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--cream); background: linear-gradient(to top, rgba(14,25,35,.92) 10%, transparent); }
 
     /* ── stat band ─────────────────────────────────────────── */
     .stats { display: flex; margin-top: 34px; border-top: 1px solid rgba(245,240,232,.14); border-bottom: 1px solid rgba(245,240,232,.14); }
@@ -434,7 +434,42 @@
     .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); white-space: nowrap; }
     .also-list-price s { color: rgba(245,240,232,.5); font-size: 15px; margin-right: 6px; text-decoration-thickness: 1px; }
     .also-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.64); line-height: 1.65; margin-bottom: 18px; }
-    .also-link { display: inline-block; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
+    .also-link { display: inline-block; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); background: none; border: 0; border-bottom: 1px solid rgba(184,151,106,.5); padding: 0 0 2px; cursor: pointer; }
+    .also-link:hover { color: var(--cream); border-color: var(--cream); }
+
+    /* ── EXPERIENCES LIGHTBOX ──────────────────────────────── */
+    .xlb { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; visibility: hidden; pointer-events: none; }
+    .xlb.open { visibility: visible; pointer-events: auto; }
+    .xlb-backdrop { position: absolute; inset: 0; background: rgba(6,11,17,.82); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; transition: opacity .35s ease; }
+    .xlb.open .xlb-backdrop { opacity: 1; }
+    .xlb-panel { position: relative; z-index: 1; width: 94%; max-width: 720px; max-height: 90vh; overflow-y: auto; background: var(--dark); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; padding: 44px 24px 32px; opacity: 0; transform: translateY(16px); transition: opacity .35s, transform .35s; scrollbar-width: thin; scrollbar-color: rgba(184,151,106,.35) transparent; }
+    .xlb.open .xlb-panel { opacity: 1; transform: translateY(0); }
+    .xlb-panel::-webkit-scrollbar { width: 4px; }
+    .xlb-panel::-webkit-scrollbar-thumb { background: rgba(184,151,106,.35); border-radius: 2px; }
+    .xlb-close { position: absolute; top: 14px; right: 14px; z-index: 2; background: rgba(6,11,17,.6); border: 1px solid rgba(245,240,232,.2); border-radius: 100px; color: var(--cream); font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .14em; padding: 9px 15px; cursor: pointer; }
+    .xlb-close:hover { background: rgba(6,11,17,.85); }
+    .xlb-head { text-align: center; margin-bottom: 26px; }
+    .xlb-head .lede { max-width: 44ch; margin: 12px auto 0; font-size: 14px; }
+    .xlb-list { display: flex; flex-direction: column; gap: 16px; }
+    .xlb-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; border: 1px solid rgba(245,240,232,.1); background: var(--dark2); transition: border-color .2s, transform .2s; }
+    .xlb-card:hover { border-color: rgba(184,151,106,.5); }
+    .xlb-card-img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .xlb-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; }
+    .xlb-card-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+    .xlb-card-name { font-family: 'Cormorant Garamond',serif; font-size: 26px; font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 10px; }
+    .xlb-card-desc { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.66); line-height: 1.6; margin-bottom: 16px; }
+    .xlb-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 15px; margin-top: auto; }
+    .xlb-price { font-family: 'Cormorant Garamond',serif; font-size: 21px; color: var(--gold); white-space: nowrap; }
+    .xlb-price s { color: rgba(245,240,232,.42); font-size: 15px; margin-right: 6px; }
+    .xlb-card-link { font-size: 10.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); white-space: nowrap; }
+    .xlb-card:hover .xlb-card-link { color: var(--gold); }
+    @media (min-width: 640px) {
+      .xlb-panel { padding: 48px 32px 36px; }
+      .xlb-card { flex-direction: row; }
+      .xlb-card-img { flex: 0 0 42%; }
+      .xlb-card-img img { height: 100%; aspect-ratio: auto; min-height: 210px; }
+      .xlb-card-body { flex: 1; }
+    }
 
     /* ── PROPERTY LIGHTBOX (dark themed) ───────────────────── */
     .plb { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; visibility: hidden; pointer-events: none; }
@@ -687,7 +722,7 @@
           <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price"><s>$4,200</s> $3,360</span></a>
           <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price"><s>$12,000</s> $9,600</span></a>
         </div>
-        <a class="also-link" href="/passport/experiences.html">See all experiences →</a>
+        <button class="also-link" id="expOpen" type="button">See all experiences →</button>
       </div>
       <!-- Privé Clubs -->
       <div class="also-col">
@@ -795,22 +830,21 @@
       <div class="eyebrow">Members</div>
       <h2 class="display">Why they <em style="display:inline;">joined.</em></h2>
     </div>
-    <!-- PLACEHOLDER copy — swap for real member quotes before scaling spend -->
     <div class="testis">
       <div class="glass testi">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">“It paid for itself on the first trip. The room upgrade and dining credit at check-in were the kind of thing I'd never get booking direct.”</p>
-        <div class="testi-attrib">— Sofia M., Miami</div>
+        <p class="testi-quote">“We booked the Madagascar retreat on a whim and it became the best trip we've taken in years. You get expert padel programming alongside other Privé members, but it's so much more than that — a real excursion into the destination, with unforgettable experiences across Sainte-Marie Island.”</p>
+        <div class="testi-attrib">— Elena &amp; Marc R., London · Full-Access Members</div>
       </div>
       <div class="glass testi">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">“I travel for work constantly and now there's always a court. The member rates are real and booking takes two minutes.”</p>
-        <div class="testi-attrib">— James K., London</div>
+        <p class="testi-quote">“I joined to access Montauk and Miami, and stayed for everywhere else. I travel constantly, and as a passionate padel player I love knowing I can book a trip with the Passport and count on two things: real benefits at the resort, and a court ready for me right on property.”</p>
+        <div class="testi-attrib">— Daniel K., Miami · Founding Member</div>
       </div>
       <div class="glass testi">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">“The retreats alone are worth it. A week of padel with a group of players was the best trip we took all year.”</p>
-        <div class="testi-attrib">— Elena V., Los Angeles</div>
+        <p class="testi-quote">“I'm a huge padel player, and I love to play whenever I travel for work. The Passport essentially gives me member benefits across their network of clubs in major cities — so I arrive as a member even when I'm only visiting. It feels great.”</p>
+        <div class="testi-attrib">— James H., New York · Founding Member</div>
       </div>
     </div>
   </div>
@@ -857,6 +891,48 @@
     <div class="final-micro">Limited founding memberships · secure checkout via Stripe</div>
   </div>
 </section>
+
+<!-- ══ EXPERIENCES LIGHTBOX ══ -->
+<div class="xlb" id="expLightbox" role="dialog" aria-modal="true" aria-label="Privé Experiences">
+  <div class="xlb-backdrop" id="xlbBackdrop"></div>
+  <div class="xlb-panel">
+    <button class="xlb-close" id="xlbClose">CLOSE ✕</button>
+    <div class="xlb-head">
+      <div class="eyebrow">Privé Experiences</div>
+      <h2 class="display" style="font-size:clamp(30px,8vw,44px);">Signature <em style="display:inline;">retreats.</em></h2>
+      <p class="lede">All-inclusive padel retreats built around the game and the place — members save 20% and book first.</p>
+    </div>
+    <div class="xlb-list">
+      <a class="xlb-card" href="/experiences/voaara-madagascar.html">
+        <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg" alt="Voaara Madagascar"></div>
+        <div class="xlb-card-body">
+          <div class="xlb-card-eyebrow">September 2026 · Madagascar</div>
+          <div class="xlb-card-name">Voaara</div>
+          <p class="xlb-card-desc">Seven days on a private island off Madagascar — daily padel with a dedicated pro, reef snorkeling, whale season, and every meal included.</p>
+          <div class="xlb-card-foot"><span class="xlb-price"><s>$8,250</s> $6,600</span><span class="xlb-card-link">View experience →</span></div>
+        </div>
+      </a>
+      <a class="xlb-card" href="/experiences/court-and-cellar.html">
+        <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777253885/3_1_c60fse.jpg" alt="Court &amp; Cellar, Bordeaux"></div>
+        <div class="xlb-card-body">
+          <div class="xlb-card-eyebrow">Fall 2026 · Bordeaux, France</div>
+          <div class="xlb-card-name">Château de Lussac</div>
+          <p class="xlb-card-desc">Four days among the Saint-Émilion vineyards — padel by day, Grand Cru tastings, Bordeaux and the Atlantic coast, all-inclusive.</p>
+          <div class="xlb-card-foot"><span class="xlb-price"><s>$4,200</s> $3,360</span><span class="xlb-card-link">View experience →</span></div>
+        </div>
+      </a>
+      <a class="xlb-card" href="/experiences/nihi-sumba.html">
+        <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Nihi Sumba"></div>
+        <div class="xlb-card-body">
+          <div class="xlb-card-eyebrow">November 2026 · Sumba, Indonesia</div>
+          <div class="xlb-card-name">Nihi Sumba</div>
+          <p class="xlb-card-desc">Five days on the Edge of Wildness — daily jungle-court padel, horses in the surf at Nihiwatu, the Spa Safari, all-inclusive.</p>
+          <div class="xlb-card-foot"><span class="xlb-price"><s>$12,000</s> $9,600</span><span class="xlb-card-link">View experience →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ══ PROPERTY LIGHTBOX ══ -->
 <div class="plb" id="propLightbox" role="dialog" aria-modal="true" aria-label="Property detail">
@@ -1035,6 +1111,19 @@
     var u = 'info', d = 'prive-padel', t = 'com';
     el.textContent = u + '@' + d + '.' + t;
     el.addEventListener('click', function (e) { e.preventDefault(); location.href = 'mailto:' + u + '@' + d + '.' + t; });
+  })();
+
+  /* experiences lightbox */
+  (function () {
+    var xlb = document.getElementById('expLightbox');
+    var openBtn = document.getElementById('expOpen');
+    if (!xlb || !openBtn) return;
+    function show() { xlb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function hide() { xlb.classList.remove('open'); document.body.style.overflow = ''; }
+    openBtn.addEventListener('click', show);
+    document.getElementById('xlbClose').addEventListener('click', hide);
+    document.getElementById('xlbBackdrop').addEventListener('click', hide);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && xlb.classList.contains('open')) hide(); });
   })();
 })();
 </script>
