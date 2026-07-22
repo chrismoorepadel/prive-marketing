@@ -403,6 +403,37 @@
     .club-tag { display: flex; align-items: center; gap: 9px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 15px; font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(245,240,232,.72); }
     .club-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
+    /* ── image row (marquee destinations) ──────────────────── */
+    .imgrow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 30px 24px 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .imgrow::-webkit-scrollbar { display: none; }
+    .imgrow-item { position: relative; flex: 0 0 auto; width: 216px; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; scroll-snap-align: center; border: 1px solid rgba(245,240,232,.08); }
+    .imgrow-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .imgrow-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 12px 10px; text-align: center; font-size: 8.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.92); background: linear-gradient(to top, rgba(14,25,35,.85), transparent); }
+
+    /* ── stat band ─────────────────────────────────────────── */
+    .stats { display: flex; margin-top: 34px; border-top: 1px solid rgba(245,240,232,.14); border-bottom: 1px solid rgba(245,240,232,.14); }
+    .stat { flex: 1; text-align: center; padding: 22px 6px; }
+    .stat + .stat { border-left: 1px solid rgba(245,240,232,.14); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,9vw,46px); font-weight: 300; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 9px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.55); margin-top: 9px; }
+
+    /* ── "also included" (secondary pillars) ────────────────── */
+    .also { display: flex; flex-direction: column; gap: 40px; margin-top: 34px; }
+    .also-col { flex: 1; }
+    .also-img { border-radius: 16px; overflow: hidden; border: 1px solid rgba(245,240,232,.08); margin-bottom: 20px; box-shadow: 0 26px 56px -38px rgba(0,0,0,.8); }
+    .also-img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+    .also-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .also-title { font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 16px; }
+    .also-title em { font-style: italic; }
+    .also-list { display: flex; flex-direction: column; border-top: 1px solid rgba(245,240,232,.1); margin-bottom: 18px; }
+    .also-list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(245,240,232,.1); font-size: 13px; font-weight: 300; color: rgba(245,240,232,.82); transition: color .15s; }
+    .also-list a:hover { color: var(--cream); }
+    .also-list-name b { font-weight: 400; color: var(--cream); }
+    .also-list-name span { color: rgba(245,240,232,.5); }
+    .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); white-space: nowrap; }
+    .also-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.64); line-height: 1.65; margin-bottom: 18px; }
+    .also-link { display: inline-block; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
+
     /* ── PROPERTY LIGHTBOX (dark themed) ───────────────────── */
     .plb { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; visibility: hidden; pointer-events: none; }
     .plb.open { visibility: visible; pointer-events: auto; }
@@ -516,6 +547,8 @@
       .rt-item { flex: 1 1 100%; min-height: 200px; }
       .clubs-grid { flex-direction: row; }
       .club { flex: 1; }
+      .also { flex-direction: row; gap: 30px; }
+      .imgrow-item { width: 244px; }
       .testis { flex-direction: row; }
       .testi { flex: 1; }
       .press-logos { gap: 22px 40px; }
@@ -572,45 +605,44 @@
   </div>
 </section>
 
-<!-- ══ §2 · TRAVEL ══ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="eyebrow">The Privé Passport</div>
-    <h2 class="display">For the padel player<em>who loves to travel</em></h2>
-    <div class="frame"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1200/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Play the world" loading="lazy"></div>
-    <div class="glass flist">
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-globe"/></svg></span><span class="flist-txt"><b>Over 40 hotels &amp; resorts</b> worldwide</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-racquet"/></svg></span><span class="flist-txt">Padel on-site or at the local club</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-key"/></svg></span><span class="flist-txt">Exclusive Privé benefits at each</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ §3 · BENEFITS ══ -->
-<section class="sec bg-d2">
+<!-- ══ §2 · THE TRAVEL COLLECTION (core) ══ -->
+<section class="sec" id="collection">
   <div class="wrap">
     <div style="text-align:center;">
-      <div class="eyebrow">Member Benefits</div>
-      <h2 class="display">At every<em>hotel &amp; resort</em></h2>
+      <div class="eyebrow">The Travel Collection</div>
+      <h2 class="display">The world's finest hotels.<em>A court at every one.</em></h2>
+      <p class="lede" style="max-width:40ch;margin:18px auto 0;">One membership opens a private collection of 40+ hotels and resorts across 18 countries and five continents — from the Marbella Club to Rosewood Hong Kong. Arrive as a member: a padel court on-site or at the local club, and privileges waiting at the door.</p>
     </div>
-    <div class="glass flist" style="margin-top:30px;">
+  </div>
+
+  <!-- marquee image row -->
+  <div class="imgrow" id="imgrow"><!-- populated from window.DESTINATIONS --></div>
+
+  <div class="wrap-wide">
+    <div class="stats">
+      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Destinations</div></div>
+      <div class="stat"><div class="stat-num">18</div><div class="stat-label">Countries</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Continents</div></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="glass flist" style="margin-top:34px;">
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-court"/></svg></span><span class="flist-txt"><b>A padel court</b> on-site or at the local club</span></div>
       <div class="flist-row"><span class="flist-ico"><svg><use href="#i-discount"/></svg></span><span class="flist-txt"><b>Preferred room rates</b> — up to 20% off</span></div>
       <div class="flist-row"><span class="flist-ico"><svg><use href="#i-upgrade"/></svg></span><span class="flist-txt">Complimentary room upgrades</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-clock"/></svg></span><span class="flist-txt">Early check-in &amp; late check-out</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-spa"/></svg></span><span class="flist-txt">Spa &amp; wellness savings</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-plate"/></svg></span><span class="flist-txt">Dining privileges</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-court"/></svg></span><span class="flist-txt">Padel access at every property</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-clock"/></svg></span><span class="flist-txt">Early arrivals &amp; unhurried departures</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-spa"/></svg></span><span class="flist-txt">Spa, wellness &amp; dining privileges</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-key"/></svg></span><span class="flist-txt">Concierge booking through the member portal</span></div>
     </div>
     <div class="flist-note">When available · at participating properties</div>
   </div>
-</section>
 
-<!-- ══ §4 · PORTFOLIO ══ -->
-<section class="sec">
+  <!-- browse the collection -->
   <div class="wrap-wide">
-    <div class="pf-head">
-      <div class="eyebrow">The Portfolio</div>
-      <h2 class="display">Forty destinations,<em>one passport.</em></h2>
+    <div class="pf-head" style="margin-top:58px;">
+      <div class="eyebrow">Explore the Collection</div>
+      <h3 class="display" style="font-size:clamp(28px,7.5vw,42px);">Forty destinations,<em>one passport.</em></h3>
     </div>
     <div class="pf-grid" id="pfGrid"><!-- populated from window.DESTINATIONS --></div>
     <div class="pf-foot">
@@ -620,71 +652,35 @@
   </div>
 </section>
 
-<!-- ══ §5 · RETREATS ══ -->
+<!-- ══ §3 · ALSO INCLUDED (secondary) ══ -->
 <section class="sec bg-d2">
-  <div class="wrap">
-    <div style="text-align:center;">
-      <div class="eyebrow">Padel Experiences</div>
-      <h2 class="display">Twenty percent off<em>our signature retreats</em></h2>
-    </div>
-    <div class="rt-list">
-      <a class="rt-item" href="/experiences/voaara-madagascar.html">
-        <div class="rt-item-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg')"></div>
-        <div class="rt-item-veil"></div>
-        <div class="rt-item-inner">
-          <div class="rt-item-loc">Madagascar</div>
-          <div class="rt-item-name">Voaara</div>
-          <div class="rt-item-meta"><span class="rt-item-save">Members $6,600</span><span class="rt-item-strike">$8,250</span></div>
-        </div>
-      </a>
-      <a class="rt-item" href="/experiences/court-and-cellar.html">
-        <div class="rt-item-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777253885/3_1_c60fse.jpg')"></div>
-        <div class="rt-item-veil"></div>
-        <div class="rt-item-inner">
-          <div class="rt-item-loc">Bordeaux</div>
-          <div class="rt-item-name">Château de Lussac</div>
-          <div class="rt-item-meta"><span class="rt-item-save">Members $3,360</span><span class="rt-item-strike">$4,200</span></div>
-        </div>
-      </a>
-      <a class="rt-item" href="/experiences/nihi-sumba.html">
-        <div class="rt-item-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1773539953/Destinations_-_Nihi_Sumba_njdefw.jpg')"></div>
-        <div class="rt-item-veil"></div>
-        <div class="rt-item-inner">
-          <div class="rt-item-loc">Indonesia</div>
-          <div class="rt-item-name">Nihi Sumba</div>
-          <div class="rt-item-meta"><span class="rt-item-save">Members $9,600</span><span class="rt-item-strike">$12,000</span></div>
-        </div>
-      </a>
-    </div>
-    <div class="rt-foot">Members save 20% on every retreat, with priority booking. <a href="/passport/experiences.html">See all experiences →</a></div>
-  </div>
-</section>
-
-<!-- ══ §5.5 · PRIVÉ CLUBS ══ -->
-<section class="clubs">
   <div class="wrap-wide">
     <div class="sec-head">
-      <div class="eyebrow">Your Clubs, Included</div>
-      <h2 class="display">Full access to<em>Montauk &amp; Miami.</em></h2>
-      <p class="lede" style="max-width:34ch;margin:16px auto 0;">Founding membership includes both Privé Clubs — play unlimited, year-round, at the member rate.</p>
+      <div class="eyebrow">Beyond the Stay</div>
+      <h2 class="display">Also <em style="display:inline;">included.</em></h2>
     </div>
-    <div class="clubs-grid">
-      <div class="club">
-        <img class="club-img" loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Montauk">
-        <div class="club-body">
-          <div class="club-eyebrow">Opening Spring 2027 · Montauk, New York</div>
-          <div class="club-name">Privé <em>Montauk.</em></div>
-          <p class="club-text">The original — where Privé Padel first took shape. Returning Spring 2027 to a new home on the water.</p>
-          <div class="club-tag">Unlimited play, year-round · member rate</div>
+    <div class="also">
+      <!-- Privé Experiences (retreats) -->
+      <div class="also-col">
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Privé Experiences"></div>
+        <div class="also-eyebrow">Privé Experiences</div>
+        <div class="also-title">20% off signature <em>retreats.</em></div>
+        <div class="also-list">
+          <a href="/experiences/voaara-madagascar.html"><span class="also-list-name"><b>Voaara</b> <span>· Madagascar</span></span><span class="also-list-price">$6,600</span></a>
+          <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price">$3,360</span></a>
+          <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price">$9,600</span></a>
         </div>
+        <a class="also-link" href="/passport/experiences.html">See all experiences →</a>
       </div>
-      <div class="club">
-        <img class="club-img" loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1777408711/Untitled_design-94_ea2ofp.png" alt="Privé Miami">
-        <div class="club-body">
-          <div class="club-eyebrow">Now open · Coral Gables, Miami</div>
-          <div class="club-name">Privé <em>Miami.</em></div>
-          <p class="club-text">At THesis Hotel in Coral Gables — a dedicated court and a year-round calendar built around the city.</p>
-          <div class="club-tag">Unlimited play, year-round · member rate</div>
+      <!-- Privé Clubs -->
+      <div class="also-col">
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Clubs"></div>
+        <div class="also-eyebrow">Privé Clubs</div>
+        <div class="also-title">Montauk &amp; Miami, <em>included.</em></div>
+        <p class="also-text">Founding membership includes full access to both Privé Clubs — unlimited play, year-round, at the member rate. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
+        <div class="also-list">
+          <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
+          <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
         </div>
       </div>
     </div>
@@ -1175,6 +1171,19 @@
     var CURATED_IDS = ['don-carlos-marbella','the-savoy','chable-yucatan','patina-maldives','fairmont-royal-palm','only-aesthesis','al-baleed-oman','rosewood-hong-kong'];
     var byId = {};
     window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
+
+    /* marquee image row */
+    var imgrow = document.getElementById('imgrow');
+    if (imgrow) {
+      var MARQUEE = ['don-carlos-marbella','patina-maldives','nihi-sumba','rosewood-hong-kong','fairmont-royal-palm','banyan-tree-mayakoba','the-savoy','only-le-saint-geran'];
+      MARQUEE.map(function (id) { return byId[id]; }).filter(Boolean).forEach(function (d) {
+        var cap = (d.region || '').split(',')[0] || d.name;
+        var el = document.createElement('div');
+        el.className = 'imgrow-item';
+        el.innerHTML = '<img loading="lazy" src="' + clUrl(d.heroImg || d.image, 500) + '" alt="' + (d.name || '') + '"><div class="imgrow-cap">' + cap + '</div>';
+        imgrow.appendChild(el);
+      });
+    }
     var curated = CURATED_IDS.map(function (id) { return byId[id]; }).filter(Boolean);
     var inCurated = {};
     curated.forEach(function (d) { inCurated[d.id] = true; });
