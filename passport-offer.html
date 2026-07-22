@@ -202,7 +202,7 @@
     .pf-head .eyebrow, .sec-head .eyebrow { display: inline-block; }
     .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .pf-tile {
-      position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 12px;
+      position: relative; aspect-ratio: 1/1; overflow: hidden; border-radius: 12px;
       display: block; background: var(--dark2); cursor: pointer;
     }
     .pf-tile-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
@@ -431,6 +431,7 @@
     .also-list-name b { font-weight: 400; color: var(--cream); }
     .also-list-name span { color: rgba(245,240,232,.5); }
     .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); white-space: nowrap; }
+    .also-list-price s { color: rgba(245,240,232,.36); font-size: 13px; margin-right: 5px; text-decoration-thickness: 1px; }
     .also-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.64); line-height: 1.65; margin-bottom: 18px; }
     .also-link { display: inline-block; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
 
@@ -609,9 +610,9 @@
 <section class="sec" id="collection">
   <div class="wrap">
     <div style="text-align:center;">
-      <div class="eyebrow">The Travel Collection</div>
+      <div class="eyebrow">The Privé Passport</div>
       <h2 class="display">The world's finest hotels.<em>A court at every one.</em></h2>
-      <p class="lede" style="max-width:40ch;margin:18px auto 0;">One membership opens a private collection of 40+ hotels and resorts across 18 countries and five continents — from the Marbella Club to Rosewood Hong Kong. Arrive as a member: a padel court on-site or at the local club, and privileges waiting at the door.</p>
+      <p class="lede" style="max-width:42ch;margin:18px auto 0;">Your passport to a private collection of 40+ hotels and resorts across 18 countries and five continents — from the Marbella Club to Rosewood Hong Kong. Travel to any of them and stay as a member: a padel court on-site or at the local club, and Privé privileges waiting at every one.</p>
     </div>
   </div>
 
@@ -665,10 +666,11 @@
         <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Privé Experiences"></div>
         <div class="also-eyebrow">Privé Experiences</div>
         <div class="also-title">20% off signature <em>retreats.</em></div>
+        <p class="also-text">All-inclusive padel retreats built around the game and the place — experience the destination, padel every day with a dedicated pro, expert programming, and a closing tournament.</p>
         <div class="also-list">
-          <a href="/experiences/voaara-madagascar.html"><span class="also-list-name"><b>Voaara</b> <span>· Madagascar</span></span><span class="also-list-price">$6,600</span></a>
-          <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price">$3,360</span></a>
-          <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price">$9,600</span></a>
+          <a href="/experiences/voaara-madagascar.html"><span class="also-list-name"><b>Voaara</b> <span>· Madagascar</span></span><span class="also-list-price"><s>$8,250</s> $6,600</span></a>
+          <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price"><s>$4,200</s> $3,360</span></a>
+          <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price"><s>$12,000</s> $9,600</span></a>
         </div>
         <a class="also-link" href="/passport/experiences.html">See all experiences →</a>
       </div>
@@ -1034,6 +1036,11 @@
     var repl = /^v\d+\//.test(after) ? '/upload/w_' + w + '/' : '/upload/w_' + w + ',';
     return src.replace('/upload/', repl);
   }
+  /* square, high-res crop (matches the destinations page source image) */
+  function clSquare(src, w) {
+    if (!src || src.indexOf('res.cloudinary.com') === -1) return src;
+    return src.replace('/upload/', '/upload/c_fill,ar_1:1,g_auto,w_' + w + ',');
+  }
 
   /* ── Lightbox ──────────────────────────────────────────── */
   var lb = document.getElementById('propLightbox');
@@ -1195,7 +1202,7 @@
       var tile = document.createElement('div');
       tile.className = 'pf-tile' + (i >= CURATED ? ' hidden-extra' : '');
       tile.innerHTML =
-        '<div class="pf-tile-bg" style="background-image:url(\'' + clUrl(d.image, 500) + '\')"></div>' +
+        '<div class="pf-tile-bg" style="background-image:url(\'' + clSquare(d.image, 800) + '\')"></div>' +
         '<div class="pf-tile-veil"></div>' +
         (d.comingSoon ? '<div class="pf-tile-badge">Coming Soon</div>' : '') +
         '<div class="pf-tile-view"><span>View →</span></div>' +
