@@ -34,15 +34,16 @@
     gtag('js', new Date());
     gtag('config', 'G-V7WWTFXWSE');
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>The Founding Offer — Privé Passport</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="First 200 founding members lock in Privé Passport at $595/year — permanently. Standard rate is $995. Full access from day one.">
+  <meta name="theme-color" content="#0E1923">
+  <meta name="description" content="The world's first padel passport. One membership — 40+ hotels and resorts worldwide, a court at every one, 20% off signature retreats, and full access to Privé Montauk & Miami. Founding rate $595 for life.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="The Founding Offer — Privé Passport">
-  <meta property="og:description" content="First 200 founding members lock in Privé Passport at $595/year — permanently. Standard rate is $995. Full access from day one.">
+  <meta property="og:title" content="The world's first Padel Passport — Privé Padel">
+  <meta property="og:description" content="One membership. 40+ hotels and resorts. A court waiting at every one. Founding rate $595 for life.">
   <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1200/v1775998157/ETE_Drone-Exterior-Kanai_2024_5_drrfnd.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,915 +54,477 @@
     :root {
       --dark:  #0E1923;
       --dark2: #152230;
+      --navy:  #1B2A4A;
+      --gold:  #B8976A;
       --cream: #F5F0E8;
       --sand:  #EDE8DF;
-      --gold:  #B8976A;
-      --navy:  #1B2A4A;
+      --glass:      rgba(18,28,40,.52);
+      --glass-line: rgba(245,240,232,.14);
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--dark); font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; color: var(--navy); }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--dark); color: var(--cream);
+      font-family: 'Jost', sans-serif; font-weight: 300;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-    /* ── STICKY CTA BAR ──────────────────────────────────── */
-    .lp-sticky {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
-      background: var(--navy); border-top: 1px solid rgba(184,151,106,.22);
-      padding: 14px 52px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      transform: translateY(100%); transition: transform .35s ease;
+    /* ── shared primitives ─────────────────────────────────── */
+    .wrap { width: 100%; max-width: 620px; margin: 0 auto; padding: 0 24px; }
+    .wrap-wide { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    .eyebrow {
+      font-size: 10.5px; font-weight: 400; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
     }
-    .lp-sticky.visible { transform: translateY(0); }
-    .lp-sticky-copy {
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(245,240,232,.55); letter-spacing: .03em;
+    .display {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(34px, 9vw, 52px); line-height: 1.05; color: var(--cream); letter-spacing: .003em;
     }
-    .lp-sticky-copy strong { color: rgba(245,240,232,.85); font-weight: 400; }
-    .lp-sticky-btn {
+    .display em { font-style: italic; color: var(--gold); display: block; }
+    .lede {
+      font-size: 15px; font-weight: 300; line-height: 1.75; color: rgba(245,240,232,.62);
+    }
+
+    /* Frosted-glass card */
+    .glass {
+      background: var(--glass);
+      -webkit-backdrop-filter: blur(22px) saturate(1.25);
+      backdrop-filter: blur(22px) saturate(1.25);
+      border: 1px solid var(--glass-line);
+      border-radius: 22px;
+      box-shadow: 0 24px 60px -30px rgba(0,0,0,.7);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--dark); background: var(--gold);
-      padding: 14px 32px; border: none; border-radius: 1px;
-      cursor: pointer; transition: opacity .2s; white-space: nowrap; flex-shrink: 0;
+      letter-spacing: .2em; text-transform: uppercase; cursor: pointer;
+      border: none; border-radius: 100px; transition: opacity .2s, transform .2s;
+      -webkit-tap-highlight-color: transparent;
     }
-    .lp-sticky-btn:hover { opacity: .85; }
+    .btn:active { transform: scale(.98); }
+    .btn-gold { background: var(--gold); color: var(--dark); padding: 17px 34px; }
+    .btn-gold:hover { opacity: .9; }
+    .btn-ghost {
+      background: rgba(245,240,232,.06); color: var(--cream);
+      border: 1px solid rgba(245,240,232,.28); padding: 16px 32px;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-full { width: 100%; }
 
-    /* ── HEADER ──────────────────────────────────────────── */
-    .lp-header {
+    /* ── HEADER ────────────────────────────────────────────── */
+    .hdr {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 52px;
-      background: linear-gradient(to bottom, rgba(14,25,35,.9) 0%, transparent 100%);
-      transition: background .3s;
+      padding: 14px 20px; transition: background .3s, padding .3s;
+      padding-top: calc(14px + env(safe-area-inset-top));
     }
-    .lp-header.scrolled { background: rgba(14,25,35,.97); backdrop-filter: blur(8px); }
-    .lp-header-cta {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--dark); background: var(--gold);
-      padding: 12px 28px; border: none; border-radius: 1px;
-      cursor: pointer; transition: opacity .2s; white-space: nowrap;
-    }
-    .lp-header-cta:hover { opacity: .85; }
+    .hdr.scrolled { background: rgba(14,25,35,.86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .hdr img { height: 42px; width: auto; }
+    .hdr .btn { padding: 11px 20px; font-size: 10px; }
 
-    /* ── HERO ────────────────────────────────────────────── */
-    .lp-hero {
-      position: relative; height: 100vh; min-height: 640px;
-      display: flex; align-items: flex-end; overflow: hidden;
+    /* ── STICKY BOTTOM BAR ─────────────────────────────────── */
+    .sticky {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 210;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(14,25,35,.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(184,151,106,.22);
+      transform: translateY(110%); transition: transform .35s ease;
     }
-    .lp-hero-video {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
-    }
-    .lp-hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to bottom, rgba(14,25,35,.18) 0%, rgba(14,25,35,.6) 52%, rgba(14,25,35,.96) 100%);
-    }
-    .lp-hero-inner {
-      position: relative; z-index: 2; width: 100%; max-width: 860px;
-      padding: 0 52px 88px;
-    }
-    .lp-eyebrow {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .28em; text-transform: uppercase; color: var(--gold);
-      margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
-    }
-    .lp-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
-    .lp-hero h1 {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 76px);
-      font-weight: 300; color: var(--cream); line-height: 1.04; margin-bottom: 20px;
-    }
-    .lp-hero h1 em { font-style: italic; }
-    .lp-hero-sub {
-      font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
-      color: rgba(245,240,232,.6); margin-bottom: 16px; line-height: 1.75; max-width: 520px;
-    }
-    .lp-hero-proof {
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(245,240,232,.32); letter-spacing: .08em; margin-bottom: 32px;
-    }
+    .sticky.visible { transform: translateY(0); }
+    .sticky-copy { font-size: 12px; color: rgba(245,240,232,.6); letter-spacing: .02em; line-height: 1.3; }
+    .sticky-copy strong { color: var(--gold); font-weight: 400; }
+    .sticky .btn { flex-shrink: 0; padding: 13px 22px; font-size: 10px; }
 
-    /* ── SHARED BUTTONS ──────────────────────────────────── */
-    .btn-gold {
-      display: inline-block; font-family: 'Jost', sans-serif; font-size: 11px;
-      font-weight: 400; letter-spacing: .24em; text-transform: uppercase;
-      color: var(--dark); background: var(--gold);
-      padding: 18px 48px; border: none; border-radius: 1px;
-      cursor: pointer; transition: opacity .2s; text-decoration: none; white-space: nowrap;
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100svh; display: flex; align-items: flex-end;
+      overflow: hidden;
     }
-    .btn-gold:hover { opacity: .85; }
-    .btn-gold:disabled { opacity: .45; cursor: default; }
+    .hero-bg {
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      transform: scale(1.05);
+    }
+    .hero-veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(14,25,35,.35) 0%, rgba(14,25,35,.55) 45%, rgba(14,25,35,.97) 100%);
+    }
+    .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 54px; padding-top: 120px; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(46px, 13vw, 76px); line-height: 1.0; color: var(--cream); margin-bottom: 22px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); display: block; }
+    .hero-sub { font-size: 16px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,.72); max-width: 30ch; margin-bottom: 30px; }
+    .hero-micro {
+      margin-top: 18px; font-size: 11.5px; font-weight: 300; letter-spacing: .06em;
+      color: rgba(245,240,232,.45);
+    }
+    .hero-micro strong { color: rgba(245,240,232,.85); font-weight: 400; }
+    .scrollcue {
+      margin-top: 34px; font-size: 9.5px; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(245,240,232,.4); display: flex; align-items: center; gap: 10px;
+    }
+    .scrollcue::before { content: ''; width: 26px; height: 1px; background: rgba(245,240,232,.4); }
 
-    /* ── SHARED LABELS ───────────────────────────────────── */
-    .sec-eyebrow {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
-    }
-    .sec-heading {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.5vw, 50px);
-      font-weight: 300; line-height: 1.08;
-    }
-    .sec-heading em { font-style: italic; }
+    /* ── generic section ───────────────────────────────────── */
+    .sec { position: relative; padding: 84px 0; }
+    .sec-tight { padding: 64px 0; }
 
-    /* ── §2 VISUAL VALUE ─────────────────────────────────── */
-    .lp-s2 { background: var(--cream); padding: 100px 52px; }
-    .lp-s2-inner { max-width: 800px; margin: 0 auto; }
-    .lp-s2 .sec-heading {
-      color: var(--navy); text-align: center; margin-bottom: 60px;
-    }
-    .lp-stat-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
-      margin-bottom: 3px;
-    }
-    .lp-stat-tile {
-      background: var(--sand); padding: 44px 32px 40px;
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; gap: 14px;
-    }
-    .lp-stat-icon {
-      color: var(--gold); width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .lp-stat-icon svg { width: 32px; height: 32px; }
-    .lp-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(38px, 4.5vw, 58px);
-      font-weight: 300; color: var(--navy); line-height: 1;
-    }
-    .lp-stat-label {
-      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300;
-      color: rgba(27,42,74,.55); letter-spacing: .04em; line-height: 1.5;
-    }
-    .lp-pays-bar {
-      background: var(--navy); color: var(--cream);
-      padding: 24px 40px; text-align: center;
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      line-height: 1.6; letter-spacing: .02em; margin-bottom: 0;
-    }
-    .lp-pays-bar strong { color: var(--gold); font-weight: 400; }
-    .lp-expand {
-      border-top: 1px solid rgba(27,42,74,.12);
-      border-bottom: 1px solid rgba(27,42,74,.12);
-      margin-top: 0;
-    }
-    .lp-expand-trigger {
-      display: flex; align-items: center; gap: 10px;
-      padding: 18px 0; cursor: pointer; list-style: none;
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(27,42,74,.48); letter-spacing: .04em;
-      transition: color .2s; user-select: none;
-    }
-    .lp-expand-trigger::-webkit-details-marker { display: none; }
-    .lp-expand-trigger:hover { color: rgba(27,42,74,.75); }
-    .lp-expand-arrow {
-      font-size: 16px; line-height: 1; color: var(--gold);
-      display: inline-block; transition: transform .22s;
-    }
-    .lp-expand[open] .lp-expand-arrow { transform: rotate(90deg); }
-    .lp-expand-body {
-      padding: 28px 0 36px; display: flex; flex-direction: column; gap: 18px;
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(27,42,74,.68); line-height: 1.85;
-    }
-    .lp-expand-body em { font-style: italic; color: rgba(27,42,74,.85); }
-    .lp-expand-body strong { color: var(--navy); font-weight: 500; }
-    .lp-expand-body ul { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .lp-expand-body li { padding-left: 4px; }
-    .lp-expand-upside {
-      background: rgba(184,151,106,.06); border-left: 2px solid rgba(184,151,106,.4);
-      padding: 20px 24px;
-    }
-    .lp-expand-disclaimer {
-      font-size: 14px; font-style: italic; color: rgba(27,42,74,.38);
-      border-top: 1px solid rgba(27,42,74,.07); padding-top: 16px;
-    }
-    .lp-s2-cta { text-align: center; margin-top: 52px; }
+    /* Photo section (full-bleed image + glass content) */
+    .photo-sec { position: relative; overflow: hidden; }
+    .photo-sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .photo-sec-veil { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,25,35,.8) 0%, rgba(14,25,35,.62) 40%, rgba(14,25,35,.92) 100%); }
+    .photo-sec > .wrap { position: relative; z-index: 2; }
 
-    /* ── §3 PADEL HOOK ───────────────────────────────────── */
-    .lp-hook { background: var(--dark2); padding: 100px 52px; }
-    .lp-hook-inner { max-width: 680px; margin: 0 auto; }
-    .lp-hook .sec-heading { color: var(--cream); text-align: center; margin-bottom: 60px; }
-    .lp-hook-row {
-      display: flex; align-items: flex-start; gap: 32px;
-      padding: 36px 0; border-bottom: 1px solid rgba(255,255,255,.07);
+    /* ── stacked benefit / feature list (glass) ────────────── */
+    .flist { padding: 8px 26px; margin-top: 30px; }
+    .flist-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 17px 0; border-bottom: 1px solid rgba(245,240,232,.1);
     }
-    .lp-hook-row:first-of-type { border-top: 1px solid rgba(255,255,255,.07); }
-    .lp-hook-icon {
-      color: var(--gold); flex-shrink: 0; margin-top: 2px;
-      width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
-    }
-    .lp-hook-icon svg { width: 28px; height: 28px; }
-    .lp-hook-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 2.2vw, 26px);
-      font-weight: 300; color: var(--cream); margin-bottom: 8px; line-height: 1.15;
-    }
-    .lp-hook-body {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(245,240,232,.5); line-height: 1.7;
+    .flist-row:last-child { border-bottom: none; }
+    .flist-ico { color: var(--gold); width: 20px; height: 20px; flex-shrink: 0; }
+    .flist-ico svg { width: 20px; height: 20px; }
+    .flist-txt { font-size: 14.5px; font-weight: 300; color: rgba(245,240,232,.9); line-height: 1.4; }
+    .flist-txt b { font-weight: 400; color: var(--cream); }
+    .flist-note {
+      margin-top: 18px; text-align: center; font-size: 10px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(245,240,232,.34);
     }
 
-    /* ── §4 DESTINATIONS ─────────────────────────────────── */
-    .lp-dest { background: var(--dark); }
-    .lp-dest-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+    /* ── PORTFOLIO GRID ────────────────────────────────────── */
+    .pf-head { text-align: center; margin-bottom: 30px; }
+    .pf-head .eyebrow, .sec-head .eyebrow { display: inline-block; }
+    .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .pf-tile {
+      position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 12px;
+      display: block; background: var(--dark2); cursor: pointer;
     }
-    .lp-dest-cell { overflow: hidden; }
-    .lp-dest-img {
-      width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block;
-      transition: transform .6s ease;
+    .pf-tile-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
+    .pf-tile:hover .pf-tile-bg { transform: scale(1.06); }
+    .pf-tile-veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.9) 0%, rgba(14,25,35,.05) 60%); }
+    .pf-tile-label {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 10px; z-index: 2; text-align: center;
+      font-family: 'Jost', sans-serif; font-size: 9.5px; font-weight: 400; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(245,240,232,.92);
     }
-    .lp-dest-cell:hover .lp-dest-img { transform: scale(1.04); }
-    .lp-dest-caption {
-      padding: 28px 52px 52px;
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(245,240,232,.38); letter-spacing: .04em; line-height: 1.7;
-      text-align: center;
-    }
+    .pf-foot { text-align: center; margin-top: 28px; }
+    .pf-foot-note { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.4); margin-bottom: 20px; }
 
-    /* ── §5 OFFER / CHECKOUT ─────────────────────────────── */
-    .lp-offer { background: var(--sand); padding: 100px 52px; }
-    .lp-offer-inner { max-width: 560px; margin: 0 auto; }
-    .lp-offer-header { text-align: center; margin-bottom: 52px; }
-    .lp-offer-eyebrow {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    /* ── RETREATS ──────────────────────────────────────────── */
+    .rt-list { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+    .rt-item {
+      position: relative; display: block; overflow: hidden; border-radius: 18px;
+      min-height: 176px; display: flex; align-items: flex-end;
     }
-    .lp-offer-headline {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 300; color: var(--navy); line-height: 1.08; margin-bottom: 28px;
-    }
-    .lp-offer-headline em { font-style: italic; }
-    .lp-anchor {
-      display: flex; align-items: baseline; justify-content: center;
-      gap: 16px; margin-bottom: 10px;
-    }
-    .lp-anchor-old {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3vw, 40px);
-      font-weight: 300; color: rgba(27,42,74,.28);
-      text-decoration: line-through; text-decoration-thickness: 1px;
-    }
-    .lp-anchor-new {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 72px);
-      font-weight: 300; color: var(--navy); font-style: italic; line-height: 1;
-    }
-    .lp-anchor-detail {
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(27,42,74,.45); letter-spacing: .08em;
-      text-align: center; margin-bottom: 20px;
-    }
-    .lp-capture {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(27,42,74,.62); line-height: 1.75; text-align: center; margin-bottom: 52px;
-    }
-    .lp-capture strong { color: var(--navy); font-weight: 500; }
+    .rt-item-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
+    .rt-item:hover .rt-item-bg { transform: scale(1.05); }
+    .rt-item-veil { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(14,25,35,.9) 0%, rgba(14,25,35,.5) 55%, rgba(14,25,35,.2) 100%); }
+    .rt-item-inner { position: relative; z-index: 2; padding: 22px 24px; width: 100%; }
+    .rt-item-loc { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .rt-item-name { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 300; color: var(--cream); line-height: 1.08; margin-bottom: 8px; }
+    .rt-item-name em { font-style: italic; }
+    .rt-item-meta { display: flex; align-items: baseline; gap: 10px; font-size: 12.5px; color: rgba(245,240,232,.7); }
+    .rt-item-save { color: var(--gold); }
+    .rt-item-strike { text-decoration: line-through; color: rgba(245,240,232,.4); }
+    .rt-foot { text-align: center; margin-top: 26px; font-size: 13px; color: rgba(245,240,232,.6); }
+    .rt-foot a { color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
 
-    /* Checkout card */
-    .lp-checkout-card {
-      background: var(--cream); padding: 52px;
-      border: 1px solid rgba(27,42,74,.1);
-      border-top: 2px solid var(--gold);
+    /* ── OFFER + CHECKOUT ──────────────────────────────────── */
+    .offer { background: radial-gradient(120% 90% at 50% 0%, #16273a 0%, var(--dark) 62%); padding: 84px 0 92px; }
+    .offer-head { text-align: center; margin-bottom: 34px; }
+    .offer-badge {
+      display: inline-block; font-size: 10px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(184,151,106,.4); border-radius: 100px; padding: 8px 18px; margin-bottom: 24px;
     }
-    .lp-checkout-eyebrow {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+    .offer-price { display: flex; align-items: baseline; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .offer-old { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,8vw,40px); font-weight: 300; color: rgba(245,240,232,.34); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .offer-new { font-family: 'Cormorant Garamond', serif; font-size: clamp(60px,18vw,84px); font-weight: 300; font-style: italic; color: var(--cream); line-height: .9; }
+    .offer-detail { text-align: center; font-size: 12px; letter-spacing: .06em; color: rgba(245,240,232,.5); margin-bottom: 20px; }
+    .offer-includes {
+      text-align: center; font-size: 15px; line-height: 1.6; color: rgba(245,240,232,.82); max-width: 30ch; margin: 0 auto 6px;
     }
-    .lp-checkout-headline {
-      font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300;
-      font-style: italic; color: var(--navy); margin-bottom: 4px; line-height: 1.1;
-    }
-    .lp-checkout-subline {
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(27,42,74,.45); margin-bottom: 36px; letter-spacing: .04em;
-    }
-    .lp-checkout-rule { height: 1px; background: rgba(27,42,74,.1); margin-bottom: 28px; }
+    .offer-includes b { color: var(--gold); font-weight: 400; }
+
+    /* checkout card (glass, dark) — class names kept for JS hooks */
+    .lp-checkout-card { margin-top: 34px; padding: 30px 24px; }
     .lp-checkout-tier {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 20px 0; border-bottom: 1px solid rgba(27,42,74,.08);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+      padding-bottom: 20px; border-bottom: 1px solid rgba(245,240,232,.12);
     }
-    .lp-checkout-tier-name {
-      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-      color: var(--navy); margin-bottom: 4px;
-    }
-    .lp-checkout-tier-desc {
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(27,42,74,.5); line-height: 1.55; max-width: 260px;
-    }
-    .lp-checkout-tier-price {
-      font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300;
-      color: var(--navy); white-space: nowrap; margin-left: 16px;
-    }
+    .lp-checkout-tier-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--cream); margin-bottom: 5px; }
+    .lp-checkout-tier-desc { font-size: 12.5px; font-weight: 300; color: rgba(245,240,232,.55); line-height: 1.5; }
+    .lp-checkout-tier-price { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--cream); white-space: nowrap; }
+    .lp-checkout-tier-price span { font-size: 14px; color: rgba(245,240,232,.4); }
+
     .lp-partner-row {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 20px 0; border-bottom: 1px solid rgba(27,42,74,.08);
-      cursor: pointer; user-select: none;
+      display: flex; align-items: flex-start; gap: 13px; padding: 18px 0;
+      border-bottom: 1px solid rgba(245,240,232,.12); cursor: pointer; user-select: none;
     }
     .lp-partner-check {
-      width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
-      border: 1px solid rgba(27,42,74,.2); border-radius: 1px;
-      position: relative; transition: border-color .15s, background .15s;
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      border: 1px solid rgba(245,240,232,.3); border-radius: 5px; position: relative; transition: .15s;
     }
-    .lp-partner-row.checked .lp-partner-check {
-      border-color: var(--gold); background: var(--gold);
-    }
+    .lp-partner-row.checked .lp-partner-check { border-color: var(--gold); background: var(--gold); }
     .lp-partner-row.checked .lp-partner-check::after {
-      content: ''; position: absolute; left: 5px; top: 2px;
-      width: 5px; height: 9px;
-      border-right: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
-      transform: rotate(45deg);
+      content: ''; position: absolute; left: 6px; top: 2.5px; width: 5px; height: 10px;
+      border-right: 1.5px solid var(--dark); border-bottom: 1.5px solid var(--dark); transform: rotate(45deg);
     }
-    .lp-partner-row input[type=checkbox] { display: none; }
+    .lp-partner-row input { display: none; }
     .lp-partner-body { flex: 1; }
-    .lp-partner-name {
-      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
-      color: var(--navy); margin-bottom: 3px;
-    }
-    .lp-partner-sub {
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(27,42,74,.5); line-height: 1.5;
-    }
-    .lp-partner-price {
-      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300;
-      color: rgba(27,42,74,.55); white-space: nowrap; margin-left: 12px; margin-top: 3px;
-    }
-    .lp-total-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: 22px 0 0;
-    }
-    .lp-total-label {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.38);
-    }
-    .lp-total-amount {
-      font-family: 'Cormorant Garamond', serif; font-size: 28px;
-      font-weight: 300; color: var(--navy);
-    }
-    .lp-checkout-btn {
-      display: block; width: 100%; margin-top: 28px;
-      padding: 18px; background: var(--gold);
-      color: var(--dark); border: none; cursor: pointer;
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .24em; text-transform: uppercase;
-      transition: opacity .2s; border-radius: 1px;
-    }
-    .lp-checkout-btn:hover:not(:disabled) { opacity: .85; }
-    .lp-checkout-btn:disabled { opacity: .45; cursor: default; }
-    .lp-checkout-secure {
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(27,42,74,.38); text-align: center; margin-top: 16px; letter-spacing: .04em;
-    }
+    .lp-partner-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--cream); margin-bottom: 3px; }
+    .lp-partner-sub { font-size: 12.5px; font-weight: 300; color: rgba(245,240,232,.55); line-height: 1.4; }
+    .lp-partner-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(245,240,232,.7); white-space: nowrap; }
+    .lp-partner-price span { font-size: 13px; color: rgba(245,240,232,.4); }
 
-    /* ── §6 FAQ ──────────────────────────────────────────── */
-    .lp-faq { background: var(--cream); padding: 100px 52px; }
-    .lp-faq-inner { max-width: 720px; margin: 0 auto; }
-    .lp-faq-header { margin-bottom: 52px; }
-    .lp-faq-header .sec-heading { color: var(--navy); }
-    .lp-faq-item { border-bottom: 1px solid rgba(27,42,74,.1); }
-    .lp-faq-item:first-of-type { border-top: 1px solid rgba(27,42,74,.1); }
-    .lp-faq-q {
-      width: 100%; background: none; border: none; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 0; text-align: left; gap: 20px;
+    .lp-total-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 20px; }
+    .lp-total-label { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.45); }
+    .lp-total-amount { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--cream); }
+
+    .lp-step { display: none; }
+    .lp-step.active { display: block; }
+    .lp-step-head { display: flex; align-items: center; gap: 10px; margin: 22px 0 14px; }
+    .lp-step-badge { font-size: 9.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 5px 9px; border-radius: 4px; }
+    .lp-step-name { font-size: 10.5px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,240,232,.5); }
+    .lp-field { margin-bottom: 11px; }
+    .lp-field input {
+      width: 100%; padding: 15px 16px; font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
+      color: var(--cream); background: rgba(255,255,255,.05); border: 1px solid rgba(245,240,232,.18);
+      border-radius: 10px; transition: border-color .15s;
     }
-    .lp-faq-q-text {
-      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-      color: var(--navy); line-height: 1.2;
+    .lp-field input::placeholder { color: rgba(245,240,232,.4); }
+    .lp-field input:focus { outline: none; border-color: var(--gold); }
+    .lp-field-err { display: none; margin-top: 7px; font-size: 12px; color: #E7A38C; }
+    .lp-field.invalid input { border-color: #C56A4C; }
+    .lp-field.invalid .lp-field-err { display: block; }
+    .lp-review { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.68); line-height: 1.5; margin-bottom: 16px; }
+    .lp-review strong { color: var(--cream); font-weight: 400; }
+    .lp-edit-link { background: none; border: none; cursor: pointer; padding: 0 0 0 4px; font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .lp-checkout-btn {
+      display: block; width: 100%; padding: 17px; background: var(--gold); color: var(--dark);
+      border: none; border-radius: 100px; cursor: pointer; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; transition: opacity .2s;
     }
-    .lp-faq-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; }
-    .lp-faq-icon::before, .lp-faq-icon::after {
-      content: ''; position: absolute; background: var(--gold); border-radius: 1px;
-    }
+    .lp-checkout-btn:hover:not(:disabled) { opacity: .9; }
+    .lp-checkout-btn:disabled { opacity: .5; cursor: default; }
+    .lp-checkout-secure { font-size: 11.5px; font-weight: 300; color: rgba(245,240,232,.42); text-align: center; margin-top: 14px; }
+    .lp-trust { list-style: none; margin: 22px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(245,240,232,.12); display: flex; flex-direction: column; gap: 11px; }
+    .lp-trust li { position: relative; padding-left: 26px; font-size: 12.5px; font-weight: 300; color: rgba(245,240,232,.66); line-height: 1.4; }
+    .lp-trust li::before { content: ''; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--gold); }
+    .lp-trust li::after { content: ''; position: absolute; left: 5.5px; top: 4px; width: 4px; height: 8px; border-right: 1.4px solid var(--gold); border-bottom: 1.4px solid var(--gold); transform: rotate(45deg); }
+    .lp-card-logos { margin-top: 16px; text-align: center; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.4); }
+
+    /* ── PRESS ─────────────────────────────────────────────── */
+    .press { padding: 42px 0; border-top: 1px solid rgba(245,240,232,.07); border-bottom: 1px solid rgba(245,240,232,.07); }
+    .press-label { text-align: center; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(245,240,232,.36); margin-bottom: 24px; }
+    .press-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 26px; }
+    .press-logos img { height: 20px; width: auto; max-width: 96px; object-fit: contain; opacity: .55; filter: brightness(0) invert(1); }
+
+    /* ── TESTIMONIALS ──────────────────────────────────────── */
+    .sec-head { text-align: center; margin-bottom: 30px; }
+    .testis { display: flex; flex-direction: column; gap: 14px; }
+    .testi { padding: 26px 24px; }
+    .testi-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 13px; }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; font-style: italic; color: rgba(245,240,232,.9); line-height: 1.5; margin-bottom: 16px; }
+    .testi-attrib { font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(245,240,232,.5); }
+
+    /* ── FAQ ───────────────────────────────────────────────── */
+    .lp-faq-item { border-bottom: 1px solid rgba(245,240,232,.12); }
+    .lp-faq-item:first-of-type { border-top: 1px solid rgba(245,240,232,.12); }
+    .lp-faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; text-align: left; gap: 18px; }
+    .lp-faq-q-text { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; color: var(--cream); line-height: 1.25; }
+    .lp-faq-icon { width: 18px; height: 18px; flex-shrink: 0; position: relative; }
+    .lp-faq-icon::before, .lp-faq-icon::after { content: ''; position: absolute; background: var(--gold); border-radius: 1px; }
     .lp-faq-icon::before { width: 100%; height: 1px; top: 50%; transform: translateY(-50%); }
     .lp-faq-icon::after { width: 1px; height: 100%; left: 50%; transform: translateX(-50%); transition: transform .2s, opacity .2s; }
     .lp-faq-item.open .lp-faq-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
-    .lp-faq-a {
-      font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
-      color: rgba(27,42,74,.65); line-height: 1.8;
-      overflow: hidden; max-height: 0; transition: max-height .3s ease, padding .3s ease;
-      padding-bottom: 0;
-    }
-    .lp-faq-item.open .lp-faq-a { max-height: 600px; padding-bottom: 24px; }
-    .lp-faq-a a { color: rgba(27,42,74,.65); text-underline-offset: 2px; }
+    .lp-faq-a { font-size: 14.5px; font-weight: 300; color: rgba(245,240,232,.62); line-height: 1.75; overflow: hidden; max-height: 0; transition: max-height .3s ease, padding .3s ease; }
+    .lp-faq-item.open .lp-faq-a { max-height: 640px; padding-bottom: 22px; }
+    .lp-faq-a a { color: var(--gold); text-underline-offset: 2px; text-decoration: underline; }
 
-    /* ── §7 FINAL CTA ────────────────────────────────────── */
-    .lp-final { background: var(--navy); padding: 120px 52px; text-align: center; }
-    .lp-final-inner { max-width: 640px; margin: 0 auto; }
-    .lp-final-headline {
-      font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px);
-      font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 20px;
-    }
-    .lp-final-headline em { font-style: italic; }
-    .lp-final-body {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(245,240,232,.5); line-height: 1.85; margin-bottom: 44px;
-    }
-    .lp-final-micro {
-      margin-top: 20px;
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(245,240,232,.28); letter-spacing: .06em;
-    }
+    /* ── FINAL CTA ─────────────────────────────────────────── */
+    .final { position: relative; padding: 108px 0; text-align: center; overflow: hidden;
+      background: linear-gradient(165deg, #8a94a0 0%, #59636f 34%, #26313d 72%, var(--dark) 100%); }
+    .final-eyebrow { font-size: 10.5px; letter-spacing: .28em; text-transform: uppercase; color: rgba(245,240,232,.7); margin-bottom: 22px; }
+    .final h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px,13vw,72px); line-height: 1.0; color: var(--cream); margin-bottom: 12px; }
+    .final h2 em { font-style: italic; color: var(--gold); display: block; }
+    .final-sub { font-size: 14px; color: rgba(245,240,232,.72); margin-bottom: 34px; }
+    .final-micro { margin-top: 18px; font-size: 11px; letter-spacing: .06em; color: rgba(245,240,232,.5); }
 
-    /* ── FOOTER ──────────────────────────────────────────── */
-    .lp-footer {
-      background: var(--dark); padding: 24px 52px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    }
-    .lp-footer-copy {
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(245,240,232,.22); letter-spacing: .04em;
-    }
-    .lp-footer-links { display: flex; gap: 24px; }
-    .lp-footer-links a {
-      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300;
-      color: rgba(245,240,232,.22); text-decoration: none; letter-spacing: .04em;
-    }
-    .lp-footer-links a:hover { color: rgba(245,240,232,.5); }
+    /* ── FOOTER ────────────────────────────────────────────── */
+    .ftr { padding: 30px 24px calc(90px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+    .ftr-copy { font-size: 11px; color: rgba(245,240,232,.28); }
+    .ftr-links { display: flex; gap: 22px; }
+    .ftr-links a { font-size: 11px; color: rgba(245,240,232,.4); }
+    .ftr-links a:hover { color: rgba(245,240,232,.7); }
 
-    /* ── MOBILE ──────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .lp-sticky { padding: 12px 20px; }
-      .lp-sticky-copy { display: none; }
-      .lp-header { padding: 16px 24px; }
-      .lp-hero-inner { padding: 0 24px 64px; }
-      .lp-s2 { padding: 72px 24px; }
-      .lp-stat-tile { padding: 32px 20px 28px; }
-      .lp-pays-bar { padding: 20px 24px; font-size: 14px; }
-      .lp-hook { padding: 72px 24px; }
-      .lp-hook-row { gap: 22px; padding: 28px 0; }
-      .lp-dest-grid { grid-template-columns: repeat(2, 1fr); }
-      .lp-dest-caption { padding: 20px 24px 44px; font-size: 13px; }
-      .lp-offer { padding: 72px 24px; }
-      .lp-checkout-card { padding: 32px 24px; }
-      .lp-faq { padding: 72px 24px; }
-      .lp-final { padding: 80px 24px; }
-      .lp-footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    /* ── ≥720px refinements ────────────────────────────────── */
+    @media (min-width: 720px) {
+      .wrap { max-width: 680px; }
+      .sec { padding: 104px 0; }
+      .hero-sub { font-size: 18px; }
+      .pf-grid { gap: 8px; }
+      .rt-list { flex-direction: row; flex-wrap: wrap; }
+      .rt-item { flex: 1 1 100%; min-height: 200px; }
+      .testis { flex-direction: row; }
+      .testi { flex: 1; }
+      .press-logos { gap: 22px 40px; }
+      .press-logos img { height: 24px; max-width: 112px; }
+      .hero h1 { font-size: 84px; }
     }
-    @media (max-width: 480px) {
-      .lp-dest-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ══ DESTINATIONS BROWSE (tile grid → lightbox) ══════════ */
-    .lp-dest { background: var(--dark); padding: 100px 52px; }
-    .lp-dest-inner { max-width: 1080px; margin: 0 auto; }
-    .lp-dest-head { text-align: center; margin-bottom: 52px; }
-    .lp-dest-head .sec-heading { color: var(--cream); }
-    .lp-dest-intro {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(245,240,232,.5); line-height: 1.7; margin: 16px auto 0; max-width: 520px;
-    }
-    .lp-tilegrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
-    .lp-tile {
-      position: relative; overflow: hidden; aspect-ratio: 4/5;
-      cursor: pointer; background: var(--dark2);
-    }
-    .lp-tile.hidden-extra { display: none; }
-    .lp-tile-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
-    .lp-tile:hover .lp-tile-bg { transform: scale(1.06); }
-    .lp-tile-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.9) 0%, rgba(14,25,35,.1) 55%, transparent 100%); }
-    .lp-tile-badge {
-      position: absolute; top: 12px; right: 12px; z-index: 2;
-      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--cream); background: rgba(184,151,106,.85);
-      padding: 5px 10px; border-radius: 1px;
-    }
-    .lp-tile-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px 18px; z-index: 2; }
-    .lp-tile-region {
-      font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 400; letter-spacing: .18em;
-      text-transform: uppercase; color: rgba(245,240,232,.55); margin-bottom: 5px;
-    }
-    .lp-tile-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--cream); line-height: 1.15; }
-    .lp-tile-cta { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .25s; }
-    .lp-tile:hover .lp-tile-cta { opacity: 1; }
-    .lp-tile-cta span {
-      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 9px 18px; border-radius: 1px;
-    }
-    .lp-dest-more { text-align: center; margin-top: 32px; }
-    .lp-dest-morebtn {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--cream); background: none;
-      border: 1px solid rgba(184,151,106,.5); padding: 15px 36px; border-radius: 1px;
-      cursor: pointer; transition: background .2s, color .2s, border-color .2s;
-    }
-    .lp-dest-morebtn:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
-    .lp-dest .lp-dest-caption {
-      padding: 40px 0 0; max-width: 640px; margin: 0 auto; text-align: center;
-      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300;
-      color: rgba(245,240,232,.38); letter-spacing: .04em; line-height: 1.7;
-    }
-
-    /* ══ MEMBERSHIP BENEFITS (within destinations) ══════════ */
-    .lp-benefits { margin-top: 76px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 64px; }
-    .lp-benefits-label {
-      text-align: center; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
-      letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
-    }
-    .lp-benefits-sub { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 2.6vw, 36px); font-weight: 300; color: var(--cream); margin-bottom: 48px; }
-    .lp-benefits-sub em { font-style: italic; }
-    .lp-benefits-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: rgba(245,240,232,.08); border: 1px solid rgba(245,240,232,.08);
-    }
-    .lp-benefit { background: var(--dark); padding: 32px 26px; display: flex; flex-direction: column; gap: 12px; }
-    .lp-benefit-ico { color: var(--gold); width: 24px; height: 24px; }
-    .lp-benefit-ico svg { width: 24px; height: 24px; display: block; }
-    .lp-benefit-name { font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .02em; color: var(--cream); }
-    .lp-benefit-desc { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300; color: rgba(245,240,232,.45); line-height: 1.6; }
-
-    /* ══ RETREATS PILLAR ════════════════════════════════════ */
-    .lp-retreats { background: var(--cream); padding: 100px 52px; }
-    .lp-retreats-inner { max-width: 1080px; margin: 0 auto; }
-    .lp-retreats-head { text-align: center; margin-bottom: 56px; }
-    .lp-retreats-head .sec-heading { color: var(--navy); }
-    .lp-retreats-intro {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(27,42,74,.6); line-height: 1.7; margin: 16px auto 0; max-width: 560px;
-    }
-    .lp-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .lp-pillar { background: #fff; border: 1px solid rgba(27,42,74,.08); display: flex; flex-direction: column; overflow: hidden; }
-    .lp-pillar-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-    .lp-pillar-body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
-    .lp-pillar-eyebrow {
-      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: .18em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
-    }
-    .lp-pillar-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--navy); line-height: 1.15; margin-bottom: 10px; }
-    .lp-pillar-name em { font-style: italic; }
-    .lp-pillar-meta { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300; color: rgba(27,42,74,.5); line-height: 1.6; margin-bottom: 24px; }
-    .lp-pillar-prices { margin-top: auto; border-top: 1px solid rgba(27,42,74,.1); padding-top: 20px; display: flex; flex-direction: column; gap: 9px; }
-    .lp-pillar-price-row { display: flex; justify-content: space-between; align-items: baseline; }
-    .lp-pillar-price-label { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: .06em; color: rgba(27,42,74,.5); }
-    .lp-pillar-price-label.member { color: var(--navy); font-weight: 400; }
-    .lp-pillar-price-public { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: rgba(27,42,74,.45); }
-    .lp-pillar-price-passport { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; font-style: italic; color: var(--navy); line-height: 1; }
-    .lp-retreats-foot { text-align: center; margin-top: 44px; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300; color: rgba(27,42,74,.5); letter-spacing: .02em; }
-    .lp-retreats-foot a { color: var(--navy); text-underline-offset: 3px; }
-
-    /* ══ PRIVÉ CLUBS (Montauk + Miami pillars) ═════════════ */
-    .lp-home { background: var(--dark2); padding: 100px 52px; }
-    .lp-home-inner { max-width: 1080px; margin: 0 auto; }
-    .lp-home-head { text-align: center; margin-bottom: 52px; }
-    .lp-home-head .sec-heading { color: var(--cream); }
-    .lp-home-intro { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.75; margin: 16px auto 0; max-width: 600px; }
-    .lp-home-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-    .lp-home-pillar { background: var(--dark); border: 1px solid rgba(245,240,232,.08); overflow: hidden; display: flex; flex-direction: column; }
-    .lp-home-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
-    .lp-home-body { padding: 32px 32px 36px; display: flex; flex-direction: column; flex: 1; }
-    .lp-home-eyebrow { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-    .lp-home-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 12px; }
-    .lp-home-name em { font-style: italic; }
-    .lp-home-text { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.7; margin-bottom: 24px; }
-    .lp-home-tag { margin-top: auto; border-top: 1px solid rgba(245,240,232,.1); padding-top: 18px; display: flex; align-items: center; gap: 10px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .06em; color: rgba(245,240,232,.72); }
-    .lp-home-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-
-    /* ══ ARC CLOSING CTA ════════════════════════════════════ */
-    .lp-arccta { background: var(--navy); padding: 88px 52px; text-align: center; }
-    .lp-arccta-inner { max-width: 660px; margin: 0 auto; }
-    .lp-arccta-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .lp-arccta-head { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.4vw, 46px); font-weight: 300; color: var(--cream); line-height: 1.12; margin-bottom: 20px; }
-    .lp-arccta-head em { font-style: italic; }
-    .lp-arccta-sub { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.55); line-height: 1.8; margin-bottom: 36px; }
-
-    /* ══ PROPERTY LIGHTBOX (ported from destinations page) ══ */
-    .plb{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;}
-    .plb.open{visibility:visible;pointer-events:auto;}
-    .plb-backdrop{position:absolute;inset:0;background:rgba(14,25,35,.78);backdrop-filter:blur(4px);opacity:0;transition:opacity 380ms ease;}
-    .plb.open .plb-backdrop{opacity:1;}
-    .plb-panel{position:relative;z-index:1;width:92%;max-width:1080px;height:90vh;overflow-y:auto;background:#F5F0E8;opacity:0;transform:translateY(16px);transition:opacity 380ms ease,transform 380ms ease;scrollbar-width:thin;scrollbar-color:rgba(184,151,106,.3) transparent;}
-    .plb.open .plb-panel{opacity:1;transform:translateY(0);}
-    .plb-panel::-webkit-scrollbar{width:4px;}
-    .plb-panel::-webkit-scrollbar-thumb{background:rgba(184,151,106,.35);border-radius:2px;}
-    .plb-close{position:absolute;top:20px;right:20px;z-index:10;background:rgba(14,25,35,.65);backdrop-filter:blur(6px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.16em;padding:9px 18px;cursor:pointer;transition:background .2s;}
-    .plb-close:hover{background:rgba(14,25,35,.9);}
-    .plb-hero{position:relative;height:52vh;min-height:320px;background-size:cover;background-position:center;}
-    .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.08) 0%,rgba(14,25,35,.7) 100%);}
-    .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:40px 52px;}
-    .plb-hero-collection{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:8px;}
-    .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);font-weight:300;color:#F5F0E8;line-height:1.05;}
-    .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.08em;color:rgba(245,240,232,.5);margin-top:8px;}
-    .plb-hero-pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
-    .plb-hero-pill{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.65);display:flex;align-items:center;gap:6px;}
-    .plb-hero-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:#B8976A;display:block;}
-    .plb-about{display:grid;grid-template-columns:1fr 1fr;}
-    .plb-about-text{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
-    .plb-section-label{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-    .plb-section-label-rule{flex:1;height:1px;background:rgba(27,42,74,.12);}
-    .plb-section-label-text{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(27,42,74,.45);white-space:nowrap;}
-    .plb-about-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
-    .plb-about-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;font-style:italic;color:#1B2A4A;margin:0 0 20px;line-height:1.2;}
-    .plb-about-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.85;color:rgba(27,42,74,.7);}
-    .plb-about-img{width:100%;height:100%;min-height:400px;object-fit:cover;display:block;}
-    .plb-benefits-wrap{background:#0E1923;padding:60px 52px;}
-    .plb-benefits-bar-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.72);margin-bottom:32px;}
-    .plb-benefits-blur-area{position:relative;}
-    .plb-benefits-static-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;filter:blur(6px);pointer-events:none;user-select:none;}
-    .plb-benefits-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:2;}
-    .plb-lock-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:rgba(184,151,106,.75);}
-    .plb-lock-cta{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#0E1923;background:#B8976A;border:none;cursor:pointer;text-decoration:none;padding:13px 32px;border-radius:1px;margin-top:6px;}
-    .plb-lock-cta:hover{opacity:.9;}
-    .plb-benefit-cell{display:flex;flex-direction:column;gap:6px;}
-    .plb-benefit-icon{width:26px;height:26px;margin-bottom:8px;flex-shrink:0;display:flex;align-items:center;}
-    .plb-benefit-name{font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.08em;color:#F5F0E8;}
-    .plb-amenities-wrap{padding:60px 52px;background:#F5F0E8;}
-    .plb-amenities-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;color:#1B2A4A;margin:16px 0 32px;}
-    .plb-amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-    .plb-amenity-card{position:relative;overflow:hidden;aspect-ratio:4/3;}
-    .plb-amenity-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
-    .plb-amenity-card:hover img{transform:scale(1.04);}
-    .plb-amenity-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,25,35,.82) 0%,transparent 55%);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;}
-    .plb-amenity-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#F5F0E8;margin-bottom:6px;}
-    .plb-amenity-desc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(245,240,232,.65);line-height:1.55;display:none;}
-    .plb-amenity-card:hover .plb-amenity-desc{display:block;}
-    .plb-accom-wrap{padding:60px 52px;background:#EDE8DF;}
-    .plb-accom-item{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:3px;}
-    .plb-accom-item.flip .plb-accom-img-wrap{order:2;}
-    .plb-accom-item.flip .plb-accom-content{order:1;}
-    .plb-accom-img-wrap{overflow:hidden;}
-    .plb-accom-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
-    .plb-accom-content{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
-    .plb-accom-tag{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(27,42,74,.4);margin-bottom:8px;}
-    .plb-accom-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,28px);font-weight:300;color:#1B2A4A;margin:0 0 14px;line-height:1.2;}
-    .plb-accom-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.65);}
-    .plb-dining-wrap{padding:60px 52px;background:#0E1923;}
-    .plb-dining-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;}
-    .plb-dining-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);font-weight:300;color:#F5F0E8;line-height:1.15;}
-    .plb-dining-title em{font-style:italic;}
-    .plb-dining-controls{display:flex;align-items:center;gap:12px;}
-    .plb-slider-btn{background:none;border:1px solid rgba(245,240,232,.2);border-radius:1px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#F5F0E8;transition:border-color .2s;}
-    .plb-slider-btn:hover{border-color:rgba(245,240,232,.5);}
-    .plb-slider-btn:disabled{opacity:.3;cursor:default;}
-    .plb-slider-btn svg{width:12px;height:12px;stroke:#F5F0E8;stroke-width:1.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-    .plb-dining-counter{font-family:'Jost',sans-serif;font-size:11px;color:rgba(245,240,232,.4);}
-    .plb-dining-viewport{overflow:hidden;}
-    .plb-dining-track{display:flex;gap:2px;transition:transform 340ms ease;}
-    .plb-dining-card{flex:0 0 calc(50% - 1px);background:#152230;}
-    .plb-dining-img{width:100%;height:200px;object-fit:cover;display:block;}
-    .plb-dining-body{padding:24px 28px;}
-    .plb-dining-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#F5F0E8;margin-bottom:8px;}
-    .plb-dining-desc{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;line-height:1.7;color:rgba(245,240,232,.55);}
-    .plb-dining-progress{height:1px;background:rgba(245,240,232,.1);margin-top:20px;position:relative;}
-    .plb-dining-fill{height:100%;background:#B8976A;transition:width 340ms ease;}
-    .plb-wellness-wrap{padding:60px 52px;background:#F5F0E8;}
-    .plb-wellness-panel{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
-    .plb-wellness-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;color:#1B2A4A;margin:12px 0 16px;}
-    .plb-wellness-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.65);margin-bottom:24px;}
-    .plb-wellness-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(27,42,74,.1);}
-    .plb-wellness-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(27,42,74,.1);}
-    .plb-wellness-name{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;color:#1B2A4A;}
-    .plb-wellness-badge{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(27,42,74,.5);text-align:right;}
-    .plb-wellness-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
-    .plb-wellness-img-tall{grid-row:span 2;}
-    .plb-wellness-imgs img{width:100%;height:160px;object-fit:cover;display:block;}
-    .plb-wellness-img-tall img{height:323px;}
-    .plb-strip{display:flex;gap:3px;overflow:hidden;}
-    .plb-strip-item{flex:1;overflow:hidden;}
-    .plb-strip-item img{width:100%;height:180px;object-fit:cover;display:block;}
-    .plb-cta-wrap{background:#0E1923;padding:52px;text-align:center;}
-    .plb-cta-eyebrow{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
-    .plb-cta-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);font-weight:300;font-style:italic;color:#F5F0E8;margin:0 0 28px;}
-    .plb-cta-btn{display:inline-block;font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:16px 40px;border:none;border-radius:1px;cursor:pointer;text-decoration:none;}
-    .plb-cta-btn:hover{opacity:.85;}
-
-    @media (max-width: 768px) {
-      .lp-dest { padding: 72px 24px; }
-      .lp-tilegrid { grid-template-columns: repeat(2, 1fr); }
-      .lp-benefits-grid { grid-template-columns: repeat(2, 1fr); }
-      .lp-retreats { padding: 72px 24px; }
-      .lp-pillars { grid-template-columns: 1fr; gap: 20px; }
-      .lp-home { padding: 72px 24px; }
-      .lp-home-pillars { grid-template-columns: 1fr; gap: 20px; }
-      .lp-arccta { padding: 64px 24px; }
-    }
-    @media (max-width: 700px) {
-      .plb-panel{width:100%;height:100vh;max-width:100%;}
-      .plb-about,.plb-wellness-panel{grid-template-columns:1fr;}
-      .plb-about-img{min-height:240px;height:240px;}
-      .plb-benefits-static-grid{grid-template-columns:1fr 1fr;}
-      .plb-amenities-grid{grid-template-columns:1fr 1fr;}
-      .plb-accom-item,.plb-accom-item.flip{grid-template-columns:1fr;}
-      .plb-accom-item.flip .plb-accom-img-wrap,.plb-accom-item.flip .plb-accom-content{order:unset;}
-      .plb-dining-card{flex:0 0 100%;}
-      .plb-wellness-imgs{grid-template-columns:1fr;}
-      .plb-wellness-img-tall{grid-row:span 1;}
-      .plb-wellness-img-tall img{height:180px;}
-      .plb-about-text,.plb-benefits-wrap,.plb-amenities-wrap,.plb-accom-wrap,.plb-accom-content,.plb-dining-wrap,.plb-wellness-wrap,.plb-cta-wrap{padding-left:24px;padding-right:24px;}
-      .plb-hero-foot{padding:28px 24px;}
-    }
-
-    /* ══ PRESS BAR (as featured in) ═════════════════════════ */
-    .lp-press { background: var(--cream); padding: 40px 52px; }
-    .lp-press-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
-    .lp-press-label {
-      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400;
-      letter-spacing: .26em; text-transform: uppercase; color: rgba(27,42,74,.4); margin-bottom: 26px;
-    }
-    .lp-press-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px 30px; }
-    .lp-press-logos img {
-      height: 23px; width: auto; max-width: 104px; object-fit: contain;
-      opacity: .5; transition: opacity .2s;
-    }
-    .lp-press-logos img:hover { opacity: .82; }
-
-    /* ══ CHECKOUT: TWO-STEP + TRUST ═════════════════════════ */
-    .lp-step { display: none; }
-    .lp-step.active { display: block; }
-    .lp-step-head { display: flex; align-items: center; gap: 12px; margin: 24px 0 16px; }
-    .lp-step-badge {
-      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 5px 10px; border-radius: 1px;
-    }
-    .lp-step-name {
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(27,42,74,.45);
-    }
-    .lp-field { margin-bottom: 12px; }
-    .lp-field input {
-      width: 100%; padding: 15px 16px;
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: var(--navy);
-      background: #fff; border: 1px solid rgba(27,42,74,.16); border-radius: 2px; transition: border-color .15s;
-    }
-    .lp-field input::placeholder { color: rgba(27,42,74,.4); }
-    .lp-field input:focus { outline: none; border-color: var(--gold); }
-    .lp-field-err { display: none; margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300; color: #A4472F; }
-    .lp-field.invalid input { border-color: #C98B76; }
-    .lp-field.invalid .lp-field-err { display: block; }
-    .lp-review { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(27,42,74,.62); line-height: 1.6; margin-bottom: 18px; }
-    .lp-review strong { color: var(--navy); font-weight: 500; }
-    .lp-edit-link {
-      background: none; border: none; cursor: pointer; padding: 0 0 0 4px;
-      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 2px;
-    }
-    .lp-trust {
-      list-style: none; margin: 22px 0 0; padding: 22px 0 0;
-      border-top: 1px solid rgba(27,42,74,.1); display: flex; flex-direction: column; gap: 12px;
-    }
-    .lp-trust li {
-      position: relative; padding-left: 26px;
-      font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.65); line-height: 1.4;
-    }
-    .lp-trust li::before { content: ''; position: absolute; left: 0; top: 2px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--gold); }
-    .lp-trust li::after { content: ''; position: absolute; left: 5px; top: 5px; width: 4px; height: 7px; border-right: 1.3px solid var(--gold); border-bottom: 1.3px solid var(--gold); transform: rotate(45deg); }
-    .lp-card-logos { margin-top: 18px; text-align: center; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(27,42,74,.4); }
-
-    /* ══ TESTIMONIALS ═══════════════════════════════════════ */
-    .lp-testis { background: var(--cream); padding: 100px 52px; }
-    .lp-testis-inner { max-width: 1080px; margin: 0 auto; }
-    .lp-testis-head { text-align: center; margin-bottom: 52px; }
-    .lp-testis-head .sec-eyebrow { justify-content: center; }
-    .lp-testis-head .sec-heading { color: var(--navy); }
-    .lp-testis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .lp-testi { background: #fff; border: 1px solid rgba(27,42,74,.1); padding: 34px 32px; display: flex; flex-direction: column; }
-    .lp-testi-stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 16px; }
-    .lp-testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; font-style: italic; color: rgba(27,42,74,.82); line-height: 1.5; margin: 0 0 20px; flex: 1; }
-    .lp-testi-attrib { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .06em; color: rgba(27,42,74,.5); }
-
-    @media (max-width: 768px) {
-      .lp-press { padding: 32px 24px; }
-      .lp-press-logos { gap: 20px 26px; }
-      .lp-press-logos img { height: 19px; max-width: 96px; }
-      .lp-testis { padding: 72px 24px; }
-      .lp-testis-grid { grid-template-columns: 1fr; gap: 20px; }
-    }
-
-    /* ══ §2 PILLAR SHOWCASE (featured destinations + 2) ═════ */
-    .lp-s2-head { max-width: 720px; margin: 0 auto 52px; text-align: center; }
-    .lp-s2-head .sec-eyebrow { text-align: center; }
-    .lp-s2-head .sec-heading { color: var(--navy); text-align: center; margin-bottom: 0; }
-    .lp-s2-intro {
-      font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300;
-      color: rgba(27,42,74,.6); line-height: 1.75; margin: 16px auto 0; max-width: 560px;
-    }
-    .lp-pillars3 { max-width: 1080px; margin: 0 auto; }
-    .lp-feat { position: relative; display: block; height: 440px; overflow: hidden; text-decoration: none; }
-    .lp-feat-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
-    .lp-feat:hover .lp-feat-img { transform: scale(1.04); }
-    .lp-feat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.9) 0%, rgba(14,25,35,.28) 55%, rgba(14,25,35,.08) 100%); }
-    .lp-feat-content { position: absolute; left: 0; bottom: 0; padding: 48px 52px; z-index: 2; max-width: 640px; }
-    .lp-feat-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-    .lp-feat-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.4vw, 46px); font-weight: 300; color: var(--cream); line-height: 1.06; margin-bottom: 14px; }
-    .lp-feat-sub { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.72); line-height: 1.7; margin-bottom: 22px; }
-    .lp-feat-cta { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid var(--gold); padding-bottom: 5px; transition: color .2s; }
-    .lp-feat:hover .lp-feat-cta { color: var(--gold); }
-    .lp-pillar2-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 3px; }
-    .lp-pillar2 { position: relative; display: block; height: 300px; overflow: hidden; text-decoration: none; }
-    .lp-pillar2-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
-    .lp-pillar2:hover .lp-pillar2-img { transform: scale(1.04); }
-    .lp-pillar2-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.88) 0%, rgba(14,25,35,.24) 60%, rgba(14,25,35,.05) 100%); }
-    .lp-pillar2-content { position: absolute; left: 0; bottom: 0; padding: 32px 34px; z-index: 2; }
-    .lp-pillar2-eyebrow { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .lp-pillar2-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 8px; }
-    .lp-pillar2-sub { font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 300; color: rgba(245,240,232,.62); line-height: 1.6; }
-    .lp-s2-foot { max-width: 800px; margin: 56px auto 0; }
-
-    @media (max-width: 768px) {
-      .lp-feat { height: 360px; }
-      .lp-feat-content { padding: 32px 28px; }
-      .lp-pillar2-row { grid-template-columns: 1fr; }
-      .lp-pillar2 { height: 240px; }
-      .lp-s2-foot { margin-top: 40px; }
+    @media (min-width: 1040px) {
+      .hero-inner, .offer-head, .final .wrap { }
     }
   </style>
 </head>
 <body>
 
-<!-- ── SVG icon defs ───────────────────────────────────────── -->
-<svg style="display:none" aria-hidden="true">
-  <defs>
-    <!-- building-pavilion: hotels -->
-    <symbol id="ico-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 21h18"/>
-      <path d="M3 7l9-4 9 4"/>
-      <path d="M4 21V10.5"/>
-      <path d="M20 21V10.5"/>
-      <path d="M9 21v-4a3 3 0 0 1 6 0v4"/>
-      <path d="M3 7h18"/>
-    </symbol>
-    <!-- discount-2: member rates -->
-    <symbol id="ico-discount" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 15l6-6"/>
-      <circle cx="9.5" cy="9.5" r="0.5" fill="currentColor" stroke="none"/>
-      <circle cx="14.5" cy="14.5" r="0.5" fill="currentColor" stroke="none"/>
-      <path d="M5 7.2A2.2 2.2 0 0 1 7.2 5h9.6c1.213 0 2.2.987 2.2 2.2v9.6c0 1.213-.987 2.2-2.2 2.2H7.2A2.2 2.2 0 0 1 5 16.8V7.2z"/>
-    </symbol>
-    <!-- ball-tennis: club access -->
-    <symbol id="ico-tennis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="9"/>
-      <path d="M6.8 6.8a7 7 0 0 1 0 10.4"/>
-      <path d="M17.2 6.8a7 7 0 0 1 0 10.4"/>
-    </symbol>
-    <!-- plane: retreats -->
-    <symbol id="ico-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2-7h-4l-2 2H2l2-4-2-4h3l2 2h4l-2-7h3z"/>
-    </symbol>
-    <!-- map-pin: court everywhere -->
-    <symbol id="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="11" r="3"/>
-      <path d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/>
-    </symbol>
-    <!-- trophy: retreats built to play -->
-    <symbol id="ico-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8 21h8"/>
-      <path d="M12 17v4"/>
-      <path d="M7 4h10"/>
-      <path d="M17 4v8a5 5 0 0 1-10 0V4"/>
-      <path d="M5 9H3a1 1 0 0 0-1 1v1a3 3 0 0 0 3 3"/>
-      <path d="M19 9h2a1 1 0 0 1 1 1v1a3 3 0 0 1-3 3"/>
-    </symbol>
-    <!-- home-2: Privé Clubs -->
-    <symbol id="ico-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 12l-2 0 9-9 9 9-2 0"/>
-      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>
-      <path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"/>
-    </symbol>
-  </defs>
-</svg>
+<!-- ── icons ─────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true"><defs>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></symbol>
+  <symbol id="i-racquet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="11" cy="9" rx="6.5" ry="7"/><path d="M7 13 4 20.5"/><path d="M10 8.8h.01M13 8.8h.01M11.5 6.8h.01M11.5 10.8h.01"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4.5"/><path d="M11.2 11.2 20 20"/><path d="M17 17l2-2M15 15l1.5-1.5"/></symbol>
+  <symbol id="i-discount" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r=".6" fill="currentColor" stroke="none"/><circle cx="14.5" cy="14.5" r=".6" fill="currentColor" stroke="none"/><rect x="5" y="5" width="14" height="14" rx="2.2"/></symbol>
+  <symbol id="i-upgrade" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="8" rx="1.5"/><line x1="12" y1="10" x2="12" y2="2.5"/><polyline points="8 6 12 2.5 16 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></symbol>
+  <symbol id="i-spa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-3.2-7.5-7.3-7.5-11.5a7.5 7.5 0 0 1 15 0C19.5 13.7 16.5 17.8 12 21z"/><path d="M12 8v6M9 11h6"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a3 3 0 0 0 6 0V3"/><line x1="9" y1="11" x2="9" y2="21"/><path d="M16 3c-1.5 1-2 2.5-2 5s.5 3.5 2 4.5V21"/></symbol>
+  <symbol id="i-court" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></symbol>
+</defs></svg>
 
-
-<!-- ══════════════════════════════════════════════════════
-     STICKY CTA BAR
-══════════════════════════════════════════════════════ -->
-<div class="lp-sticky" id="stickyBar">
-  <span class="lp-sticky-copy">First 200 founding members &nbsp;·&nbsp; <strong>$595/year, locked for life</strong></span>
-  <button class="lp-sticky-btn" id="stickyCta">Lock In Your Rate →</button>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     HEADER
-══════════════════════════════════════════════════════ -->
-<header class="lp-header" id="lpHeader">
-  <a href="/">
-    <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:52px;width:auto;display:block;">
+<!-- ── HEADER ────────────────────────────────────────────── -->
+<header class="hdr" id="hdr">
+  <a href="/" aria-label="Privé Padel">
+    <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel">
   </a>
-  <button class="lp-header-cta" id="headerCta">LOCK IN YOUR RATE →</button>
+  <button class="btn btn-gold js-checkout">Claim Membership</button>
 </header>
 
+<!-- ── STICKY BAR ────────────────────────────────────────── -->
+<div class="sticky" id="stickyBar">
+  <span class="sticky-copy">Founding offer &nbsp;·&nbsp; <strong>$595 for life</strong></span>
+  <button class="btn btn-gold js-checkout">Claim Membership →</button>
+</div>
 
-<!-- ══════════════════════════════════════════════════════
-     §1 HERO
-══════════════════════════════════════════════════════ -->
-<section class="lp-hero">
-  <video class="lp-hero-video" autoplay muted loop playsinline
-    poster="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1800/v1775998157/ETE_Drone-Exterior-Kanai_2024_5_drrfnd.jpg">
-    <!-- <source src="" type="video/mp4"> -->
-  </video>
-  <div class="lp-hero-overlay"></div>
-  <div class="lp-hero-inner">
-    <div class="lp-eyebrow">Founding Membership · First 200</div>
-    <h1>Your passport to <em>40+ padel destinations.</em></h1>
-    <p class="lp-hero-sub">Member rates at 40+ properties worldwide, your own Privé Clubs in Montauk &amp; Miami, and 20% off every Privé Experience.</p>
-    <div class="lp-hero-proof">Full Access is $995 — the first 200 members lock it in at <strong style="color:rgba(245,240,232,.92);font-weight:400;">$595, for life.</strong></div>
-    <button class="btn-gold" id="heroCta">LOCK IN YOUR RATE →</button>
+<!-- ══ §1 · HERO (cover) ══ -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1800/v1775998157/ETE_Drone-Exterior-Kanai_2024_5_drrfnd.jpg')"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="eyebrow">Introducing</div>
+      <h1>The world's first<em>Padel Passport</em></h1>
+      <p class="hero-sub">One membership. Forty-plus hotels and resorts. A court waiting at every one.</p>
+      <button class="btn btn-gold js-checkout">Claim your membership →</button>
+      <div class="hero-micro">Founding offer &nbsp;·&nbsp; <strong>$595 for life</strong> &nbsp;·&nbsp; standard $995</div>
+      <div class="scrollcue">Play the world</div>
+    </div>
   </div>
 </section>
 
+<!-- ══ §2 · TRAVEL ══ -->
+<section class="photo-sec sec">
+  <div class="photo-sec-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1600/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg')"></div>
+  <div class="photo-sec-veil"></div>
+  <div class="wrap">
+    <div class="eyebrow">The Privé Passport</div>
+    <h2 class="display">For the padel player<em>who loves to travel</em></h2>
+    <div class="glass flist">
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-globe"/></svg></span><span class="flist-txt"><b>Over 40 hotels &amp; resorts</b> worldwide</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-racquet"/></svg></span><span class="flist-txt">Padel on-site or at the local club</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-key"/></svg></span><span class="flist-txt">Exclusive Privé benefits at each</span></div>
+    </div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════════════
-     §1.5 PRESS (as featured in)
-══════════════════════════════════════════════════════ -->
-<section class="lp-press">
-  <div class="lp-press-inner">
-    <div class="lp-press-label">As featured in</div>
-    <div class="lp-press-logos">
+<!-- ══ §3 · BENEFITS ══ -->
+<section class="photo-sec sec">
+  <div class="photo-sec-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1600/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg')"></div>
+  <div class="photo-sec-veil"></div>
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow">Member Benefits</div>
+      <h2 class="display">At every<em>hotel &amp; resort</em></h2>
+    </div>
+    <div class="glass flist">
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-discount"/></svg></span><span class="flist-txt"><b>Preferred room rates</b> — up to 20% off</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-upgrade"/></svg></span><span class="flist-txt">Complimentary room upgrades</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-clock"/></svg></span><span class="flist-txt">Early check-in &amp; late check-out</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-spa"/></svg></span><span class="flist-txt">Spa &amp; wellness savings</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-plate"/></svg></span><span class="flist-txt">Dining privileges</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-court"/></svg></span><span class="flist-txt">Padel access at every property</span></div>
+    </div>
+    <div class="flist-note">When available · at participating properties</div>
+  </div>
+</section>
+
+<!-- ══ §4 · PORTFOLIO ══ -->
+<section class="sec">
+  <div class="wrap-wide">
+    <div class="pf-head">
+      <div class="eyebrow">The Portfolio</div>
+      <h2 class="display">Forty destinations,<em>one passport.</em></h2>
+    </div>
+    <div class="pf-grid" id="pfGrid"><!-- populated from window.DESTINATIONS --></div>
+    <div class="pf-foot">
+      <div class="pf-foot-note">Over forty destinations · worldwide</div>
+      <a class="btn btn-ghost" href="/passport/destinations.html">Explore all destinations →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §5 · RETREATS ══ -->
+<section class="photo-sec sec">
+  <div class="photo-sec-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1600/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg')"></div>
+  <div class="photo-sec-veil" style="background:linear-gradient(to bottom, rgba(14,25,35,.72) 0%, rgba(14,25,35,.86) 100%);"></div>
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow">Padel Experiences</div>
+      <h2 class="display">Twenty percent off<em>our signature retreats</em></h2>
+    </div>
+    <div class="rt-list">
+      <a class="rt-item" href="/experiences/voaara-madagascar.html">
+        <div class="rt-item-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg')"></div>
+        <div class="rt-item-veil"></div>
+        <div class="rt-item-inner">
+          <div class="rt-item-loc">Madagascar</div>
+          <div class="rt-item-name">Voaara</div>
+          <div class="rt-item-meta"><span class="rt-item-save">Members $6,600</span><span class="rt-item-strike">$8,250</span></div>
+        </div>
+      </a>
+      <a class="rt-item" href="/experiences/court-and-cellar.html">
+        <div class="rt-item-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777253885/3_1_c60fse.jpg')"></div>
+        <div class="rt-item-veil"></div>
+        <div class="rt-item-inner">
+          <div class="rt-item-loc">Bordeaux</div>
+          <div class="rt-item-name">Château de Lussac</div>
+          <div class="rt-item-meta"><span class="rt-item-save">Members $3,360</span><span class="rt-item-strike">$4,200</span></div>
+        </div>
+      </a>
+      <a class="rt-item" href="/experiences/nihi-sumba.html">
+        <div class="rt-item-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1773539953/Destinations_-_Nihi_Sumba_njdefw.jpg')"></div>
+        <div class="rt-item-veil"></div>
+        <div class="rt-item-inner">
+          <div class="rt-item-loc">Indonesia</div>
+          <div class="rt-item-name">Nihi Sumba</div>
+          <div class="rt-item-meta"><span class="rt-item-save">Members $9,600</span><span class="rt-item-strike">$12,000</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="rt-foot">Members save 20% on every retreat, with priority booking. <a href="/passport/experiences.html">See all experiences →</a></div>
+  </div>
+</section>
+
+<!-- ══ §1.5 · PRESS ══ -->
+<section class="press">
+  <div class="wrap-wide">
+    <div class="press-label">As featured in</div>
+    <div class="press-logos">
       <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" loading="lazy">
       <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" loading="lazy">
       <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" loading="lazy">
@@ -975,357 +538,26 @@
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     §2 WHAT IS PRIVÉ PASSPORT? (visual value)
-══════════════════════════════════════════════════════ -->
-<section class="lp-s2">
-  <div class="lp-s2-head">
-    <div class="sec-eyebrow">One Membership</div>
-    <h2 class="sec-heading">Everywhere <em>the game takes you.</em></h2>
-    <p class="lp-s2-intro">A global collection of destinations, your own Privé Clubs, and curated Privé Experiences — all on a single Passport.</p>
-  </div>
-
-  <div class="lp-pillars3">
-
-    <!-- Featured · The Travel Collection -->
-    <a class="lp-feat" href="#destinations">
-      <div class="lp-feat-img" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1600/v1777390256/3_tbtq3c.png')"></div>
-      <div class="lp-feat-overlay"></div>
-      <div class="lp-feat-content">
-        <div class="lp-feat-eyebrow">The Travel Collection</div>
-        <div class="lp-feat-title">40+ padel destinations worldwide</div>
-        <p class="lp-feat-sub">Member rates at luxury properties across 18 countries — play, then stay, wherever the game takes you.</p>
-        <span class="lp-feat-cta">Explore the collection →</span>
+<!-- ══ §6 · OFFER + CHECKOUT ══ -->
+<section class="offer" id="checkout">
+  <div class="wrap">
+    <div class="offer-head">
+      <span class="offer-badge">Founding offer · Limited time</span>
+      <div class="offer-price">
+        <span class="offer-old">$995</span>
+        <span class="offer-new">$595</span>
       </div>
-    </a>
-
-    <div class="lp-pillar2-row">
-      <a class="lp-pillar2" href="#clubs">
-        <div class="lp-pillar2-img" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1777424618/ChatGPT_Image_Apr_28_2026_09_03_28_PM_u3ccqb.png')"></div>
-        <div class="lp-pillar2-overlay"></div>
-        <div class="lp-pillar2-content">
-          <div class="lp-pillar2-eyebrow">Privé Clubs</div>
-          <div class="lp-pillar2-title">Montauk &amp; Miami</div>
-          <p class="lp-pillar2-sub">Your own clubs — play year-round at the member rate.</p>
-        </div>
-      </a>
-      <a class="lp-pillar2" href="#retreats">
-        <div class="lp-pillar2-img" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/v1777390254/2_zd6wij.png')"></div>
-        <div class="lp-pillar2-overlay"></div>
-        <div class="lp-pillar2-content">
-          <div class="lp-pillar2-eyebrow">Privé Experiences</div>
-          <div class="lp-pillar2-title">Curated retreats</div>
-          <p class="lp-pillar2-sub">20% off and first invitations to every journey.</p>
-        </div>
-      </a>
+      <div class="offer-detail">Full-access membership · rate locked for life</div>
+      <p class="offer-includes">Includes full membership to <b>Privé Padel Montauk &amp; Miami.</b></p>
     </div>
 
-  </div>
-
-  <div class="lp-s2-foot">
-    <div class="lp-pays-bar">
-      A single retreat at the member rate returns up to <strong>$2,400</strong> — the Passport pays for itself in one trip.
-    </div>
-
-    <div class="lp-s2-cta">
-      <button class="btn-gold" id="valueCta">LOCK IN YOUR RATE →</button>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     §3 FULL ACCESS — PRIVÉ CLUBS (Montauk + Miami)
-══════════════════════════════════════════════════════ -->
-<section class="lp-home" id="clubs">
-  <div class="lp-home-inner">
-
-    <div class="lp-home-head">
-      <div class="sec-eyebrow">Full Access Membership</div>
-      <h2 class="sec-heading">Wherever you go, <em>there's a court.</em></h2>
-      <p class="lp-home-intro">It begins with two Privé Clubs — Privé Montauk and Privé Miami, yours to play unlimited at the member rate — and opens onto 40+ destinations, curated retreats, and member benefits the world over.</p>
-    </div>
-
-    <div class="lp-home-pillars">
-
-      <div class="lp-home-pillar">
-        <img class="lp-home-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png"
-          alt="Privé Montauk">
-        <div class="lp-home-body">
-          <div class="lp-home-eyebrow">Opening Spring 2027 · Montauk, New York</div>
-          <div class="lp-home-name">Privé <em>Montauk.</em></div>
-          <p class="lp-home-text">The original — two courts on Lake Montauk, where Privé Padel first took shape. Returning Spring 2027 to a new home on the water.</p>
-          <div class="lp-home-tag">Unlimited play, year-round · member rate</div>
-        </div>
-      </div>
-
-      <div class="lp-home-pillar">
-        <img class="lp-home-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777408711/Untitled_design-94_ea2ofp.png"
-          alt="Privé Miami">
-        <div class="lp-home-body">
-          <div class="lp-home-eyebrow">Now open · Coral Gables, Miami</div>
-          <div class="lp-home-name">Privé <em>Miami.</em></div>
-          <p class="lp-home-text">At THesis Hotel in Coral Gables — a dedicated court and a year-round calendar built around the city and its international membership.</p>
-          <div class="lp-home-tag">Unlimited play, year-round · member rate</div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     §3.5 RETREATS PILLAR (public vs Passport pricing)
-══════════════════════════════════════════════════════ -->
-<section class="lp-retreats" id="retreats">
-  <div class="lp-retreats-inner">
-
-    <div class="lp-retreats-head">
-      <div class="sec-eyebrow">Privé Experiences</div>
-      <h2 class="sec-heading">Three retreats. <em>Members first.</em></h2>
-      <p class="lp-retreats-intro">Small-group padel journeys built around the game and the place. Members travel at the member rate, with priority booking before each retreat opens to the public.</p>
-    </div>
-
-    <div class="lp-pillars">
-
-      <!-- 01 · Voaara Madagascar -->
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg"
-          alt="Voaara Madagascar">
-        <div class="lp-pillar-body">
-          <div class="lp-pillar-eyebrow">September 2026 · Madagascar</div>
-          <div class="lp-pillar-name">Voaara Madagascar</div>
-          <div class="lp-pillar-meta">Seven days · Île Sainte-Marie · The world's most remote padel courts</div>
-          <div class="lp-pillar-prices">
-            <div class="lp-pillar-price-row">
-              <span class="lp-pillar-price-label">Public rate</span>
-              <span class="lp-pillar-price-public">$8,250</span>
-            </div>
-            <div class="lp-pillar-price-row">
-              <span class="lp-pillar-price-label member">Passport rate</span>
-              <span class="lp-pillar-price-passport">$6,600</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 02 · Court & Cellar · Bordeaux -->
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1773539953/Destinations_-_Chateau_de_Lussac_u5tfxl.jpg"
-          alt="Château de Lussac — Court &amp; Cellar">
-        <div class="lp-pillar-body">
-          <div class="lp-pillar-eyebrow">Fall 2026 · Bordeaux, France</div>
-          <div class="lp-pillar-name">Court &amp; Cellar</div>
-          <div class="lp-pillar-meta">Four days · Château de Lussac · Wine immersion among the Saint-Émilion vineyards</div>
-          <div class="lp-pillar-prices">
-            <div class="lp-pillar-price-row">
-              <span class="lp-pillar-price-label">Public rate</span>
-              <span class="lp-pillar-price-public">$4,200</span>
-            </div>
-            <div class="lp-pillar-price-row">
-              <span class="lp-pillar-price-label member">Passport rate</span>
-              <span class="lp-pillar-price-passport">$3,360</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 · Nihi Sumba -->
-      <div class="lp-pillar">
-        <img class="lp-pillar-img" loading="lazy"
-          src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1773539953/Destinations_-_Nihi_Sumba_njdefw.jpg"
-          alt="Nihi Sumba">
-        <div class="lp-pillar-body">
-          <div class="lp-pillar-eyebrow">November 2026 · Sumba, Indonesia</div>
-          <div class="lp-pillar-name">Nihi Sumba</div>
-          <div class="lp-pillar-meta">Five days · Nihi Sumba · Wild Indian Ocean and Sumbanese culture</div>
-          <div class="lp-pillar-prices">
-            <div class="lp-pillar-price-row">
-              <span class="lp-pillar-price-label">Public rate</span>
-              <span class="lp-pillar-price-public">$12,000</span>
-            </div>
-            <div class="lp-pillar-price-row">
-              <span class="lp-pillar-price-label member">Passport rate</span>
-              <span class="lp-pillar-price-passport">$9,600</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <p class="lp-retreats-foot">Member rates shown · priority booking before public release. <a href="/passport/experiences.html">See full itineraries →</a></p>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     §4 DESTINATIONS BROWSE + MEMBERSHIP BENEFITS
-══════════════════════════════════════════════════════ -->
-<section class="lp-dest" id="destinations">
-  <div class="lp-dest-inner">
-
-    <div class="lp-dest-head">
-      <div class="sec-eyebrow">The Network</div>
-      <h2 class="sec-heading">40+ destinations, <em>one passport.</em></h2>
-      <p class="lp-dest-intro">Tap any property to explore the courts, the rooms, and the member benefits waiting there — without leaving this page.</p>
-    </div>
-
-    <div class="lp-tilegrid" id="destTileGrid"><!-- populated by JS from window.DESTINATIONS --></div>
-
-    <div class="lp-dest-more">
-      <button class="lp-dest-morebtn" id="destMoreBtn">Browse all 40+ destinations →</button>
-    </div>
-
-    <p class="lp-dest-caption">
-      From Sardinia to Sumba — the collection spans Europe, the Americas, Asia Pacific, the Middle East, and the Indian Ocean, with more added each quarter.
-    </p>
-
-    <!-- Membership benefits -->
-    <div class="lp-benefits">
-      <div class="lp-benefits-label">What every membership carries</div>
-      <h3 class="lp-benefits-sub">The benefits travel <em>with you.</em></h3>
-      <div class="lp-benefits-grid">
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg><use href="#ico-discount"/></svg></span>
-          <div class="lp-benefit-name">Preferred member rates</div>
-          <div class="lp-benefit-desc">Up to 20% off published rates at every partner property.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="8" rx="1.5"/><line x1="12" y1="10" x2="12" y2="2"/><polyline points="8 6 12 2 16 6"/></svg></span>
-          <div class="lp-benefit-name">Room upgrades</div>
-          <div class="lp-benefit-desc">Complimentary upgrade on arrival, subject to availability.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></span>
-          <div class="lp-benefit-name">Early check-in / late checkout</div>
-          <div class="lp-benefit-desc">More time at every stay, where the property allows.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="1.5"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg></span>
-          <div class="lp-benefit-name">Resort &amp; dining credits</div>
-          <div class="lp-benefit-desc">Welcome amenities and on-property credits at participating hotels.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-3.2-7.5-7.3-7.5-11.5a7.5 7.5 0 0 1 15 0C19.5 13.7 16.5 17.8 12 21z"/><path d="M12 8v6"/><path d="M9 11h6"/></svg></span>
-          <div class="lp-benefit-name">Spa &amp; wellness perks</div>
-          <div class="lp-benefit-desc">Member treatment rates and access across spa and wellness.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg><use href="#ico-tennis"/></svg></span>
-          <div class="lp-benefit-name">Courts in four cities</div>
-          <div class="lp-benefit-desc">Paired club access wherever you land — LA, New York, London, Hong Kong.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg><use href="#ico-plane"/></svg></span>
-          <div class="lp-benefit-name">20% off Privé Experiences</div>
-          <div class="lp-benefit-desc">The member rate and first access on every curated retreat.</div>
-        </div>
-
-        <div class="lp-benefit">
-          <span class="lp-benefit-ico"><svg><use href="#ico-home"/></svg></span>
-          <div class="lp-benefit-name">Privé Clubs</div>
-          <div class="lp-benefit-desc">Privé Montauk at 50% off, Privé Miami at 20% off — unlimited play.</div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     TESTIMONIALS (PLACEHOLDER content)
-══════════════════════════════════════════════════════ -->
-<section class="lp-testis">
-  <div class="lp-testis-inner">
-    <div class="lp-testis-head">
-      <div class="sec-eyebrow">Members</div>
-      <h2 class="sec-heading">Why they <em>joined.</em></h2>
-    </div>
-    <!-- PLACEHOLDER copy — swap these for real member quotes before relying on them -->
-    <div class="lp-testis-grid">
-      <div class="lp-testi">
-        <div class="lp-testi-stars">★★★★★</div>
-        <p class="lp-testi-quote">“It paid for itself on the first trip. The room upgrade and dining credit at check-in were the kind of thing I'd never get booking direct.”</p>
-        <div class="lp-testi-attrib">— Sofia M., Miami</div>
-      </div>
-      <div class="lp-testi">
-        <div class="lp-testi-stars">★★★★★</div>
-        <p class="lp-testi-quote">“I travel for work constantly and now there's always a court. Booking through the portal takes two minutes and the member rates are real.”</p>
-        <div class="lp-testi-attrib">— James K., London</div>
-      </div>
-      <div class="lp-testi">
-        <div class="lp-testi-stars">★★★★★</div>
-        <p class="lp-testi-quote">“The retreats alone are worth it. A week of padel with a group of players was the best trip we took all year — and members get first invitations.”</p>
-        <div class="lp-testi-attrib">— Elena V., Los Angeles</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     ARC CLOSING CTA (value recap → checkout)
-══════════════════════════════════════════════════════ -->
-<section class="lp-arccta">
-  <div class="lp-arccta-inner">
-    <div class="lp-arccta-eyebrow">One Membership</div>
-    <h2 class="lp-arccta-head">Privé Clubs, 40+ destinations, <em>every retreat.</em></h2>
-    <p class="lp-arccta-sub">Privé Montauk and Miami, 40+ destinations worldwide, every Privé Experience, and the full member benefits — all carried on a single Passport.</p>
-    <button class="btn-gold" id="arcCta">LOCK IN YOUR RATE →</button>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     §5 THE OFFER (anchor + checkout)
-══════════════════════════════════════════════════════ -->
-<section class="lp-offer" id="checkout">
-  <div class="lp-offer-inner">
-
-    <div class="lp-offer-header">
-      <div class="lp-offer-eyebrow">The Founding Offer &nbsp;·&nbsp; First 200</div>
-      <h2 class="lp-offer-headline">Pay the Standard price.<br><em>Receive Full Access. For life.</em></h2>
-      <div class="lp-anchor">
-        <span class="lp-anchor-old">$995</span>
-        <span class="lp-anchor-new">$595</span>
-      </div>
-      <div class="lp-anchor-detail">/yr &nbsp;·&nbsp; Full Access &nbsp;·&nbsp; locked for life</div>
-      <p class="lp-capture">
-        You capture <strong>$400</strong> the moment you join — and your rate never rises.<br>
-        Once 200 spots fill, this offer closes.
-      </p>
-    </div>
-
-    <div class="lp-checkout-card">
-      <div class="lp-checkout-eyebrow">Founding Member Passport</div>
-      <div class="lp-checkout-headline">First 200 only</div>
-      <div class="lp-checkout-subline">$595/year &nbsp;·&nbsp; Full Access &nbsp;·&nbsp; rate locked for life</div>
-      <div class="lp-checkout-rule"></div>
-
+    <div class="glass lp-checkout-card">
       <div class="lp-checkout-tier">
         <div>
           <div class="lp-checkout-tier-name">Founding Passport</div>
-          <div class="lp-checkout-tier-desc">40+ destinations · Retreats · Club access · Privé Montauk &amp; Miami · Full Access · Rate locked permanently</div>
+          <div class="lp-checkout-tier-desc">40+ destinations · every benefit · 20% off retreats · full access to Privé Montauk &amp; Miami · rate locked for life</div>
         </div>
-        <div class="lp-checkout-tier-price">$595<span style="font-size:16px;font-weight:300;color:rgba(27,42,74,.4)">/yr</span></div>
+        <div class="lp-checkout-tier-price">$595<span>/yr</span></div>
       </div>
 
       <label class="lp-partner-row" id="partnerRow">
@@ -1335,7 +567,7 @@
           <div class="lp-partner-name">Add a partner</div>
           <div class="lp-partner-sub">Full founding benefits, rate locked — one additional person</div>
         </div>
-        <div class="lp-partner-price">+$95<span style="font-size:15px;color:rgba(27,42,74,.38)">/yr</span></div>
+        <div class="lp-partner-price">+$95<span>/yr</span></div>
       </label>
 
       <div class="lp-total-row">
@@ -1343,31 +575,23 @@
         <div class="lp-total-amount" id="totalDisplay">$595 / year</div>
       </div>
 
-      <!-- STEP 1 · details -->
+      <!-- STEP 1 -->
       <div class="lp-step active" id="stepOne">
-        <div class="lp-step-head">
-          <span class="lp-step-badge">Step 1 of 2</span>
-          <span class="lp-step-name">Your details</span>
-        </div>
-        <div class="lp-field">
-          <input type="text" id="fName" placeholder="First name" autocomplete="given-name">
-        </div>
+        <div class="lp-step-head"><span class="lp-step-badge">Step 1 of 2</span><span class="lp-step-name">Your details</span></div>
+        <div class="lp-field"><input type="text" id="fName" placeholder="First name" autocomplete="given-name"></div>
         <div class="lp-field">
           <input type="email" id="fEmail" placeholder="Email address" autocomplete="email" inputmode="email">
           <p class="lp-field-err">Enter your name and a valid email to continue.</p>
         </div>
-        <button class="lp-checkout-btn" id="continueBtn">CONTINUE →</button>
+        <button class="lp-checkout-btn" id="continueBtn">Continue →</button>
         <div class="lp-checkout-secure">We'll hold your founding rate — no card required at this step.</div>
       </div>
 
-      <!-- STEP 2 · pay -->
+      <!-- STEP 2 -->
       <div class="lp-step" id="stepTwo">
-        <div class="lp-step-head">
-          <span class="lp-step-badge">Step 2 of 2</span>
-          <span class="lp-step-name">Confirm &amp; lock in</span>
-        </div>
+        <div class="lp-step-head"><span class="lp-step-badge">Step 2 of 2</span><span class="lp-step-name">Confirm &amp; lock in</span></div>
         <div class="lp-review">Joining as <strong id="reviewName"></strong> &nbsp;·&nbsp; <span id="reviewEmail"></span><button type="button" class="lp-edit-link" id="editLink">Edit</button></div>
-        <button class="lp-checkout-btn" id="checkoutBtn">LOCK IN YOUR RATE →</button>
+        <button class="lp-checkout-btn" id="checkoutBtn">Claim your membership →</button>
       </div>
 
       <ul class="lp-trust">
@@ -1377,247 +601,115 @@
       </ul>
       <div class="lp-card-logos">Visa &nbsp;·&nbsp; Mastercard &nbsp;·&nbsp; Amex &nbsp;·&nbsp; Apple Pay</div>
     </div>
-
   </div>
 </section>
 
+<!-- ══ TESTIMONIALS ══ -->
+<section class="sec-tight">
+  <div class="wrap-wide">
+    <div class="sec-head">
+      <div class="eyebrow">Members</div>
+      <h2 class="display">Why they <em style="display:inline;">joined.</em></h2>
+    </div>
+    <!-- PLACEHOLDER copy — swap for real member quotes before scaling spend -->
+    <div class="testis">
+      <div class="glass testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">“It paid for itself on the first trip. The room upgrade and dining credit at check-in were the kind of thing I'd never get booking direct.”</p>
+        <div class="testi-attrib">— Sofia M., Miami</div>
+      </div>
+      <div class="glass testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">“I travel for work constantly and now there's always a court. The member rates are real and booking takes two minutes.”</p>
+        <div class="testi-attrib">— James K., London</div>
+      </div>
+      <div class="glass testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">“The retreats alone are worth it. A week of padel with a group of players was the best trip we took all year.”</p>
+        <div class="testi-attrib">— Elena V., Los Angeles</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════════════════
-     §6 FAQ
-══════════════════════════════════════════════════════ -->
-<section class="lp-faq">
-  <div class="lp-faq-inner">
-    <div class="lp-faq-header">
-      <div class="sec-eyebrow">Questions</div>
-      <h2 class="sec-heading" style="color:var(--navy);">Everything you <em>need to know.</em></h2>
+<!-- ══ FAQ ══ -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:left;">
+      <div class="eyebrow">Questions</div>
+      <h2 class="display">Everything you<em>need to know.</em></h2>
     </div>
 
     <div class="lp-faq-item">
-      <button class="lp-faq-q">
-        <span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span>
-        <span class="lp-faq-icon"></span>
-      </button>
-      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination returns more than the membership costs, between your founding rate and member rates. Beyond that, Privé Montauk and Miami access, partner-club courts, and the 20% member rate on Privé Experiences are included for the year — a single retreat alone can return several times the membership. Most members find the question answers itself on the first booking.</div>
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination returns more than the membership costs, between your founding rate and member rates. Add full access to Privé Montauk and Miami and 20% off every retreat, and most members find the question answers itself on the first booking.</div>
     </div>
-
     <div class="lp-faq-item">
-      <button class="lp-faq-q">
-        <span class="lp-faq-q-text">What exactly does the founding rate lock?</span>
-        <span class="lp-faq-icon"></span>
-      </button>
-      <div class="lp-faq-a">Your $595/year rate, for the lifetime of your membership — never subject to a price increase. Standard Full Access after founding spots close is $995/year.</div>
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What exactly does the founding rate lock?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Your $595/year rate, for the lifetime of your membership — never subject to a price increase. Standard full access after founding spots close is $995/year.</div>
     </div>
-
     <div class="lp-faq-item">
-      <button class="lp-faq-q">
-        <span class="lp-faq-q-text">How do partner benefits work?</span>
-        <span class="lp-faq-icon"></span>
-      </button>
+      <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
       <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
     </div>
-
     <div class="lp-faq-item">
-      <button class="lp-faq-q">
-        <span class="lp-faq-q-text">What are Privé Montauk and Miami?</span>
-        <span class="lp-faq-icon"></span>
-      </button>
-      <div class="lp-faq-a">Privé's own padel venues. Members play at the member rate — 50% off at Montauk, 20% off at Miami. Founding members play unlimited, year-round, no visit cap.</div>
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Founding membership includes full access to both Privé Clubs — play at the member rate, unlimited and year-round. Privé Miami is open now at THesis Hotel in Coral Gables; Privé Montauk returns Spring 2027.</div>
     </div>
-
     <div class="lp-faq-item">
-      <button class="lp-faq-q">
-        <span class="lp-faq-q-text">Can I cancel?</span>
-        <span class="lp-faq-icon"></span>
-      </button>
-      <div class="lp-faq-a">Yes — annual subscription via Stripe, cancel before renewal and keep access through your paid period. Note: cancel a founding membership and later re-subscribe, and the founding rate no longer applies — you rejoin at the current standard rate. Questions? <a id="contactEmail" href="#"></a></div>
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Can I cancel?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes — annual subscription via Stripe, cancel before renewal and keep access through your paid period. Note: cancel a founding membership and later re-subscribe, and the founding rate no longer applies. Questions? <a id="contactEmail" href="#"></a></div>
     </div>
-
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     §7 FINAL CTA
-══════════════════════════════════════════════════════ -->
-<section class="lp-final">
-  <div class="lp-final-inner">
-    <div class="sec-eyebrow" style="color:var(--gold);margin-bottom:20px;">The Founding Offer</div>
-    <h2 class="lp-final-headline">200 founding memberships.<br><em>Then the door closes.</em></h2>
-    <p class="lp-final-body">Lock in Full Access at the Standard price — $595/year, for life.</p>
-    <button class="btn-gold" id="finalCta">LOCK IN YOUR RATE →</button>
-    <div class="lp-final-micro">First 200 members only &nbsp;·&nbsp; Secure checkout via Stripe</div>
+<!-- ══ §7 · FINAL CTA ══ -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-eyebrow">Play the world</div>
+    <h2>Claim your<em>membership</em></h2>
+    <p class="final-sub">Founding rate $595 for life · standard $995</p>
+    <button class="btn btn-gold js-checkout">Claim your membership →</button>
+    <div class="final-micro">Limited founding memberships · secure checkout via Stripe</div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════════
-     PROPERTY LIGHTBOX (shared with destinations page)
-══════════════════════════════════════════════════════ -->
-<div class="plb" id="propLightbox" role="dialog" aria-modal="true" aria-label="Property detail">
-  <div class="plb-backdrop" id="plbBackdrop"></div>
-  <div class="plb-panel" id="plbPanel">
-    <button class="plb-close" id="plbClose">CLOSE ✕</button>
-
-    <!-- Hero -->
-    <div class="plb-hero" id="plbHero">
-      <div class="plb-hero-overlay"></div>
-      <div class="plb-hero-foot">
-        <div class="plb-hero-collection" id="plbCollection"></div>
-        <div class="plb-hero-name" id="plbName"></div>
-        <div class="plb-hero-loc" id="plbLoc"></div>
-        <div class="plb-hero-pills" id="plbPills"></div>
-      </div>
-    </div>
-
-    <!-- About -->
-    <div class="plb-about">
-      <div class="plb-about-text">
-        <div class="plb-about-label" id="plbAboutLabel"></div>
-        <div class="plb-about-heading" id="plbAboutHeading"></div>
-        <div class="plb-about-body" id="plbAboutBody"></div>
-      </div>
-      <img class="plb-about-img" id="plbAboutImg" src="" alt="">
-    </div>
-
-    <!-- Benefits -->
-    <div class="plb-benefits-wrap" id="plbBenefitsWrap">
-      <div class="plb-benefits-bar-label" id="plbBenefitsLabel">PASSPORT MEMBER BENEFITS</div>
-      <div class="plb-benefits-blur-area">
-        <div class="plb-benefits-static-grid" id="plbBenefitsGrid"></div>
-        <div class="plb-benefits-lock">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#B8976A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="15" width="22" height="15" rx="2"/>
-            <path d="M11 15v-4.5a6 6 0 0 1 12 0V15"/>
-            <circle cx="17" cy="22.5" r="2" fill="#B8976A" stroke="none"/>
-          </svg>
-          <div class="plb-lock-label">Members Only</div>
-          <button type="button" class="plb-lock-cta" id="plbLockCta">LOCK IN YOUR RATE →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Amenities -->
-    <div class="plb-amenities-wrap" id="plbAmenitiesWrap">
-      <div class="plb-section-label">
-        <span class="plb-section-label-text">MEMBERS ENJOY</span>
-        <span class="plb-section-label-rule"></span>
-      </div>
-      <h3 class="plb-amenities-heading">The property,<br><em>explored.</em></h3>
-      <div class="plb-amenities-grid" id="plbAmenitiesGrid"></div>
-    </div>
-
-    <!-- Accommodations -->
-    <div class="plb-accom-wrap" id="plbAccomWrap"></div>
-
-    <!-- Dining -->
-    <div class="plb-dining-wrap" id="plbDiningWrap">
-      <div class="plb-dining-header">
-        <div>
-          <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:10px;">DINING</div>
-          <div class="plb-dining-title">Where every <em>meal matters.</em></div>
-        </div>
-        <div class="plb-dining-controls">
-          <button class="plb-slider-btn" id="plbDinePrev" aria-label="Previous">
-            <svg viewBox="0 0 12 12"><polyline points="8 2 4 6 8 10"/></svg>
-          </button>
-          <span class="plb-dining-counter" id="plbDineCounter">1 / 4</span>
-          <button class="plb-slider-btn" id="plbDineNext" aria-label="Next">
-            <svg viewBox="0 0 12 12"><polyline points="4 2 8 6 4 10"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="plb-dining-viewport">
-        <div class="plb-dining-track" id="plbDineTrack"></div>
-      </div>
-      <div class="plb-dining-progress">
-        <div class="plb-dining-fill" id="plbDineFill"></div>
-      </div>
-    </div>
-
-    <!-- Sport & Wellness -->
-    <div class="plb-wellness-wrap" id="plbWellnessWrap">
-      <div class="plb-section-label">
-        <span class="plb-section-label-text">SPORT &amp; WELLNESS</span>
-        <span class="plb-section-label-rule"></span>
-      </div>
-      <div class="plb-wellness-panel">
-        <div>
-          <div class="plb-wellness-title" id="plbWellnessTitle"></div>
-          <div class="plb-wellness-body" id="plbWellnessBody"></div>
-          <div class="plb-wellness-list" id="plbWellnessList"></div>
-        </div>
-        <div class="plb-wellness-imgs" id="plbWellnessImgs"></div>
-      </div>
-    </div>
-
-    <!-- Photo strip -->
-    <div class="plb-strip" id="plbStrip"></div>
-
-    <!-- CTA -->
-    <div class="plb-cta-wrap">
-      <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
-      <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
-      <button class="plb-cta-btn" id="plbCtaBtn">LOCK IN YOUR RATE →</button>
-    </div>
-
-  </div><!-- /plb-panel -->
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════════ -->
-<footer class="lp-footer">
-  <div class="lp-footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
-  <div class="lp-footer-links">
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-  </div>
+<!-- ══ FOOTER ══ -->
+<footer class="ftr">
+  <div class="ftr-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
+  <div class="ftr-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
 </footer>
-
 
 <script>
 (function () {
-
-  /* ── Sticky header ────────────────────────────────────── */
-  var header = document.getElementById('lpHeader');
-  window.addEventListener('scroll', function () {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  /* ── Sticky CTA bar ───────────────────────────────────── */
+  /* header + sticky bar on scroll */
+  var hdr = document.getElementById('hdr');
   var stickyBar = document.getElementById('stickyBar');
   window.addEventListener('scroll', function () {
-    stickyBar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.75);
+    var y = window.scrollY;
+    hdr.classList.toggle('scrolled', y > 60);
+    stickyBar.classList.toggle('visible', y > window.innerHeight * 0.85);
   }, { passive: true });
 
-  /* ── CTA scroll-to-checkout ───────────────────────────── */
-  function scrollToCheckout() {
-    document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
-  }
-  document.getElementById('headerCta').addEventListener('click', scrollToCheckout);
-  document.getElementById('heroCta').addEventListener('click', scrollToCheckout);
-  document.getElementById('valueCta').addEventListener('click', scrollToCheckout);
-  document.getElementById('stickyCta').addEventListener('click', scrollToCheckout);
-  document.getElementById('finalCta').addEventListener('click', scrollToCheckout);
-  document.getElementById('arcCta').addEventListener('click', scrollToCheckout);
+  /* every CTA scrolls to the checkout */
+  function toCheckout() { document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' }); }
+  document.querySelectorAll('.js-checkout').forEach(function (b) { b.addEventListener('click', toCheckout); });
 
-  /* ── Partner toggle ───────────────────────────────────── */
-  var partnerRow   = document.getElementById('partnerRow');
+  /* partner toggle */
+  var partnerRow = document.getElementById('partnerRow');
   var partnerInput = document.getElementById('addPartner');
-  var totalEl      = document.getElementById('totalDisplay');
-
+  var totalEl = document.getElementById('totalDisplay');
   partnerRow.addEventListener('click', function () {
     partnerInput.checked = !partnerInput.checked;
     partnerRow.classList.toggle('checked', partnerInput.checked);
     totalEl.textContent = '$' + (partnerInput.checked ? '690' : '595') + ' / year';
   });
 
-  /* ── Two-step: capture details → confirm → Stripe ─────── */
+  /* two-step: capture details → confirm → Stripe */
   var stepOne = document.getElementById('stepOne');
   var stepTwo = document.getElementById('stepTwo');
-  var fName   = document.getElementById('fName');
-  var fEmail  = document.getElementById('fEmail');
+  var fName = document.getElementById('fName');
+  var fEmail = document.getElementById('fEmail');
   function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
   document.getElementById('continueBtn').addEventListener('click', function () {
@@ -1627,17 +719,17 @@
     fEmail.parentNode.classList.toggle('invalid', !emailOk);
     if (!nameOk || !emailOk) { (nameOk ? fEmail : fName).focus(); return; }
 
-    /* Lead micro-conversion — captures the paid click even if they don't reach Stripe */
+    /* lead micro-conversion */
     gtag('event', 'generate_lead', { currency: 'USD', value: 595 });
     fbq('track', 'Lead', { content_name: 'Founding Passport' });
 
-    /* Route to the founding Klaviyo list; never block checkout if it fails */
+    /* capture the lead in Klaviyo (founding bucket) — never block checkout */
     fetch('/api/subscribe', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer', tier: 'founding', value: 595 })
     }).catch(function () {});
 
-    document.getElementById('reviewName').textContent  = name;
+    document.getElementById('reviewName').textContent = name;
     document.getElementById('reviewEmail').textContent = email;
     stepOne.classList.remove('active');
     stepTwo.classList.add('active');
@@ -1649,59 +741,53 @@
     fName.focus();
   });
 
-  /* ── Checkout ─────────────────────────────────────────── */
+  /* checkout → Stripe */
   var btn = document.getElementById('checkoutBtn');
   btn.addEventListener('click', function () {
     btn.disabled = true;
-    btn.textContent = 'REDIRECTING…';
+    btn.textContent = 'Redirecting…';
     gtag('event', 'begin_checkout', {
       currency: 'USD', value: 595,
       items: [{ item_id: 'founding', item_name: 'Privé Passport Founding', price: 595, quantity: 1 }]
     });
     fbq('track', 'InitiateCheckout', { value: 595, currency: 'USD', content_ids: ['founding'], content_type: 'product' });
     fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tier: 'founding', addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim() })
     })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })
-      .catch(function () { btn.disabled = false; btn.textContent = 'LOCK IN YOUR RATE →'; });
+      .catch(function () { btn.disabled = false; btn.textContent = 'Claim your membership →'; });
   });
 
-  /* ── FAQ accordion ────────────────────────────────────── */
+  /* FAQ accordion */
   document.querySelectorAll('.lp-faq-q').forEach(function (q) {
     q.addEventListener('click', function () {
       var item = q.closest('.lp-faq-item');
-      var isOpen = item.classList.contains('open');
+      var open = item.classList.contains('open');
       document.querySelectorAll('.lp-faq-item').forEach(function (i) { i.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
+      if (!open) item.classList.add('open');
     });
   });
 
-  /* ── Email obfuscation ────────────────────────────────── */
+  /* email obfuscation */
   (function () {
     var el = document.getElementById('contactEmail');
     if (!el) return;
     var u = 'info', d = 'prive-padel', t = 'com';
     el.textContent = u + '@' + d + '.' + t;
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      location.href = 'mailto:' + u + '@' + d + '.' + t;
-    });
+    el.addEventListener('click', function (e) { e.preventDefault(); location.href = 'mailto:' + u + '@' + d + '.' + t; });
   })();
-
 })();
 </script>
 
-
-<!-- ── Destinations data + property lightbox ──────────────── -->
+<!-- portfolio grid populated from the shared destinations data -->
 <script src="/data/destinations.js?v=2"></script>
 <script>
 (function () {
-  if (!window.DESTINATIONS) return;
+  var grid = document.getElementById('pfGrid');
+  if (!grid || !window.DESTINATIONS) return;
 
-  /* ── Cloudinary width transform helper ─────────────────── */
   function clUrl(src, w) {
     if (!src || src.indexOf('res.cloudinary.com') === -1) return src;
     var after = src.split('/upload/')[1] || '';
@@ -1709,237 +795,22 @@
     return src.replace('/upload/', repl);
   }
 
-  /* ── Lightbox ──────────────────────────────────────────── */
-  var lb       = document.getElementById('propLightbox');
-  var panel    = document.getElementById('plbPanel');
-  var backdrop = document.getElementById('plbBackdrop');
-  var closeBtn = document.getElementById('plbClose');
+  /* nine cities that mirror the campaign carousel */
+  var IDS = ['don-carlos-marbella','the-savoy','biltmore-dubai','banyan-tree-mayakoba','fairmont-century-plaza','the-surrey','chateau-de-lussac','voaara-madagascar','patina-maldives'];
+  var byId = {};
+  window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
 
-  var _dineItems = [], _dineIdx = 0;
-
-  var ICONS = {
-    rate:      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7l9 9a2 2 0 0 1 0 2.8L14 19a2 2 0 0 1-2.8 0L2 10V3z"/><circle cx="8.5" cy="7.5" r="1.2" fill="rgba(184,151,106,.85)" stroke="none"/></svg>',
-    upgrade:   '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="16" height="7" rx="1.5"/><line x1="11" y1="9" x2="11" y2="2"/><polyline points="7 6 11 2 15 6"/></svg>',
-    clock:     '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><polyline points="11 7 11 11 14 13"/></svg>',
-    wifi:      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5C5.2 5.8 8.9 4 11 4s5.8 1.8 8.5 4.5"/><path d="M5.5 11.5A7.7 7.7 0 0 1 11 9.3a7.7 7.7 0 0 1 5.5 2.2"/><path d="M8.5 14.5A3.7 3.7 0 0 1 11 13.5a3.7 3.7 0 0 1 2.5 1"/><circle cx="11" cy="17.5" r="1" fill="rgba(184,151,106,.85)" stroke="none"/></svg>',
-    breakfast: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v4a4 4 0 0 0 8 0V2"/><line x1="10" y1="10" x2="10" y2="20"/><line x1="6" y1="20" x2="14" y2="20"/></svg>',
-    credit:    '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="18" height="13" rx="1.5"/><line x1="2" y1="10" x2="20" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/></svg>',
-    spa:       '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19c-4-3-7-7-7-11a7 7 0 0 1 14 0c0 4-3 8-7 11z"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>',
-    transfer:  '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h14l-3-5H5L3 13z"/><circle cx="7" cy="16" r="1.5"/><circle cx="15" cy="16" r="1.5"/><line x1="3" y1="13" x2="2" y2="9"/></svg>',
-    star:      '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 2 13.5 8.5 20.5 8.5 15 13 17.2 20 11 16.2 4.8 20 7 13 1.5 8.5 8.5 8.5"/></svg>',
-  };
-
-  function benefitIcon(b) {
-    var lc = b.toLowerCase();
-    if (lc.includes('rate') || lc.includes('price')) return ICONS.rate;
-    if (lc.includes('upgrade')) return ICONS.upgrade;
-    if (lc.includes('check') || lc.includes('clock')) return ICONS.clock;
-    if (lc.includes('wi-fi') || lc.includes('wifi') || lc.includes('internet')) return ICONS.wifi;
-    if (lc.includes('breakfast') || lc.includes('dining') || lc.includes('meal')) return ICONS.breakfast;
-    if (lc.includes('credit') || lc.includes('resort') || lc.includes('voucher')) return ICONS.credit;
-    if (lc.includes('spa') || lc.includes('wellness')) return ICONS.spa;
-    if (lc.includes('transfer') || lc.includes('airport') || lc.includes('car')) return ICONS.transfer;
-    return ICONS.star;
-  }
-
-  function updateDineSlider() {
-    var track   = document.getElementById('plbDineTrack');
-    var counter = document.getElementById('plbDineCounter');
-    var fill    = document.getElementById('plbDineFill');
-    var prev    = document.getElementById('plbDinePrev');
-    var next    = document.getElementById('plbDineNext');
-    if (!track) return;
-    var perPage = window.innerWidth < 700 ? 1 : 2;
-    var cardW   = 100 / perPage;
-    track.style.transform = 'translateX(-' + (_dineIdx * cardW) + '%)';
-    counter.textContent = (_dineIdx + 1) + ' / ' + _dineItems.length;
-    fill.style.width = ((_dineIdx + 1) / _dineItems.length * 100) + '%';
-    prev.disabled = _dineIdx === 0;
-    next.disabled = _dineIdx >= _dineItems.length - perPage;
-  }
-
-  document.getElementById('plbDinePrev').addEventListener('click', function() {
-    if (_dineIdx > 0) { _dineIdx--; updateDineSlider(); }
+  IDS.map(function (id) { return byId[id]; }).filter(Boolean).forEach(function (d) {
+    var label = (d.region || '').split(',')[0] || d.name;
+    var a = document.createElement('a');
+    a.className = 'pf-tile';
+    a.href = '/passport/destinations.html';
+    a.innerHTML =
+      '<div class="pf-tile-bg" style="background-image:url(\'' + clUrl(d.image, 500) + '\')"></div>' +
+      '<div class="pf-tile-veil"></div>' +
+      '<div class="pf-tile-label">' + label + '</div>';
+    grid.appendChild(a);
   });
-  document.getElementById('plbDineNext').addEventListener('click', function() {
-    var perPage = window.innerWidth < 700 ? 1 : 2;
-    if (_dineIdx < _dineItems.length - perPage) { _dineIdx++; updateDineSlider(); }
-  });
-
-  window.openPropertyLightbox = function(d) {
-    document.getElementById('plbHero').style.backgroundImage = 'url(' + clUrl(d.heroImg || d.image, 1400) + ')';
-    document.getElementById('plbCollection').textContent = d.collection || '';
-    document.getElementById('plbName').textContent = d.name || '';
-    document.getElementById('plbLoc').textContent = d.loc || '';
-    document.getElementById('plbPills').innerHTML = (d.pills || []).map(function(p) {
-      return '<span class="plb-hero-pill">' + p + '</span>';
-    }).join('');
-
-    document.getElementById('plbAboutLabel').textContent = d.region || '';
-    document.getElementById('plbAboutHeading').textContent = d.name || '';
-    document.getElementById('plbAboutBody').textContent = d.about || d.desc || '';
-    var aboutImg = document.getElementById('plbAboutImg');
-    aboutImg.src = clUrl(d.img2 || (d.images && d.images[0]) || '', 800);
-    aboutImg.alt = d.name || '';
-
-    document.getElementById('plbBenefitsLabel').textContent = 'Passport Member Benefits at ' + (d.name || '');
-    var bGrid = document.getElementById('plbBenefitsGrid');
-    var benList = d.memberBenefits || d.benefits || [];
-    bGrid.innerHTML = benList.map(function(b) {
-      return '<div class="plb-benefit-cell"><div class="plb-benefit-icon">' + benefitIcon(b) + '</div><div class="plb-benefit-name">' + b + '</div></div>';
-    }).join('');
-    document.getElementById('plbBenefitsWrap').style.display = benList.length ? '' : 'none';
-
-    var aGrid = document.getElementById('plbAmenitiesGrid');
-    var amenitiesWrap = document.getElementById('plbAmenitiesWrap');
-    if (d.amenities && d.amenities.length) {
-      aGrid.innerHTML = d.amenities.map(function(a) {
-        return '<div class="plb-amenity-card">' +
-          '<img loading="lazy" src="' + clUrl(a.img, 600) + '" alt="' + a.name + '">' +
-          '<div class="plb-amenity-overlay">' +
-            '<div class="plb-amenity-name">' + a.name + '</div>' +
-            '<div class="plb-amenity-desc">' + a.desc + '</div>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-      amenitiesWrap.style.display = '';
-    } else {
-      amenitiesWrap.style.display = 'none';
-    }
-
-    var accomWrap = document.getElementById('plbAccomWrap');
-    if (d.accommodations && d.accommodations.length) {
-      accomWrap.innerHTML = '<div class="plb-section-label" style="padding:60px 52px 32px;margin:0;"><span class="plb-section-label-text">ACCOMMODATIONS</span><span class="plb-section-label-rule"></span></div>' +
-        d.accommodations.map(function(a, i) {
-          var flip = i % 2 === 1 ? ' flip' : '';
-          return '<div class="plb-accom-item' + flip + '">' +
-            '<div class="plb-accom-img-wrap"><img loading="lazy" src="' + clUrl(a.img, 900) + '" alt="' + a.title + '"></div>' +
-            '<div class="plb-accom-content">' +
-              '<div class="plb-accom-tag">' + a.num + '</div>' +
-              '<div class="plb-accom-title">' + a.title + '</div>' +
-              '<div class="plb-accom-body">' + a.body + '</div>' +
-            '</div>' +
-          '</div>';
-        }).join('');
-      accomWrap.style.display = '';
-    } else {
-      accomWrap.style.display = 'none';
-    }
-
-    var dineWrap = document.getElementById('plbDiningWrap');
-    var track    = document.getElementById('plbDineTrack');
-    if (d.restaurants && d.restaurants.length) {
-      _dineItems = d.restaurants;
-      _dineIdx = 0;
-      track.innerHTML = d.restaurants.map(function(r) {
-        return '<div class="plb-dining-card">' +
-          '<img class="plb-dining-img" loading="lazy" src="' + clUrl(r.img, 800) + '" alt="' + r.name + '">' +
-          '<div class="plb-dining-body">' +
-            '<div class="plb-dining-name">' + r.name + '</div>' +
-            '<div class="plb-dining-desc">' + r.desc + '</div>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-      updateDineSlider();
-      dineWrap.style.display = '';
-    } else {
-      dineWrap.style.display = 'none';
-    }
-
-    var wellWrap = document.getElementById('plbWellnessWrap');
-    if (d.wellness) {
-      var w = d.wellness;
-      document.getElementById('plbWellnessTitle').textContent = w.title || '';
-      document.getElementById('plbWellnessBody').textContent = w.intro || '';
-      document.getElementById('plbWellnessList').innerHTML = (w.items || []).map(function(item) {
-        return '<div class="plb-wellness-item">' +
-          '<span class="plb-wellness-name">' + item.name + '</span>' +
-          '<span class="plb-wellness-badge">' + item.detail + '</span>' +
-        '</div>';
-      }).join('');
-      var imgs = w.imgs || [];
-      document.getElementById('plbWellnessImgs').innerHTML = imgs.map(function(src, i) {
-        if (i === 0) return '<div class="plb-wellness-img-tall"><img loading="lazy" src="' + clUrl(src, 800) + '" alt=""></div>';
-        return '<div><img loading="lazy" src="' + clUrl(src, 800) + '" alt=""></div>';
-      }).join('');
-      wellWrap.style.display = '';
-    } else {
-      wellWrap.style.display = 'none';
-    }
-
-    document.getElementById('plbStrip').innerHTML = (d.photoStrip || d.images || []).map(function(src) {
-      return '<div class="plb-strip-item"><img loading="lazy" src="' + clUrl(src, 900) + '" alt=""></div>';
-    }).join('');
-
-    panel.scrollTop = 0;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  function closeLightbox() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  closeBtn.addEventListener('click', closeLightbox);
-  backdrop.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
-  });
-
-  // Lightbox CTAs → close and scroll to the checkout offer
-  function ctaToCheckout() {
-    closeLightbox();
-    document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
-  }
-  document.getElementById('plbCtaBtn').addEventListener('click', ctaToCheckout);
-  document.getElementById('plbLockCta').addEventListener('click', ctaToCheckout);
-
-  /* ── Curated tile grid + "browse all" toggle ───────────── */
-  var grid = document.getElementById('destTileGrid');
-  if (grid) {
-    // Curated set for this page (independent of the shared `featured` flag).
-    // Retreat venues are intentionally excluded — they appear in the pillars above.
-    var CURATED_IDS = [
-      'don-carlos-marbella', 'the-savoy', 'chable-yucatan', 'patina-maldives',
-      'fairmont-royal-palm', 'only-aesthesis', 'al-baleed-oman', 'rosewood-hong-kong'
-    ];
-    var byId = {};
-    window.DESTINATIONS.forEach(function(d) { byId[d.id] = d; });
-    var curated = CURATED_IDS.map(function(id) { return byId[id]; }).filter(Boolean);
-    var inCurated = {};
-    curated.forEach(function(d) { inCurated[d.id] = true; });
-    var rest     = window.DESTINATIONS.filter(function(d) { return !inCurated[d.id]; });
-    var ordered  = curated.concat(rest);
-    var CURATED  = curated.length;
-
-    ordered.forEach(function(d, i) {
-      var tile = document.createElement('div');
-      tile.className = 'lp-tile' + (i >= CURATED ? ' hidden-extra' : '');
-      tile.innerHTML =
-        '<div class="lp-tile-bg" style="background-image:url(\'' + clUrl(d.image, 600) + '\')"></div>' +
-        '<div class="lp-tile-overlay"></div>' +
-        (d.comingSoon ? '<div class="lp-tile-badge">Coming Soon</div>' : '') +
-        '<div class="lp-tile-cta"><span>View →</span></div>' +
-        '<div class="lp-tile-info">' +
-          '<div class="lp-tile-region">' + (d.region || '') + '</div>' +
-          '<div class="lp-tile-name">' + (d.name || '') + '</div>' +
-        '</div>';
-      tile.addEventListener('click', function() { window.openPropertyLightbox(d); });
-      grid.appendChild(tile);
-    });
-
-    var moreBtn = document.getElementById('destMoreBtn');
-    if (moreBtn) {
-      moreBtn.addEventListener('click', function() {
-        grid.querySelectorAll('.lp-tile.hidden-extra').forEach(function(t) {
-          t.classList.remove('hidden-extra');
-        });
-        moreBtn.style.display = 'none';
-      });
-    }
-  }
-
 })();
 </script>
 </body>
