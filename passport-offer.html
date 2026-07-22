@@ -471,6 +471,34 @@
       .xlb-card-body { flex: 1; }
     }
 
+    /* card is now a button opening an in-panel detail view */
+    .xlb-card { width: 100%; text-align: left; font-family: inherit; color: inherit; cursor: pointer; -webkit-appearance: none; appearance: none; }
+    /* experiences detail view */
+    .xlb-back { background: none; border: 0; padding: 0; margin-bottom: 16px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); cursor: pointer; }
+    .xlb-back:hover { color: var(--cream); }
+    .xlb-detail-hero img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-radius: 14px; }
+    .xlb-detail-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 22px 0 9px; }
+    .xlb-detail-name { font-family: 'Cormorant Garamond',serif; font-size: clamp(28px,7vw,38px); font-weight: 300; color: var(--cream); line-height: 1.04; margin-bottom: 14px; }
+    .xlb-detail-intro { font-size: 14px; font-weight: 300; color: rgba(245,240,232,.72); line-height: 1.7; margin-bottom: 24px; }
+    .xlb-glance { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(245,240,232,.1); border: 1px solid rgba(245,240,232,.1); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+    .xlb-glance-item { background: var(--dark2); padding: 16px 18px; }
+    .xlb-glance-label { font-size: 8.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .xlb-glance-val { font-size: 12.5px; font-weight: 300; color: rgba(245,240,232,.86); line-height: 1.4; }
+    .xlb-incl-label { font-size: 10px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.5); margin-bottom: 13px; }
+    .xlb-incl ul { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
+    .xlb-incl li { position: relative; padding-left: 22px; font-size: 13px; font-weight: 300; color: rgba(245,240,232,.8); line-height: 1.45; }
+    .xlb-incl li::before { content: ''; position: absolute; left: 2px; top: 3px; width: 5px; height: 9px; border-right: 1.4px solid var(--gold); border-bottom: 1.4px solid var(--gold); transform: rotate(45deg); }
+    .xlb-detail-foot { border-top: 1px solid rgba(245,240,232,.12); padding-top: 22px; }
+    .xlb-detail-price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+    .xlb-detail-price .pub { font-family: 'Cormorant Garamond',serif; font-size: 22px; color: rgba(245,240,232,.42); text-decoration: line-through; }
+    .xlb-detail-price .mem { font-family: 'Cormorant Garamond',serif; font-size: 34px; font-style: italic; color: var(--cream); line-height: 1; }
+    .xlb-detail-keep { font-size: 12px; color: var(--gold); margin-bottom: 20px; }
+    .xlb-detail-link { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.6); border-bottom: 1px solid rgba(245,240,232,.25); padding-bottom: 2px; }
+    .xlb-detail-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* hide city/region label on mobile grid tiles */
+    @media (max-width: 719px) { .pf-tile-region { display: none; } }
+
     /* ── PROPERTY LIGHTBOX (dark themed) ───────────────────── */
     .plb { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; visibility: hidden; pointer-events: none; }
     .plb.open { visibility: visible; pointer-events: auto; }
@@ -897,39 +925,60 @@
   <div class="xlb-backdrop" id="xlbBackdrop"></div>
   <div class="xlb-panel">
     <button class="xlb-close" id="xlbClose">CLOSE ✕</button>
-    <div class="xlb-head">
-      <div class="eyebrow">Privé Experiences</div>
-      <h2 class="display" style="font-size:clamp(30px,8vw,44px);">Signature <em style="display:inline;">retreats.</em></h2>
-      <p class="lede">All-inclusive padel retreats built around the game and the place — members save 20% and book first.</p>
+
+    <!-- list view -->
+    <div id="xlbListView">
+      <div class="xlb-head">
+        <div class="eyebrow">Privé Experiences</div>
+        <h2 class="display" style="font-size:clamp(30px,8vw,44px);">Signature <em style="display:inline;">retreats.</em></h2>
+        <p class="lede">All-inclusive padel retreats built around the game and the place — members save 20% and book first.</p>
+      </div>
+      <div class="xlb-list">
+        <button class="xlb-card" type="button" data-exp="0">
+          <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg" alt="Voaara Madagascar"></div>
+          <div class="xlb-card-body">
+            <div class="xlb-card-eyebrow">September 2026 · Madagascar</div>
+            <div class="xlb-card-name">Voaara</div>
+            <p class="xlb-card-desc">Seven days on a private island off Madagascar — daily padel with a dedicated pro, reef snorkeling, whale season, and every meal included.</p>
+            <div class="xlb-card-foot"><span class="xlb-price"><s>$8,250</s> $6,600</span><span class="xlb-card-link">View experience →</span></div>
+          </div>
+        </button>
+        <button class="xlb-card" type="button" data-exp="1">
+          <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777253885/3_1_c60fse.jpg" alt="Court &amp; Cellar, Bordeaux"></div>
+          <div class="xlb-card-body">
+            <div class="xlb-card-eyebrow">Fall 2026 · Bordeaux, France</div>
+            <div class="xlb-card-name">Château de Lussac</div>
+            <p class="xlb-card-desc">Four days among the Saint-Émilion vineyards — padel by day, Grand Cru tastings, Bordeaux and the Atlantic coast, all-inclusive.</p>
+            <div class="xlb-card-foot"><span class="xlb-price"><s>$4,200</s> $3,360</span><span class="xlb-card-link">View experience →</span></div>
+          </div>
+        </button>
+        <button class="xlb-card" type="button" data-exp="2">
+          <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Nihi Sumba"></div>
+          <div class="xlb-card-body">
+            <div class="xlb-card-eyebrow">November 2026 · Sumba, Indonesia</div>
+            <div class="xlb-card-name">Nihi Sumba</div>
+            <p class="xlb-card-desc">Five days on the Edge of Wildness — daily jungle-court padel, horses in the surf at Nihiwatu, the Spa Safari, all-inclusive.</p>
+            <div class="xlb-card-foot"><span class="xlb-price"><s>$12,000</s> $9,600</span><span class="xlb-card-link">View experience →</span></div>
+          </div>
+        </button>
+      </div>
     </div>
-    <div class="xlb-list">
-      <a class="xlb-card" href="/experiences/voaara-madagascar.html">
-        <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg" alt="Voaara Madagascar"></div>
-        <div class="xlb-card-body">
-          <div class="xlb-card-eyebrow">September 2026 · Madagascar</div>
-          <div class="xlb-card-name">Voaara</div>
-          <p class="xlb-card-desc">Seven days on a private island off Madagascar — daily padel with a dedicated pro, reef snorkeling, whale season, and every meal included.</p>
-          <div class="xlb-card-foot"><span class="xlb-price"><s>$8,250</s> $6,600</span><span class="xlb-card-link">View experience →</span></div>
-        </div>
-      </a>
-      <a class="xlb-card" href="/experiences/court-and-cellar.html">
-        <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777253885/3_1_c60fse.jpg" alt="Court &amp; Cellar, Bordeaux"></div>
-        <div class="xlb-card-body">
-          <div class="xlb-card-eyebrow">Fall 2026 · Bordeaux, France</div>
-          <div class="xlb-card-name">Château de Lussac</div>
-          <p class="xlb-card-desc">Four days among the Saint-Émilion vineyards — padel by day, Grand Cru tastings, Bordeaux and the Atlantic coast, all-inclusive.</p>
-          <div class="xlb-card-foot"><span class="xlb-price"><s>$4,200</s> $3,360</span><span class="xlb-card-link">View experience →</span></div>
-        </div>
-      </a>
-      <a class="xlb-card" href="/experiences/nihi-sumba.html">
-        <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Nihi Sumba"></div>
-        <div class="xlb-card-body">
-          <div class="xlb-card-eyebrow">November 2026 · Sumba, Indonesia</div>
-          <div class="xlb-card-name">Nihi Sumba</div>
-          <p class="xlb-card-desc">Five days on the Edge of Wildness — daily jungle-court padel, horses in the surf at Nihiwatu, the Spa Safari, all-inclusive.</p>
-          <div class="xlb-card-foot"><span class="xlb-price"><s>$12,000</s> $9,600</span><span class="xlb-card-link">View experience →</span></div>
-        </div>
-      </a>
+
+    <!-- detail view (populated by JS) -->
+    <div id="xlbDetailView" style="display:none;">
+      <button class="xlb-back" id="xlbBack" type="button">← All experiences</button>
+      <div class="xlb-detail-hero"><img id="xdImg" src="" alt=""></div>
+      <div class="xlb-detail-eyebrow" id="xdEyebrow"></div>
+      <h3 class="xlb-detail-name" id="xdName"></h3>
+      <p class="xlb-detail-intro" id="xdIntro"></p>
+      <div class="xlb-glance" id="xdGlance"></div>
+      <div class="xlb-incl"><div class="xlb-incl-label">What's included</div><ul id="xdIncluded"></ul></div>
+      <div class="xlb-detail-foot">
+        <div class="xlb-detail-price"><span class="pub" id="xdPub"></span><span class="mem" id="xdMem"></span></div>
+        <div class="xlb-detail-keep" id="xdKeep"></div>
+        <button class="btn btn-gold btn-full" id="xdClaim" type="button">Claim your membership →</button>
+        <a class="xlb-detail-link" id="xdFull" href="#">See full itinerary →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1113,16 +1162,67 @@
     el.addEventListener('click', function (e) { e.preventDefault(); location.href = 'mailto:' + u + '@' + d + '.' + t; });
   })();
 
-  /* experiences lightbox */
+  /* experiences lightbox (list + in-panel detail) */
   (function () {
     var xlb = document.getElementById('expLightbox');
     var openBtn = document.getElementById('expOpen');
     if (!xlb || !openBtn) return;
+    var panel = xlb.querySelector('.xlb-panel');
+    var listView = document.getElementById('xlbListView');
+    var detailView = document.getElementById('xlbDetailView');
+    var IMG = 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/';
+
+    var EXP = [
+      { name: 'Voaara', eyebrow: 'September 1–7, 2026 · Île Sainte-Marie, Madagascar',
+        img: IMG + 'v1775679498/DJI_0380_DxO_copy_kkmaym.jpg',
+        intro: 'Seven days on a private island off Madagascar — daily padel with a dedicated Privé pro, reef snorkeling, whale season, and every meal from the welcome cocktail to the farewell dinner already taken care of.',
+        glance: [['Dates','Sept 1–7, 2026 · 7 nights'],['Where','Voaara, Île Sainte-Marie'],['Padel','A private hour daily + closing tournament'],['Board','All-inclusive · every meal & the full program']],
+        included: ['All oceanfront villa accommodations','Every meal, from the beach club to castaway picnics','Daily padel with a dedicated Privé pro','Reef snorkeling, quad rides, Île aux Nattes, whale watching','Airport transfers on arrival & departure'],
+        pub: '$8,250', mem: '$6,600', keep: '$1,650', url: '/experiences/voaara-madagascar.html' },
+      { name: 'Château de Lussac', eyebrow: 'Fall 2026 · Saint-Émilion, Bordeaux',
+        img: IMG + 'v1777253885/3_1_c60fse.jpg',
+        intro: 'Four days among the Saint-Émilion vineyards — padel by day, Grand Cru tastings, Bordeaux and the Dune du Pilat by afternoon, and evenings at the château table. All-inclusive.',
+        glance: [['Dates','4-day slots · Sept 15 – Oct 15, 2026'],['Where','Château de Lussac, Bordeaux'],['Padel','A session daily + a private hour'],['Wine','A dedicated ŒLYSIUM wine ambassador']],
+        included: ['Château & gîte accommodations','Every meal, château to Le Gabriel & La Corniche','Daily padel — estate court, Bordeaux & Arcachon','Vineyard & cellar tour, Grand Cru tasting','Bordeaux, Saint-Émilion & the Dune du Pilat','Airport transfers'],
+        pub: '$4,200', mem: '$3,360', keep: '$840', url: '/experiences/court-and-cellar.html' },
+      { name: 'Nihi Sumba', eyebrow: 'November 2026 · Sumba Island, Indonesia',
+        img: IMG + 'v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg',
+        intro: 'Five days on the Edge of Wildness — daily jungle-court padel, horses in the surf at Nihiwatu, the half-day Spa Safari, and Sumbanese culture. All-inclusive.',
+        glance: [['Dates','One 5-day slot · November 2026'],['Where','Nihi Sumba, Sumba Island'],['Padel','Daily jungle-court sessions + a private hour'],['Board','All-inclusive · meals, experiences & padel']],
+        included: ['All accommodations at Nihi Sumba','Every meal, plus daily Happiest Hour','Daily padel with a dedicated Privé pro','Horses at Nihiwatu, Lapopu waterfall, Spa Safari','The Sumba Foundation tour & group yoga','Airport transfers (Tambolaka)'],
+        pub: '$12,000', mem: '$9,600', keep: '$2,400', url: '/experiences/nihi-sumba.html' }
+    ];
+
     function show() { xlb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function hide() { xlb.classList.remove('open'); document.body.style.overflow = ''; }
+    function hide() { xlb.classList.remove('open'); document.body.style.overflow = ''; showList(); }
+    function showList() { detailView.style.display = 'none'; listView.style.display = ''; if (panel) panel.scrollTop = 0; }
+    function showDetail(i) {
+      var e = EXP[i]; if (!e) return;
+      var img = document.getElementById('xdImg'); img.src = e.img; img.alt = e.name;
+      document.getElementById('xdEyebrow').textContent = e.eyebrow;
+      document.getElementById('xdName').textContent = e.name;
+      document.getElementById('xdIntro').textContent = e.intro;
+      document.getElementById('xdGlance').innerHTML = e.glance.map(function (g) {
+        return '<div class="xlb-glance-item"><div class="xlb-glance-label">' + g[0] + '</div><div class="xlb-glance-val">' + g[1] + '</div></div>';
+      }).join('');
+      document.getElementById('xdIncluded').innerHTML = e.included.map(function (x) { return '<li>' + x + '</li>'; }).join('');
+      document.getElementById('xdPub').textContent = e.pub;
+      document.getElementById('xdMem').textContent = e.mem;
+      document.getElementById('xdKeep').textContent = 'Passport members keep ' + e.keep + ' on this retreat.';
+      document.getElementById('xdFull').href = e.url;
+      listView.style.display = 'none'; detailView.style.display = ''; if (panel) panel.scrollTop = 0;
+    }
+
     openBtn.addEventListener('click', show);
     document.getElementById('xlbClose').addEventListener('click', hide);
     document.getElementById('xlbBackdrop').addEventListener('click', hide);
+    document.getElementById('xlbBack').addEventListener('click', showList);
+    Array.prototype.forEach.call(document.querySelectorAll('.xlb-card'), function (c) {
+      c.addEventListener('click', function () { showDetail(parseInt(c.getAttribute('data-exp'), 10)); });
+    });
+    document.getElementById('xdClaim').addEventListener('click', function () {
+      hide(); document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+    });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && xlb.classList.contains('open')) hide(); });
   })();
 })();
