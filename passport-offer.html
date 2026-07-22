@@ -153,7 +153,8 @@
       position: absolute; inset: 0;
       background: linear-gradient(to bottom, rgba(14,25,35,.35) 0%, rgba(14,25,35,.55) 45%, rgba(14,25,35,.97) 100%);
     }
-    .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 54px; padding-top: 120px; }
+    .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 54px; padding-top: 120px; text-shadow: 0 2px 30px rgba(6,11,17,.55); }
+    .hero .eyebrow { color: #DDBE93; font-size: 12px; letter-spacing: .24em; margin-bottom: 22px; }
     .hero h1 {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
       font-size: clamp(46px, 13vw, 76px); line-height: 1.0; color: var(--cream); margin-bottom: 22px;
@@ -431,7 +432,7 @@
     .also-list-name b { font-weight: 400; color: var(--cream); }
     .also-list-name span { color: rgba(245,240,232,.5); }
     .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); white-space: nowrap; }
-    .also-list-price s { color: rgba(245,240,232,.36); font-size: 13px; margin-right: 5px; text-decoration-thickness: 1px; }
+    .also-list-price s { color: rgba(245,240,232,.5); font-size: 15px; margin-right: 6px; text-decoration-thickness: 1px; }
     .also-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.64); line-height: 1.65; margin-bottom: 18px; }
     .also-link { display: inline-block; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
 
@@ -542,7 +543,12 @@
     @media (min-width: 720px) {
       .wrap { max-width: 680px; }
       .sec { padding: 104px 0; }
-      .hero-sub { font-size: 18px; }
+      .hero-inner { padding-bottom: 92px; padding-top: 140px; }
+      .hero .wrap { max-width: 900px; }
+      .hero .eyebrow { font-size: 13px; margin-bottom: 26px; }
+      .hero-sub { font-size: 21px; max-width: 40ch; margin-bottom: 40px; }
+      .hero-micro { font-size: 13px; margin-top: 22px; }
+      .scrollcue { margin-top: 44px; }
       .pf-grid { gap: 8px; }
       .rt-list { flex-direction: row; flex-wrap: wrap; }
       .rt-item { flex: 1 1 100%; min-height: 200px; }
@@ -554,7 +560,7 @@
       .testi { flex: 1; }
       .press-logos { gap: 22px 40px; }
       .press-logos img { height: 24px; max-width: 112px; }
-      .hero h1 { font-size: 84px; }
+      .hero h1 { font-size: clamp(82px, 8.5vw, 116px); margin-bottom: 28px; }
     }
     @media (min-width: 1040px) {
       .hero-inner, .offer-head, .final .wrap { }
@@ -1175,7 +1181,7 @@
   /* ── Portfolio grid (original curated set + expand) ────── */
   var grid = document.getElementById('pfGrid');
   if (grid) {
-    var CURATED_IDS = ['don-carlos-marbella','the-savoy','chable-yucatan','patina-maldives','fairmont-royal-palm','only-aesthesis','al-baleed-oman','rosewood-hong-kong'];
+    var CURATED_IDS = ['don-carlos-marbella','the-savoy','the-surrey','patina-maldives','fairmont-royal-palm','only-aesthesis','al-baleed-oman','rosewood-hong-kong','chable-yucatan'];
     var byId = {};
     window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
 
@@ -1202,7 +1208,7 @@
       var tile = document.createElement('div');
       tile.className = 'pf-tile' + (i >= CURATED ? ' hidden-extra' : '');
       tile.innerHTML =
-        '<div class="pf-tile-bg" style="background-image:url(\'' + clSquare(d.image, 800) + '\')"></div>' +
+        '<div class="pf-tile-bg" style="background-image:url(\'' + clUrl(d.image, 800) + '\')"></div>' +
         '<div class="pf-tile-veil"></div>' +
         (d.comingSoon ? '<div class="pf-tile-badge">Coming Soon</div>' : '') +
         '<div class="pf-tile-view"><span>View →</span></div>' +
