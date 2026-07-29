@@ -477,12 +477,16 @@
       content_type: 'product'
     });
 
+    /* Meta CAPI match signals — pixel cookies + page URL, carried through Stripe so
+       the server-side Purchase (fired from the webhook) matches this browser. */
+    function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
     fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         tier: getTier(), addPartner: isPartner(),
-        email: fEmail.value.trim(), firstName: fName.value.trim()
+        email: fEmail.value.trim(), firstName: fName.value.trim(),
+        fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href
       })
     })
       .then(function (res) {
