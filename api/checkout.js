@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: 'Checkout not yet configured' });
   }
 
-  const { tier, addPartner, email, firstName } = req.body;
+  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl } = req.body;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-04-10',
@@ -37,12 +37,26 @@ export default async function handler(req, res) {
   // member never retypes, and carry the name through on the subscription metadata.
   const metadata = { tier, addPartner: addPartner ? 'true' : 'false', firstName: firstName || '' };
 
+  // Meta CAPI match signals — captured from THIS request (the buyer's browser) and
+  // carried on the Checkout Session metadata so the Stripe webhook can attribute the
+  // server-side Purchase. The webhook itself fires from Stripe's servers and can't
+  // see any of this. IP/UA come from the request headers; fbp/fbc from the pixel
+  // cookies read browser-side and posted in the body.
+  const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const capi = {
+    fbp:       fbp || '',
+    fbc:       fbc || '',
+    client_ip: clientIp,
+    client_ua: (req.headers['user-agent'] || '').slice(0, 500),
+    src_url:   eventSourceUrl || '',
+  };
+
   const session = await stripe.checkout.sessions.create({
     mode:                 'subscription',
     line_items:           lineItems,
     allow_promotion_codes: true,
     ...(email ? { customer_email: email } : {}),
-    metadata,
+    metadata:             { ...metadata, ...capi },
     subscription_data:    { metadata },
     success_url:          `https://passport.prive-padel.com/welcome?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url:           `https://prive-padel.com/join`,

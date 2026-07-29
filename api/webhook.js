@@ -1,7 +1,14 @@
 import Stripe from 'stripe';
+import crypto from 'node:crypto';
 
 // Vercel: disable body parsing so we can verify Stripe's raw signature
 export const config = { api: { bodyParser: false } };
+
+// Meta CAPI requires PII (email, name) SHA-256 hashed after normalizing
+// (trim + lowercase). fbp/fbc/IP/user-agent are sent raw, never hashed.
+function sha256(v) {
+  return crypto.createHash('sha256').update(String(v).trim().toLowerCase()).digest('hex');
+}
 
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -94,7 +101,12 @@ export default async function handler(req, res) {
           }
         )] : []),
 
-        // Meta Conversions API (gated — see ENABLE_MARKETING_ANALYTICS above)
+        // Meta Conversions API (gated — see ENABLE_MARKETING_ANALYTICS above).
+        // Match signals (fbp/fbc/IP/UA/source URL) are captured browser-side at
+        // checkout creation and carried on session.metadata, because this webhook
+        // fires from Stripe's servers and can't see the buyer's browser.
+        // event_id === session.id so any browser-side Purchase with the same id
+        // deduplicates against this server event.
         ...(sendAnalytics ? [fetch(
           `https://graph.facebook.com/v19.0/2265018770516086/events?access_token=${process.env.META_PIXEL_ACCESS_TOKEN}`,
           {
@@ -105,12 +117,15 @@ export default async function handler(req, res) {
                 event_name:        'Purchase',
                 event_time:        Math.floor(Date.now() / 1000),
                 action_source:     'website',
-                event_source_url:  'https://prive-padel.com/join',
+                event_source_url:  session.metadata?.src_url || 'https://prive-padel.com/passport-offer-v2',
                 event_id:          session.id,
                 user_data: {
-                  em: session.customer_details?.email
-                    ? [session.customer_details.email]
-                    : [],
+                  ...(email ? { em: [sha256(email)] } : {}),
+                  ...(session.metadata?.firstName ? { fn: [sha256(session.metadata.firstName)] } : {}),
+                  ...(session.metadata?.fbp ? { fbp: session.metadata.fbp } : {}),
+                  ...(session.metadata?.fbc ? { fbc: session.metadata.fbc } : {}),
+                  ...(session.metadata?.client_ip ? { client_ip_address: session.metadata.client_ip } : {}),
+                  ...(session.metadata?.client_ua ? { client_user_agent: session.metadata.client_ua } : {}),
                 },
                 custom_data: {
                   value,
@@ -119,6 +134,9 @@ export default async function handler(req, res) {
                   content_type: 'product',
                 },
               }],
+              // Set META_TEST_EVENT_CODE to route events to Events Manager →
+              // Test Events for verification. Leave unset in normal production.
+              ...(process.env.META_TEST_EVENT_CODE ? { test_event_code: process.env.META_TEST_EVENT_CODE } : {}),
             }),
           }
         )] : []),

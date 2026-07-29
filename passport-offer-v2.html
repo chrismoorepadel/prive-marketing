@@ -1233,9 +1233,12 @@
       items: [{ item_id: 'founding', item_name: 'Privé Passport Founding', price: 595, quantity: 1 }]
     });
     fbq('track', 'InitiateCheckout', { value: 595, currency: 'USD', content_ids: ['founding'], content_type: 'product' });
+    /* Meta CAPI match signals — pixel cookies + page URL, carried through Stripe so
+       the server-side Purchase (fired from the webhook) matches this browser. */
+    function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
     fetch('/api/checkout', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tier: 'founding', addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim() })
+      body: JSON.stringify({ tier: 'founding', addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim(), fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href })
     })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })
