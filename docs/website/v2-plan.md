@@ -2,7 +2,9 @@
 
 *Drafted 2026-07-29. Supersedes the conversion-related portions of `overhaul-plan.md`.*
 
-The premise of this document: `passport-offer-v2.html` is not just a good ad landing page. It is the correct expression of the brand's commercial argument, and the site should be rebuilt around it.
+The premise of this document: `passport-offer-v2.html` proved the brand can carry a commercial argument without being diluted. The site should borrow its **positioning and design discipline** — not its funnel shape. The homepage stays a brand surface; the landing pages stay landing pages.
+
+*Revised 2026-07-30 after a first attempt rebuilt the homepage as a landing-page clone. See §3.*
 
 ---
 
@@ -34,9 +36,9 @@ What changed was four things:
 1. **Sequencing.** The offer is above the fold, not at section 7.
 2. **Translation.** Internal taxonomy ("Padel Club Partners", "Privé Locations") became customer outcomes ("A court everywhere you travel", "Montauk & Miami, included").
 3. **Proof density.** Numbers, recognizable property names, testimonials, press logos, strike-through retreat pricing — the page continuously earns the next scroll.
-4. **Terminal action.** Checkout is *on the page*. The decision and the transaction happen in the same place.
+4. **Terminal action.** Checkout is on the page — the decision and the transaction happen together.
 
-That's the transferable lesson. It's not "make the site look like an ad." It's "the brand can hold a commercial argument if the argument is sequenced and evidenced."
+The first three transfer to the homepage. **The fourth does not.** A landing page earns the right to end in a form because the visitor arrived with intent from an ad; a homepage has not earned that, and ending in a form is what makes a brand site read as an ad. The transferable lesson is "the brand can hold a commercial argument if the argument is sequenced and evidenced" — not "put the checkout everywhere."
 
 ---
 
@@ -90,7 +92,7 @@ Instead, separate them by **entry point**, and let each lane be single-minded:
 
 The reasoning on Miami: local booking intent almost never arrives via the homepage. Someone searching "padel Coral Gables" lands on `/miami` directly. Someone who taps the Instagram bio wants to book. Serving that intent through a homepage section is serving it in the wrong place — it belongs in the **nav, permanently and visibly**, and in local SEO.
 
-Which frees the homepage to do one thing.
+That frees the homepage from having to be a booking surface — but not from being a brand surface. It remains the one page that has to say what Privé Padel *is*.
 
 ### Where the offer lives
 
@@ -105,34 +107,45 @@ The popup email capture already on `index.html` is the bridge: the homepage sell
 
 This also means the site doesn't rot when founding closes. Nothing on `/` has to be rewritten — the offer simply stops being served in the acquisition layer.
 
-> **Recommendation: the homepage becomes the Passport conversion page — the `passport-offer-v2` spine, opened up slightly for cold, non-ad traffic, and priced at list.**
+> **Recommendation: the homepage stays a brand surface. Keep its structure, palette, and editorial register — and fix the four specific things that stop it converting.**
 
-The difference between the homepage and the ad page is aperture, not architecture. The ad page can assume intent (the visitor clicked an ad about padel travel). The homepage cannot, so it earns the first ten seconds with a stronger brand/worldview open before moving into the same argument. Same spine, one extra beat at the top.
+An earlier draft of this plan said the opposite: rebuild the homepage on the landing page's spine. That was wrong, and building it proved why. The landing page's value is its **positioning and design discipline**, not its funnel shape. Ported wholesale, you get a homepage that reads as an ad — one that ends in a checkout form and says nothing about Privé Padel as a brand.
 
-**The trade-off, stated plainly:** this makes the homepage less of a brand statement than it is today. The mitigation is that the brand isn't being removed — it's being carried by the photography, typography, and the collection itself, which is the most persuasive brand asset you have. The forty property names *are* the brand argument. `/about` remains the pure manifesto surface with no CTAs, exactly as `overhaul-plan.md` specifies.
+The homepage's job is the brand *holistically*: Privé Padel as the house, with Passport, Montauk, and Miami as parts of it. It should support conversion, not perform it. The transaction belongs on `/join`.
+
+**What the landing page actually contributes** — four things, applied surgically:
+
+1. **A committed hero.** One statement instead of four rotating ones.
+2. **Proof.** Network scale and press — completely absent today.
+3. **The full product.** Both tiers visible, not just the entry price.
+4. **Concrete outcomes** in place of internal taxonomy, where the copy allows.
+
+**Colour discipline.** Cream (`--cream #F5F0E8`) is the site's ground. Navy and dark navy are *punctuation* — the brand anchor, the pricing beat, the worldview moment, the closing CTA. That rhythm already exists on the homepage and is correct. The all-navy treatment belongs to landing pages, where a single dark canvas suits a single-purpose page. Do not carry it onto the site.
+
+`/about` remains the pure manifesto surface with no CTAs, exactly as `overhaul-plan.md` specifies.
 
 ---
 
 ## 4. Homepage V2 — section by section
 
-| # | Section | Source | Notes |
+Base is the **current homepage**, not the landing page. Sections marked ✏️ change; ➕ are new; the rest stand as they are.
+
+| # | Section | Bg | Change |
 |---|---|---|---|
-| 0 | **Sticky header** | v2 `#hdr` behavior, existing nav | `Privé Passport · Privé Montauk · Privé Miami · About Privé` + `[Get Your Passport]`. Keep the existing five-item structure — Montauk stays. Add a hairline status micro-label under the two venues: **Montauk — Spring 2027**, **Miami — Open now**. That is how Montauk's coming-soon status gets carried site-wide without spending a homepage section on it, and it gives Miami booking-intent weight in the same gesture. Drop "Member Login" to a utility/footer link. No offer strip. |
-| 1 | **Hero** | new, single slide | Full-bleed video or hero image. Committed statement — "The world's first Padel Passport" is the strongest line either page has produced. Sub-line carries the concrete promise. Primary CTA + offer strip beneath. **Retire the carousel**; keep the slide as a config object in `data/hero-slides.js` so campaign swaps stay a one-file edit. |
-| 2 | **Value stack** | v2 | Four outcome-framed tiles. This is the single highest-leverage import: replaces "Four ways to play" (taxonomy) with what the member actually gets. |
-| 3 | **Proof bar** | v2 | 40+ / 18 countries / 5 continents, property-name chips (Marbella Club, Rosewood Hong Kong, Nihi Sumba), "As featured in". Recognizable names do more persuasion here than any copy. |
-| 4 | **The collection** | existing `data/destinations.js` + drawer | Keep. Genuinely persuasive and already built. Ends with "Browse all 40+ →". |
-| 5 | **Membership — both tiers** | v2 offer block, reworked | **This replaces the offer block.** Two tiers side by side at list price per §0 — everything shared, one row different (Montauk & Miami: 4 visits/yr vs. unlimited). Use the v2 price-block *treatment* — typographic weight and confidence — without the strike-through or scarcity line. Because the tiers differ on a single axis, this should read as one clean comparison, not two feature columns. First hard ask. |
-| 6 | **Experiences** | v2 | Member retreat pricing ($8,250 → $6,600) is the most concrete "pays for itself" evidence on the site and it is a **standing member benefit, not the founding offer** — so it survives intact. Currently absent from the homepage entirely. |
-| 7 | **Privé Clubs** | v2 + `/miami` | Both venues, equal weight. Miami **open now** with a live Playtomic booking CTA; Montauk **Spring 2027** with an email capture ("be first to know"). This is where Montauk's coming-soon story gets told properly — as anticipation with a capture attached, rather than the current dead-end paragraph. |
-| 8 | **Testimonials** | v2 | Three members, named, with cities. |
-| 9 | **FAQ** | v2 | Objection handling. "Is it worth it if I only travel once or twice a year?" is the question that actually blocks the sale. |
-| 10 | **Inline checkout** | v2 two-step | Two-step, no card at step 1, Stripe at step 2. Converts on the page. |
-| 11 | **Closing CTA + footer** | v2 / existing | Final ask, then the five-column footer. |
+| 0 | Nav | — | ✏️ Venue status labels: **Montauk — Spring 2027**, **Miami — Open now** (green). Carries venue state site-wide without spending a section on it, and gives Miami booking-intent weight. Same five items. |
+| 1 | Hero | image | ✏️ Four-slide carousel → **one committed statement**. Most visitors only ever saw slide 1. Still campaign-swappable — `data/hero-slides.js` is unchanged in shape, it just holds one object now. Dots auto-hide at a single slide. |
+| 2 | Brand anchor | navy | — Unchanged. The first dark beat. |
+| 3 | Four ways to play | cream | — Unchanged. The best section on the site: place-led, four-column, editorial. |
+| 4 | **Proof** | cream | ➕ **New.** Network scale (40+ / 18 / 5) in serif italic navy, then a greyscale press row. The single biggest gap — there was no proof anywhere on the homepage. |
+| 5 | Featured destinations | cream | — Unchanged. |
+| 6 | Featured experience | cream | — Unchanged. |
+| 7 | **Members** | sand | ➕ **New.** Three testimonials on `--light`, a half-step off cream so five consecutive warm sections don't flatten. Placed immediately before pricing to warm the ask. |
+| 8 | Membership | dark | ✏️ **"starting at $595" → both tiers.** Standard $595 and Full Access $995, with the one differing line stated under each. Keeps the dark beat and the serif italic numerals. The benefits columns stay — they apply to both tiers. |
+| 9 | Privé Locations | cream | ✏️ **Montauk-only → both venues.** Miami first, *Open Now*, with a live Playtomic **Book a Court** CTA. Montauk second, *Returning Spring 2027*, reversed layout, telling the origin story. Fixes the backwards allocation where the unbookable venue had the section and the open one was invisible. |
+| 10 | Worldview | dark | — Unchanged. |
+| 11 | Closing CTA | navy | ✏️ "$595 a year" → "From $595 a year" to match two tiers. |
 
-**One worldview beat** — "A life played well." → `/about` — belongs between §4 and §5, as the pivot from browsing to deciding. It is the homepage's only non-commercial moment, per the one-register discipline in `overhaul-plan.md`.
-
----
+**No checkout on the homepage.** It presents the tiers and sends people to `/join`. That costs a click, but an inline two-step form is the single most landing-page-like element there is and it doesn't belong on a brand surface.
 
 ## 5. What happens to everything else
 
