@@ -2208,8 +2208,10 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   font-size:clamp(36px,3.5vw,52px);
   color:var(--navy);
   line-height:1.1;
-  margin-bottom:36px;
+  margin-bottom:16px;
 }
+/* .location-heading sits above .location-status, which restores the gap
+   to the body copy — see .location-status below. */
 .location-heading em{font-style:italic;}
 .location-stats{
   display:flex;
@@ -2643,8 +2645,13 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .locations-section .location-feature + .location-feature{margin-top:110px;}
 .location-feature.is-reversed .location-feature-img{order:2;}
 .location-status{
-  font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--mid);margin-bottom:16px;
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mid);margin-bottom:34px;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.location-status::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:currentColor;opacity:.65;
 }
 .location-status.is-open{color:#5E8C6E;}
 .location-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
