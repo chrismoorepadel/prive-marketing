@@ -25,8 +25,15 @@
       ? '<div class="hero-location">' + s.location + '</div>'
       : '';
 
+    // A slide can be a still or a video; when video is set, `image` is its poster.
+    var bg = s.video
+      ? '<video class="hc-slide-video" autoplay muted loop playsinline preload="auto" poster="' + s.image + '">' +
+          '<source src="' + s.video + '" type="video/mp4">' +
+        '</video>'
+      : '<div class="hc-slide-bg" style="background-image:url(\'' + s.image + '\')"></div>';
+
     el.innerHTML =
-      '<div class="hc-slide-bg" style="background-image:url(\'' + s.image + '\')"></div>' +
+      bg +
       '<div class="hc-slide-overlay"></div>' +
       '<div class="hero-grain"></div>' +
       '<div class="hc-slide-content">' +
