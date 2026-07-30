@@ -2602,29 +2602,31 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 /* Proof band — network scale + press */
 .proof-band{background:var(--cream);padding:0 40px 74px;}
 .proof-stats{
-  max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  /* Aligned to .offerings-grid so the specimen strip shares the section's
+     horizontal rhythm. Hairlines, not cards — cream stays editorial. */
+  max-width:1480px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid rgba(27,42,74,.16);
+  border-bottom:1px solid rgba(27,42,74,.16);
 }
 .proof-stat{
-  padding:26px 24px 24px;
-  background:rgba(27,42,74,.035);
-  border:1px solid rgba(27,42,74,.1);
-  border-radius:22px;
-  box-shadow:0 20px 50px -34px rgba(27,42,74,.5);
-  display:flex;flex-direction:column;
+  padding:36px 44px;
+  border-left:1px solid rgba(27,42,74,.11);
+  display:flex;align-items:baseline;gap:22px;
+}
+.proof-stat:first-child{border-left:none;padding-left:0;}
+.proof-stat:last-child{padding-right:0;}
+.proof-stat-num{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+  font-size:clamp(46px,4.4vw,62px);color:var(--navy);line-height:.9;
+  letter-spacing:-.02em;flex-shrink:0;
 }
 .proof-stat-label{
   font-family:'Jost',sans-serif;font-size:9.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--mid);margin-bottom:12px;
-}
-.proof-stat-num{
-  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
-  font-size:clamp(44px,5vw,60px);color:var(--navy);line-height:1;letter-spacing:-.02em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:7px;
 }
 .proof-stat-note{
-  margin-top:18px;padding-top:16px;flex:1;
-  border-top:1px solid rgba(27,42,74,.1);
   font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;
-  color:var(--mid);line-height:1.5;
+  color:var(--mid);line-height:1.45;
 }
 .proof-press-label{
   text-align:center;font-family:'Jost',sans-serif;font-size:9.5px;
@@ -2685,11 +2687,15 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 
 @media (max-width:900px){
   .proof-band{padding:0 26px 58px;}
-  .proof-stats{gap:8px;}
-  .proof-stat{padding:16px 12px;border-radius:16px;text-align:center;}
-  .proof-stat-label{font-size:8px;letter-spacing:.14em;margin-bottom:8px;}
-  .proof-stat-num{font-size:34px;}
-  .proof-stat-note{display:none;}
+  .proof-stats{grid-template-columns:1fr;}
+  .proof-stat{
+    padding:20px 0;border-left:none;
+    border-top:1px solid rgba(27,42,74,.11);gap:16px;
+  }
+  .proof-stat:first-child{border-top:none;padding-top:0;}
+  .proof-stat:last-child{padding-bottom:0;}
+  .proof-stat-label{font-size:8.5px;letter-spacing:.16em;margin-bottom:5px;}
+  .proof-stat-num{font-size:38px;min-width:70px;}
   .proof-press-label{margin:40px 0 20px;}
   .proof-press{gap:26px 34px;}
   .proof-press img{height:20px;}
