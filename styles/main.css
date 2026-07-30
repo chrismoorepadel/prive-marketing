@@ -2820,3 +2820,55 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .pp-tiles{grid-template-columns:1fr;}
   .brand-anchor-body{font-size:16px;margin-top:22px;}
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE — brand anchor padding + swipe carousels
+═══════════════════════════════════════════════════════ */
+@media (max-width:900px){
+
+  /* 1 · Brand anchor was running to the screen edges */
+  .brand-anchor{padding:0 26px;}
+  /* the section supplies the gutter now, so drop the content's own
+     40px inset — stacked, they left the paragraph only ~243px wide */
+  .brand-anchor-content{max-width:100%;padding:0;}
+
+  /* 2 · Offerings + 3 · Members become swipe carousels.
+     Layout is pure CSS scroll-snap so it still works without JS;
+     mobile-carousel.js only adds auto-advance and the dots. */
+  .offerings-grid,
+  .members-grid{
+    display:flex;
+    grid-template-columns:none;
+    max-width:none;
+    gap:14px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    /* bleed to the screen edges, keeping the section's own gutter */
+    margin-left:-26px;margin-right:-26px;
+    padding:0 26px;
+  }
+  .offerings-grid::-webkit-scrollbar,
+  .members-grid::-webkit-scrollbar{display:none;}
+
+  .offerings-grid > .offering,
+  .members-grid > .member-quote{
+    flex:0 0 auto;
+    width:78vw;max-width:330px;
+    scroll-snap-align:center;
+  }
+  .members-grid > .member-quote{height:auto;}
+
+  .mc-dots{
+    display:flex;justify-content:center;gap:8px;margin-top:26px;
+  }
+  .mc-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:rgba(27,42,74,.2);
+    transition:background .25s,transform .25s;
+    cursor:pointer;
+  }
+  .mc-dot.active{background:var(--gold);transform:scale(1.25);}
+}
