@@ -136,7 +136,7 @@ Base is the **current homepage**, not the landing page. Sections marked ✏️ c
 | 1 | Hero | image | ✏️ Four-slide carousel → **one committed statement**. Most visitors only ever saw slide 1. Still campaign-swappable — `data/hero-slides.js` is unchanged in shape, it just holds one object now. Dots auto-hide at a single slide. |
 | 2 | Brand anchor | navy | — Unchanged. The first dark beat. |
 | 3 | Four ways to play | cream | — Unchanged. The best section on the site: place-led, four-column, editorial. |
-| 4 | **Proof** | cream | ➕ **New.** Network scale (40+ / 18 / 5) in serif italic navy, then a greyscale press row. The single biggest gap — there was no proof anywhere on the homepage. |
+| 4 | **Press** | cream | ➕ **New.** A quiet greyscale press row. *A stat row (40+ / 18 / 5) was tried here and cut:* the offerings section above already states the network size and the destinations section below shows the properties, so the numbers were the same fact a third time. The gap was social proof, which the members band fills — photography is this page's proof of scale. |
 | 5 | Featured destinations | cream | — Unchanged. |
 | 6 | Featured experience | cream | — Unchanged. |
 | 7 | **Members** | sand | ➕ **New.** Three testimonials on `--light`, a half-step off cream so five consecutive warm sections don't flatten. Placed immediately before pricing to warm the ask. |
