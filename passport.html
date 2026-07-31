@@ -34,566 +34,1479 @@
     gtag('js', new Date());
     gtag('config', 'G-V7WWTFXWSE');
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privé Passport — Global Padel Membership</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Privé Passport — The Membership</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <meta name="description" content="Stay and play at 40+ luxury hotels with padel courts. Curated retreats, club access in major cities, and flagship venues in Montauk and Miami.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0E1923">
+  <meta name="description" content="Privé Passport — one membership opening 40+ hotels and resorts across 18 countries, a padel court at every one, 20% off signature retreats, and member pricing at Privé Montauk &amp; Miami. From $595 a year.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Privé Padel">
-  <meta property="og:title" content="Privé Passport — Global Padel Membership">
-  <meta property="og:description" content="Stay and play at 40+ luxury hotels with padel courts. Curated retreats, club access in major cities, and flagship venues in Montauk and Miami.">
-  <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776001178/DJI_0145_p3ovyg.jpg">
-  <meta property="og:url" content="https://prive-padel.com/passport">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privé Passport — Global Padel Membership">
-  <meta name="twitter:description" content="Stay and play at 40+ luxury hotels with padel courts. Curated retreats, club access in major cities, and flagship venues in Montauk and Miami.">
-  <meta name="twitter:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776001178/DJI_0145_p3ovyg.jpg">
+  <meta property="og:title" content="The world's first Padel Passport — Privé Padel">
+  <meta property="og:description" content="One membership. 40+ hotels and resorts. A court waiting at every one. From $595 a year.">
+  <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/video/upload/so_0,w_1200,q_auto/v1784742354/Landing_Page_Hero_Video_w3mnrw.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="dns-prefetch" href="https://res.cloudinary.com">
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1776001178/DJI_0145_p3ovyg.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/main.css">
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
   <style>
-    .passport-map-section{padding:80px 80px 100px;background:var(--dark);}
-    .passport-map-container{margin-top:48px;border:1px solid rgba(255,255,255,.08);border-radius:2px;overflow:hidden;height:540px;position:relative;}
-    #passport-map{width:100%;height:100%;}
-    .mapboxgl-popup{pointer-events:none;}
-    .mapboxgl-popup-content{background:rgba(14,25,35,.95)!important;border:1px solid rgba(184,151,106,.3)!important;border-radius:2px!important;padding:10px 16px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;backdrop-filter:blur(8px);}
-    .mapboxgl-popup-tip{display:none!important;}
-    .popup-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:var(--white);white-space:nowrap;}
-    .mapboxgl-ctrl-group{background:rgba(14,25,35,.9)!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:2px!important;box-shadow:none!important;}
-    .mapboxgl-ctrl-group button{width:30px;height:30px;}
-    .mapboxgl-ctrl-icon{filter:invert(1) opacity(.6);}
-    .mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon{filter:invert(1) opacity(1);}
-    .mapboxgl-ctrl-attrib{display:none!important;}
-    @media(max-width:768px){.passport-map-section{padding:60px 24px 80px;}.passport-map-container{height:380px;}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* Light ground. The variable NAMES are inherited from the landing
+         page so the shared rules keep working; --dark is the page
+         surface and --cream the default text, whatever their hue. */
+      --dark:  #F5F0E8;
+      --dark2: #EDE8E0;
+      --navy:  #1B2A4A;
+      --gold:  #B8976A;
+      --cream: #1B2A4A;
+      --sand:  #EDE8DF;
+      --glass:      rgba(255,255,255,.55);
+      --glass-line: rgba(27,42,74,.12);
+    }
+    /* Components that sit on a photo or keep a dark canvas re-declare the
+       original palette, so everything inside them inherits it unchanged. */
+    .hero, .final, .xlb, .plb, .imgrow-item, .pf-tile {
+      --dark:  #0E1923;
+      --dark2: #152230;
+      --cream: #F5F0E8;
+      --glass:      rgba(18,28,40,.52);
+      --glass-line: rgba(245,240,232,.14);
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--dark); color: var(--cream);
+      font-family: 'Jost', sans-serif; font-weight: 300;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── shared primitives ─────────────────────────────────── */
+    .wrap { width: 100%; max-width: 620px; margin: 0 auto; padding: 0 24px; }
+    .wrap-wide { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    .eyebrow {
+      font-size: 10.5px; font-weight: 400; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .display {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(34px, 9vw, 52px); line-height: 1.05; color: var(--cream); letter-spacing: .003em;
+    }
+    .display em { font-style: italic; color: var(--gold); display: block; }
+    .lede {
+      font-size: 15px; font-weight: 300; line-height: 1.75; color: rgba(27,42,74,.62);
+    }
+
+    /* Frosted-glass card */
+    .glass {
+      background: var(--glass);
+      -webkit-backdrop-filter: blur(22px) saturate(1.25);
+      backdrop-filter: blur(22px) saturate(1.25);
+      border: 1px solid var(--glass-line);
+      border-radius: 22px;
+      box-shadow: 0 24px 60px -34px rgba(27,42,74,.28);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: .2em; text-transform: uppercase; cursor: pointer;
+      border: none; border-radius: 100px; transition: opacity .2s, transform .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-gold { background: var(--gold); color: var(--dark); padding: 17px 34px; }
+    .btn-gold:hover { opacity: .9; }
+    .btn-ghost {
+      background: rgba(27,42,74,.06); color: var(--cream);
+      border: 1px solid rgba(27,42,74,.28); padding: 16px 32px;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-full { width: 100%; }
+
+    /* ── HEADER ────────────────────────────────────────────── */
+    .hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; transition: background .3s, padding .3s;
+      padding-top: calc(14px + env(safe-area-inset-top));
+    }
+    .hdr.scrolled { background: rgba(14,25,35,.86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .hdr img { height: 42px; width: auto; }
+    .hdr .btn { padding: 11px 20px; font-size: 10px; }
+
+    /* ── STICKY BOTTOM BAR ─────────────────────────────────── */
+    .sticky {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 210;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(14,25,35,.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(184,151,106,.22);
+      transform: translateY(110%); transition: transform .35s ease;
+    }
+    .sticky.visible { transform: translateY(0); }
+    .sticky-copy { font-size: 12px; color: rgba(245,240,232,.6); letter-spacing: .02em; line-height: 1.3; }
+    .sticky-copy strong { color: var(--gold); font-weight: 400; }
+    .sticky .btn { flex-shrink: 0; padding: 13px 22px; font-size: 10px; }
+
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100svh; display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      transform: scale(1.05);
+    }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(14,25,35,.35) 0%, rgba(14,25,35,.55) 45%, rgba(14,25,35,.97) 100%);
+    }
+    .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 54px; padding-top: 120px; text-shadow: 0 2px 30px rgba(6,11,17,.55); }
+    .hero .eyebrow { color: #DDBE93; font-size: 12px; letter-spacing: .24em; margin-bottom: 22px; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(46px, 13vw, 76px); line-height: 1.0; color: var(--cream); margin-bottom: 22px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); display: block; }
+    .hero-sub { font-size: 16px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,.72); max-width: 30ch; margin-bottom: 30px; }
+    .hero-micro {
+      margin-top: 18px; font-size: 11.5px; font-weight: 300; letter-spacing: .06em;
+      color: rgba(245,240,232,.45);
+    }
+    .hero-micro strong { color: rgba(245,240,232,.85); font-weight: 400; }
+    .scrollcue {
+      margin-top: 34px; font-size: 9.5px; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(27,42,74,.4); display: flex; align-items: center; gap: 10px;
+    }
+    .scrollcue::before { content: ''; width: 26px; height: 1px; background: rgba(27,42,74,.4); }
+
+    /* ── generic section ───────────────────────────────────── */
+    .sec { position: relative; padding: 84px 0; }
+    .sec-tight { padding: 64px 0; }
+
+    /* Photo section (full-bleed image + glass content) */
+    .photo-sec { position: relative; overflow: hidden; }
+    .photo-sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .photo-sec-veil { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,25,35,.8) 0%, rgba(14,25,35,.62) 40%, rgba(14,25,35,.92) 100%); }
+    .photo-sec > .wrap { position: relative; z-index: 2; }
+
+    /* ── stacked benefit / feature list (glass) ────────────── */
+    .flist { padding: 8px 26px; margin-top: 30px; }
+    .flist-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 17px 0; border-bottom: 1px solid rgba(27,42,74,.1);
+    }
+    .flist-row:last-child { border-bottom: none; }
+    .flist-ico { color: var(--gold); width: 20px; height: 20px; flex-shrink: 0; }
+    .flist-ico svg { width: 20px; height: 20px; }
+    .flist-txt { font-size: 14.5px; font-weight: 300; color: rgba(27,42,74,.9); line-height: 1.4; }
+    .flist-txt b { font-weight: 400; color: var(--cream); }
+    .flist-note {
+      margin-top: 18px; text-align: center; font-size: 10px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(27,42,74,.34);
+    }
+
+    /* ── PORTFOLIO GRID ────────────────────────────────────── */
+    .pf-head { text-align: center; margin-bottom: 30px; }
+    .pf-head .eyebrow, .sec-head .eyebrow { display: inline-block; }
+    .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .pf-tile {
+      position: relative; aspect-ratio: 1/1; overflow: hidden; border-radius: 12px;
+      display: block; background: var(--dark2); cursor: pointer;
+    }
+    .pf-tile-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
+    .pf-tile:hover .pf-tile-bg { transform: scale(1.06); }
+    .pf-tile-veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.9) 0%, rgba(14,25,35,.05) 60%); }
+    .pf-tile-label {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 10px; z-index: 2; text-align: center;
+      font-family: 'Jost', sans-serif; font-size: 9.5px; font-weight: 400; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(245,240,232,.92);
+    }
+    .pf-foot { text-align: center; margin-top: 28px; }
+    .pf-foot-note { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(27,42,74,.4); margin-bottom: 20px; }
+
+    /* ── RETREATS ──────────────────────────────────────────── */
+    .rt-list { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+    .rt-item {
+      position: relative; display: block; overflow: hidden; border-radius: 18px;
+      min-height: 176px; display: flex; align-items: flex-end;
+    }
+    .rt-item-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
+    .rt-item:hover .rt-item-bg { transform: scale(1.05); }
+    .rt-item-veil { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(14,25,35,.9) 0%, rgba(14,25,35,.5) 55%, rgba(14,25,35,.2) 100%); }
+    .rt-item-inner { position: relative; z-index: 2; padding: 22px 24px; width: 100%; }
+    .rt-item-loc { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .rt-item-name { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 300; color: var(--cream); line-height: 1.08; margin-bottom: 8px; }
+    .rt-item-name em { font-style: italic; }
+    .rt-item-meta { display: flex; align-items: baseline; gap: 10px; font-size: 12.5px; color: rgba(245,240,232,.7); }
+    .rt-item-save { color: var(--gold); }
+    .rt-item-strike { text-decoration: line-through; color: rgba(245,240,232,.4); }
+    .rt-foot { text-align: center; margin-top: 26px; font-size: 13px; color: rgba(27,42,74,.6); }
+    .rt-foot a { color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
+
+    /* ── OFFER + CHECKOUT ──────────────────────────────────── */
+    .offer { background: radial-gradient(120% 90% at 50% 0%, #16273a 0%, var(--dark) 62%); padding: 84px 0 92px; }
+    .offer-head { text-align: center; margin-bottom: 34px; }
+    .offer-badge {
+      display: inline-block; font-size: 10px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(184,151,106,.4); border-radius: 100px; padding: 8px 18px; margin-bottom: 24px;
+    }
+    .offer-price { display: flex; align-items: baseline; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .offer-old { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,8vw,40px); font-weight: 300; color: rgba(27,42,74,.34); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .offer-new { font-family: 'Cormorant Garamond', serif; font-size: clamp(60px,18vw,84px); font-weight: 300; font-style: italic; color: var(--cream); line-height: .9; }
+    .offer-detail { text-align: center; font-size: 12px; letter-spacing: .06em; color: rgba(27,42,74,.5); margin-bottom: 20px; }
+    .offer-includes {
+      text-align: center; font-size: 15px; line-height: 1.6; color: rgba(27,42,74,.82); max-width: 30ch; margin: 0 auto 6px;
+    }
+    .offer-includes b { color: var(--gold); font-weight: 400; }
+
+    /* checkout card (glass, dark) — class names kept for JS hooks */
+    .lp-checkout-card { margin-top: 34px; padding: 30px 24px; }
+    .lp-checkout-tier {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+      padding-bottom: 20px; border-bottom: 1px solid rgba(27,42,74,.12);
+    }
+    .lp-checkout-tier-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--cream); margin-bottom: 5px; }
+    .lp-checkout-tier-desc { font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.55); line-height: 1.5; }
+    .lp-checkout-tier-price { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--cream); white-space: nowrap; }
+    .lp-checkout-tier-price span { font-size: 14px; color: rgba(27,42,74,.4); }
+
+    .lp-partner-row {
+      display: flex; align-items: flex-start; gap: 13px; padding: 18px 0;
+      border-bottom: 1px solid rgba(27,42,74,.12); cursor: pointer; user-select: none;
+    }
+    .lp-partner-check {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      border: 1px solid rgba(27,42,74,.3); border-radius: 5px; position: relative; transition: .15s;
+    }
+    .lp-partner-row.checked .lp-partner-check { border-color: var(--gold); background: var(--gold); }
+    .lp-partner-row.checked .lp-partner-check::after {
+      content: ''; position: absolute; left: 6px; top: 2.5px; width: 5px; height: 10px;
+      border-right: 1.5px solid var(--dark); border-bottom: 1.5px solid var(--dark); transform: rotate(45deg);
+    }
+    .lp-partner-row input { display: none; }
+    .lp-partner-body { flex: 1; }
+    .lp-partner-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--cream); margin-bottom: 3px; }
+    .lp-partner-sub { font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.55); line-height: 1.4; }
+    .lp-partner-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(27,42,74,.7); white-space: nowrap; }
+    .lp-partner-price span { font-size: 13px; color: rgba(27,42,74,.4); }
+
+    .lp-total-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 20px; }
+    .lp-total-label { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.45); }
+    .lp-total-amount { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--cream); }
+
+    .lp-step { display: none; }
+    .lp-step.active { display: block; }
+    .lp-step-head { display: flex; align-items: center; gap: 10px; margin: 22px 0 14px; }
+    .lp-step-badge { font-size: 9.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 5px 9px; border-radius: 4px; }
+    .lp-step-name { font-size: 10.5px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(27,42,74,.5); }
+    .lp-field { margin-bottom: 11px; }
+    .lp-field input {
+      width: 100%; padding: 15px 16px; font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
+      color: var(--cream); background: rgba(255,255,255,.05); border: 1px solid rgba(27,42,74,.18);
+      border-radius: 10px; transition: border-color .15s;
+    }
+    .lp-field input::placeholder { color: rgba(27,42,74,.4); }
+    .lp-field input:focus { outline: none; border-color: var(--gold); }
+    .lp-field-err { display: none; margin-top: 7px; font-size: 12px; color: #E7A38C; }
+    .lp-field.invalid input { border-color: #C56A4C; }
+    .lp-field.invalid .lp-field-err { display: block; }
+    .lp-review { font-size: 13.5px; font-weight: 300; color: rgba(27,42,74,.68); line-height: 1.5; margin-bottom: 16px; }
+    .lp-review strong { color: var(--cream); font-weight: 400; }
+    .lp-edit-link { background: none; border: none; cursor: pointer; padding: 0 0 0 4px; font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .lp-checkout-btn {
+      display: block; width: 100%; padding: 17px; background: var(--gold); color: var(--dark);
+      border: none; border-radius: 100px; cursor: pointer; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; transition: opacity .2s;
+    }
+    .lp-checkout-btn:hover:not(:disabled) { opacity: .9; }
+    .lp-checkout-btn:disabled { opacity: .5; cursor: default; }
+    .lp-checkout-secure { font-size: 11.5px; font-weight: 300; color: rgba(27,42,74,.42); text-align: center; margin-top: 14px; }
+    .lp-trust { list-style: none; margin: 22px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(27,42,74,.12); display: flex; flex-direction: column; gap: 11px; }
+    .lp-trust li { position: relative; padding-left: 26px; font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.66); line-height: 1.4; }
+    .lp-trust li::before { content: ''; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--gold); }
+    .lp-trust li::after { content: ''; position: absolute; left: 5.5px; top: 4px; width: 4px; height: 8px; border-right: 1.4px solid var(--gold); border-bottom: 1.4px solid var(--gold); transform: rotate(45deg); }
+    .lp-card-logos { margin-top: 16px; text-align: center; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(27,42,74,.4); }
+
+    /* ── PRESS ─────────────────────────────────────────────── */
+    .press { padding: 42px 0; border-top: 1px solid rgba(27,42,74,.07); border-bottom: 1px solid rgba(27,42,74,.07); }
+    .press-label { text-align: center; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(27,42,74,.36); margin-bottom: 24px; }
+    .press-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 26px; }
+        /* invert() made these white for the navy canvas; on beige they need to go dark */
+    .press-logos img { height: 20px; width: auto; max-width: 96px; object-fit: contain; opacity: .42; filter: brightness(0); transition: opacity .25s; }
+    .press-logos img:hover { opacity: .68; }
+
+    /* ── TESTIMONIALS ──────────────────────────────────────── */
+    .sec-head { text-align: center; margin-bottom: 30px; }
+    .testis { display: flex; flex-direction: column; gap: 14px; }
+    .testi { padding: 26px 24px; }
+    .testi-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 13px; }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; font-style: italic; color: rgba(27,42,74,.9); line-height: 1.5; margin-bottom: 16px; }
+    .testi-attrib { font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(27,42,74,.5); }
+
+    /* ── FAQ ───────────────────────────────────────────────── */
+    .lp-faq-item { border-bottom: 1px solid rgba(27,42,74,.12); }
+    .lp-faq-item:first-of-type { border-top: 1px solid rgba(27,42,74,.12); }
+    .lp-faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; text-align: left; gap: 18px; }
+    .lp-faq-q-text { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; color: var(--cream); line-height: 1.25; }
+    .lp-faq-icon { width: 18px; height: 18px; flex-shrink: 0; position: relative; }
+    .lp-faq-icon::before, .lp-faq-icon::after { content: ''; position: absolute; background: var(--gold); border-radius: 1px; }
+    .lp-faq-icon::before { width: 100%; height: 1px; top: 50%; transform: translateY(-50%); }
+    .lp-faq-icon::after { width: 1px; height: 100%; left: 50%; transform: translateX(-50%); transition: transform .2s, opacity .2s; }
+    .lp-faq-item.open .lp-faq-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
+    .lp-faq-a { font-size: 14.5px; font-weight: 300; color: rgba(27,42,74,.62); line-height: 1.75; overflow: hidden; max-height: 0; transition: max-height .3s ease, padding .3s ease; }
+    .lp-faq-item.open .lp-faq-a { max-height: 640px; padding-bottom: 22px; }
+    .lp-faq-a a { color: var(--gold); text-underline-offset: 2px; text-decoration: underline; }
+
+    /* ── FINAL CTA ─────────────────────────────────────────── */
+    .final { position: relative; padding: 108px 0; text-align: center; overflow: hidden;
+      background: linear-gradient(165deg, #8a94a0 0%, #59636f 34%, #26313d 72%, var(--dark) 100%); }
+    .final-eyebrow { font-size: 10.5px; letter-spacing: .28em; text-transform: uppercase; color: rgba(245,240,232,.7); margin-bottom: 22px; }
+    .final h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px,13vw,72px); line-height: 1.0; color: var(--cream); margin-bottom: 12px; }
+    .final h2 em { font-style: italic; color: var(--gold); display: block; }
+    .final-sub { font-size: 14px; color: rgba(245,240,232,.72); margin-bottom: 34px; }
+    .final-micro { margin-top: 18px; font-size: 11px; letter-spacing: .06em; color: rgba(245,240,232,.5); }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    .ftr { padding: 30px 24px calc(90px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+    .ftr-copy { font-size: 11px; color: rgba(27,42,74,.28); }
+    .ftr-links { display: flex; gap: 22px; }
+    .ftr-links a { font-size: 11px; color: rgba(27,42,74,.4); }
+    .ftr-links a:hover { color: rgba(27,42,74,.7); }
+
+    /* ── ≥720px refinements ────────────────────────────────── */
+    /* ── section tone + separation ─────────────────────────── */
+    .sec, .sec-tight, .offer, .clubs, .press { border-top: 1px solid rgba(245,240,232,.055); }
+    .bg-d2 { background: var(--dark2); }
+
+    /* Framed, inset image (not full-bleed) */
+    .frame {
+      margin: 28px 0; border-radius: 18px; overflow: hidden;
+      border: 1px solid rgba(27,42,74,.08);
+      box-shadow: 0 30px 64px -36px rgba(0,0,0,.85);
+    }
+    .frame img { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/10; }
+
+    /* ── portfolio tiles (lightbox openers) ────────────────── */
+    .pf-tile.hidden-extra { display: none; }
+    .pf-tile-badge {
+      position: absolute; top: 8px; right: 8px; z-index: 3;
+      font-size: 7.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--cream); background: rgba(184,151,106,.9); padding: 4px 8px; border-radius: 100px;
+    }
+    .pf-tile-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 13px 10px; z-index: 2; text-align: center; }
+    .pf-tile-region { font-size: 8px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.6); margin-bottom: 4px; }
+    .pf-tile-name { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 300; color: var(--cream); line-height: 1.1; }
+    .pf-tile-view { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .25s; }
+    .pf-tile:hover .pf-tile-view { opacity: 1; }
+    .pf-tile-view span { font-size: 8.5px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 8px 16px; border-radius: 100px; }
+
+    /* ── PRIVÉ CLUBS ───────────────────────────────────────── */
+    .clubs { padding: 84px 0; }
+    .clubs-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+    .club { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid rgba(245,240,232,.08); background: var(--dark2); box-shadow: 0 30px 64px -44px rgba(27,42,74,.3); }
+    .club-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+    .club-body { padding: 22px 24px 26px; }
+    .club-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 11px; }
+    .club-name { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 11px; }
+    .club-name em { font-style: italic; }
+    .club-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.62); line-height: 1.6; margin-bottom: 18px; }
+    .club-tag { display: flex; align-items: center; gap: 9px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 15px; font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(245,240,232,.72); }
+    .club-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* ── image row (marquee destinations) ──────────────────── */
+    .imgrow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 30px 24px 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .imgrow::-webkit-scrollbar { display: none; }
+    .imgrow-item { position: relative; flex: 0 0 auto; width: 216px; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; scroll-snap-align: center; border: 1px solid rgba(27,42,74,.08); }
+    .imgrow-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .imgrow-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 16px 10px 14px; text-align: center; font-size: 12.5px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--cream); background: linear-gradient(to top, rgba(14,25,35,.92) 10%, transparent); }
+
+    /* ── stat band ─────────────────────────────────────────── */
+    .stats { display: flex; margin-top: 34px; border-top: 1px solid rgba(27,42,74,.14); border-bottom: 1px solid rgba(27,42,74,.14); }
+    .stat { flex: 1; text-align: center; padding: 22px 6px; }
+    .stat + .stat { border-left: 1px solid rgba(27,42,74,.14); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,9vw,46px); font-weight: 300; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 9px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(27,42,74,.55); margin-top: 9px; }
+
+    /* ── "also included" (secondary pillars) ────────────────── */
+    .also { display: flex; flex-direction: column; gap: 40px; margin-top: 34px; }
+    .also-col { flex: 1; }
+    .also-img { border-radius: 16px; overflow: hidden; border: 1px solid rgba(27,42,74,.08); margin-bottom: 20px; box-shadow: 0 26px 56px -38px rgba(0,0,0,.8); }
+    .also-img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+    .also-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .also-title { font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 16px; }
+    .also-title em { font-style: italic; }
+    .also-list { display: flex; flex-direction: column; border-top: 1px solid rgba(27,42,74,.1); margin-bottom: 18px; }
+    .also-list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(27,42,74,.1); font-size: 13px; font-weight: 300; color: rgba(27,42,74,.82); transition: color .15s; }
+    .also-list a:hover { color: var(--cream); }
+    .also-list-name b { font-weight: 400; color: var(--cream); }
+    .also-list-name span { color: rgba(27,42,74,.5); }
+    .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); white-space: nowrap; }
+    .also-list-price s { color: rgba(27,42,74,.5); font-size: 15px; margin-right: 6px; text-decoration-thickness: 1px; }
+    .also-text { font-size: 13.5px; font-weight: 300; color: rgba(27,42,74,.64); line-height: 1.65; margin-bottom: 18px; }
+    .also-link { display: inline-block; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); background: none; border: 0; border-bottom: 1px solid rgba(184,151,106,.5); padding: 0 0 2px; cursor: pointer; }
+    .also-link:hover { color: var(--cream); border-color: var(--cream); }
+
+    /* ── EXPERIENCES LIGHTBOX ──────────────────────────────── */
+    .xlb { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; visibility: hidden; pointer-events: none; }
+    .xlb.open { visibility: visible; pointer-events: auto; }
+    .xlb-backdrop { position: absolute; inset: 0; background: rgba(6,11,17,.82); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; transition: opacity .35s ease; }
+    .xlb.open .xlb-backdrop { opacity: 1; }
+    .xlb-panel { position: relative; z-index: 1; width: 94%; max-width: 720px; max-height: 90vh; overflow-y: auto; background: var(--dark); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; padding: 44px 24px 32px; opacity: 0; transform: translateY(16px); transition: opacity .35s, transform .35s; scrollbar-width: thin; scrollbar-color: rgba(184,151,106,.35) transparent; }
+    .xlb.open .xlb-panel { opacity: 1; transform: translateY(0); }
+    .xlb-panel::-webkit-scrollbar { width: 4px; }
+    .xlb-panel::-webkit-scrollbar-thumb { background: rgba(184,151,106,.35); border-radius: 2px; }
+    .xlb-close { position: absolute; top: 14px; right: 14px; z-index: 2; background: rgba(6,11,17,.6); border: 1px solid rgba(245,240,232,.2); border-radius: 100px; color: var(--cream); font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .14em; padding: 9px 15px; cursor: pointer; }
+    .xlb-close:hover { background: rgba(6,11,17,.85); }
+    .xlb-head { text-align: center; margin-bottom: 26px; }
+    .xlb-head .lede { max-width: 44ch; margin: 12px auto 0; font-size: 14px; }
+    .xlb-list { display: flex; flex-direction: column; gap: 16px; }
+    .xlb-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; border: 1px solid rgba(245,240,232,.1); background: var(--dark2); transition: border-color .2s, transform .2s; }
+    .xlb-card:hover { border-color: rgba(184,151,106,.5); }
+    .xlb-card-img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .xlb-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; }
+    .xlb-card-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+    .xlb-card-name { font-family: 'Cormorant Garamond',serif; font-size: 26px; font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 10px; }
+    .xlb-card-desc { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.66); line-height: 1.6; margin-bottom: 16px; }
+    .xlb-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 15px; margin-top: auto; }
+    .xlb-price { font-family: 'Cormorant Garamond',serif; font-size: 21px; color: var(--gold); white-space: nowrap; }
+    .xlb-price s { color: rgba(245,240,232,.42); font-size: 15px; margin-right: 6px; }
+    .xlb-card-link { font-size: 10.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); white-space: nowrap; }
+    .xlb-card:hover .xlb-card-link { color: var(--gold); }
+    @media (min-width: 640px) {
+      .xlb-panel { padding: 48px 32px 36px; }
+      .xlb-card { flex-direction: row; }
+      .xlb-card-img { flex: 0 0 42%; }
+      .xlb-card-img img { height: 100%; aspect-ratio: auto; min-height: 210px; }
+      .xlb-card-body { flex: 1; }
+    }
+
+    /* card is now a button opening an in-panel detail view */
+    .xlb-card { width: 100%; text-align: left; font-family: inherit; color: inherit; cursor: pointer; -webkit-appearance: none; appearance: none; }
+    /* experiences detail view */
+    .xlb-back { background: none; border: 0; padding: 0; margin-bottom: 16px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); cursor: pointer; }
+    .xlb-back:hover { color: var(--cream); }
+    .xlb-detail-hero img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-radius: 14px; }
+    .xlb-detail-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 22px 0 9px; }
+    .xlb-detail-name { font-family: 'Cormorant Garamond',serif; font-size: clamp(28px,7vw,38px); font-weight: 300; color: var(--cream); line-height: 1.04; margin-bottom: 14px; }
+    .xlb-detail-intro { font-size: 14px; font-weight: 300; color: rgba(245,240,232,.72); line-height: 1.7; margin-bottom: 24px; }
+    .xlb-glance { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(245,240,232,.1); border: 1px solid rgba(245,240,232,.1); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+    .xlb-glance-item { background: var(--dark2); padding: 16px 18px; }
+    .xlb-glance-label { font-size: 8.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .xlb-glance-val { font-size: 12.5px; font-weight: 300; color: rgba(245,240,232,.86); line-height: 1.4; }
+    .xlb-incl-label { font-size: 10px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.5); margin-bottom: 13px; }
+    .xlb-incl ul { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
+    .xlb-incl li { position: relative; padding-left: 22px; font-size: 13px; font-weight: 300; color: rgba(245,240,232,.8); line-height: 1.45; }
+    .xlb-incl li::before { content: ''; position: absolute; left: 2px; top: 3px; width: 5px; height: 9px; border-right: 1.4px solid var(--gold); border-bottom: 1.4px solid var(--gold); transform: rotate(45deg); }
+    .xlb-detail-foot { border-top: 1px solid rgba(245,240,232,.12); padding-top: 22px; }
+    .xlb-detail-price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+    .xlb-detail-price .pub { font-family: 'Cormorant Garamond',serif; font-size: 22px; color: rgba(245,240,232,.42); text-decoration: line-through; }
+    .xlb-detail-price .mem { font-family: 'Cormorant Garamond',serif; font-size: 34px; font-style: italic; color: var(--cream); line-height: 1; }
+    .xlb-detail-keep { font-size: 12px; color: var(--gold); margin-bottom: 20px; }
+    .xlb-detail-link { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.6); border-bottom: 1px solid rgba(245,240,232,.25); padding-bottom: 2px; }
+    .xlb-detail-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* hide city/region label on mobile grid tiles */
+    @media (max-width: 719px) { .pf-tile-region { display: none; } }
+
+    /* ── PROPERTY LIGHTBOX (dark themed) ───────────────────── */
+    .plb { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; visibility: hidden; pointer-events: none; }
+    .plb.open { visibility: visible; pointer-events: auto; }
+    .plb-backdrop { position: absolute; inset: 0; background: rgba(6,11,17,.8); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; transition: opacity .38s ease; }
+    .plb.open .plb-backdrop { opacity: 1; }
+    .plb-panel { position: relative; z-index: 1; width: 94%; max-width: 1000px; height: 90vh; overflow-y: auto; background: var(--dark); color: var(--cream); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; opacity: 0; transform: translateY(16px); transition: opacity .38s, transform .38s; scrollbar-width: thin; scrollbar-color: rgba(184,151,106,.35) transparent; }
+    .plb.open .plb-panel { opacity: 1; transform: translateY(0); }
+    .plb-panel::-webkit-scrollbar { width: 4px; }
+    .plb-panel::-webkit-scrollbar-thumb { background: rgba(184,151,106,.35); border-radius: 2px; }
+    .plb-close { position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(6,11,17,.6); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border: 1px solid rgba(245,240,232,.2); border-radius: 100px; color: var(--cream); font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .14em; padding: 9px 16px; cursor: pointer; }
+    .plb-close:hover { background: rgba(6,11,17,.85); }
+    .plb-hero { position: relative; height: 46vh; min-height: 280px; background-size: cover; background-position: center; }
+    .plb-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,25,35,.12) 0%, rgba(14,25,35,.9) 100%); }
+    .plb-hero-foot { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 28px; }
+    .plb-hero-collection { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.55); margin-bottom: 8px; }
+    .plb-hero-name { font-family: 'Cormorant Garamond',serif; font-size: clamp(30px,7vw,48px); font-weight: 300; color: var(--cream); line-height: 1.05; }
+    .plb-hero-loc { font-family: 'Jost',sans-serif; font-size: 11px; letter-spacing: .08em; color: rgba(245,240,232,.55); margin-top: 8px; }
+    .plb-hero-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .plb-hero-pill { font-family: 'Jost',sans-serif; font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.7); display: flex; align-items: center; gap: 6px; }
+    .plb-hero-pill::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+    .plb-about { display: grid; grid-template-columns: 1fr; }
+    .plb-about-text { padding: 40px 28px; }
+    .plb-section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .plb-section-label-rule { flex: 1; height: 1px; background: rgba(245,240,232,.14); }
+    .plb-section-label-text { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.5); white-space: nowrap; }
+    .plb-about-label { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .plb-about-heading { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,30px); font-weight: 300; font-style: italic; color: var(--cream); margin: 0 0 18px; line-height: 1.2; }
+    .plb-about-body { font-family: 'Jost',sans-serif; font-size: 13.5px; font-weight: 300; line-height: 1.85; color: rgba(245,240,232,.7); }
+    .plb-about-img { width: 100%; height: 250px; object-fit: cover; display: block; }
+    .plb-benefits-wrap { background: #0B141d; padding: 40px 28px; }
+    .plb-benefits-bar-label { font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.72); margin-bottom: 28px; }
+    .plb-benefits-blur-area { position: relative; }
+    .plb-benefits-static-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; filter: blur(6px); pointer-events: none; user-select: none; }
+    .plb-benefits-lock { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 2; }
+    .plb-lock-label { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: rgba(184,151,106,.85); }
+    .plb-lock-cta { display: inline-block; font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); background: var(--gold); border: none; cursor: pointer; padding: 13px 30px; border-radius: 100px; margin-top: 4px; }
+    .plb-benefit-cell { display: flex; flex-direction: column; gap: 6px; }
+    .plb-benefit-icon { width: 26px; height: 26px; margin-bottom: 6px; display: flex; align-items: center; }
+    .plb-benefit-name { font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .06em; color: var(--cream); }
+    .plb-amenities-wrap { padding: 40px 28px; background: var(--dark); }
+    .plb-amenities-heading { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,32px); font-weight: 300; color: var(--cream); margin: 14px 0 26px; }
+    .plb-amenities-heading em { font-style: italic; }
+    .plb-amenities-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 4px; }
+    .plb-amenity-card { position: relative; overflow: hidden; aspect-ratio: 4/3; border-radius: 8px; }
+    .plb-amenity-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .plb-amenity-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,11,17,.85) 0%, transparent 60%); padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .plb-amenity-name { font-family: 'Cormorant Garamond',serif; font-size: 16px; font-weight: 300; color: var(--cream); margin-bottom: 4px; }
+    .plb-amenity-desc { font-family: 'Jost',sans-serif; font-size: 10.5px; font-weight: 300; color: rgba(245,240,232,.65); line-height: 1.5; display: none; }
+    .plb-accom-wrap { padding: 40px 28px; background: #111c27; }
+    .plb-accom-item { display: grid; grid-template-columns: 1fr; gap: 0; margin-bottom: 14px; border-radius: 12px; overflow: hidden; background: var(--dark2); }
+    .plb-accom-img-wrap img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .plb-accom-content { padding: 26px 24px; }
+    .plb-accom-tag { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.4); margin-bottom: 8px; }
+    .plb-accom-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(20px,4.5vw,26px); font-weight: 300; color: var(--cream); margin: 0 0 12px; line-height: 1.2; }
+    .plb-accom-body { font-family: 'Jost',sans-serif; font-size: 13px; font-weight: 300; line-height: 1.8; color: rgba(245,240,232,.65); }
+    .plb-dining-wrap { padding: 40px 28px; background: #0B141d; }
+    .plb-dining-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; }
+    .plb-dining-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,32px); font-weight: 300; color: var(--cream); line-height: 1.15; }
+    .plb-dining-title em { font-style: italic; }
+    .plb-dining-controls { display: flex; align-items: center; gap: 12px; }
+    .plb-slider-btn { background: none; border: 1px solid rgba(245,240,232,.22); border-radius: 100px; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .plb-slider-btn:disabled { opacity: .3; cursor: default; }
+    .plb-slider-btn svg { width: 12px; height: 12px; stroke: var(--cream); stroke-width: 1.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .plb-dining-counter { font-family: 'Jost',sans-serif; font-size: 11px; color: rgba(245,240,232,.4); }
+    .plb-dining-viewport { overflow: hidden; }
+    .plb-dining-track { display: flex; gap: 4px; transition: transform .34s ease; }
+    .plb-dining-card { flex: 0 0 100%; background: var(--dark2); border-radius: 10px; overflow: hidden; }
+    .plb-dining-img { width: 100%; height: 190px; object-fit: cover; display: block; }
+    .plb-dining-body { padding: 20px 22px; }
+    .plb-dining-name { font-family: 'Cormorant Garamond',serif; font-size: 19px; font-weight: 300; color: var(--cream); margin-bottom: 7px; }
+    .plb-dining-desc { font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,.55); }
+    .plb-dining-progress { height: 1px; background: rgba(245,240,232,.12); margin-top: 18px; position: relative; }
+    .plb-dining-fill { height: 100%; background: var(--gold); transition: width .34s ease; }
+    .plb-wellness-wrap { padding: 40px 28px; background: var(--dark); }
+    .plb-wellness-panel { display: grid; grid-template-columns: 1fr; gap: 28px; }
+    .plb-wellness-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,30px); font-weight: 300; color: var(--cream); margin: 10px 0 14px; }
+    .plb-wellness-body { font-family: 'Jost',sans-serif; font-size: 13px; font-weight: 300; line-height: 1.8; color: rgba(245,240,232,.65); margin-bottom: 22px; }
+    .plb-wellness-list { display: flex; flex-direction: column; border-top: 1px solid rgba(245,240,232,.12); }
+    .plb-wellness-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(245,240,232,.12); }
+    .plb-wellness-name { font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 400; color: var(--cream); }
+    .plb-wellness-badge { font-family: 'Jost',sans-serif; font-size: 10px; font-weight: 300; color: rgba(245,240,232,.5); text-align: right; }
+    .plb-wellness-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .plb-wellness-img-tall { grid-row: span 2; }
+    .plb-wellness-imgs img { width: 100%; height: 150px; object-fit: cover; display: block; border-radius: 6px; }
+    .plb-wellness-img-tall img { height: 304px; }
+    .plb-strip { display: flex; gap: 4px; padding: 4px; }
+    .plb-strip-item { flex: 1; overflow: hidden; border-radius: 6px; }
+    .plb-strip-item img { width: 100%; height: 150px; object-fit: cover; display: block; }
+    .plb-cta-wrap { background: #0B141d; padding: 48px 28px; text-align: center; }
+    .plb-cta-eyebrow { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .plb-cta-headline { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,32px); font-weight: 300; font-style: italic; color: var(--cream); margin: 0 0 26px; }
+    .plb-cta-btn { display: inline-block; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 15px 36px; border: none; border-radius: 100px; cursor: pointer; }
+    @media (min-width: 700px) {
+      .plb-about { grid-template-columns: 1fr 1fr; }
+      .plb-about-img { height: 100%; min-height: 340px; }
+      .plb-benefits-static-grid { grid-template-columns: repeat(4,1fr); }
+      .plb-amenities-grid { grid-template-columns: repeat(3,1fr); }
+      .plb-accom-item { grid-template-columns: 1fr 1fr; }
+      .plb-accom-item.flip .plb-accom-img-wrap { order: 2; }
+      .plb-accom-img-wrap img { height: 100%; }
+      .plb-dining-card { flex: 0 0 calc(50% - 2px); }
+      .plb-wellness-panel { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 720px) {
+      .wrap { max-width: 680px; }
+      .sec { padding: 104px 0; }
+      .hero-inner { padding-bottom: 92px; padding-top: 140px; }
+      .hero .wrap { max-width: 900px; }
+      .hero .eyebrow { font-size: 13px; margin-bottom: 26px; }
+      .hero-sub { font-size: 21px; max-width: 40ch; margin-bottom: 40px; }
+      .hero-micro { font-size: 13px; margin-top: 22px; }
+      .scrollcue { margin-top: 44px; }
+      .pf-grid { gap: 8px; }
+      .rt-list { flex-direction: row; flex-wrap: wrap; }
+      .rt-item { flex: 1 1 100%; min-height: 200px; }
+      .clubs-grid { flex-direction: row; }
+      .club { flex: 1; }
+      .also { flex-direction: row; gap: 30px; }
+      .imgrow-item { width: 244px; }
+      .testis { flex-direction: row; }
+      .testi { flex: 1; }
+      .press-logos { gap: 22px 40px; }
+      .press-logos img { height: 24px; max-width: 112px; }
+      .hero h1 { font-size: clamp(82px, 8.5vw, 116px); margin-bottom: 28px; }
+    }
+    @media (min-width: 1040px) {
+      .hero-inner, .offer-head, .final .wrap { }
+    }
+
+    /* ── value stack (above-the-fold: why join / offer teaser / trust) ── */
+    .vstack { padding: 64px 0 12px; }
+    .vstack-head { text-align: center; margin-bottom: 34px; }
+
+    /* Why Join grid */
+    .why-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .why-card { padding: 24px 22px; display: flex; gap: 15px; align-items: flex-start; }
+    .why-ico { color: var(--gold); width: 26px; height: 26px; flex-shrink: 0; margin-top: 1px; }
+    .why-ico svg { width: 26px; height: 26px; }
+    .why-title { font-size: 15px; font-weight: 400; color: var(--cream); margin-bottom: 5px; letter-spacing: .01em; }
+    .why-text { font-size: 13.5px; font-weight: 300; color: rgba(27,42,74,.72); line-height: 1.45; }
+
+    /* Mini rating / social proof strip */
+    .proof { margin-top: 20px; padding: 22px 26px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .proof-stars { color: var(--gold); font-size: 16px; letter-spacing: 3px; }
+    .proof-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; font-weight: 300; color: var(--cream); line-height: 1.35; max-width: 52ch; }
+    .proof-attrib { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.5); }
+
+    @media (min-width: 720px) {
+      .vstack { padding: 84px 0 20px; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    }
+  
+    /* ── SITE NAV (light) ──────────────────────────────────── */
+    .hdr { justify-content: space-between; gap: 24px; background: transparent; }
+    .hdr.scrolled { background: rgba(245,240,232,.92); border-bottom: 1px solid rgba(27,42,74,.08); }
+    /* specificity: .hdr-logo img (0-1-1) beats a bare .hdr-logo-dark (0-1-0),
+       so the swap rules have to match the element too or both logos show. */
+    .hdr-logo img { height: 42px; width: auto; display: block; }
+    .hdr-logo img.hdr-logo-dark { display: none; }
+    .hdr.scrolled .hdr-logo img.hdr-logo-light { display: none; }
+    .hdr.scrolled .hdr-logo img.hdr-logo-dark { display: block; }
+    .hdr-links { display: none; gap: 34px; list-style: none; margin: 0 auto; }
+    .hdr-links a {
+      font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .16em;
+      text-transform: uppercase; color: rgba(245,240,232,.85);
+      text-shadow: 0 1px 10px rgba(0,0,0,.5); transition: color .2s;
+    }
+    .hdr.scrolled .hdr-links a { color: rgba(27,42,74,.75); text-shadow: none; }
+    .hdr-links a:hover { color: var(--gold); }
+    .hdr-right { display: none; align-items: center; gap: 20px; }
+    .hdr-login {
+      font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(245,240,232,.7); text-shadow: 0 1px 10px rgba(0,0,0,.5);
+    }
+    .hdr.scrolled .hdr-login { color: rgba(27,42,74,.6); text-shadow: none; }
+    .hdr-burger { background: none; border: 0; padding: 6px; cursor: pointer; }
+    .hdr-burger span { display: block; width: 22px; height: 1px; background: var(--sand); margin: 5px 0; }
+    .hdr.scrolled .hdr-burger span { background: var(--navy); }
+    .drawer {
+      position: fixed; inset: 0; z-index: 1200; background: #0E1923;
+      display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+      gap: 26px; padding: 0 32px; transform: translateX(100%); transition: transform .32s ease;
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer a {
+      font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: #F5F0E8;
+    }
+    .drawer-close { position: absolute; top: 26px; right: 28px; background: none; border: 0; color: #F5F0E8; font-size: 20px; cursor: pointer; }
+    .drawer-cta { margin-top: 12px; }
+    @media (min-width: 900px) {
+      .hdr-links, .hdr-right { display: flex; }
+      .hdr-burger { display: none; }
+    }
+
+    /* ── SITE FOOTER (light) ───────────────────────────────── */
+    .ftr { padding: 62px 32px 40px; display: block; text-align: left; background: var(--navy); }
+    .ftr-cols { display: grid; grid-template-columns: repeat(2,1fr); gap: 30px 20px; max-width: 1180px; margin: 0 auto 40px; }
+    .ftr-col-title { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .ftr-cols ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .ftr-cols a { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.6); }
+    .ftr-cols a:hover { color: #F5F0E8; }
+    .ftr-bottom { max-width: 1180px; margin: 0 auto; padding-top: 26px; border-top: 1px solid rgba(245,240,232,.1); font-size: 12px; color: rgba(245,240,232,.35); }
+    @media (min-width: 900px) { .ftr-cols { grid-template-columns: repeat(5,1fr); gap: 32px; } }
+
+    /* ── TIERS (replaces the offer block) ──────────────────── */
+    .tiers-sec { padding: 84px 0; background: var(--dark2); }
+    .tiers { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .tier {
+      position: relative; padding: 34px 30px 30px; background: rgba(255,255,255,.5);
+      border: 1px solid rgba(27,42,74,.12); border-radius: 22px; display: flex; flex-direction: column;
+    }
+    .tier.is-featured { border-color: rgba(184,151,106,.6); background: rgba(184,151,106,.07); }
+    .tier-flag {
+      position: absolute; top: 16px; right: 18px; font-family: 'Jost', sans-serif;
+      font-size: 8.5px; letter-spacing: .16em; text-transform: uppercase;
+      color: #0E1923; background: var(--gold); padding: 5px 11px; border-radius: 100px;
+    }
+    .tier-name { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(27,42,74,.6); margin-bottom: 14px; }
+    .tier.is-featured .tier-name { color: #8A6E43; }
+    .tier-price { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(46px,12vw,60px); color: var(--navy); line-height: 1; }
+    .tier-price span { font-style: normal; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .1em; color: rgba(27,42,74,.45); margin-left: 8px; }
+    .tier-diff { margin: 22px 0 26px; padding-top: 20px; flex: 1; border-top: 1px solid rgba(27,42,74,.12); font-family: 'Cormorant Garamond', serif; font-size: 16px; color: rgba(27,42,74,.75); line-height: 1.55; }
+    .tier-diff em { font-style: italic; color: #8A6E43; }
+    .tier-diff-label { display: block; font-family: 'Jost', sans-serif; font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(27,42,74,.45); margin-bottom: 9px; }
+    .tier-cta { font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; text-align: center; padding: 15px 22px; border-radius: 100px; border: 1px solid rgba(27,42,74,.3); color: var(--navy); transition: background .25s, border-color .25s; }
+    .tier-cta:hover { background: rgba(27,42,74,.06); }
+    .tier-cta.is-gold { background: var(--gold); border-color: var(--gold); color: #0E1923; }
+    .tier-cta.is-gold:hover { opacity: .9; }
+    .tiers-note { text-align: center; font-size: 13px; color: rgba(27,42,74,.55); margin-top: 22px; }
+    @media (min-width: 720px) { .tiers { grid-template-columns: 1fr 1fr; } }
+
+    .hero-still { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
   </style>
 </head>
 <body>
-<nav id="mainNav">
-  <a class="nav-logo" href="index.html">
-    <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
-    <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
+
+<!-- ── icons ─────────────────────────────────────────────── -->
+<svg style="display:none" aria-hidden="true"><defs>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></symbol>
+  <symbol id="i-racquet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="11" cy="9" rx="6.5" ry="7"/><path d="M7 13 4 20.5"/><path d="M10 8.8h.01M13 8.8h.01M11.5 6.8h.01M11.5 10.8h.01"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4.5"/><path d="M11.2 11.2 20 20"/><path d="M17 17l2-2M15 15l1.5-1.5"/></symbol>
+  <symbol id="i-discount" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r=".6" fill="currentColor" stroke="none"/><circle cx="14.5" cy="14.5" r=".6" fill="currentColor" stroke="none"/><rect x="5" y="5" width="14" height="14" rx="2.2"/></symbol>
+  <symbol id="i-upgrade" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="8" rx="1.5"/><line x1="12" y1="10" x2="12" y2="2.5"/><polyline points="8 6 12 2.5 16 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></symbol>
+  <symbol id="i-spa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-3.2-7.5-7.3-7.5-11.5a7.5 7.5 0 0 1 15 0C19.5 13.7 16.5 17.8 12 21z"/><path d="M12 8v6M9 11h6"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a3 3 0 0 0 6 0V3"/><line x1="9" y1="11" x2="9" y2="21"/><path d="M16 3c-1.5 1-2 2.5-2 5s.5 3.5 2 4.5V21"/></symbol>
+  <symbol id="i-court" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></symbol>
+</defs></svg>
+
+<!-- ── HEADER ────────────────────────────────────────────── -->
+<nav class="hdr" id="hdr">
+  <a class="hdr-logo" href="/" aria-label="Privé Padel">
+    <img class="hdr-logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel">
+    <img class="hdr-logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel">
   </a>
-  <ul class="nav-links">
-    <li class="nav-item"><a class="nav-link active" href="passport.html">Privé Passport</a></li>
-    <li class="nav-item"><a class="nav-link" href="montauk.html">Privé Montauk</a></li>
-    <li class="nav-item"><a class="nav-link" href="miami.html">Privé Miami</a></li>
-    <li class="nav-item"><a class="nav-link" href="about.html">About Privé</a></li>
+  <ul class="hdr-links">
+    <li><a href="/passport.html">Privé Passport</a></li>
+    <li><a href="/montauk.html">Privé Montauk</a></li>
+    <li><a href="/miami.html">Privé Miami</a></li>
+    <li><a href="/about.html">About Privé</a></li>
   </ul>
-  <div class="nav-right">
-    <a class="nav-login" href="https://passport.prive-padel.com/login">Member Login</a>
-    <a class="nav-cta" href="join.html">Get Your Passport</a>
+  <div class="hdr-right">
+    <a class="hdr-login" href="https://passport.prive-padel.com/login">Member Login</a>
+    <a class="btn btn-gold" href="join.html">Get Your Passport</a>
   </div>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hdr-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div id="mobileMenu" class="mobile-menu">
-  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
-  <div class="mobile-nav">
-    <div class="mobile-nav-group">
-      <a href="passport.html" class="active">Privé Passport</a>
-      <a href="montauk.html">Privé Montauk</a>
-      <a href="miami.html">Privé Miami</a>
-      <a href="about.html">About Privé</a>
+
+<div class="drawer" id="navDrawer">
+  <button class="drawer-close" id="navClose" aria-label="Close menu">✕</button>
+  <a href="/passport.html">Privé Passport</a>
+  <a href="/montauk.html">Privé Montauk</a>
+  <a href="/miami.html">Privé Miami</a>
+  <a href="/about.html">About Privé</a>
+  <a href="https://passport.prive-padel.com/login">Member Login</a>
+  <a class="btn btn-gold drawer-cta" href="join.html">Get Your Passport</a>
+</div>
+
+<!-- ══ §1 · HERO (cover) ══ -->
+<section class="hero">
+  <div class="hero-still" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390254/2_zd6wij.png');"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="eyebrow">The Membership</div>
+      <h1>The world's first<em>Padel Passport</em></h1>
+      <p class="hero-sub">One membership. Forty-plus hotels and resorts. A court waiting at every one.</p>
+      <a class="btn btn-gold" href="join.html">Get Your Passport →</a>
+      <div class="hero-micro">40+ destinations &nbsp;·&nbsp; 18 countries &nbsp;·&nbsp; <strong>from $595 / year</strong></div>
+      <div class="scrollcue">Play the world</div>
     </div>
-    <div class="mobile-nav-group">
-      <a href="https://passport.prive-padel.com/login" class="mobile-nav-login">Member Login</a>
-      <a href="join.html" class="mobile-nav-cta">Get Your Passport</a>
+  </div>
+</section>
+
+<!-- ══ §1.6 · VALUE STACK (why join · offer teaser · trust) ══ -->
+<section class="vstack">
+  <div class="wrap-wide">
+    <div class="vstack-head">
+      <div class="eyebrow">Why join</div>
+      <h2 class="display" style="font-size:clamp(30px,8vw,46px);">One membership,<em style="display:inline;"> a world of play.</em></h2>
+    </div>
+
+    <!-- Why Join · 4 points -->
+    <div class="why-grid">
+      <div class="glass why-card">
+        <span class="why-ico"><svg><use href="#i-court"/></svg></span>
+        <div>
+          <div class="why-title">A court everywhere you travel</div>
+          <div class="why-text">40+ hotels &amp; resorts across 18 countries — a padel court on-site or at the local club, waiting at every one.</div>
+        </div>
+      </div>
+      <div class="glass why-card">
+        <span class="why-ico"><svg><use href="#i-discount"/></svg></span>
+        <div>
+          <div class="why-title">Member rates &amp; upgrades</div>
+          <div class="why-text">Preferred room rates up to 20% off, complimentary upgrades, and spa, wellness &amp; dining privileges at every stay.</div>
+        </div>
+      </div>
+      <div class="glass why-card">
+        <span class="why-ico"><svg><use href="#i-racquet"/></svg></span>
+        <div>
+          <div class="why-title">Privé Montauk &amp; Miami, included</div>
+          <div class="why-text">Member pricing at both Privé Clubs — four visits a year on Standard, unlimited on Full Access.</div>
+        </div>
+      </div>
+      <div class="glass why-card">
+        <span class="why-ico"><svg><use href="#i-key"/></svg></span>
+        <div>
+          <div class="why-title">First access to every retreat</div>
+          <div class="why-text">Members save 20% on all-inclusive Privé Experiences and are invited before they open to anyone else.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social proof strip -->
+    <div class="glass proof">
+      <div class="proof-stars">★★★★★</div>
+      <p class="proof-quote">“We booked the Madagascar retreat on a whim and it became the best trip we've taken in years — expert padel programming and a real excursion into the destination.”</p>
+      <div class="proof-attrib">Elena &amp; Marc R., London · Full-Access Members</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §1.5 · PRESS (moved up for early trust) ══ -->
+<section class="press">
+  <div class="wrap-wide">
+    <div class="press-label">As featured in</div>
+    <div class="press-logos">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451122/goop_oohm01.png" alt="goop" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451129/haute-living_zvofdg.png" alt="Haute Living" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451133/iconic-life_viet1g.png" alt="Iconic Life" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451127/observer_il47nz.png" alt="Observer" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451130/modern-luxury-hamptons_jc2u4n.png" alt="Modern Luxury Hamptons" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451125/resident_gye8ap.png" alt="Hotels Above Par" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ══ §2 · THE TRAVEL COLLECTION (core) ══ -->
+<section class="sec" id="collection">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow">The Privé Passport</div>
+      <h2 class="display">The world's finest hotels.<em>A court at every one.</em></h2>
+      <p class="lede" style="max-width:42ch;margin:18px auto 0;">Your passport to a private collection of 40+ hotels and resorts across 18 countries and five continents — from the Marbella Club to Rosewood Hong Kong. Travel to any of them and stay as a member: a padel court on-site or at the local club, and Privé privileges waiting at every one.</p>
+    </div>
+  </div>
+
+  <!-- marquee image row -->
+  <div class="imgrow" id="imgrow">
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1775397463/mch-march-24-0142-low_wide_vkynav.jpg" alt="Marbella"><div class="imgrow-cap">Marbella</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1776001178/DJI_0145_p3ovyg.jpg" alt="Maldives"><div class="imgrow-cap">Maldives</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1775521966/JoeKelly_PaddleCourt_0552_copy_uby4fs.jpg" alt="Sumba"><div class="imgrow-cap">Sumba</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1775952979/Rosewood_HK_Exterior_3_night_Large_oqqsyc.jpg" alt="Hong Kong"><div class="imgrow-cap">Hong Kong</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,g_west,w_700,q_auto,f_auto/v1775999980/Tennis_Fairmont-Royal-Palm-Marrakech00001_f8pdl3.jpg" alt="Marrakech"><div class="imgrow-cap">Marrakech</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1775399002/71ed15cedc9ce3cf98f317f8e0bc19d0-2000x1894_jq4plu.jpg" alt="London"><div class="imgrow-cap">London</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1775996398/D_Maris_Bay_Tennis_Padel_Courts_copy_cv5ggl.jpg" alt="D Maris Bay"><div class="imgrow-cap">D Maris Bay</div></div>
+    <div class="imgrow-item"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/c_fill,ar_3:4,w_700,q_auto,f_auto/v1776026097/Resort_Aerial_View_copy_vnuaip.jpg" alt="Mauritius"><div class="imgrow-cap">Mauritius</div></div>
+  </div>
+
+  <div class="wrap-wide">
+    <div class="stats">
+      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Destinations</div></div>
+      <div class="stat"><div class="stat-num">18</div><div class="stat-label">Countries</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Continents</div></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="glass flist" style="margin-top:34px;">
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-court"/></svg></span><span class="flist-txt"><b>A padel court</b> on-site or at the local club</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-discount"/></svg></span><span class="flist-txt"><b>Preferred room rates</b> — up to 20% off</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-upgrade"/></svg></span><span class="flist-txt">Complimentary room upgrades</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-clock"/></svg></span><span class="flist-txt">Early arrivals &amp; unhurried departures</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-spa"/></svg></span><span class="flist-txt">Spa, wellness &amp; dining privileges</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-key"/></svg></span><span class="flist-txt">Concierge booking through the member portal</span></div>
+    </div>
+    <div class="flist-note">When available · at participating properties</div>
+  </div>
+
+  <!-- browse the collection -->
+  <div class="wrap-wide">
+    <div class="pf-head" style="margin-top:58px;">
+      <div class="eyebrow">Explore the Collection</div>
+      <h3 class="display" style="font-size:clamp(28px,7.5vw,42px);">Forty destinations,<em>one passport.</em></h3>
+    </div>
+    <div class="pf-grid" id="pfGrid"><!-- populated from window.DESTINATIONS --></div>
+    <div class="pf-foot">
+      <div class="pf-foot-note">Over forty destinations · worldwide</div>
+      <button class="btn btn-ghost" id="pfMore">Browse all 40+ destinations →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §3 · ALSO INCLUDED (secondary) ══ -->
+<section class="sec bg-d2">
+  <div class="wrap-wide">
+    <div class="sec-head">
+      <div class="eyebrow">Beyond the Stay</div>
+      <h2 class="display">Also <em style="display:inline;">included.</em></h2>
+    </div>
+    <div class="also">
+      <!-- Privé Experiences (retreats) -->
+      <div class="also-col">
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Privé Experiences"></div>
+        <div class="also-eyebrow">Privé Experiences</div>
+        <div class="also-title">20% off signature <em>retreats.</em></div>
+        <p class="also-text">All-inclusive padel retreats built around the game and the place — experience the destination, padel every day with a dedicated pro, expert programming, and a closing tournament.</p>
+        <div class="also-list">
+          <a href="/experiences/voaara-madagascar.html"><span class="also-list-name"><b>Voaara</b> <span>· Madagascar</span></span><span class="also-list-price"><s>$8,250</s> $6,600</span></a>
+          <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price"><s>$4,200</s> $3,360</span></a>
+          <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price"><s>$12,000</s> $9,600</span></a>
+        </div>
+        <button class="also-link" id="expOpen" type="button">See all experiences →</button>
+      </div>
+      <!-- Privé Clubs -->
+      <div class="also-col">
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Clubs"></div>
+        <div class="also-eyebrow">Privé Clubs</div>
+        <div class="also-title">Montauk &amp; Miami, <em>included.</em></div>
+        <p class="also-text">Your Passport includes member pricing at both Privé Clubs — four visits a year on Standard, unlimited year-round on Full Access. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
+        <div class="also-list">
+          <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
+          <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §6 · MEMBERSHIP ══ -->
+<section class="tiers-sec" id="tiers">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow">Membership</div>
+      <h2 class="display" style="font-size:clamp(30px,8vw,46px);">Choose your <em style="display:inline;">Passport.</em></h2>
+      <p class="lede" style="max-width:44ch;margin:16px auto 0;">Every benefit is in both tiers. The only difference is how often you play at our own clubs.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-name">Standard</div>
+        <div class="tier-price">$595<span>/ year</span></div>
+        <div class="tier-diff">
+          <span class="tier-diff-label">Privé Montauk &amp; Miami</span>
+          Member pricing · four visits a year
+        </div>
+        <a href="join.html" class="tier-cta">Get Standard →</a>
+      </div>
+      <div class="tier is-featured">
+        <span class="tier-flag">Most complete</span>
+        <div class="tier-name">Full Access</div>
+        <div class="tier-price">$995<span>/ year</span></div>
+        <div class="tier-diff">
+          <span class="tier-diff-label">Privé Montauk &amp; Miami</span>
+          Member pricing · <em>unlimited visits</em>
+        </div>
+        <a href="join.html" class="tier-cta is-gold">Get Full Access →</a>
+      </div>
+    </div>
+    <p class="tiers-note">Add a partner to either tier — $95 a year.</p>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="sec-tight">
+  <div class="wrap-wide">
+    <div class="sec-head">
+      <div class="eyebrow">Members</div>
+      <h2 class="display">Why they <em style="display:inline;">joined.</em></h2>
+    </div>
+    <div class="testis">
+      <div class="glass testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">“We booked the Madagascar retreat on a whim and it became the best trip we've taken in years. You get expert padel programming alongside other Privé members, but it's so much more than that — a real excursion into the destination, with unforgettable experiences across Sainte-Marie Island.”</p>
+        <div class="testi-attrib">— Elena &amp; Marc R., London · Full-Access Members</div>
+      </div>
+      <div class="glass testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">“I joined to access Montauk and Miami, and stayed for everywhere else. I travel constantly, and as a passionate padel player I love knowing I can book a trip with the Passport and count on two things: real benefits at the resort, and a court ready for me right on property.”</p>
+        <div class="testi-attrib">— Daniel K., Miami · Founding Member</div>
+      </div>
+      <div class="glass testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">“I'm a huge padel player, and I love to play whenever I travel for work. The Passport essentially gives me member benefits across their network of clubs in major cities — so I arrive as a member even when I'm only visiting. It feels great.”</p>
+        <div class="testi-attrib">— James H., New York · Founding Member</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:left;">
+      <div class="eyebrow">Questions</div>
+      <h2 class="display">Everything you<em>need to know.</em></h2>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Usually, yes. A single week at a partner destination tends to return more than the membership costs on member rates alone. Add 20% off a retreat — $1,650 back on the Madagascar itinerary — and most members find it answers itself on the first booking.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What's the difference between Standard and Full Access?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">One thing: how often you play at Privé Montauk and Miami at member pricing. Standard includes four visits a year; Full Access is unlimited, year-round. Everything else — the destinations, member rates and privileges, partner clubs, and 20% off every Privé Experience — is identical in both.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">They're our own clubs rather than partner hotels. Privé Miami is open now at THesis Hotel in Coral Gables, with year-round play. Privé Montauk returns Spring 2027 at a new location on Lake Montauk, where the brand started in 2024.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Can I cancel?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes — annual membership billed through Stripe. Cancel before your renewal date and keep access through the end of your paid period. Questions? <a id="contactEmail" href="#"></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §7 · FINAL CTA ══ -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-eyebrow">Play the world</div>
+    <h2>Get your<em>Passport</em></h2>
+    <p class="final-sub">Standard $595 / year · Full Access $995 / year</p>
+    <a class="btn btn-gold" href="join.html">Get your Passport →</a>
+    <div class="final-micro">Annual membership · secure checkout via Stripe</div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCES LIGHTBOX ══ -->
+<div class="xlb" id="expLightbox" role="dialog" aria-modal="true" aria-label="Privé Experiences">
+  <div class="xlb-backdrop" id="xlbBackdrop"></div>
+  <div class="xlb-panel">
+    <button class="xlb-close" id="xlbClose">CLOSE ✕</button>
+
+    <!-- list view -->
+    <div id="xlbListView">
+      <div class="xlb-head">
+        <div class="eyebrow">Privé Experiences</div>
+        <h2 class="display" style="font-size:clamp(30px,8vw,44px);">Signature <em style="display:inline;">retreats.</em></h2>
+        <p class="lede">All-inclusive padel retreats built around the game and the place — members save 20% and book first.</p>
+      </div>
+      <div class="xlb-list">
+        <button class="xlb-card" type="button" data-exp="0">
+          <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775679498/DJI_0380_DxO_copy_kkmaym.jpg" alt="Voaara Madagascar"></div>
+          <div class="xlb-card-body">
+            <div class="xlb-card-eyebrow">September 2026 · Madagascar</div>
+            <div class="xlb-card-name">Voaara</div>
+            <p class="xlb-card-desc">Seven days on a private island off Madagascar — daily padel with a dedicated pro, reef snorkeling, whale season, and every meal included.</p>
+            <div class="xlb-card-foot"><span class="xlb-price"><s>$8,250</s> $6,600</span><span class="xlb-card-link">View experience →</span></div>
+          </div>
+        </button>
+        <button class="xlb-card" type="button" data-exp="1">
+          <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1777253885/3_1_c60fse.jpg" alt="Court &amp; Cellar, Bordeaux"></div>
+          <div class="xlb-card-body">
+            <div class="xlb-card-eyebrow">Fall 2026 · Bordeaux, France</div>
+            <div class="xlb-card-name">Château de Lussac</div>
+            <p class="xlb-card-desc">Four days among the Saint-Émilion vineyards — padel by day, Grand Cru tastings, Bordeaux and the Atlantic coast, all-inclusive.</p>
+            <div class="xlb-card-foot"><span class="xlb-price"><s>$4,200</s> $3,360</span><span class="xlb-card-link">View experience →</span></div>
+          </div>
+        </button>
+        <button class="xlb-card" type="button" data-exp="2">
+          <div class="xlb-card-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_700/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Nihi Sumba"></div>
+          <div class="xlb-card-body">
+            <div class="xlb-card-eyebrow">November 2026 · Sumba, Indonesia</div>
+            <div class="xlb-card-name">Nihi Sumba</div>
+            <p class="xlb-card-desc">Five days on the Edge of Wildness — daily jungle-court padel, horses in the surf at Nihiwatu, the Spa Safari, all-inclusive.</p>
+            <div class="xlb-card-foot"><span class="xlb-price"><s>$12,000</s> $9,600</span><span class="xlb-card-link">View experience →</span></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- detail view (populated by JS) -->
+    <div id="xlbDetailView" style="display:none;">
+      <button class="xlb-back" id="xlbBack" type="button">← All experiences</button>
+      <div class="xlb-detail-hero"><img id="xdImg" src="" alt=""></div>
+      <div class="xlb-detail-eyebrow" id="xdEyebrow"></div>
+      <h3 class="xlb-detail-name" id="xdName"></h3>
+      <p class="xlb-detail-intro" id="xdIntro"></p>
+      <div class="xlb-glance" id="xdGlance"></div>
+      <div class="xlb-incl"><div class="xlb-incl-label">What's included</div><ul id="xdIncluded"></ul></div>
+      <div class="xlb-detail-foot">
+        <div class="xlb-detail-price"><span class="pub" id="xdPub"></span><span class="mem" id="xdMem"></span></div>
+        <div class="xlb-detail-keep" id="xdKeep"></div>
+        <a class="btn btn-gold btn-full" href="join.html">Get your Passport →</a>
+        <a class="xlb-detail-link" id="xdFull" href="#">See full itinerary →</a>
+      </div>
     </div>
   </div>
 </div>
 
-
-<!-- ═════════════════════════════════════════════════════
-     HERO
-═════════════════════════════════════════════════════ -->
-<section class="club-hero">
-  <div class="club-hero-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390254/2_zd6wij.png');"></div>
-  <div class="club-hero-overlay"></div>
-  <div class="hero-grain"></div>
-  <div class="club-hero-content">
-    <div class="club-hero-left">
-      <div class="club-hero-eyebrow">The Membership</div>
-      <h1 class="club-hero-title">The game travels<br><em>with you.</em></h1>
-      <p class="club-hero-sub">A global travel membership for padel players. Stay at the world's leading destinations, play at every one, and find a court wherever the year takes you.</p>
-      <div style="margin-top:40px;">
-        <a href="join.html" class="btn-primary">Get Your Passport</a>
+<!-- ══ PROPERTY LIGHTBOX ══ -->
+<div class="plb" id="propLightbox" role="dialog" aria-modal="true" aria-label="Property detail">
+  <div class="plb-backdrop" id="plbBackdrop"></div>
+  <div class="plb-panel" id="plbPanel">
+    <button class="plb-close" id="plbClose">CLOSE ✕</button>
+    <div class="plb-hero" id="plbHero">
+      <div class="plb-hero-overlay"></div>
+      <div class="plb-hero-foot">
+        <div class="plb-hero-collection" id="plbCollection"></div>
+        <div class="plb-hero-name" id="plbName"></div>
+        <div class="plb-hero-loc" id="plbLoc"></div>
+        <div class="plb-hero-pills" id="plbPills"></div>
       </div>
     </div>
-    <div class="club-hero-meta">
-      <div class="club-hero-season">Membership · Annual</div>
-      <div class="club-hero-status">From $595 / year</div>
+    <div class="plb-about">
+      <div class="plb-about-text">
+        <div class="plb-about-label" id="plbAboutLabel"></div>
+        <div class="plb-about-heading" id="plbAboutHeading"></div>
+        <div class="plb-about-body" id="plbAboutBody"></div>
+      </div>
+      <img class="plb-about-img" id="plbAboutImg" src="" alt="">
     </div>
-  </div>
-</section>
-
-
-<!-- ═════════════════════════════════════════════════════
-     WHY JOIN — four outcomes
-═════════════════════════════════════════════════════ -->
-<section class="pv-value">
-  <div class="pv-head">
-    <div class="section-eyebrow">Why join</div>
-    <h2 class="section-title">One membership,<br><em>a world of play.</em></h2>
-  </div>
-  <div class="pv-value-grid">
-    <div class="pv-value-item">
-      <div class="pv-value-title">A court everywhere you travel</div>
-      <p>Over forty hotels and resorts across eighteen countries — a padel court on site, or held for you at the partner club in the same city.</p>
-    </div>
-    <div class="pv-value-item">
-      <div class="pv-value-title">Member rates &amp; privileges</div>
-      <p>Up to 20% off room rates, complimentary upgrades where available, unhurried arrivals and departures, and spa, dining and wellness privileges at every stay.</p>
-    </div>
-    <div class="pv-value-item">
-      <div class="pv-value-title">Privé Montauk &amp; Miami</div>
-      <p>Member pricing at both of our own clubs — four visits a year on Standard, unlimited year-round on Full Access.</p>
-    </div>
-    <div class="pv-value-item">
-      <div class="pv-value-title">First access to every retreat</div>
-      <p>Members save 20% on all-inclusive Privé Experiences and are invited before they open to anyone else.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════
-     THE FULL BREAKDOWN
-═════════════════════════════════════════════════════ -->
-<section class="pv-breakdown">
-  <div class="pv-head">
-    <div class="section-eyebrow">What your Passport includes</div>
-    <h2 class="section-title">Every benefit,<br><em>explained.</em></h2>
-    <p class="pv-head-sub">Exactly what the membership opens, and what to expect when you arrive.</p>
-  </div>
-
-  <!-- 01 · Padel Destinations -->
-  <div class="pv-block">
-    <div class="pv-block-label"><span class="pv-num">01</span>Padel Destinations</div>
-    <div class="pv-block-body">
-      <h3 class="pv-block-title">Forty-plus places to stay and <em>play.</em></h3>
-      <p class="pv-block-lede">Hotels and resorts across Europe, the Americas, Asia Pacific, the Middle East and the Indian Ocean — each chosen for the quality of the stay and the court that comes with it.</p>
-      <dl class="pv-detail">
-        <div><dt>Preferred rates</dt><dd>Member rates of up to 20% off published room rates, applied when you book through the member portal.</dd></div>
-        <div><dt>Room benefits</dt><dd>Complimentary upgrades on availability, early arrivals and late departures, requested at booking and confirmed by the property.</dd></div>
-        <div><dt>On-property credits</dt><dd>Resort, dining and spa credits at participating properties, listed per destination in the portal.</dd></div>
-        <div><dt>Arrival</dt><dd>Properties are notified of member arrivals in advance — a welcome amenity and priority check-in are standard across the collection.</dd></div>
-        <div><dt>Court access</dt><dd>A padel court on site, or paired access at the partner club in the same city.</dd></div>
-      </dl>
-      <a href="/passport/destinations.html" class="pv-block-link">Browse the collection →</a>
-    </div>
-  </div>
-
-  <!-- 02 · Padel Experiences -->
-  <div class="pv-block">
-    <div class="pv-block-label"><span class="pv-num">02</span>Padel Experiences</div>
-    <div class="pv-block-body">
-      <h3 class="pv-block-title">Curated padel <em>retreats.</em></h3>
-      <p class="pv-block-lede">All-inclusive retreats built around the game and the place — small groups, a dedicated Privé pro, expert programming, and a closing tournament.</p>
-      <dl class="pv-detail">
-        <div><dt>Member pricing</dt><dd>Members save 20% on every retreat. On the Madagascar itinerary that is $1,650 back on a single booking.</dd></div>
-        <div><dt>First invitation</dt><dd>Retreats open to members before any public availability.</dd></div>
-        <div><dt>What's included</dt><dd>Accommodation, every meal, daily padel, excursions and airport transfers — the itinerary is handled end to end.</dd></div>
-      </dl>
-      <a href="/passport/experiences.html" class="pv-block-link">See the retreats →</a>
-    </div>
-  </div>
-
-  <!-- 03 · Padel Club Partners -->
-  <div class="pv-block">
-    <div class="pv-block-label"><span class="pv-num">03</span>Padel Club Partners</div>
-    <div class="pv-block-body">
-      <h3 class="pv-block-title">A court in the cities you <em>travel to most.</em></h3>
-      <p class="pv-block-lede">When you are staying at a paired destination, court access at the partner club in that city comes with your Passport — no separate booking fee.</p>
-      <div class="pv-cities">
-        <div class="pv-city">
-          <div class="pv-city-name">Los Angeles</div>
-          <div class="pv-city-club">Padel Up · West Hollywood</div>
-          <div class="pv-city-pair">Paired with the Maybourne Beverly Hills and Fairmont Century Plaza</div>
-        </div>
-        <div class="pv-city">
-          <div class="pv-city-name">New York</div>
-          <div class="pv-city-club">Padel Haus · Brooklyn</div>
-          <div class="pv-city-pair">Paired with The Surrey, Upper East Side</div>
-        </div>
-        <div class="pv-city">
-          <div class="pv-city-name">London</div>
-          <div class="pv-city-club">Racketeer · Kingly Court, Soho</div>
-          <div class="pv-city-pair">Paired with The Savoy and St James's Hotel and Club</div>
-        </div>
-        <div class="pv-city">
-          <div class="pv-city-name">Hong Kong</div>
-          <div class="pv-city-club">Go Park · Kai Tak</div>
-          <div class="pv-city-pair">Paired with Rosewood Hong Kong</div>
+    <div class="plb-benefits-wrap" id="plbBenefitsWrap">
+      <div class="plb-benefits-bar-label" id="plbBenefitsLabel">PASSPORT MEMBER BENEFITS</div>
+      <div class="plb-benefits-blur-area">
+        <div class="plb-benefits-static-grid" id="plbBenefitsGrid"></div>
+        <div class="plb-benefits-lock">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#B8976A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="22" height="15" rx="2"/><path d="M11 15v-4.5a6 6 0 0 1 12 0V15"/><circle cx="17" cy="22.5" r="2" fill="#B8976A" stroke="none"/></svg>
+          <div class="plb-lock-label">Members Only</div>
+          <a class="plb-lock-cta" href="join.html">Get your Passport →</a>
         </div>
       </div>
-      <a href="/passport/club-partners.html" class="pv-block-link">More on partner clubs →</a>
     </div>
-  </div>
-
-  <!-- 04 · Privé Locations -->
-  <div class="pv-block">
-    <div class="pv-block-label"><span class="pv-num">04</span>Privé Locations</div>
-    <div class="pv-block-body">
-      <h3 class="pv-block-title">Our own clubs, in <em>Montauk and Miami.</em></h3>
-      <p class="pv-block-lede">These are Privé venues rather than partner hotels — the two places the brand runs itself.</p>
-      <dl class="pv-detail">
-        <div><dt>Privé Miami</dt><dd>Open now at THesis Hotel, Coral Gables. Year-round play, and the only padel court in the neighborhood.</dd></div>
-        <div><dt>Privé Montauk</dt><dd>Returning Spring 2027 at a new location on Lake Montauk, where the brand first took shape in 2024.</dd></div>
-        <div><dt>Member access</dt><dd>Member pricing at both — four visits a year on Standard, unlimited year-round on Full Access.</dd></div>
-        <div><dt>Members also receive</dt><dd>Priority court bookings and invitations to member events and openings.</dd></div>
-      </dl>
-      <a href="/locations.html" class="pv-block-link">Visit Privé Locations →</a>
+    <div class="plb-amenities-wrap" id="plbAmenitiesWrap">
+      <div class="plb-section-label"><span class="plb-section-label-text">MEMBERS ENJOY</span><span class="plb-section-label-rule"></span></div>
+      <h3 class="plb-amenities-heading">The property,<br><em>explored.</em></h3>
+      <div class="plb-amenities-grid" id="plbAmenitiesGrid"></div>
     </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════
-     SECTION 4 — CINEMATIC QUOTE
-═════════════════════════════════════════════════════ -->
-<section class="passport-quote-visual">
-  <div class="passport-quote-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777413321/crop_in_by_another_10__202604281755_xbtijn.jpg');"></div>
-  <div class="passport-quote-overlay"></div>
-  <div class="passport-quote-content">
-    <div class="passport-quote-eyebrow">PRIVÉ PASSPORT</div>
-    <blockquote class="passport-quote-text">"Privé Passport is what happens<br>when you stop choosing<br>between the trip and the game."</blockquote>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════
-     HOW IT WORKS
-═════════════════════════════════════════════════════ -->
-<section class="pv-steps">
-  <div class="pv-head">
-    <div class="section-eyebrow">How Privé Passport works</div>
-    <h2 class="section-title">Three steps to <em>anywhere.</em></h2>
-  </div>
-  <div class="pv-steps-grid">
-    <div class="pv-step">
-      <div class="pv-step-num">01</div>
-      <div class="pv-step-title">Join</div>
-      <p>Choose Standard or Full Access. Your Passport activates the moment you join, and your member portal opens the same day.</p>
-    </div>
-    <div class="pv-step">
-      <div class="pv-step-num">02</div>
-      <div class="pv-step-title">Book through the portal</div>
-      <p>Browse the collection and book. Your member rate is applied automatically and the property is told a Privé member is arriving.</p>
-    </div>
-    <div class="pv-step">
-      <div class="pv-step-num">03</div>
-      <div class="pv-step-title">Arrive as a member</div>
-      <p>Your benefits are waiting — the room, the credits, the welcome, and a court ready when you are.</p>
-    </div>
-  </div>
-</section>
-
-<section class="passport-map-section">
-  <div class="section-eyebrow" style="color:rgba(255,255,255,.3);">Global Footprint</div>
-  <h2 class="section-title light" style="font-size:clamp(30px,3vw,44px);color:var(--white);">40+ destinations,<br><em>one passport.</em></h2>
-  <div class="passport-map-container">
-    <div id="passport-map"></div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════
-     MEMBERS
-═════════════════════════════════════════════════════ -->
-<section class="members-band">
-  <div class="members-head">
-    <div class="section-eyebrow">Members</div>
-    <h2 class="section-title" style="font-size:clamp(30px,3vw,44px);">Why they <em style="font-style:italic;">joined.</em></h2>
-  </div>
-  <div class="members-grid">
-    <blockquote class="member-quote">
-      <div class="member-stars">★★★★★</div>
-      <p>We booked the Madagascar retreat on a whim and it became the best trip we've taken in years — expert padel programming alongside other Privé members, and a real excursion into the destination.</p>
-      <cite>Elena &amp; Marc R.<span>London</span></cite>
-    </blockquote>
-    <blockquote class="member-quote">
-      <div class="member-stars">★★★★★</div>
-      <p>I joined to access Montauk and Miami, and stayed for everywhere else. I travel constantly, and I can count on two things: real benefits at the resort, and a court ready for me right on property.</p>
-      <cite>Daniel K.<span>Miami</span></cite>
-    </blockquote>
-    <blockquote class="member-quote">
-      <div class="member-stars">★★★★★</div>
-      <p>I love to play whenever I travel for work. The Passport gives me member benefits across their network of clubs in major cities — so I arrive as a member even when I'm only visiting.</p>
-      <cite>James H.<span>New York</span></cite>
-    </blockquote>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════
-     SECTION 3 — PRICING BLOCK
-═════════════════════════════════════════════════════ -->
-<section class="passport-pricing">
-  <div class="pp-head">
-    <div class="pp-card-eyebrow">MEMBERSHIP</div>
-    <h2 class="pp-head-title">Choose your <em>Passport.</em></h2>
-    <p class="pp-head-sub">Every benefit above is in both tiers. The only difference is how often you play at our own clubs.</p>
-  </div>
-
-  <div class="pp-tiles">
-    <div class="pp-tile">
-      <div class="pp-tile-name">Standard</div>
-      <div class="pp-tile-price">$595<span>/ year</span></div>
-      <div class="pp-tile-diff">
-        <span class="pp-tile-diff-label">Privé Montauk &amp; Miami</span>
-        Member pricing · four visits a year
+    <div class="plb-accom-wrap" id="plbAccomWrap"></div>
+    <div class="plb-dining-wrap" id="plbDiningWrap">
+      <div class="plb-dining-header">
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:10px;">DINING</div>
+          <div class="plb-dining-title">Where every <em>meal matters.</em></div>
+        </div>
+        <div class="plb-dining-controls">
+          <button class="plb-slider-btn" id="plbDinePrev" aria-label="Previous"><svg viewBox="0 0 12 12"><polyline points="8 2 4 6 8 10"/></svg></button>
+          <span class="plb-dining-counter" id="plbDineCounter">1 / 4</span>
+          <button class="plb-slider-btn" id="plbDineNext" aria-label="Next"><svg viewBox="0 0 12 12"><polyline points="4 2 8 6 4 10"/></svg></button>
+        </div>
       </div>
-      <a href="join.html" class="pp-tile-cta">Get Standard →</a>
+      <div class="plb-dining-viewport"><div class="plb-dining-track" id="plbDineTrack"></div></div>
+      <div class="plb-dining-progress"><div class="plb-dining-fill" id="plbDineFill"></div></div>
     </div>
-
-    <div class="pp-tile is-featured">
-      <span class="pp-tile-flag">Most complete</span>
-      <div class="pp-tile-name">Full Access</div>
-      <div class="pp-tile-price">$995<span>/ year</span></div>
-      <div class="pp-tile-diff">
-        <span class="pp-tile-diff-label">Privé Montauk &amp; Miami</span>
-        Member pricing · <em>unlimited visits</em>
+    <div class="plb-wellness-wrap" id="plbWellnessWrap">
+      <div class="plb-section-label"><span class="plb-section-label-text">SPORT &amp; WELLNESS</span><span class="plb-section-label-rule"></span></div>
+      <div class="plb-wellness-panel">
+        <div>
+          <div class="plb-wellness-title" id="plbWellnessTitle"></div>
+          <div class="plb-wellness-body" id="plbWellnessBody"></div>
+          <div class="plb-wellness-list" id="plbWellnessList"></div>
+        </div>
+        <div class="plb-wellness-imgs" id="plbWellnessImgs"></div>
       </div>
-      <a href="join.html" class="pp-tile-cta is-gold">Get Full Access →</a>
+    </div>
+    <div class="plb-strip" id="plbStrip"></div>
+    <div class="plb-cta-wrap">
+      <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
+      <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
+      <a class="plb-cta-btn" href="join.html">Get your Passport →</a>
     </div>
   </div>
+</div>
 
-  <div class="pv-partner">
+<!-- ══ FOOTER ══ -->
+<footer class="ftr">
+  <div class="ftr-cols">
     <div>
-      <div class="pv-partner-name">Add a partner</div>
-      <div class="pv-partner-sub">Full membership benefits for one additional person, on either tier.</div>
-    </div>
-    <div class="pv-partner-price">+$95<span>/ year</span></div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════
-     FAQ
-═════════════════════════════════════════════════════ -->
-<section class="pv-faq">
-  <div class="pv-head" style="text-align:left;">
-    <div class="section-eyebrow">Questions</div>
-    <h2 class="section-title">Everything you<br><em>need to know.</em></h2>
-  </div>
-  <div class="pv-faq-list">
-    <div class="pv-faq-item">
-      <button class="pv-faq-q" type="button">Is it worth it if I only travel once or twice a year?<span class="pv-faq-icon"></span></button>
-      <div class="pv-faq-a">Usually, yes. A single week at a partner destination tends to return more than the membership costs on member rates alone. Add 20% off a retreat — $1,650 back on the Madagascar itinerary — and most members find it answers itself on the first booking.</div>
-    </div>
-    <div class="pv-faq-item">
-      <button class="pv-faq-q" type="button">What's the difference between Standard and Full Access?<span class="pv-faq-icon"></span></button>
-      <div class="pv-faq-a">One thing: how often you play at Privé Montauk and Miami at member pricing. Standard includes four visits a year. Full Access is unlimited, year-round. Everything else — the destinations, member rates and privileges, partner clubs, and 20% off every Privé Experience — is identical in both.</div>
-    </div>
-    <div class="pv-faq-item">
-      <button class="pv-faq-q" type="button">How do member benefits work?<span class="pv-faq-icon"></span></button>
-      <div class="pv-faq-a">You book through the member portal. Your member rate is applied and the reservation is flagged, so the property knows a Privé member is arriving. On-arrival benefits — a welcome amenity, a dining or spa benefit, an upgrade where available — vary by property and are listed per destination in the portal.</div>
-    </div>
-    <div class="pv-faq-item">
-      <button class="pv-faq-q" type="button">How does partner club access work?<span class="pv-faq-icon"></span></button>
-      <div class="pv-faq-a">When you're staying at a paired destination — The Savoy in London, say — your Passport opens court access at the linked partner club, in that case Racketeer in Soho. You book through the portal and there's no separate court fee. The same applies in Los Angeles, New York and Hong Kong.</div>
-    </div>
-    <div class="pv-faq-item">
-      <button class="pv-faq-q" type="button">What are Privé Montauk and Privé Miami?<span class="pv-faq-icon"></span></button>
-      <div class="pv-faq-a">Our own clubs, rather than partner hotels. Privé Miami is open now at THesis Hotel in Coral Gables, with year-round play. Privé Montauk returns Spring 2027 at a new location on Lake Montauk, where the brand started in 2024. Members play at member pricing at both.</div>
-    </div>
-    <div class="pv-faq-item">
-      <button class="pv-faq-q" type="button">Can I cancel?<span class="pv-faq-icon"></span></button>
-      <div class="pv-faq-a">Yes — it's an annual membership billed through Stripe. Cancel before your renewal date and you keep access through the end of the paid period.</div>
-    </div>
-  </div>
-</section>
-
-<section class="passport-closing">
-  <div class="passport-closing-inner">
-    <div class="passport-closing-eyebrow">PRIVÉ PASSPORT</div>
-    <h2 class="passport-closing-title">Play <em>the world.</em></h2>
-    <p class="passport-closing-sub">Standard $595 / year · Full Access $995 / year</p>
-    <a href="join.html" class="pp-card-cta" style="margin-top:40px;">GET YOUR PASSPORT →</a>
-  </div>
-</section>
-
-
-
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-col-title">Privé Passport</div>
-      <ul class="footer-links">
+      <div class="ftr-col-title">Privé Passport</div>
+      <ul>
         <li><a href="/passport/destinations.html">Padel Destinations</a></li>
         <li><a href="/passport/experiences.html">Padel Experiences</a></li>
         <li><a href="/passport/club-partners.html">Padel Club Partners</a></li>
         <li><a href="/locations.html">Privé Locations</a></li>
-        <li><a href="join.html" class="footer-cta-link">Get Your Passport</a></li>
+        <li><a href="/join.html">Get Your Passport</a></li>
       </ul>
     </div>
-    <div>
-      <div class="footer-col-title">Privé Montauk</div>
-      <ul class="footer-links">
-        <li><a href="montauk.html">Visit</a></li>
-        <li><a href="join.html">Membership</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Privé Miami</div>
-      <ul class="footer-links">
-        <li><a href="miami.html">Visit</a></li>
-        <li><a href="join.html">Membership</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">About Privé</div>
-      <ul class="footer-links">
-        <li><a href="about.html">About Privé</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Legal</div>
-      <ul class="footer-links">
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Stay Connected</div>
-      <form class="footer-sub-form" id="footerSubForm" novalidate>
-        <div class="footer-sub-field" id="footerSubField">
-          <input type="email" id="footerSubEmail" placeholder="Your email" autocomplete="email">
-          <p class="footer-sub-err">Valid email required.</p>
-        </div>
-        <button type="submit" class="footer-sub-btn" id="footerSubBtn">SUBSCRIBE</button>
-      </form>
-      <div class="footer-sub-confirm" id="footerSubConfirm">Thank you. We'll be in touch.</div>
-    </div>
+    <div><div class="ftr-col-title">Privé Montauk</div><ul><li><a href="/montauk.html">Visit</a></li><li><a href="/montauk.html">Spring 2027</a></li></ul></div>
+    <div><div class="ftr-col-title">Privé Miami</div><ul><li><a href="/miami.html">Visit</a></li><li><a href="https://playtomic.com/clubs/prive-at-thesis" target="_blank" rel="noopener noreferrer">Book a court</a></li></ul></div>
+    <div><div class="ftr-col-title">About Privé</div><ul><li><a href="/about.html">About Privé</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+    <div><div class="ftr-col-title">Legal</div><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
-  </div>
+  <div class="ftr-bottom">© 2026 Privé Hospitality Corp. All rights reserved.</div>
 </footer>
-<script src="/js/main.js" defer></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoicHJpdmVwYWRlbCIsImEiOiJjbW9iaHZnYWIwMWh1MnBxMTZxdXVucmZtIn0.MwLySLtt_1Pek71hLAoPmQ';
+(function () {
+  /* header on scroll */
+  var hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', function () {
+    hdr.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
 
-var RESORTS = [
-  { name: 'Don Carlos Marbella',              lat: 36.502,  lng:  -4.896 },
-  { name: 'Château de Lussac',               lat: 44.951,  lng:   0.017 },
-  { name: 'Vila Vita Parc',                  lat: 37.087,  lng:  -8.433 },
-  { name: 'Chablé Yucatán',                  lat: 20.851,  lng: -90.128 },
-  { name: 'Camiral Resort',                  lat: 41.868,  lng:   2.798 },
-  { name: 'The Marbella Club',               lat: 36.513,  lng:  -4.934 },
-  { name: 'Finca La Bobadilla',              lat: 37.261,  lng:  -4.096 },
-  { name: 'The Savoy',                       lat: 51.510,  lng:  -0.120 },
-  { name: "St. James's Hotel and Club",      lat: 51.505,  lng:  -0.144 },
-  { name: 'Finca Serena',                    lat: 39.572,  lng:   3.056 },
-  { name: 'The Lodge',                       lat: 39.606,  lng:   2.615 },
-  { name: 'Mas De Torrent',                  lat: 41.978,  lng:   3.066 },
-  { name: 'Kimpton Aysla Mallorca',          lat: 39.569,  lng:   2.489 },
-  { name: 'The Biltmore Hotel Villas',       lat: 25.074,  lng:  55.134 },
-  { name: 'NIHI Sumba',                      lat: -9.644,  lng: 119.417 },
-  { name: 'Nay Palad Hideaway',              lat:  9.748,  lng: 118.736 },
-  { name: 'Voaara Madagascar',               lat:-15.716,  lng:  46.316 },
-  { name: 'Fairmont Windsor Park',           lat: 51.428,  lng:  -0.585 },
-  { name: 'Al Baleed Resort Salalah',        lat: 16.933,  lng:  54.093 },
-  { name: 'D Maris Bay',                     lat: 36.770,  lng:  27.680 },
-  { name: 'Etéreo Kanai',                   lat: 20.582,  lng: -87.234 },
-  { name: 'Fairmont Royal Palm Marrakech',   lat: 31.591,  lng:  -8.062 },
-  { name: 'Patina Maldives',                 lat:  4.173,  lng:  73.522 },
-  { name: 'Riviera Maya EDITION',            lat: 20.597,  lng: -87.120 },
-  { name: 'The St. Regis Kanai Resort',      lat: 20.605,  lng: -87.068 },
-  { name: 'Tortuga Bay Puntacana Resort',    lat: 18.567,  lng: -68.373 },
-  { name: 'Vilalara Grand Hotel Algarve',    lat: 37.104,  lng:  -8.465 },
-  { name: 'Hotel Royal Evian',               lat: 46.395,  lng:   6.590 },
-  { name: 'Fairmont Century Plaza',          lat: 34.057,  lng:-118.416 },
-  { name: 'Hotel Único Madrid',              lat: 40.426,  lng:  -3.688 },
-  { name: 'The Maybourne Beverly Hills',     lat: 34.071,  lng:-118.400 },
-  { name: 'The Principal Madrid',            lat: 40.420,  lng:  -3.704 },
-  { name: 'The Surrey',                      lat: 40.774,  lng: -73.964 },
-  { name: 'One&Only Aesthesis',              lat: 37.865,  lng:  23.757 },
-  { name: 'Elounda Mare Hotel',              lat: 35.258,  lng:  25.730 },
-  { name: 'Elounda Peninsula',               lat: 35.261,  lng:  25.732 },
-  { name: 'Porto Elounda Golf & Spa',        lat: 35.257,  lng:  25.726 },
-  { name: 'Verdura Resort',                  lat: 37.499,  lng:  13.161 },
-  { name: 'One&Only Le Saint Géran',        lat:-20.212,  lng:  57.775 },
-  { name: 'Rosewood Hong Kong',              lat: 22.298,  lng: 114.172 },
-  { name: 'Banyan Tree Mayakoba',            lat: 20.693,  lng: -87.055 },
-  { name: 'Hotel Pitrizza',                  lat: 41.117,  lng:   9.533 },
-  { name: 'Voaara Grenadines',               lat: 12.601,  lng: -61.401 },
-];
-
-var geojson = {
-  type: 'FeatureCollection',
-  features: RESORTS.map(function(r) {
-    return { type: 'Feature', geometry: { type: 'Point', coordinates: [r.lng, r.lat] }, properties: { name: r.name } };
-  })
-};
-
-var popup = new mapboxgl.Popup({ offset: 10, closeButton: false, closeOnClick: false, anchor: 'bottom' });
-
-var map = new mapboxgl.Map({
-  container: 'passport-map',
-  style: 'mapbox://styles/mapbox/dark-v11',
-  projection: 'mercator',
-  scrollZoom: false,
-  attributionControl: false,
-});
-
-map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'bottom-right');
-
-map.on('load', function() {
-  map.addSource('resorts', { type: 'geojson', data: geojson });
-
-  map.addLayer({
-    id: 'resort-halo',
-    type: 'circle',
-    source: 'resorts',
-    paint: {
-      'circle-radius': 9,
-      'circle-color': 'rgba(184,151,106,0.15)',
-      'circle-stroke-width': 1,
-      'circle-stroke-color': 'rgba(184,151,106,0.4)',
-    }
+  /* mobile drawer */
+  var drawer = document.getElementById('navDrawer');
+  document.getElementById('navBurger').addEventListener('click', function () {
+    drawer.classList.add('open'); document.body.style.overflow = 'hidden';
   });
+  function closeDrawer() { drawer.classList.remove('open'); document.body.style.overflow = ''; }
+  document.getElementById('navClose').addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
 
-  map.addLayer({
-    id: 'resort-dots',
-    type: 'circle',
-    source: 'resorts',
-    paint: {
-      'circle-radius': 4.5,
-      'circle-color': '#b8976a',
-    }
-  });
-
-  ['resort-dots', 'resort-halo'].forEach(function(layer) {
-    map.on('mouseenter', layer, function(e) {
-      map.getCanvas().style.cursor = 'pointer';
-      var coords = e.features[0].geometry.coordinates.slice();
-      popup.setLngLat(coords).setHTML('<div class="popup-name">' + e.features[0].properties.name + '</div>').addTo(map);
-    });
-    map.on('mouseleave', layer, function() {
-      map.getCanvas().style.cursor = '';
-      popup.remove();
-    });
-  });
-
-  var bounds = new mapboxgl.LngLatBounds();
-  RESORTS.forEach(function(r) { bounds.extend([r.lng, r.lat]); });
-  map.fitBounds(bounds, { padding: { top: 60, bottom: 80, left: 80, right: 80 }, duration: 0, maxZoom: 3 });
-});
-</script>
-<script>
-(function(){
-  document.querySelectorAll('.pv-faq-q').forEach(function(q){
-    q.addEventListener('click', function(){
-      var item = q.closest('.pv-faq-item');
+  /* FAQ accordion */
+  document.querySelectorAll('.lp-faq-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.closest('.lp-faq-item');
       var open = item.classList.contains('open');
-      document.querySelectorAll('.pv-faq-item').forEach(function(i){ i.classList.remove('open'); });
+      document.querySelectorAll('.lp-faq-item').forEach(function (i) { i.classList.remove('open'); });
       if (!open) item.classList.add('open');
     });
   });
+
+  /* email obfuscation */
+  (function () {
+    var el = document.getElementById('contactEmail');
+    if (!el) return;
+    var u = 'info', d = 'prive-padel', t = 'com';
+    el.textContent = u + '@' + d + '.' + t;
+    el.addEventListener('click', function (e) { e.preventDefault(); location.href = 'mailto:' + u + '@' + d + '.' + t; });
+  })();
+
+  /* experiences lightbox (list + in-panel detail) */
+  (function () {
+    var xlb = document.getElementById('expLightbox');
+    var openBtn = document.getElementById('expOpen');
+    if (!xlb || !openBtn) return;
+    var panel = xlb.querySelector('.xlb-panel');
+    var listView = document.getElementById('xlbListView');
+    var detailView = document.getElementById('xlbDetailView');
+    var IMG = 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_800/';
+
+    var EXP = [
+      { name: 'Voaara', eyebrow: 'September 1–7, 2026 · Île Sainte-Marie, Madagascar',
+        img: IMG + 'v1775679498/DJI_0380_DxO_copy_kkmaym.jpg',
+        intro: 'Seven days on a private island off Madagascar — daily padel with a dedicated Privé pro, reef snorkeling, whale season, and every meal from the welcome cocktail to the farewell dinner already taken care of.',
+        glance: [['Dates','Sept 1–7, 2026 · 7 nights'],['Where','Voaara, Île Sainte-Marie'],['Padel','A private hour daily + closing tournament'],['Board','All-inclusive · every meal & the full program']],
+        included: ['All oceanfront villa accommodations','Every meal, from the beach club to castaway picnics','Daily padel with a dedicated Privé pro','Reef snorkeling, quad rides, Île aux Nattes, whale watching','Airport transfers on arrival & departure'],
+        pub: '$8,250', mem: '$6,600', keep: '$1,650', url: '/experiences/voaara-madagascar.html' },
+      { name: 'Château de Lussac', eyebrow: 'Fall 2026 · Saint-Émilion, Bordeaux',
+        img: IMG + 'v1777253885/3_1_c60fse.jpg',
+        intro: 'Four days among the Saint-Émilion vineyards — padel by day, Grand Cru tastings, Bordeaux and the Dune du Pilat by afternoon, and evenings at the château table. All-inclusive.',
+        glance: [['Dates','4-day slots · Sept 15 – Oct 15, 2026'],['Where','Château de Lussac, Bordeaux'],['Padel','A session daily + a private hour'],['Wine','A dedicated ŒLYSIUM wine ambassador']],
+        included: ['Château & gîte accommodations','Every meal, château to Le Gabriel & La Corniche','Daily padel — estate court, Bordeaux & Arcachon','Vineyard & cellar tour, Grand Cru tasting','Bordeaux, Saint-Émilion & the Dune du Pilat','Airport transfers'],
+        pub: '$4,200', mem: '$3,360', keep: '$840', url: '/experiences/court-and-cellar.html' },
+      { name: 'Nihi Sumba', eyebrow: 'November 2026 · Sumba Island, Indonesia',
+        img: IMG + 'v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg',
+        intro: 'Five days on the Edge of Wildness — daily jungle-court padel, horses in the surf at Nihiwatu, the half-day Spa Safari, and Sumbanese culture. All-inclusive.',
+        glance: [['Dates','One 5-day slot · November 2026'],['Where','Nihi Sumba, Sumba Island'],['Padel','Daily jungle-court sessions + a private hour'],['Board','All-inclusive · meals, experiences & padel']],
+        included: ['All accommodations at Nihi Sumba','Every meal, plus daily Happiest Hour','Daily padel with a dedicated Privé pro','Horses at Nihiwatu, Lapopu waterfall, Spa Safari','The Sumba Foundation tour & group yoga','Airport transfers (Tambolaka)'],
+        pub: '$12,000', mem: '$9,600', keep: '$2,400', url: '/experiences/nihi-sumba.html' }
+    ];
+
+    function show() { xlb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function hide() { xlb.classList.remove('open'); document.body.style.overflow = ''; showList(); }
+    function showList() { detailView.style.display = 'none'; listView.style.display = ''; if (panel) panel.scrollTop = 0; }
+    function showDetail(i) {
+      var e = EXP[i]; if (!e) return;
+      var img = document.getElementById('xdImg'); img.src = e.img; img.alt = e.name;
+      document.getElementById('xdEyebrow').textContent = e.eyebrow;
+      document.getElementById('xdName').textContent = e.name;
+      document.getElementById('xdIntro').textContent = e.intro;
+      document.getElementById('xdGlance').innerHTML = e.glance.map(function (g) {
+        return '<div class="xlb-glance-item"><div class="xlb-glance-label">' + g[0] + '</div><div class="xlb-glance-val">' + g[1] + '</div></div>';
+      }).join('');
+      document.getElementById('xdIncluded').innerHTML = e.included.map(function (x) { return '<li>' + x + '</li>'; }).join('');
+      document.getElementById('xdPub').textContent = e.pub;
+      document.getElementById('xdMem').textContent = e.mem;
+      document.getElementById('xdKeep').textContent = 'Passport members keep ' + e.keep + ' on this retreat.';
+      document.getElementById('xdFull').href = e.url;
+      listView.style.display = 'none'; detailView.style.display = ''; if (panel) panel.scrollTop = 0;
+    }
+
+    openBtn.addEventListener('click', show);
+    document.getElementById('xlbClose').addEventListener('click', hide);
+    document.getElementById('xlbBackdrop').addEventListener('click', hide);
+    document.getElementById('xlbBack').addEventListener('click', showList);
+    Array.prototype.forEach.call(document.querySelectorAll('.xlb-card'), function (c) {
+      c.addEventListener('click', function () { showDetail(parseInt(c.getAttribute('data-exp'), 10)); });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && xlb.classList.contains('open')) hide(); });
+  })();
+})();
+</script>
+
+<!-- destinations data + property lightbox + portfolio grid -->
+<script src="/data/destinations.js?v=2"></script>
+<script>
+(function () {
+  if (!window.DESTINATIONS) return;
+
+  function clUrl(src, w) {
+    if (!src || src.indexOf('res.cloudinary.com') === -1) return src;
+    var after = src.split('/upload/')[1] || '';
+    var repl = /^v\d+\//.test(after) ? '/upload/w_' + w + '/' : '/upload/w_' + w + ',';
+    return src.replace('/upload/', repl);
+  }
+  /* square, high-res crop (matches the destinations page source image) */
+  function clSquare(src, w) {
+    if (!src || src.indexOf('res.cloudinary.com') === -1) return src;
+    return src.replace('/upload/', '/upload/c_fill,ar_1:1,g_auto,w_' + w + ',');
+  }
+
+  /* ── Lightbox ──────────────────────────────────────────── */
+  var lb = document.getElementById('propLightbox');
+  var panel = document.getElementById('plbPanel');
+  var backdrop = document.getElementById('plbBackdrop');
+  var closeBtn = document.getElementById('plbClose');
+  var _dineItems = [], _dineIdx = 0;
+
+  var ICONS = {
+    rate:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7l9 9a2 2 0 0 1 0 2.8L14 19a2 2 0 0 1-2.8 0L2 10V3z"/><circle cx="8.5" cy="7.5" r="1.2" fill="rgba(184,151,106,.85)" stroke="none"/></svg>',
+    upgrade:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="16" height="7" rx="1.5"/><line x1="11" y1="9" x2="11" y2="2"/><polyline points="7 6 11 2 15 6"/></svg>',
+    clock:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><polyline points="11 7 11 11 14 13"/></svg>',
+    wifi:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5C5.2 5.8 8.9 4 11 4s5.8 1.8 8.5 4.5"/><path d="M5.5 11.5A7.7 7.7 0 0 1 11 9.3a7.7 7.7 0 0 1 5.5 2.2"/><path d="M8.5 14.5A3.7 3.7 0 0 1 11 13.5a3.7 3.7 0 0 1 2.5 1"/><circle cx="11" cy="17.5" r="1" fill="rgba(184,151,106,.85)" stroke="none"/></svg>',
+    breakfast:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v4a4 4 0 0 0 8 0V2"/><line x1="10" y1="10" x2="10" y2="20"/><line x1="6" y1="20" x2="14" y2="20"/></svg>',
+    credit:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="18" height="13" rx="1.5"/><line x1="2" y1="10" x2="20" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/></svg>',
+    spa:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19c-4-3-7-7-7-11a7 7 0 0 1 14 0c0 4-3 8-7 11z"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>',
+    transfer:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h14l-3-5H5L3 13z"/><circle cx="7" cy="16" r="1.5"/><circle cx="15" cy="16" r="1.5"/><line x1="3" y1="13" x2="2" y2="9"/></svg>',
+    star:'<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="rgba(184,151,106,.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 2 13.5 8.5 20.5 8.5 15 13 17.2 20 11 16.2 4.8 20 7 13 1.5 8.5 8.5 8.5"/></svg>'
+  };
+  function benefitIcon(b) {
+    var lc = b.toLowerCase();
+    if (lc.includes('rate') || lc.includes('price')) return ICONS.rate;
+    if (lc.includes('upgrade')) return ICONS.upgrade;
+    if (lc.includes('check') || lc.includes('clock')) return ICONS.clock;
+    if (lc.includes('wi-fi') || lc.includes('wifi') || lc.includes('internet')) return ICONS.wifi;
+    if (lc.includes('breakfast') || lc.includes('dining') || lc.includes('meal')) return ICONS.breakfast;
+    if (lc.includes('credit') || lc.includes('resort') || lc.includes('voucher')) return ICONS.credit;
+    if (lc.includes('spa') || lc.includes('wellness')) return ICONS.spa;
+    if (lc.includes('transfer') || lc.includes('airport') || lc.includes('car')) return ICONS.transfer;
+    return ICONS.star;
+  }
+
+  function updateDineSlider() {
+    var track = document.getElementById('plbDineTrack');
+    var counter = document.getElementById('plbDineCounter');
+    var fill = document.getElementById('plbDineFill');
+    var prev = document.getElementById('plbDinePrev');
+    var next = document.getElementById('plbDineNext');
+    if (!track) return;
+    var perPage = window.innerWidth < 700 ? 1 : 2;
+    var cardW = 100 / perPage;
+    track.style.transform = 'translateX(-' + (_dineIdx * cardW) + '%)';
+    counter.textContent = (_dineIdx + 1) + ' / ' + _dineItems.length;
+    fill.style.width = ((_dineIdx + 1) / _dineItems.length * 100) + '%';
+    prev.disabled = _dineIdx === 0;
+    next.disabled = _dineIdx >= _dineItems.length - perPage;
+  }
+  document.getElementById('plbDinePrev').addEventListener('click', function () { if (_dineIdx > 0) { _dineIdx--; updateDineSlider(); } });
+  document.getElementById('plbDineNext').addEventListener('click', function () {
+    var perPage = window.innerWidth < 700 ? 1 : 2;
+    if (_dineIdx < _dineItems.length - perPage) { _dineIdx++; updateDineSlider(); }
+  });
+
+  window.openPropertyLightbox = function (d) {
+    document.getElementById('plbHero').style.backgroundImage = 'url(' + clUrl(d.heroImg || d.image, 1400) + ')';
+    document.getElementById('plbCollection').textContent = d.collection || '';
+    document.getElementById('plbName').textContent = d.name || '';
+    document.getElementById('plbLoc').textContent = d.loc || '';
+    document.getElementById('plbPills').innerHTML = (d.pills || []).map(function (p) { return '<span class="plb-hero-pill">' + p + '</span>'; }).join('');
+    document.getElementById('plbAboutLabel').textContent = d.region || '';
+    document.getElementById('plbAboutHeading').textContent = d.name || '';
+    document.getElementById('plbAboutBody').textContent = d.about || d.desc || '';
+    var aboutImg = document.getElementById('plbAboutImg');
+    aboutImg.src = clUrl(d.img2 || (d.images && d.images[0]) || '', 800);
+    aboutImg.alt = d.name || '';
+
+    document.getElementById('plbBenefitsLabel').textContent = 'Passport Member Benefits at ' + (d.name || '');
+    var bGrid = document.getElementById('plbBenefitsGrid');
+    var benList = d.memberBenefits || d.benefits || [];
+    bGrid.innerHTML = benList.map(function (b) { return '<div class="plb-benefit-cell"><div class="plb-benefit-icon">' + benefitIcon(b) + '</div><div class="plb-benefit-name">' + b + '</div></div>'; }).join('');
+    document.getElementById('plbBenefitsWrap').style.display = benList.length ? '' : 'none';
+
+    var aGrid = document.getElementById('plbAmenitiesGrid');
+    var amenitiesWrap = document.getElementById('plbAmenitiesWrap');
+    if (d.amenities && d.amenities.length) {
+      aGrid.innerHTML = d.amenities.map(function (a) {
+        return '<div class="plb-amenity-card"><img loading="lazy" src="' + clUrl(a.img, 600) + '" alt="' + a.name + '"><div class="plb-amenity-overlay"><div class="plb-amenity-name">' + a.name + '</div><div class="plb-amenity-desc">' + a.desc + '</div></div></div>';
+      }).join('');
+      amenitiesWrap.style.display = '';
+    } else { amenitiesWrap.style.display = 'none'; }
+
+    var accomWrap = document.getElementById('plbAccomWrap');
+    if (d.accommodations && d.accommodations.length) {
+      accomWrap.innerHTML = '<div class="plb-section-label" style="padding:40px 28px 22px;margin:0;"><span class="plb-section-label-text">ACCOMMODATIONS</span><span class="plb-section-label-rule"></span></div>' +
+        d.accommodations.map(function (a, i) {
+          var flip = i % 2 === 1 ? ' flip' : '';
+          return '<div class="plb-accom-item' + flip + '"><div class="plb-accom-img-wrap"><img loading="lazy" src="' + clUrl(a.img, 900) + '" alt="' + a.title + '"></div><div class="plb-accom-content"><div class="plb-accom-tag">' + (a.num || '') + '</div><div class="plb-accom-title">' + a.title + '</div><div class="plb-accom-body">' + (a.body || '') + '</div></div></div>';
+        }).join('');
+      accomWrap.style.display = '';
+    } else { accomWrap.style.display = 'none'; }
+
+    var dineWrap = document.getElementById('plbDiningWrap');
+    var track = document.getElementById('plbDineTrack');
+    if (d.restaurants && d.restaurants.length) {
+      _dineItems = d.restaurants; _dineIdx = 0;
+      track.innerHTML = d.restaurants.map(function (r) {
+        return '<div class="plb-dining-card"><img class="plb-dining-img" loading="lazy" src="' + clUrl(r.img, 800) + '" alt="' + r.name + '"><div class="plb-dining-body"><div class="plb-dining-name">' + r.name + '</div><div class="plb-dining-desc">' + (r.desc || '') + '</div></div></div>';
+      }).join('');
+      updateDineSlider();
+      dineWrap.style.display = '';
+    } else { dineWrap.style.display = 'none'; }
+
+    var wellWrap = document.getElementById('plbWellnessWrap');
+    if (d.wellness) {
+      var w = d.wellness;
+      document.getElementById('plbWellnessTitle').textContent = w.title || '';
+      document.getElementById('plbWellnessBody').textContent = w.intro || '';
+      document.getElementById('plbWellnessList').innerHTML = (w.items || []).map(function (item) { return '<div class="plb-wellness-item"><span class="plb-wellness-name">' + item.name + '</span><span class="plb-wellness-badge">' + item.detail + '</span></div>'; }).join('');
+      var imgs = w.imgs || [];
+      document.getElementById('plbWellnessImgs').innerHTML = imgs.map(function (src, i) {
+        if (i === 0) return '<div class="plb-wellness-img-tall"><img loading="lazy" src="' + clUrl(src, 800) + '" alt=""></div>';
+        return '<div><img loading="lazy" src="' + clUrl(src, 800) + '" alt=""></div>';
+      }).join('');
+      wellWrap.style.display = '';
+    } else { wellWrap.style.display = 'none'; }
+
+    document.getElementById('plbStrip').innerHTML = (d.photoStrip || d.images || []).map(function (src) { return '<div class="plb-strip-item"><img loading="lazy" src="' + clUrl(src, 900) + '" alt=""></div>'; }).join('');
+
+    panel.scrollTop = 0;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeLightbox() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  closeBtn.addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
+
+  /* ── Portfolio grid (original curated set + expand) ────── */
+  var grid = document.getElementById('pfGrid');
+  if (grid) {
+    var CURATED_IDS = ['don-carlos-marbella','the-savoy','the-surrey','patina-maldives','fairmont-royal-palm','only-aesthesis','al-baleed-oman','rosewood-hong-kong','chable-yucatan'];
+    var byId = {};
+    window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
+    var curated = CURATED_IDS.map(function (id) { return byId[id]; }).filter(Boolean);
+    var inCurated = {};
+    curated.forEach(function (d) { inCurated[d.id] = true; });
+    var rest = window.DESTINATIONS.filter(function (d) { return !inCurated[d.id]; });
+    var ordered = curated.concat(rest);
+    var CURATED = curated.length;
+
+    ordered.forEach(function (d, i) {
+      var tile = document.createElement('div');
+      tile.className = 'pf-tile' + (i >= CURATED ? ' hidden-extra' : '');
+      tile.innerHTML =
+        '<div class="pf-tile-bg" style="background-image:url(\'' + clUrl(d.image, 800) + '\')"></div>' +
+        '<div class="pf-tile-veil"></div>' +
+        (d.comingSoon ? '<div class="pf-tile-badge">Coming Soon</div>' : '') +
+        '<div class="pf-tile-view"><span>View →</span></div>' +
+        '<div class="pf-tile-info"><div class="pf-tile-region">' + (d.region || '') + '</div><div class="pf-tile-name">' + (d.name || '') + '</div></div>';
+      tile.addEventListener('click', function () { window.openPropertyLightbox(d); });
+      grid.appendChild(tile);
+    });
+
+    var moreBtn = document.getElementById('pfMore');
+    if (moreBtn) {
+      moreBtn.addEventListener('click', function () {
+        grid.querySelectorAll('.pf-tile.hidden-extra').forEach(function (t) { t.classList.remove('hidden-extra'); });
+        moreBtn.style.display = 'none';
+      });
+    }
+  }
 })();
 </script>
 </body>
