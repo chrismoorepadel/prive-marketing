@@ -733,6 +733,11 @@
     /* Hero eyebrow follows the homepage: white text, gold rule. */
     .club-hero-eyebrow { color: #FFFFFF; }
     .club-hero-eyebrow::before { background: var(--gold); }
+    /* Mobile hero ends ~15% sooner. Scoped to this page rather than
+       styles/main.css, which would also move /miami. */
+    @media (max-width: 768px) {
+      .club-hero { height: 85vh; }
+    }
 </style>
 </head>
 <body>
