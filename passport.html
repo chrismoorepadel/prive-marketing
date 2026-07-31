@@ -49,6 +49,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -703,6 +704,25 @@
     .tier-cta.is-gold:hover { opacity: .9; }
     .tiers-note { text-align: center; font-size: 13px; color: rgba(27,42,74,.55); margin-top: 22px; }
     @media (min-width: 720px) { .tiers { grid-template-columns: 1fr 1fr; } }
+    /* ── GLOBAL FOOTPRINT MAP ──────────────────────────────
+       Dark by necessity: the Mapbox style is dark-v11, so the band
+       around it stays dark rather than fighting the canvas. */
+    .passport-map-section{padding:80px 80px 100px;background:#0E1923;}
+    .passport-map-section .section-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px;}
+    .passport-map-section .section-title{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.1;}
+    .passport-map-section .section-title em{font-style:italic;color:var(--gold);}
+    .passport-map-container{margin-top:48px;border:1px solid rgba(255,255,255,.08);border-radius:2px;overflow:hidden;height:540px;position:relative;}
+    #passport-map{width:100%;height:100%;}
+    .mapboxgl-popup{pointer-events:none;}
+    .mapboxgl-popup-content{background:rgba(14,25,35,.95)!important;border:1px solid rgba(184,151,106,.3)!important;border-radius:2px!important;padding:10px 16px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;backdrop-filter:blur(8px);}
+    .mapboxgl-popup-tip{display:none!important;}
+    .popup-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:#FFFFFF;white-space:nowrap;}
+    .mapboxgl-ctrl-group{background:rgba(14,25,35,.9)!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:2px!important;box-shadow:none!important;}
+    .mapboxgl-ctrl-group button{width:30px;height:30px;}
+    .mapboxgl-ctrl-icon{filter:invert(1) opacity(.6);}
+    .mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon{filter:invert(1) opacity(1);}
+    .mapboxgl-ctrl-attrib{display:none!important;}
+    @media(max-width:768px){.passport-map-section{padding:60px 24px 80px;}.passport-map-container{height:380px;}}
 </style>
 </head>
 <body>
@@ -763,8 +783,8 @@
   <div class="club-hero-content">
     <div class="club-hero-left">
       <div class="club-hero-eyebrow">The Membership</div>
-      <h1 class="club-hero-title">The world's first<br><em>Padel Passport.</em></h1>
-      <p class="club-hero-sub">One membership. Over forty hotels and resorts across eighteen countries — and a court waiting at every one.</p>
+      <h1 class="club-hero-title">The game travels<br><em>with you.</em></h1>
+      <p class="club-hero-sub">A global travel membership for padel players. Stay at the world's leading destinations, play at every one, and find a court wherever the year takes you.</p>
       <div style="margin-top:40px;">
         <a href="join.html" class="btn-primary">Get Your Passport</a>
       </div>
@@ -816,30 +836,6 @@
       </div>
     </div>
 
-    <!-- Social proof strip -->
-    <div class="glass proof">
-      <div class="proof-stars">★★★★★</div>
-      <p class="proof-quote">“We booked the Madagascar retreat on a whim and it became the best trip we've taken in years — expert padel programming and a real excursion into the destination.”</p>
-      <div class="proof-attrib">Elena &amp; Marc R., London · Full-Access Members</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ §1.5 · PRESS (moved up for early trust) ══ -->
-<section class="press">
-  <div class="wrap-wide">
-    <div class="press-label">As featured in</div>
-    <div class="press-logos">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451122/goop_oohm01.png" alt="goop" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451129/haute-living_zvofdg.png" alt="Haute Living" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451133/iconic-life_viet1g.png" alt="Iconic Life" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451127/observer_il47nz.png" alt="Observer" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451130/modern-luxury-hamptons_jc2u4n.png" alt="Modern Luxury Hamptons" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451125/resident_gye8ap.png" alt="Hotels Above Par" loading="lazy">
-    </div>
   </div>
 </section>
 
@@ -885,17 +881,15 @@
     <div class="flist-note">When available · at participating properties</div>
   </div>
 
-  <!-- browse the collection -->
-  <div class="wrap-wide">
-    <div class="pf-head" style="margin-top:58px;">
-      <div class="eyebrow">Explore the Collection</div>
-      <h3 class="display" style="font-size:clamp(28px,7.5vw,42px);">Forty destinations,<em>one passport.</em></h3>
-    </div>
-    <div class="pf-grid" id="pfGrid"><!-- populated from window.DESTINATIONS --></div>
-    <div class="pf-foot">
-      <div class="pf-foot-note">Over forty destinations · worldwide</div>
-      <button class="btn btn-ghost" id="pfMore">Browse all 40+ destinations →</button>
-    </div>
+</section>
+
+
+<!-- ══ §2.5 · GLOBAL FOOTPRINT (map) ══ -->
+<section class="passport-map-section">
+  <div class="section-eyebrow" style="color:rgba(255,255,255,.3);">Global Footprint</div>
+  <h2 class="section-title light" style="font-size:clamp(30px,3vw,44px);color:#FFFFFF;">40+ destinations,<br><em>one passport.</em></h2>
+  <div class="passport-map-container">
+    <div id="passport-map"></div>
   </div>
 </section>
 
@@ -907,6 +901,18 @@
       <h2 class="display">Also <em style="display:inline;">included.</em></h2>
     </div>
     <div class="also">
+      <!-- Privé Clubs -->
+      <div class="also-col">
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Clubs"></div>
+        <div class="also-eyebrow">Privé Clubs</div>
+        <div class="also-title">Montauk &amp; Miami, <em>included.</em></div>
+        <p class="also-text">Your Passport includes member pricing at both Privé Clubs — four visits a year on Standard, unlimited year-round on Full Access. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
+        <div class="also-list">
+          <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
+          <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
+        </div>
+        <a class="also-link" href="/locations.html">Learn more about Privé Clubs →</a>
+      </div>
       <!-- Privé Experiences (retreats) -->
       <div class="also-col">
         <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Privé Experiences"></div>
@@ -918,18 +924,7 @@
           <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price"><s>$4,200</s> $3,360</span></a>
           <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price"><s>$12,000</s> $9,600</span></a>
         </div>
-        <button class="also-link" id="expOpen" type="button">See all experiences →</button>
-      </div>
-      <!-- Privé Clubs -->
-      <div class="also-col">
-        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Clubs"></div>
-        <div class="also-eyebrow">Privé Clubs</div>
-        <div class="also-title">Montauk &amp; Miami, <em>included.</em></div>
-        <p class="also-text">Your Passport includes member pricing at both Privé Clubs — four visits a year on Standard, unlimited year-round on Full Access. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
-        <div class="also-list">
-          <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
-          <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
-        </div>
+        <a class="also-link" href="/passport/experiences.html">Learn more about Privé Experiences →</a>
       </div>
     </div>
   </div>
@@ -966,33 +961,6 @@
       </div>
     </div>
     <p class="tiers-note">Add a partner to either tier — $95 a year.</p>
-  </div>
-</section>
-
-<!-- ══ TESTIMONIALS ══ -->
-<section class="sec-tight">
-  <div class="wrap-wide">
-    <div class="sec-head">
-      <div class="eyebrow">Members</div>
-      <h2 class="display">Why they <em style="display:inline;">joined.</em></h2>
-    </div>
-    <div class="testis">
-      <div class="glass testi">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">“We booked the Madagascar retreat on a whim and it became the best trip we've taken in years. You get expert padel programming alongside other Privé members, but it's so much more than that — a real excursion into the destination, with unforgettable experiences across Sainte-Marie Island.”</p>
-        <div class="testi-attrib">— Elena &amp; Marc R., London · Full-Access Members</div>
-      </div>
-      <div class="glass testi">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">“I joined to access Montauk and Miami, and stayed for everywhere else. I travel constantly, and as a passionate padel player I love knowing I can book a trip with the Passport and count on two things: real benefits at the resort, and a court ready for me right on property.”</p>
-        <div class="testi-attrib">— Daniel K., Miami · Founding Member</div>
-      </div>
-      <div class="glass testi">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">“I'm a huge padel player, and I love to play whenever I travel for work. The Passport essentially gives me member benefits across their network of clubs in major cities — so I arrive as a member even when I'm only visiting. It feels great.”</p>
-        <div class="testi-attrib">— James H., New York · Founding Member</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1462,6 +1430,117 @@
     }
   }
 })();
+</script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicHJpdmVwYWRlbCIsImEiOiJjbW9iaHZnYWIwMWh1MnBxMTZxdXVucmZtIn0.MwLySLtt_1Pek71hLAoPmQ';
+
+var RESORTS = [
+  { name: 'Don Carlos Marbella',              lat: 36.502,  lng:  -4.896 },
+  { name: 'Château de Lussac',               lat: 44.951,  lng:   0.017 },
+  { name: 'Vila Vita Parc',                  lat: 37.087,  lng:  -8.433 },
+  { name: 'Chablé Yucatán',                  lat: 20.851,  lng: -90.128 },
+  { name: 'Camiral Resort',                  lat: 41.868,  lng:   2.798 },
+  { name: 'The Marbella Club',               lat: 36.513,  lng:  -4.934 },
+  { name: 'Finca La Bobadilla',              lat: 37.261,  lng:  -4.096 },
+  { name: 'The Savoy',                       lat: 51.510,  lng:  -0.120 },
+  { name: "St. James's Hotel and Club",      lat: 51.505,  lng:  -0.144 },
+  { name: 'Finca Serena',                    lat: 39.572,  lng:   3.056 },
+  { name: 'The Lodge',                       lat: 39.606,  lng:   2.615 },
+  { name: 'Mas De Torrent',                  lat: 41.978,  lng:   3.066 },
+  { name: 'Kimpton Aysla Mallorca',          lat: 39.569,  lng:   2.489 },
+  { name: 'The Biltmore Hotel Villas',       lat: 25.074,  lng:  55.134 },
+  { name: 'NIHI Sumba',                      lat: -9.644,  lng: 119.417 },
+  { name: 'Nay Palad Hideaway',              lat:  9.748,  lng: 118.736 },
+  { name: 'Voaara Madagascar',               lat:-15.716,  lng:  46.316 },
+  { name: 'Fairmont Windsor Park',           lat: 51.428,  lng:  -0.585 },
+  { name: 'Al Baleed Resort Salalah',        lat: 16.933,  lng:  54.093 },
+  { name: 'D Maris Bay',                     lat: 36.770,  lng:  27.680 },
+  { name: 'Etéreo Kanai',                   lat: 20.582,  lng: -87.234 },
+  { name: 'Fairmont Royal Palm Marrakech',   lat: 31.591,  lng:  -8.062 },
+  { name: 'Patina Maldives',                 lat:  4.173,  lng:  73.522 },
+  { name: 'Riviera Maya EDITION',            lat: 20.597,  lng: -87.120 },
+  { name: 'The St. Regis Kanai Resort',      lat: 20.605,  lng: -87.068 },
+  { name: 'Tortuga Bay Puntacana Resort',    lat: 18.567,  lng: -68.373 },
+  { name: 'Vilalara Grand Hotel Algarve',    lat: 37.104,  lng:  -8.465 },
+  { name: 'Hotel Royal Evian',               lat: 46.395,  lng:   6.590 },
+  { name: 'Fairmont Century Plaza',          lat: 34.057,  lng:-118.416 },
+  { name: 'Hotel Único Madrid',              lat: 40.426,  lng:  -3.688 },
+  { name: 'The Maybourne Beverly Hills',     lat: 34.071,  lng:-118.400 },
+  { name: 'The Principal Madrid',            lat: 40.420,  lng:  -3.704 },
+  { name: 'The Surrey',                      lat: 40.774,  lng: -73.964 },
+  { name: 'One&Only Aesthesis',              lat: 37.865,  lng:  23.757 },
+  { name: 'Elounda Mare Hotel',              lat: 35.258,  lng:  25.730 },
+  { name: 'Elounda Peninsula',               lat: 35.261,  lng:  25.732 },
+  { name: 'Porto Elounda Golf & Spa',        lat: 35.257,  lng:  25.726 },
+  { name: 'Verdura Resort',                  lat: 37.499,  lng:  13.161 },
+  { name: 'One&Only Le Saint Géran',        lat:-20.212,  lng:  57.775 },
+  { name: 'Rosewood Hong Kong',              lat: 22.298,  lng: 114.172 },
+  { name: 'Banyan Tree Mayakoba',            lat: 20.693,  lng: -87.055 },
+  { name: 'Hotel Pitrizza',                  lat: 41.117,  lng:   9.533 },
+  { name: 'Voaara Grenadines',               lat: 12.601,  lng: -61.401 },
+];
+
+var geojson = {
+  type: 'FeatureCollection',
+  features: RESORTS.map(function(r) {
+    return { type: 'Feature', geometry: { type: 'Point', coordinates: [r.lng, r.lat] }, properties: { name: r.name } };
+  })
+};
+
+var popup = new mapboxgl.Popup({ offset: 10, closeButton: false, closeOnClick: false, anchor: 'bottom' });
+
+var map = new mapboxgl.Map({
+  container: 'passport-map',
+  style: 'mapbox://styles/mapbox/dark-v11',
+  projection: 'mercator',
+  scrollZoom: false,
+  attributionControl: false,
+});
+
+map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'bottom-right');
+
+map.on('load', function() {
+  map.addSource('resorts', { type: 'geojson', data: geojson });
+
+  map.addLayer({
+    id: 'resort-halo',
+    type: 'circle',
+    source: 'resorts',
+    paint: {
+      'circle-radius': 9,
+      'circle-color': 'rgba(184,151,106,0.15)',
+      'circle-stroke-width': 1,
+      'circle-stroke-color': 'rgba(184,151,106,0.4)',
+    }
+  });
+
+  map.addLayer({
+    id: 'resort-dots',
+    type: 'circle',
+    source: 'resorts',
+    paint: {
+      'circle-radius': 4.5,
+      'circle-color': '#b8976a',
+    }
+  });
+
+  ['resort-dots', 'resort-halo'].forEach(function(layer) {
+    map.on('mouseenter', layer, function(e) {
+      map.getCanvas().style.cursor = 'pointer';
+      var coords = e.features[0].geometry.coordinates.slice();
+      popup.setLngLat(coords).setHTML('<div class="popup-name">' + e.features[0].properties.name + '</div>').addTo(map);
+    });
+    map.on('mouseleave', layer, function() {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+  });
+
+  var bounds = new mapboxgl.LngLatBounds();
+  RESORTS.forEach(function(r) { bounds.extend([r.lng, r.lat]); });
+  map.fitBounds(bounds, { padding: { top: 60, bottom: 80, left: 80, right: 80 }, duration: 0, maxZoom: 3 });
+});
 </script>
   <script src="/js/main.js"></script>
 </body>
