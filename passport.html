@@ -434,18 +434,18 @@
     .also-col { flex: 1; }
     .also-img { border-radius: 16px; overflow: hidden; border: 1px solid rgba(27,42,74,.08); margin-bottom: 20px; box-shadow: 0 26px 56px -38px rgba(0,0,0,.8); }
     .also-img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
-    .also-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .also-title { font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 300; color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
+    .also-eyebrow { font-size: 12px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .also-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 300; color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
     .also-title em { font-style: italic; }
     .also-list { display: flex; flex-direction: column; border-top: 1px solid rgba(27,42,74,.1); margin-bottom: 18px; }
-    .also-list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(27,42,74,.1); font-size: 13px; font-weight: 300; color: rgba(27,42,74,.82); transition: color .15s; }
+    .also-list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(27,42,74,.1); font-size: 16px; font-weight: 300; color: rgba(27,42,74,.82); transition: color .15s; }
     .also-list a:hover { color: var(--ink); }
     .also-list-name b { font-weight: 400; color: var(--ink); }
     .also-list-name span { color: rgba(27,42,74,.5); }
-    .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); white-space: nowrap; }
-    .also-list-price s { color: rgba(27,42,74,.5); font-size: 15px; margin-right: 6px; text-decoration-thickness: 1px; }
-    .also-text { font-size: 13.5px; font-weight: 300; color: rgba(27,42,74,.64); line-height: 1.65; margin-bottom: 18px; }
-    .also-link { display: inline-block; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); background: none; border: 0; border-bottom: 1px solid rgba(184,151,106,.5); padding: 0 0 2px; cursor: pointer; }
+    .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--gold); white-space: nowrap; }
+    .also-list-price s { color: rgba(27,42,74,.5); font-size: 17px; margin-right: 6px; text-decoration-thickness: 1px; }
+    .also-text { font-size: 18px; font-weight: 300; color: rgba(27,42,74,.64); line-height: 1.65; margin-bottom: 18px; }
+    .also-link { display: inline-block; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); background: none; border: 0; border-bottom: 1px solid rgba(184,151,106,.5); padding: 0 0 2px; cursor: pointer; }
     .also-link:hover { color: var(--ink); border-color: var(--ink); }
 
     /* ── EXPERIENCES LIGHTBOX ──────────────────────────────── */
@@ -711,6 +711,7 @@
     .passport-map-section .section-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px;}
     .passport-map-section .section-title{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.1;}
     .passport-map-section .section-title em{font-style:italic;color:var(--gold);}
+    .passport-map-cta{margin-top:36px;text-align:center;}
     .passport-map-container{margin-top:48px;border:1px solid rgba(255,255,255,.08);border-radius:2px;overflow:hidden;height:540px;position:relative;}
     #passport-map{width:100%;height:100%;}
     .mapboxgl-popup{pointer-events:none;}
@@ -891,6 +892,9 @@
   <div class="passport-map-container">
     <div id="passport-map"></div>
   </div>
+  <div class="passport-map-cta">
+    <a href="/passport/destinations.html" class="btn-primary">Explore All Destinations →</a>
+  </div>
 </section>
 
 <!-- ══ §3 · ALSO INCLUDED (secondary) ══ -->
@@ -908,8 +912,8 @@
         <div class="also-title">Montauk &amp; Miami, <em>included.</em></div>
         <p class="also-text">Your Passport includes member pricing at both Privé Clubs — four visits a year on Standard, unlimited year-round on Full Access. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
         <div class="also-list">
-          <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
-          <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span></span><span class="also-list-price" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
+          <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span></span><span class="also-list-price" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
+          <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span></span><span class="also-list-price" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
         </div>
         <a class="also-link" href="/locations.html">Learn more about Privé Clubs →</a>
       </div>
@@ -927,6 +931,17 @@
         <a class="also-link" href="/passport/experiences.html">Learn more about Privé Experiences →</a>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- ══ §3.5 · QUOTE ══ -->
+<section class="passport-quote-visual">
+  <div class="passport-quote-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777413321/crop_in_by_another_10__202604281755_xbtijn.jpg');"></div>
+  <div class="passport-quote-overlay"></div>
+  <div class="passport-quote-content">
+    <div class="passport-quote-eyebrow">PRIVÉ PASSPORT</div>
+    <blockquote class="passport-quote-text">"Privé Passport is what happens<br>when you stop choosing<br>between the trip and the game."</blockquote>
   </div>
 </section>
 

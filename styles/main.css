@@ -1158,7 +1158,13 @@ footer{
 }
 .passport-quote-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(14,25,35,.72) 0%, rgba(14,25,35,.18) 60%, transparent 100%);
+  /* Two gradients: the vertical one for the whole lower band, plus a
+     left-weighted pass because the quote is left-aligned and this
+     image is bright enough that the vertical alone left the gold
+     eyebrow unreadable against pale stone. */
+  background:
+    linear-gradient(to right, rgba(14,25,35,.62) 0%, rgba(14,25,35,.28) 45%, transparent 75%),
+    linear-gradient(to top, rgba(14,25,35,.82) 0%, rgba(14,25,35,.34) 55%, rgba(14,25,35,.06) 100%);
 }
 .passport-quote-content{
   position:absolute;bottom:0;left:0;
