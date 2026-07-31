@@ -1856,7 +1856,12 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   max-width:1480px;
   margin:0 auto;
 }
-.offering{text-align:left;}
+/* Column layout so the EXPLORE buttons share a baseline no matter how
+   many lines a card's name or qualifier runs to — the qualifier absorbs
+   the slack rather than the copy being trimmed to fit. */
+.offering{text-align:left;display:flex;flex-direction:column;}
+.offering-qualifier{flex:1;}
+.offering-link{align-self:flex-start;}
 .offering-image{
   width:100%;
   aspect-ratio:4/5;
