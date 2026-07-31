@@ -2828,7 +2828,9 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 @media (max-width:900px){
 
   /* 1 · Brand anchor was running to the screen edges */
-  .brand-anchor{padding:0 26px;}
+  /* height was fixed, so the copy sat tight against the top and bottom.
+     Padding plus an auto height lets the section grow with the text. */
+  .brand-anchor{padding:84px 26px;height:auto;min-height:70vh;}
   /* the section supplies the gutter now, so drop the content's own
      40px inset — stacked, they left the paragraph only ~243px wide */
   .brand-anchor-content{max-width:100%;padding:0;}
@@ -2871,4 +2873,14 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
     cursor:pointer;
   }
   .mc-dot.active{background:var(--gold);transform:scale(1.25);}
+}
+
+/* Responsive copy helpers — swap a word or force a line break on mobile
+   without duplicating the whole element. */
+.u-narrow{display:none;}
+.br-narrow{display:none;}
+@media (max-width:900px){
+  .u-wide{display:none;}
+  .u-narrow{display:inline;}
+  .br-narrow{display:inline;}
 }
