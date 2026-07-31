@@ -722,6 +722,7 @@
     .mapboxgl-popup{pointer-events:none;}
     .mapboxgl-popup-content{background:rgba(14,25,35,.95)!important;border:1px solid rgba(184,151,106,.3)!important;border-radius:2px!important;padding:10px 16px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;backdrop-filter:blur(8px);}
     .mapboxgl-popup-tip{display:none!important;}
+    .popup-hint{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(184,151,106,.85);margin-top:5px;}
     .popup-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:#FFFFFF;white-space:nowrap;}
     .mapboxgl-ctrl-group{background:rgba(14,25,35,.9)!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:2px!important;box-shadow:none!important;}
     .mapboxgl-ctrl-group button{width:30px;height:30px;}
@@ -729,6 +730,9 @@
     .mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon{filter:invert(1) opacity(1);}
     .mapboxgl-ctrl-attrib{display:none!important;}
     @media(max-width:768px){.passport-map-section{padding:60px 24px 80px;}.passport-map-container{height:380px;}}
+    /* Hero eyebrow follows the homepage: white text, gold rule. */
+    .club-hero-eyebrow { color: #FFFFFF; }
+    .club-hero-eyebrow::before { background: var(--gold); }
 </style>
 </head>
 <body>
@@ -1501,10 +1505,40 @@ var RESORTS = [
   { name: 'Voaara Grenadines',               lat: 12.601,  lng: -61.401 },
 ];
 
+// Map pins back to the destination records so a click can open the same
+// lightbox the destinations page uses. Names line up for 40 of 43; the
+// three below differ between the two lists, so they're mapped explicitly
+// rather than guessed at with fuzzy matching.
+var NAME_ALIASES = {
+  'camiralresort':        'camiral',
+  'themarbellaclub':      'marbella-club',
+  'stjamesshotelandclub': 'st-james-hotel'
+};
+
+function normName(s) {
+  return String(s).toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+}
+
+var DEST_BY_NAME = {};
+(window.DESTINATIONS || []).forEach(function (d) { DEST_BY_NAME[normName(d.name)] = d; });
+
+function destinationFor(resortName) {
+  var key = normName(resortName);
+  if (DEST_BY_NAME[key]) return DEST_BY_NAME[key];
+  var aliasId = NAME_ALIASES[key];
+  if (!aliasId) return null;
+  return (window.DESTINATIONS || []).filter(function (d) { return d.id === aliasId; })[0] || null;
+}
+
 var geojson = {
   type: 'FeatureCollection',
   features: RESORTS.map(function(r) {
-    return { type: 'Feature', geometry: { type: 'Point', coordinates: [r.lng, r.lat] }, properties: { name: r.name } };
+    return {
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [r.lng, r.lat] },
+      properties: { name: r.name, hasDetail: destinationFor(r.name) ? 1 : 0 }
+    };
   })
 };
 
@@ -1547,13 +1581,25 @@ map.on('load', function() {
 
   ['resort-dots', 'resort-halo'].forEach(function(layer) {
     map.on('mouseenter', layer, function(e) {
-      map.getCanvas().style.cursor = 'pointer';
-      var coords = e.features[0].geometry.coordinates.slice();
-      popup.setLngLat(coords).setHTML('<div class="popup-name">' + e.features[0].properties.name + '</div>').addTo(map);
+      var f = e.features[0];
+      // only offer the pointer where there's actually a lightbox behind it
+      map.getCanvas().style.cursor = f.properties.hasDetail ? 'pointer' : '';
+      var coords = f.geometry.coordinates.slice();
+      var hint = f.properties.hasDetail ? '<div class="popup-hint">View property</div>' : '';
+      popup.setLngLat(coords)
+           .setHTML('<div class="popup-name">' + f.properties.name + '</div>' + hint)
+           .addTo(map);
     });
     map.on('mouseleave', layer, function() {
       map.getCanvas().style.cursor = '';
       popup.remove();
+    });
+    map.on('click', layer, function(e) {
+      var d = destinationFor(e.features[0].properties.name);
+      if (d && typeof window.openPropertyLightbox === 'function') {
+        popup.remove();
+        window.openPropertyLightbox(d);
+      }
     });
   });
 
