@@ -64,16 +64,18 @@
 }
 
 .tier-option {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 20px 24px;
-  border: 1px solid rgba(27, 42, 74, 0.15);
-  cursor: pointer;
-  transition: border-color 0.15s;
   position: relative;
+  display: block;
+  padding: 24px 24px 22px;
+  border: 1px solid rgba(27, 42, 74, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: border-color .18s, background .18s;
   user-select: none;
 }
+
+.tier-option:hover { border-color: rgba(184, 151, 106, 0.5); }
 
 .tier-option input[type="radio"] {
   position: absolute;
@@ -83,22 +85,91 @@
   pointer-events: none;
 }
 
-.tier-marker {
-  font-size: 9px;
-  color: #B8976A;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 0.15s;
-  margin-top: 5px;
+/* radio dot, top-right so it doesn't fight the price */
+.tier-check {
+  position: absolute;
+  top: 26px;
+  right: 24px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(27, 42, 74, 0.3);
+  transition: border-color .18s;
+}
+
+.tier-option.selected { border-color: #B8976A; background: rgba(184, 151, 106, 0.07); }
+.tier-option.selected .tier-check { border-color: #B8976A; }
+.tier-option.selected .tier-check::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #B8976A;
+}
+
+.tier-flag {
+  position: absolute;
+  top: -9px;
+  left: 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #0E1923;
+  background: #B8976A;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.tier-head { display: flex; align-items: baseline; gap: 12px; padding-right: 30px; }
+
+.tier-name {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(27, 42, 74, 0.82);
+}
+
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 34px;
+  color: #1B2A4A;
   line-height: 1;
+  margin-left: auto;
 }
 
-.tier-option.selected {
-  border-color: #B8976A;
+.tier-price span {
+  font-style: normal;
+  font-family: 'Jost', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  color: rgba(27, 42, 74, 0.7);
+  margin-left: 6px;
 }
 
-.tier-option.selected .tier-marker {
-  opacity: 1;
+.tier-diff {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(27, 42, 74, 0.12);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: rgba(27, 42, 74, 0.82);
+  line-height: 1.5;
+}
+
+.tier-diff em { font-style: italic; color: #7E6135; }
+
+.tier-diff-label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(27, 42, 74, 0.72);
+  margin-bottom: 8px;
 }
 
 .tier-details {

@@ -98,8 +98,8 @@
 <section class="join-hero join-hero--checkout">
   <div class="join-hero-inner">
     <div class="join-eyebrow">Privé Passport · Secure Checkout</div>
-    <h1 class="join-headline">You're one step from <em>the game that travels.</em></h1>
-    <p class="join-subline">Here's everything your Passport carries — then join in under a minute.</p>
+    <h1 class="join-headline">Your Passport <em>starts here.</em></h1>
+    <p class="join-subline">One membership. Over forty hotels and resorts across eighteen countries — and a court waiting at every one.</p>
   </div>
 </section>
 
@@ -138,19 +138,13 @@
       <h2 class="pitch-heading">Everything your Passport <em>carries.</em></h2>
 
       <ul class="incl-list">
-        <li class="incl-item"><span class="incl-check"></span><div><strong>40+ destinations at member rates</strong> — up to 20% off published rates at partner hotels worldwide.</div></li>
-        <li class="incl-item"><span class="incl-check"></span><div><strong>Your Privé Clubs — Montauk &amp; Miami</strong> — member rates year-round, unlimited play on Full Access.</div></li>
-        <li class="incl-item"><span class="incl-check"></span><div><strong>20% off every Privé retreat</strong> — plus first invitations before they open to the public.</div></li>
-        <li class="incl-item"><span class="incl-check"></span><div><strong>On-arrival benefits</strong> — room upgrades, early check-in, and resort &amp; dining credits where available.</div></li>
-        <li class="incl-item"><span class="incl-check"></span><div><strong>Partner-club courts in four cities</strong> — a place to play wherever you land.</div></li>
+        <li class="incl-item"><span class="incl-check"></span><div><strong>A court everywhere you travel</strong> — over forty hotels and resorts across eighteen countries, with a padel court on site or held for you at the partner club in the same city.</div></li>
+        <li class="incl-item"><span class="incl-check"></span><div><strong>Member rates &amp; privileges</strong> — up to 20% off room rates, complimentary upgrades where available, unhurried arrivals and departures, and spa, dining and wellness privileges.</div></li>
+        <li class="incl-item"><span class="incl-check"></span><div><strong>Privé Montauk &amp; Miami</strong> — member pricing at both of our own clubs, four visits a year on Standard and unlimited year-round on Full Access.</div></li>
+        <li class="incl-item"><span class="incl-check"></span><div><strong>20% off every Privé Experience</strong> — and the first invitation, before retreats open to anyone else.</div></li>
+        <li class="incl-item"><span class="incl-check"></span><div><strong>Partner clubs in four cities</strong> — Los Angeles, New York, London and Hong Kong.</div></li>
         <li class="incl-item"><span class="incl-check"></span><div><strong>One member portal</strong> — your rate and benefits applied automatically at booking.</div></li>
       </ul>
-
-      <!-- ROI callout -->
-      <div class="roi-callout">
-        <div class="roi-eyebrow">Pays for itself — many times over</div>
-        <p class="roi-text">Members travel every Privé retreat at 20% off — as much as <strong>$2,400 back on a single journey.</strong> One retreat returns several times the price of your membership, from one trip.</p>
-      </div>
 
       <!-- Featured testimonial -->
       <blockquote class="pitch-quote">
@@ -171,21 +165,28 @@
 
         <label class="tier-option selected" id="option-standard">
           <input type="radio" name="tier" value="standard" checked>
-          <span class="tier-marker" aria-hidden="true">◆</span>
-          <div class="tier-details">
-            <div class="tier-name">Standard</div>
-            <div class="tier-price">$595 / year</div>
-            <div class="tier-desc">Member rates at 40+ destinations, partner clubs, and Privé Experiences. Montauk &amp; Miami up to four visits a month.</div>
+          <span class="tier-check" aria-hidden="true"></span>
+          <div class="tier-head">
+            <span class="tier-name">Standard</span>
+            <span class="tier-price">$595<span>/ year</span></span>
+          </div>
+          <div class="tier-diff">
+            <span class="tier-diff-label">Privé Montauk &amp; Miami</span>
+            Member pricing · four visits a year
           </div>
         </label>
 
         <label class="tier-option" id="option-full">
           <input type="radio" name="tier" value="full">
-          <span class="tier-marker" aria-hidden="true">◆</span>
-          <div class="tier-details">
-            <div class="tier-name">Full Access</div>
-            <div class="tier-price">$995 / year</div>
-            <div class="tier-desc">Everything in Standard, plus unlimited play at Montauk &amp; Miami and first invitations to every retreat.</div>
+          <span class="tier-flag">Most complete</span>
+          <span class="tier-check" aria-hidden="true"></span>
+          <div class="tier-head">
+            <span class="tier-name">Full Access</span>
+            <span class="tier-price">$995<span>/ year</span></span>
+          </div>
+          <div class="tier-diff">
+            <span class="tier-diff-label">Privé Montauk &amp; Miami</span>
+            Member pricing · <em>unlimited visits</em>
           </div>
         </label>
 
@@ -308,7 +309,7 @@
 
     <details>
       <summary>What's the difference between Standard and Full Access?</summary>
-      <div class="join-faq-a">Both carry the full network — 40+ destinations at member rates, partner clubs, and Privé Experiences. Standard includes member rates at Privé Montauk and Miami for up to four visits a month; Full Access makes that play unlimited, year-round, and adds first invitations to every retreat.</div>
+      <div class="join-faq-a">Both carry the full network — 40+ destinations at member rates, partner clubs, and Privé Experiences. Standard includes member pricing at Privé Montauk and Miami for four visits a year; Full Access makes that unlimited, year-round, and adds first invitations to every retreat.</div>
     </details>
 
     <details>
@@ -405,6 +406,17 @@
     var partnerLabel = document.getElementById('label-partner');
     partnerLabel.classList.toggle('checked', isPartner());
   }
+
+  // Preselect from ?tier= so the tile someone clicked on / or /passport
+  // is the one already chosen here. Unknown values fall through to the
+  // markup default rather than leaving nothing selected.
+  (function () {
+    var want = (new URLSearchParams(window.location.search).get('tier') || '').toLowerCase();
+    if (want !== 'standard' && want !== 'full') return;
+    var radio = document.querySelector('input[name="tier"][value="' + want + '"]');
+    if (!radio) return;
+    radio.checked = true;
+  })();
 
   document.querySelectorAll('input[name="tier"]').forEach(function (radio) {
     radio.addEventListener('change', function () {
