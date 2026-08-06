@@ -21,6 +21,8 @@ img{display:block;max-width:100%;}
 ═══════════════════════════════════════════════════════ */
 :root{
   --navy:  #1B2A4A;
+  /* #B8976A is ~2.4:1 on cream — a rule colour, not a text colour */
+  --gold-ink: #7E6135;
   --cream: #F5F0E8;
   --sand:  #D9CDB8;
   --gold:  #B8976A;
@@ -149,7 +151,7 @@ nav.scrolled .nav-cta{color:var(--navy);border-color:rgba(27,42,74,0.3);}
   font-family:'Jost',sans-serif;
   font-size:11px;font-weight:400;
   letter-spacing:0.25em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:16px;
+  color:var(--gold-ink);margin-bottom:16px;
   display:flex;align-items:center;gap:16px;
 }
 .section-eyebrow::before{
@@ -1390,7 +1392,7 @@ footer{
 .club-about-title em{font-style:italic;}
 .club-about-body{
   font-family:'Jost',sans-serif;font-size:15px;font-weight:300;
-  line-height:1.9;letter-spacing:0.04em;color:var(--mid);
+  line-height:1.9;letter-spacing:0.04em;color:rgba(27,42,74,.8);
   margin-bottom:20px;
 }
 
@@ -1425,7 +1427,7 @@ footer{
 }
 .club-facility-desc{
   font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
-  letter-spacing:0.04em;line-height:1.7;color:rgba(255,255,255,.45);
+  letter-spacing:0.04em;line-height:1.7;color:rgba(255,255,255,.72);
 }
 
 /* Events */
@@ -1445,7 +1447,7 @@ footer{
 .club-event-date{
   font-family:'Jost',sans-serif;font-size:8.5px;font-weight:300;
   letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:14px;
+  color:var(--gold-ink);margin-bottom:14px;
 }
 .club-event-title{
   font-family:'Cormorant Garamond',serif;
@@ -1453,7 +1455,7 @@ footer{
 }
 .club-event-desc{
   font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
-  line-height:1.8;letter-spacing:0.04em;color:var(--mid);
+  line-height:1.8;letter-spacing:0.04em;color:rgba(27,42,74,.8);
 }
 .club-event-tag{
   display:inline-block;margin-top:16px;
@@ -1487,7 +1489,7 @@ footer{
 }
 .club-play-desc{
   font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
-  letter-spacing:0.04em;line-height:1.7;color:rgba(255,255,255,.4);
+  letter-spacing:0.04em;line-height:1.7;color:rgba(255,255,255,.72);
 }
 
 /* Gallery */
@@ -2274,7 +2276,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   background:var(--navy);
   padding:calc(100px + var(--nav-h)) 80px 80px;
 }
-.locations-intro .section-eyebrow{color:var(--gold);margin-bottom:24px;}
+.locations-intro .section-eyebrow{color:var(--gold-ink);margin-bottom:24px;}
 .locations-intro-title{
   font-family:'Cormorant Garamond',serif;
   font-weight:300;
@@ -3130,3 +3132,6 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   border-left:2px solid var(--gold);
 }
 .loc-rate em{font-style:italic;font-weight:400;color:#7E6135;}
+
+/* /miami · the member rate inside "How to get on court" */
+.club-play-desc em{font-style:italic;color:#D9BC8C;font-weight:400;}
