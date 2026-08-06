@@ -1993,7 +1993,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   font-family:'Jost',sans-serif;
   font-size:10px;font-weight:400;
   letter-spacing:0.24em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:16px;
+  color:var(--gold-ink);margin-bottom:16px;
 }
 .retreat-row-title{
   font-family:'Cormorant Garamond',serif;
@@ -2004,7 +2004,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .retreat-row-venue{
   font-family:'Cormorant Garamond',serif;
   font-size:14px;font-weight:300;font-style:italic;
-  color:var(--mid);margin-bottom:20px;
+  color:rgba(27,42,74,.78);margin-bottom:20px;
 }
 .retreat-row-body{
   font-family:'Jost',sans-serif;
@@ -2089,7 +2089,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   position:sticky;top:0;align-self:flex-end;
   font-family:'Jost',sans-serif;font-size:9px;font-weight:300;
   letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--mid);background:var(--cream);border:none;cursor:pointer;
+  color:rgba(27,42,74,.78);background:var(--cream);border:none;cursor:pointer;
   transition:color .2s;padding:20px 20px 0;z-index:2;
 }
 .retreat-drawer-close-btn:hover{color:var(--navy);}
@@ -2112,7 +2112,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .retreat-drawer-venue{
   font-family:'Cormorant Garamond',serif;
   font-size:15px;font-weight:300;font-style:italic;
-  color:rgba(27,42,74,.55);margin-bottom:32px;
+  color:rgba(27,42,74,.7);margin-bottom:32px;
 }
 .retreat-drawer-leadin{
   font-family:'Cormorant Garamond',serif;
@@ -2122,7 +2122,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .retreat-drawer-itin-label{
   font-family:'Jost',sans-serif;font-weight:500;font-size:10px;
   letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--gold);margin-top:32px;margin-bottom:32px;
+  color:var(--gold-ink);margin-top:32px;margin-bottom:32px;
 }
 .retreat-drawer-day{padding-bottom:32px;}
 .retreat-day-rule{
@@ -3171,4 +3171,43 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .cp-how{padding:74px 26px;}
   .cp-how-grid{grid-template-columns:1fr;gap:34px;}
   .cp-how-head{margin-bottom:40px;}
+}
+
+/* ── /passport/experiences · member pricing on each retreat row ────
+   The page sold retreats without ever showing a price or the 20%
+   member saving — the single most persuasive fact about them. */
+.exp-calendar-sub{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:19px;
+  color:rgba(27,42,74,.8);line-height:1.65;max-width:62ch;margin-top:18px;
+}
+.retreat-price{margin-bottom:26px;text-align:right;}
+.retreat-price-label{
+  font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(27,42,74,.78);margin-bottom:10px;
+}
+.retreat-price-figures{
+  display:flex;align-items:baseline;justify-content:flex-end;gap:10px;
+  font-family:'Cormorant Garamond',serif;line-height:1;
+}
+.retreat-price-figures s{
+  font-size:19px;color:rgba(27,42,74,.7);text-decoration-thickness:1px;
+}
+.retreat-price-figures span{
+  font-size:34px;font-style:italic;font-weight:300;color:var(--navy);
+}
+.retreat-price-save{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold-ink);margin-top:10px;
+}
+/* the row CTA was square while every other button is a pill */
+.retreat-action-btn{
+  display:inline-block;border-radius:100px;
+  border:1px solid rgba(27,42,74,.3);padding:14px 26px;
+  transition:background .25s,border-color .25s;
+}
+.retreat-action-btn:hover{background:rgba(27,42,74,.06);border-color:rgba(27,42,74,.5);}
+
+@media (max-width:900px){
+  .retreat-price{text-align:left;}
+  .retreat-price-figures{justify-content:flex-start;}
 }
