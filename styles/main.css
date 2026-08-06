@@ -2461,7 +2461,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .cp-section-eyebrow{
   font-family:'Jost',sans-serif;font-weight:500;font-size:10px;
   letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:22px;
+  color:var(--gold-ink);margin-bottom:22px;
 }
 
 /* ── Live partners section ── */
@@ -2484,9 +2484,11 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 /* ── Partner card grid ── */
 .cp-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:36px;
-  max-width:1320px;
+  /* four cards in a three-column grid left Hong Kong alone on a second
+     row; 2x2 pairs them evenly and gives each image more room */
+  grid-template-columns:repeat(2,1fr);
+  gap:56px 48px;
+  max-width:1180px;
   margin:0 auto;
 }
 .cp-card{text-align:left;}
@@ -2507,7 +2509,7 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 .cp-card-eyebrow{
   font-family:'Jost',sans-serif;font-weight:500;font-size:9px;
   letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:14px;
+  color:var(--gold-ink);margin-bottom:14px;
 }
 .cp-card-headline{
   font-family:'Cormorant Garamond',serif;
@@ -3135,3 +3137,38 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 
 /* /miami · the member rate inside "How to get on court" */
 .club-play-desc em{font-style:italic;color:#D9BC8C;font-weight:400;}
+
+/* ── /passport/club-partners · how partner access works ───────────── */
+.cp-how{background:var(--light);padding:110px 60px;}
+.cp-how-head{max-width:1180px;margin:0 auto 56px;}
+.cp-how-title{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(30px,3.4vw,46px);color:var(--navy);line-height:1.12;
+}
+.cp-how-title em{font-style:italic;color:var(--gold-ink);}
+.cp-how-sub{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:18px;
+  color:rgba(27,42,74,.8);line-height:1.65;max-width:56ch;margin-top:16px;
+}
+.cp-how-grid{
+  max-width:1180px;margin:0 auto;display:grid;
+  grid-template-columns:repeat(3,1fr);gap:52px;
+}
+.cp-how-step{padding-top:26px;border-top:1px solid rgba(27,42,74,.16);}
+.cp-how-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:40px;color:var(--gold-ink);line-height:1;margin-bottom:14px;
+}
+.cp-how-step-title{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;
+  color:var(--navy);margin-bottom:12px;
+}
+.cp-how-step p{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:16px;
+  color:rgba(27,42,74,.8);line-height:1.65;
+}
+@media (max-width:900px){
+  .cp-how{padding:74px 26px;}
+  .cp-how-grid{grid-template-columns:1fr;gap:34px;}
+  .cp-how-head{margin-bottom:40px;}
+}
