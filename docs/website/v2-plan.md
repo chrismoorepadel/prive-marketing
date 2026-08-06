@@ -205,7 +205,7 @@ These don't need the rebuild and are currently costing money:
 3. **301 the dead pages** (table above) — removes stale pricing and retired language from the index.
 4. **Add venue status labels to the nav** — Montauk *Spring 2027*, Miami *Open now*. Cheap, and it fixes the biggest single gap: that Miami is bookable today and nobody browsing can tell.
 5. **Build out `/montauk`** past the one-line placeholder, with email capture.
-6. **`noindex` the campaign pages** so the ad landing pages don't compete with `/` on brand search — and so the offer isn't discoverable outside the acquisition layer.
+6. ~~`noindex` the campaign pages~~ — **already done.** Both `passport-offer.html` and `passport-offer-v2.html` carry `<meta name="robots" content="noindex, nofollow">`.
 
 ---
 
@@ -242,3 +242,58 @@ Extract the v2 sections into shared partials/styles rather than copying markup �
 2. **How aggressive should the homepage popup be?** It's the sole bridge between the site and the offer, which raises its importance — but exit-intent vs. scroll-trigger vs. timed changes both conversion and how the brand reads. Worth deciding deliberately rather than inheriting the current behavior.
 3. **Which tier is the homepage's default recommendation?** Full Access is the better product and the one the offer converts people to. If `/` visually favors Full Access at $995, the popup's $595 offer lands harder. If it favors Standard, the popup is a smaller jump. This is the main open call in §4 row 5.
 4. **Miami booking** — stay with outbound Playtomic, or embed? Outbound is the current locked decision; V2 doesn't change it unless booking volume justifies it.
+
+---
+
+## 10. Handoff — state of the `site-v2` branch
+
+*Written 2026-07-31. Everything below is verified against the branch, not recalled.*
+
+**33 commits on `site-v2`. `main` and prive-padel.com are untouched.** The branch has never been merged; production still serves the pre-V2 site.
+
+### Pages rebuilt
+
+| Page | State |
+|---|---|
+| `/` | Brand surface on cream. Single hero (landing-page video), both tiers, press strip, testimonials, Miami-first locations. Mobile: offerings + testimonials are looping swipe carousels. |
+| `/passport` | The landing page retrofitted to beige. Hero → why join → collection → map → also included → quote → tiers → FAQ → close. |
+| `/join` | Tier tiles, `?tier=` preselection, copy aligned to `/passport`. |
+| `/locations` | Image hero, Miami first with booking CTA, per-club member rates, membership mechanic in the closing. |
+| `/miami` | Member rate stated in the play ladder; six contrast fixes. |
+| `/passport/club-partners` | Image hero, 2×2 grid, "how access works". |
+| `/passport/experiences` | Retreat blocks rebuilt on the lightbox layout: glance grid, what's-included, member pricing. |
+
+**Untouched:** `/montauk`, `/about`, `/contact`, `/passport/destinations`.
+
+### Decisions that live nowhere else
+
+These were settled in conversation and exist only in code and commit messages:
+
+1. **"Privé Locations", not "Privé Clubs."** The newer copy had drifted to Clubs; `/passport` was renamed back. `/locations` keeps the Locations name.
+2. **Venue allowance is four visits per *month*.** An earlier instruction said per year and every surface was changed to match, then reverted. Per month is correct — 8 mentions across three pages.
+3. **Member court rates differ per club and appear only on `/locations`:** Miami 20% off, Montauk 50% off. `/miami` states its own 20%. The shared tier copy says "member pricing" because one rate can't cover both.
+4. **Partner-club access is member pricing, not free play.** Booking is arranged between the hotel concierge and the Privé Passport team. An earlier draft claimed "no court fee" — that was wrong and is corrected.
+5. **Cards only on non-cream surfaces.** Cream sections stay editorial — hairlines, no containers. Tiles and cards belong on dark or sand. This is why the homepage stat row was rebuilt as a hairline strip, then cut entirely.
+6. **`--gold-ink` (#7E6135) for gold set as type.** `#B8976A` measures ~2.4:1 on cream — fine as a rule or icon, unreadable as text. Lives in `main.css :root`.
+7. **The founding offer stays in the acquisition layer** (ads + homepage popup + email). The site sells at list price, so nothing needs rewriting when founding closes.
+
+### Open items
+
+- **Redirects are not configured.** `vercel.json` has an empty `redirects` array. The eleven dead pages in §5 are still live and indexable, including `membership.html`.
+- **Mapbox pins on `/passport` are unverified.** The lookup resolves all 43 resorts and the lightbox opens correctly when called directly, but no pin has ever rendered here — this browser suspends `requestAnimationFrame`, which Mapbox needs. Needs one click on the preview.
+- **No public court pricing on `/miami`.** "Standard public pricing" tells a walk-in nothing. The rates weren't available.
+- **Unverified claims left out of copy deliberately:** F&B credits of "$100–200 per stay" and retreats of "8–16 players" appear in `passport-offer-copy.md` but nowhere on the site. Add them if they hold.
+- **`/passport/experiences` still carries the old retreat drawer markup**, now redundant with the block content.
+- **`.display em`** — the italic gold heading accent — is 2.41:1 site-wide, below even the large-text threshold. Left alone because it's a brand signature, not a page-level bug.
+
+### Corrections to earlier statements in this document
+
+- The ad landing pages **are** already `noindex, nofollow`. An earlier note here said they weren't; that was based on a grep that matched inside a script tag.
+- `/locations` is **not** orphaned — it is linked from the footer on every page. §5 originally listed it for redirect.
+- The tier tables on `join.html` and `membership.html` state the allowance **correctly**. §2 originally called them a liability.
+
+### Verification approach used throughout
+
+Contrast was measured, not eyeballed, compositing translucent backgrounds up the chain — the naive version reports solid colour and flatters low-alpha text badly. Every rebuilt page clears WCAG AA except where noted.
+
+Two environment limits worth knowing: the preview browser suspends `requestAnimationFrame` (so Mapbox and any rAF animation can't be seen), and it aggressively caches stylesheets — a fresh navigation is *not* enough, the `<link href>` has to be cache-busted and the `load` event awaited before measuring.
