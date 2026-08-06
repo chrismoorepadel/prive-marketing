@@ -17,13 +17,13 @@ Everything below assumes this. It is the single source of truth for tier copy �
 | 40+ destinations, member rates & benefits | ✓ | ✓ |
 | Partner clubs | ✓ | ✓ |
 | Experiences at member pricing | ✓ | ✓ |
-| Privé Montauk & Miami | Member pricing, **4 visits per year** | Member pricing, **unlimited** |
+| Privé Montauk & Miami | Member pricing, **4 visits per month** | Member pricing, **unlimited** |
 
 **That's the whole difference.** One line separates the tiers: how often you can play at Montauk and Miami at member rates. Everything else is identical.
 
 The founding offer — Full Access for $595, locked — is therefore a clean single-axis upgrade, which is why it converts. It's also why the homepage tier block can be small: there is exactly one row to compare.
 
-> ⚠️ **Flag:** live copy currently says *four visits per **month*** (`join.html`, `passport-offer-copy.md`, `passport-offer.html`). Confirmed as **per year** — every surface needs correcting. This is a 12× difference in a stated benefit and appears on the page where people are actively buying.
+*(An earlier draft of this doc recorded the allowance as four per **year** and flagged the live copy as wrong. That was mistaken — **per month** is correct, and it is what every surface now says.)*
 
 ---
 
@@ -58,7 +58,7 @@ Given that, "starting at $595" on the homepage is *accurate*. The problem is dif
 
 `/passport` is worse: it shows `$595` and nothing else. The page whose entire job is explaining the membership never presents the two things you actually sell.
 
-Tier tables do exist on `join.html` and the orphaned `membership.html` — but both state the allowance incorrectly (see §0), so they're a liability rather than a shortcut. The V2 tier block gets written fresh.
+Tier tables do exist on `join.html` and the orphaned `membership.html`, and their allowance figure is correct — but the framing is a feature list rather than the single-axis comparison the tiers actually are. The V2 tier block is written fresh for that reason, not because the facts were wrong.
 
 ### The funnel has a lateral step
 
@@ -201,7 +201,6 @@ The reason to redirect rather than ignore: these are live and indexable, they co
 
 These don't need the rebuild and are currently costing money:
 
-1. **Correct the visit allowance everywhere** — it currently reads "four visits per month" on `join.html` and both offer pages; it is four per *year*. This is live on the checkout page.
 2. **Put both tiers on `/` and `/passport`**, written fresh from §0. Right now $995 appears on the homepage only inside a popup, so the upper tier is effectively unsellable.
 3. **301 the dead pages** (table above) — removes stale pricing and retired language from the index.
 4. **Add venue status labels to the nav** — Montauk *Spring 2027*, Miami *Open now*. Cheap, and it fixes the biggest single gap: that Miami is bookable today and nobody browsing can tell.

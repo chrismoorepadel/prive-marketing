@@ -135,4 +135,4 @@ The current line is the company talking to itself — "our home," "travels with 
 
 3. **"neighbourhood"** in the Miami paragraph is British spelling — my error, and wrong for a US brand. Should be *neighborhood*. Small, but it's on a page about a Florida club.
 
-Still outstanding from the main plan: `join.html` states the venue allowance as **four visits per month**; the homepage now says **per year**. Those contradict each other on live pages.
+*(An earlier note here flagged a per-month / per-year conflict in the venue allowance. **Per month** is correct; every surface states it that way.)*
