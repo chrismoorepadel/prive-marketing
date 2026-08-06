@@ -3225,7 +3225,10 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
 }
 .xp-retreat--flip .xp-retreat-media{order:2;}
 
-.xp-retreat-media{position:sticky;top:calc(var(--nav-h) + 40px);}
+/* Not sticky: pinning the image while the copy scrolled past it made the
+   page feel unmoored, and each block is tall enough that the image stayed
+   parked for a long time. It now scrolls with its block. */
+.xp-retreat-media{}
 .xp-retreat-img{
   width:100%;aspect-ratio:4/5;
   background-size:cover;background-position:center;
@@ -3303,7 +3306,6 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .xp-retreats{gap:74px;}
   .xp-retreat{grid-template-columns:1fr;gap:28px;}
   .xp-retreat--flip .xp-retreat-media{order:0;}
-  .xp-retreat-media{position:static;}
   .xp-retreat-img{aspect-ratio:3/2;border-radius:16px;}
   .xp-glance{grid-template-columns:1fr;}
   .xp-foot{align-items:flex-start;}
