@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { email, firstName, source, tier, value } = req.body || {};
+  const { email, firstName, source, tier, value, retreat } = req.body || {};
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Valid email required' });
   }
@@ -63,7 +63,14 @@ export default async function handler(req, res) {
         attributes: {
           metric:  { data: { type: 'metric', attributes: { name: 'Started Checkout' } } },
           profile: { data: { type: 'profile', attributes: { email, ...(firstName ? { first_name: firstName } : {}) } } },
-          properties: { source: source || 'website', ...(tier ? { tier } : {}) },
+          properties: {
+            source: source || 'website',
+            ...(tier ? { tier } : {}),
+            // Set when they came from a retreat page. Lets a flow segment on
+            // who joined for which retreat, and tells whoever follows up what
+            // the member is actually waiting to book.
+            ...(retreat ? { retreat } : {}),
+          },
           ...(value ? { value: Number(value) } : {}),
         }
       }

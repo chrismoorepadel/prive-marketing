@@ -1114,3 +1114,45 @@
     align-items: center;
   }
 }
+
+/* ── Retreat intent ─────────────────────────────────────────
+   Shown when someone arrives from a retreat page. It confirms
+   what they clicked, so the 20% saving they were promised is
+   still on screen while they choose a tier. */
+.join-retreat-note {
+  margin: 0 0 28px;
+  padding: 18px 22px;
+  border: 1px solid rgba(184, 151, 106, .45);
+  border-left: 3px solid var(--gold-ink);
+  border-radius: 14px;
+  background: rgba(184, 151, 106, .07);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #1B2A4A;
+}
+
+.join-retreat-note span {
+  display: block;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+}
+
+.join-retreat-note em {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-style: normal;
+  line-height: 1.5;
+  color: rgba(27, 42, 74, .72);
+}
+
+@media (max-width: 600px) {
+  .join-retreat-note { font-size: 21px; padding: 16px 18px; }
+}

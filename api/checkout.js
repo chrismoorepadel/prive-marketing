@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: 'Checkout not yet configured' });
   }
 
-  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl } = req.body;
+  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl, retreat } = req.body;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-04-10',
@@ -35,7 +35,15 @@ export default async function handler(req, res) {
 
   // Name/email captured in step one of the on-page checkout. Prefill Stripe so the
   // member never retypes, and carry the name through on the subscription metadata.
-  const metadata = { tier, addPartner: addPartner ? 'true' : 'false', firstName: firstName || '' };
+  // `retreat` is intent, not a line item: the member is buying the
+  // membership so they can book that retreat at 20% off. Carried on both
+  // the session and the subscription so it survives past checkout.
+  const metadata = {
+    tier,
+    addPartner: addPartner ? 'true' : 'false',
+    firstName:  firstName || '',
+    retreat:    retreat || '',
+  };
 
   // Meta CAPI match signals — captured from THIS request (the buyer's browser) and
   // carried on the Checkout Session metadata so the Stripe webhook can attribute the

@@ -407,6 +407,28 @@
     partnerLabel.classList.toggle('checked', isPartner());
   }
 
+  // Retreat intent. Someone arriving from a retreat page is joining in
+  // order to save 20% on that retreat, so the slug rides along to Stripe
+  // metadata and the Klaviyo lead — the membership is what's purchased,
+  // the retreat is the reason, and it needs to be visible to whoever
+  // follows up.
+  var RETREAT_NAMES = {
+    'voaara-madagascar': 'Voaara Madagascar',
+    'court-and-cellar':  'Ch\u00e2teau de Lussac',
+    'nihi-sumba':        'Nihi Sumba'
+  };
+  var retreat = (new URLSearchParams(window.location.search).get('retreat') || '').toLowerCase();
+  if (!RETREAT_NAMES[retreat]) retreat = '';
+
+  if (retreat) {
+    var note = document.createElement('div');
+    note.className = 'join-retreat-note';
+    note.innerHTML = '<span>Joining for</span>' + RETREAT_NAMES[retreat] +
+                     '<em>Members save 20% on this retreat. We\'ll be in touch to book it.</em>';
+    var box = document.querySelector('.tier-options');
+    if (box) box.parentNode.insertBefore(note, box);
+  }
+
   // Preselect from ?tier= so the tile someone clicked on / or /passport
   // is the one already chosen here. Unknown values fall through to the
   // markup default rather than leaving nothing selected.
@@ -456,7 +478,7 @@
     fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, firstName: name, source: 'join_checkout', tier: getTier(), value: tierPrice() })
+      body: JSON.stringify({ email: email, firstName: name, source: 'join_checkout', tier: getTier(), value: tierPrice(), retreat: retreat })
     }).catch(function () {});
 
     document.getElementById('reviewName').textContent  = name;
@@ -496,7 +518,7 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        tier: getTier(), addPartner: isPartner(),
+        tier: getTier(), addPartner: isPartner(), retreat: retreat,
         email: fEmail.value.trim(), firstName: fName.value.trim(),
         fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href
       })
