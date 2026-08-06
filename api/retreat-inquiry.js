@@ -1,7 +1,7 @@
-// ─── RETREAT BOOKING ENQUIRY ──────────────────────────────────
+// ─── RETREAT BOOKING INQUIRY ──────────────────────────────────
 // Receives the booking lightbox on the retreat pages and does what
 // the prive-passport /api/retreat-inquiry route does: notifies the
-// team, confirms to the guest, and logs the enquiry.
+// team, confirms to the guest, and logs the inquiry.
 //
 // Resend is called over REST rather than through its SDK, the same
 // way api/subscribe.js calls Klaviyo — this repo installs no packages
@@ -41,10 +41,10 @@ function notificationHtml(d) {
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#1B2A4A;"><tr><td align="center" style="padding:48px 20px;">
 <table width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;background:#243552;border-radius:4px;"><tr><td style="padding:48px;">
   <p style="margin:0 0 28px;text-align:center;"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/v1773187743/logo_light_o5mgdz.png" alt="Privé Padel" width="140" style="width:140px;height:auto;border:0;"></p>
-  <p style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#B8976A;margin:0 0 8px;text-align:center;">New booking enquiry</p>
+  <p style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#B8976A;margin:0 0 8px;text-align:center;">New booking inquiry</p>
   <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:300;font-style:italic;color:#fff;margin:0 0 32px;text-align:center;">${esc(d.retreatName)}</h1>
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid rgba(184,151,106,.3);">${rows}</table>
-  <p style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:28px 0 0;text-align:center;">Privé Padel · Retreat enquiries</p>
+  <p style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:28px 0 0;text-align:center;">Privé Padel · Retreat inquiries</p>
 </td></tr></table></td></tr></table></body></html>`;
 }
 
@@ -55,11 +55,11 @@ function confirmationHtml(d) {
 <table width="580" cellpadding="0" cellspacing="0" border="0" style="max-width:580px;width:100%;background:#fff;"><tr><td style="padding:56px 48px 48px;">
   <p style="margin:0 0 32px;text-align:center;"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" width="160" style="width:160px;height:auto;border:0;"></p>
   <p style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#B8976A;margin:0 0 20px;text-align:center;">Privé Padel</p>
-  <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:300;font-style:italic;color:#1B2A4A;margin:0 0 12px;text-align:center;">Your enquiry.</h1>
+  <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:300;font-style:italic;color:#1B2A4A;margin:0 0 12px;text-align:center;">Your inquiry.</h1>
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;color:#1B2A4A;opacity:.7;margin:0 0 36px;text-align:center;">${esc(d.retreatName)}</p>
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 36px;"><tr><td align="center"><div style="width:36px;height:1px;background:#B8976A;">&nbsp;</div></td></tr></table>
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#1B2A4A;line-height:1.65;margin:0 0 20px;">Dear ${esc(d.firstName)},</p>
-  <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#1B2A4A;line-height:1.65;margin:0 0 20px;">We've received your enquiry for <strong>${esc(d.retreatName)}</strong>. A member of the Privé team will be in touch shortly to confirm your place and answer any questions.</p>
+  <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#1B2A4A;line-height:1.65;margin:0 0 20px;">We've received your inquiry for <strong>${esc(d.retreatName)}</strong>. A member of the Privé team will be in touch shortly to confirm your place and answer any questions.</p>
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#1B2A4A;line-height:1.65;margin:0 0 8px;"><strong>Preferred dates:</strong> ${esc(d.date)}<br><strong>Party size:</strong> ${esc(d.party)}</p>
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#1B2A4A;line-height:1.65;margin:20px 0 36px;">Reply to this email with any questions in the meantime.</p>
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;font-style:italic;color:#1B2A4A;margin:0 0 48px;">— Privé Padel</p>
@@ -108,28 +108,28 @@ export default async function handler(req, res) {
 
   try {
     // The notification is the one that must land — if Resend rejects it the
-    // visitor is told, rather than being thanked for an enquiry nobody got.
+    // visitor is told, rather than being thanked for an inquiry nobody got.
     await sendEmail({
       from: FROM,
       to: [TEAM],
       reply_to: d.email,
-      subject: `Retreat booking enquiry — ${retreatName} · ${d.firstName} ${d.lastName}`,
+      subject: `Retreat booking inquiry — ${retreatName} · ${d.firstName} ${d.lastName}`,
       html: notificationHtml(d),
     });
   } catch (err) {
-    console.error('Retreat enquiry — notification failed:', err);
-    return res.status(500).json({ error: 'Could not send enquiry' });
+    console.error('Retreat inquiry — notification failed:', err);
+    return res.status(500).json({ error: 'Could not send inquiry' });
   }
 
-  // Courtesy copy to the guest. A failure here doesn't lose the enquiry,
+  // Courtesy copy to the guest. A failure here doesn't lose the inquiry,
   // so it must not fail the request.
   sendEmail({
     from: FROM,
     to: [d.email],
     reply_to: TEAM,
-    subject: `Privé Padel — ${retreatName} enquiry received`,
+    subject: `Privé Padel — ${retreatName} inquiry received`,
     html: confirmationHtml(d),
-  }).catch((err) => console.error('Retreat enquiry — confirmation failed:', err));
+  }).catch((err) => console.error('Retreat inquiry — confirmation failed:', err));
 
   // Same Airtable log prive-passport keeps, when it's configured here too.
   if (process.env.AIRTABLE_BASE_ID && process.env.AIRTABLE_API_KEY) {
@@ -151,7 +151,7 @@ export default async function handler(req, res) {
           'Submitted At': new Date().toISOString(),
         },
       }),
-    }).catch((err) => console.error('Retreat enquiry — Airtable log failed:', err));
+    }).catch((err) => console.error('Retreat inquiry — Airtable log failed:', err));
   }
 
   return res.status(200).json({ ok: true });

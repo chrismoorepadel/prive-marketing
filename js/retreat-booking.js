@@ -1,7 +1,7 @@
 // ─── RETREAT BOOKING LIGHTBOX ─────────────────────────────────
 // Replaces the mailto: booking links on the retreat pages. mailto:
 // hands the visitor to an email client they may not have configured
-// — on mobile it often does nothing at all — and the enquiry that
+// — on mobile it often does nothing at all — and the inquiry that
 // results is whatever they choose to type.
 //
 // Opens on any [data-book] element. Retreat identity comes from
@@ -22,11 +22,11 @@
     overlay.className = 'rb-overlay';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'Booking enquiry — ' + NAME);
+    overlay.setAttribute('aria-label', 'Booking inquiry — ' + NAME);
     overlay.innerHTML =
       '<div class="rb-panel">' +
         '<button type="button" class="rb-close" aria-label="Close">&times;</button>' +
-        '<p class="rb-eyebrow">Booking enquiry</p>' +
+        '<p class="rb-eyebrow">Booking inquiry</p>' +
         '<h2 class="rb-title">' + NAME + '</h2>' +
         '<p class="rb-intro">Tell us when you\'d like to travel and we\'ll be in touch to confirm your place.</p>' +
         '<form class="rb-form" novalidate>' +
@@ -44,7 +44,7 @@
           '</div>' +
           '<label class="rb-field"><span>Anything we should know <em>optional</em></span><textarea name="message" rows="3"></textarea></label>' +
           '<p class="rb-status" role="alert" aria-live="polite"></p>' +
-          '<button type="submit" class="rb-submit">Send enquiry</button>' +
+          '<button type="submit" class="rb-submit">Send inquiry</button>' +
           '<p class="rb-note">We\'ll reply by email. Nothing is charged now.</p>' +
         '</form>' +
       '</div>';
@@ -113,17 +113,17 @@
     })
       .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
       .then(function () {
-        if (window.gtag) gtag('event', 'retreat_enquiry', { retreat: SLUG });
+        if (window.gtag) gtag('event', 'retreat_inquiry', { retreat: SLUG });
         form.innerHTML =
           '<div class="rb-done">' +
             '<p class="rb-done-mark">✓</p>' +
-            '<h3>Enquiry sent.</h3>' +
+            '<h3>Inquiry sent.</h3>' +
             '<p>We\'ve emailed you a confirmation. A member of the team will be in touch shortly about ' + NAME + '.</p>' +
           '</div>';
       })
       .catch(function () {
         btn.disabled = false;
-        btn.textContent = 'Send enquiry';
+        btn.textContent = 'Send inquiry';
         // A failed send must not look like a sent one — give them a route out.
         fail('Something went wrong. Please email <a href="mailto:chris@prive-padel.com">chris@prive-padel.com</a> and we\'ll pick it up.');
       });
