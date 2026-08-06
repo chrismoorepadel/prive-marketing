@@ -13,7 +13,11 @@ const RETREATS = {
   'nihi-sumba':        'Nihi Sumba',
 };
 
-const FROM     = process.env.RESEND_FROM || 'Privé Padel <inquiries@privepassport.com>';
+// prive-passport stores RESEND_FROM as a bare address, so accept either form
+// and supply the display name when it's missing — otherwise the guest sees a
+// raw address as the sender.
+const FROM_RAW = process.env.RESEND_FROM || 'inquiries@privepassport.com';
+const FROM     = FROM_RAW.includes('<') ? FROM_RAW : `Privé Padel <${FROM_RAW}>`;
 const TEAM     = 'chris@prive-padel.com';
 const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 
