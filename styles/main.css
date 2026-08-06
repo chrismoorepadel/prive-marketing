@@ -3211,3 +3211,100 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .retreat-price{text-align:left;}
   .retreat-price-figures{justify-content:flex-start;}
 }
+
+/* ═══════════════════════════════════════════════════════
+   /passport/experiences · retreat blocks
+   Layout borrowed from the passport-offer lightbox — media,
+   then eyebrow / name / intro / at-a-glance / what's included /
+   price + CTA — rebuilt on the site's cream ground.
+═══════════════════════════════════════════════════════ */
+.xp-retreats{max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:110px;}
+
+.xp-retreat{
+  display:grid;grid-template-columns:44fr 56fr;gap:64px;align-items:start;
+}
+.xp-retreat--flip .xp-retreat-media{order:2;}
+
+.xp-retreat-media{position:sticky;top:calc(var(--nav-h) + 40px);}
+.xp-retreat-img{
+  width:100%;aspect-ratio:4/5;
+  background-size:cover;background-position:center;
+  border-radius:20px;
+}
+
+.xp-eyebrow{
+  font-family:'Jost',sans-serif;font-size:11.5px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-ink);margin-bottom:18px;
+}
+.xp-name{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(30px,3.2vw,44px);color:var(--navy);
+  line-height:1.12;margin:0 0 18px;
+}
+.xp-name em{font-style:italic;}
+.xp-intro{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:19px;
+  color:rgba(27,42,74,.82);line-height:1.65;margin-bottom:34px;max-width:60ch;
+}
+
+/* at a glance — the lightbox's four-fact grid */
+.xp-glance{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(27,42,74,.12);
+  border:1px solid rgba(27,42,74,.12);
+  margin-bottom:34px;
+}
+.xp-glance-item{background:var(--cream);padding:18px 20px;}
+.xp-glance-label{
+  font-family:'Jost',sans-serif;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(27,42,74,.72);margin-bottom:8px;
+}
+.xp-glance-val{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:16.5px;
+  color:var(--navy);line-height:1.4;
+}
+
+/* what's included */
+.xp-incl{margin-bottom:34px;}
+.xp-incl-label{
+  font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(27,42,74,.72);margin-bottom:16px;
+}
+.xp-incl ul{list-style:none;display:grid;gap:11px;}
+.xp-incl li{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:16.5px;
+  color:rgba(27,42,74,.82);line-height:1.5;
+  padding-left:20px;position:relative;
+}
+.xp-incl li::before{
+  content:'';position:absolute;left:0;top:9px;
+  width:7px;height:1px;background:var(--gold-ink);
+}
+
+/* price + CTA */
+.xp-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:28px;flex-wrap:wrap;
+  padding-top:28px;border-top:1px solid rgba(27,42,74,.14);
+}
+.xp-price-figures{
+  display:flex;align-items:baseline;gap:12px;
+  font-family:'Cormorant Garamond',serif;line-height:1;
+}
+.xp-price-figures s{font-size:20px;color:rgba(27,42,74,.7);text-decoration-thickness:1px;}
+.xp-price-figures span{font-size:38px;font-style:italic;font-weight:300;color:var(--navy);}
+.xp-price-keep{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold-ink);margin-top:10px;
+}
+
+@media (max-width:900px){
+  .xp-retreats{gap:74px;}
+  .xp-retreat{grid-template-columns:1fr;gap:28px;}
+  .xp-retreat--flip .xp-retreat-media{order:0;}
+  .xp-retreat-media{position:static;}
+  .xp-retreat-img{aspect-ratio:3/2;border-radius:16px;}
+  .xp-glance{grid-template-columns:1fr;}
+  .xp-foot{align-items:flex-start;}
+}
