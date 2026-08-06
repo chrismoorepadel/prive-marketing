@@ -3087,3 +3087,36 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .pv-steps-grid{grid-template-columns:1fr;gap:34px;}
   .pv-partner{flex-direction:column;align-items:flex-start;gap:14px;}
 }
+
+/* ── /locations · how the Passport works at the two clubs ──────────
+   Hairline rows rather than price tiles: this is a venue page, and a
+   third full pricing block would compete with / and /passport. */
+.loc-access{
+  max-width:720px;margin:44px auto 0;text-align:left;
+  border-top:1px solid rgba(245,240,232,.14);
+}
+.loc-access-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:baseline;
+  padding:20px 0;border-bottom:1px solid rgba(245,240,232,.14);
+}
+.loc-access-tier{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cream);
+  display:flex;flex-direction:column;gap:6px;
+}
+.loc-access-tier span{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:22px;letter-spacing:0;text-transform:none;color:rgba(245,240,232,.62);
+}
+.loc-access-detail{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:17px;
+  color:rgba(245,240,232,.85);line-height:1.5;
+}
+.loc-access-detail em{font-style:italic;color:var(--gold);}
+.loc-access-note{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:15px;
+  color:rgba(245,240,232,.62);line-height:1.6;margin-top:20px;
+}
+@media (max-width:768px){
+  .loc-access-row{grid-template-columns:1fr;gap:8px;}
+}
