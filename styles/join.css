@@ -1,5 +1,11 @@
 /* ── JOIN PAGE ──────────────────────────────────────────── */
 
+:root {
+  /* #B8976A is ~2.4:1 on cream — fine as a rule, unreadable as text.
+     Same value /passport uses for gold set as type. */
+  --gold-ink: #7E6135;
+}
+
 .join-hero {
   background: #0E1923;
   padding: calc(140px + var(--nav-h)) 60px 80px;
@@ -172,33 +178,10 @@
   margin-bottom: 8px;
 }
 
-.tier-details {
-  flex: 1;
-}
-
-.tier-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: #1B2A4A;
-  line-height: 1.2;
-}
-
-.tier-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 16px;
-  color: rgba(27, 42, 74, 0.7);
-  margin-top: 4px;
-}
-
-.tier-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
-  color: rgba(27, 42, 74, 0.8);
-  line-height: 1.5;
-  margin-top: 8px;
-}
+/* .tier-details / .tier-desc are gone with the old row markup.
+   .tier-name and .tier-price are defined once, above, with the tile
+   treatment — a second set here was overriding it and inverting the
+   hierarchy (22px serif name, 16px price). */
 
 /* ── PARTNER ADD-ON ─────────────────────────────────────── */
 
@@ -228,7 +211,7 @@
 
 .partner-marker {
   font-size: 9px;
-  color: #B8976A;
+  color: var(--gold-ink);
   flex-shrink: 0;
   opacity: 0;
   transition: opacity 0.15s;
@@ -290,8 +273,8 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  border-radius: 0;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+  border-radius: 100px;
   text-align: center;
 }
 
@@ -309,7 +292,7 @@
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 13px;
-  color: rgba(27, 42, 74, 0.6);
+  color: rgba(27, 42, 74, 0.78);
   text-align: center;
   margin-top: 18px;
   line-height: 1.4;
@@ -388,7 +371,7 @@
   font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(27, 42, 74, 0.5);
+  color: rgba(27, 42, 74, 0.78);
 }
 
 .join-field {
@@ -404,7 +387,7 @@
   color: #1B2A4A;
   background: #F5F0E8;
   border: 1px solid rgba(27, 42, 74, 0.15);
-  border-radius: 0;
+  border-radius: 12px;
   transition: border-color 0.15s;
 }
 
@@ -457,7 +440,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #B8976A;
+  color: var(--gold-ink);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -489,7 +472,7 @@
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #B8976A;
+  color: var(--gold-ink);
   margin-bottom: 14px;
 }
 
@@ -525,7 +508,7 @@
   height: 22px;
   margin-top: 2px;
   border-radius: 50%;
-  border: 1px solid #B8976A;
+  border: 1px solid var(--gold-ink);
   position: relative;
 }
 
@@ -602,14 +585,15 @@
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: rgba(27, 42, 74, 0.55);
+  color: rgba(27, 42, 74, 0.78);
 }
 
 /* Right · buy box */
 .join-buybox {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(27, 42, 74, 0.12);
-  border-top: 2px solid #B8976A;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px -34px rgba(27, 42, 74, 0.28);
   padding: 34px 32px;
   position: sticky;
   top: calc(var(--nav-h) + 24px);
@@ -623,7 +607,7 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(27, 42, 74, 0.5);
+  color: rgba(27, 42, 74, 0.78);
 }
 
 .join-buybox .tier-options { gap: 12px; }
@@ -691,13 +675,13 @@
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(27, 42, 74, 0.4);
+  color: rgba(27, 42, 74, 0.74);
 }
 
 /* ── PRESS LOGOS (as featured in) ───────────────────────── */
 
 .press {
-  background: #fff;
+  background: #F5F0E8;
   padding: 38px 60px;
   border-bottom: 1px solid rgba(27, 42, 74, 0.08);
 }
@@ -714,7 +698,7 @@
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(27, 42, 74, 0.4);
+  color: rgba(27, 42, 74, 0.74);
   margin-bottom: 26px;
 }
 
@@ -788,7 +772,7 @@
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #B8976A;
+  color: var(--gold-ink);
   margin-bottom: 12px;
 }
 
@@ -818,7 +802,7 @@
 }
 
 .testi-stars {
-  color: #B8976A;
+  color: var(--gold-ink);
   font-size: 13px;
   letter-spacing: 3px;
   margin-bottom: 16px;
@@ -840,13 +824,13 @@
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: rgba(27, 42, 74, 0.5);
+  color: rgba(27, 42, 74, 0.78);
 }
 
 /* ── FAQ (objection handling) ───────────────────────────── */
 
 .join-faq {
-  background: #fff;
+  background: #EDE8E0;
   padding: 80px 60px;
   border-top: 1px solid rgba(27, 42, 74, 0.08);
 }
@@ -901,7 +885,7 @@
   font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: rgba(27, 42, 74, 0.65);
+  color: rgba(27, 42, 74, 0.82);
   line-height: 1.7;
   padding: 0 0 22px;
 }
