@@ -3310,3 +3310,111 @@ nav.nav-dark .nav-hamburger span { background: var(--navy); }
   .xp-glance{grid-template-columns:1fr;}
   .xp-foot{align-items:flex-start;}
 }
+
+/* ── THE PORTAL ─────────────────────────────────────────────
+   The membership platform. Mockups are rendered on #1B2A4A,
+   so the band uses that exact value and the artwork blends
+   with no visible edge — no frame, no shadow needed. */
+.portal-band {
+  background: var(--navy);
+  padding: 110px 40px 90px;
+  overflow: hidden;
+}
+
+.portal-head {
+  max-width: 640px;
+  margin: 0 auto 8px;
+  text-align: center;
+}
+
+.portal-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.portal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 300;
+  line-height: 1.12;
+  color: var(--white);
+  margin: 0 0 18px;
+}
+
+.portal-title em { font-style: italic; color: var(--sand); }
+
+.portal-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, .72);
+  margin: 0;
+}
+
+/* Bleed slightly wider than the text column — the artwork is the
+   argument here, so it gets the room. */
+.portal-shot {
+  display: block;
+  width: 100%;
+  max-width: 1180px;
+  margin: 22px auto 0;
+  height: auto;
+}
+
+.portal-shot-narrow { max-width: 1040px; }
+
+.portal-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 960px;
+  margin: 46px auto 0;
+  padding-top: 40px;
+  border-top: 1px solid rgba(184, 151, 106, .28);
+}
+
+.portal-point h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--white);
+  margin: 0 0 8px;
+}
+
+.portal-point p {
+  font-family: 'Jost', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(245, 240, 232, .62);
+  margin: 0;
+}
+
+.portal-cta {
+  display: block;
+  margin: 44px auto 0;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color .18s;
+}
+.portal-cta:hover { color: var(--sand); }
+
+@media (max-width: 900px) {
+  .portal-band { padding: 80px 20px 70px; }
+  .portal-points {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 34px;
+    padding-top: 30px;
+  }
+}
