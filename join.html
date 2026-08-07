@@ -207,12 +207,11 @@
       <!-- Live total -->
       <div class="join-total" id="totalDisplay">Total — $595 / year</div>
 
-      <!-- Two-step checkout: details → confirm → Stripe -->
+      <!-- One step: details → Stripe -->
       <div class="join-steps">
 
         <div class="join-step active" id="stepOne">
           <div class="join-step-label">
-            <span class="join-step-num">Step 1 of 2</span>
             <span class="join-step-name">Your details</span>
           </div>
           <div class="join-field">
@@ -222,17 +221,8 @@
             <input type="email" id="fEmail" placeholder="Email address" autocomplete="email" inputmode="email">
             <p class="join-field-err">Enter your name and a valid email to continue.</p>
           </div>
-          <button class="join-cta" id="continueBtn">CONTINUE →</button>
-          <p class="join-secure">We'll hold your place — no card required at this step.</p>
-        </div>
-
-        <div class="join-step" id="stepTwo">
-          <div class="join-step-label">
-            <span class="join-step-num">Step 2 of 2</span>
-            <span class="join-step-name">Confirm &amp; pay</span>
-          </div>
-          <p class="join-review">Joining as <strong id="reviewName"></strong> · <span id="reviewEmail"></span><button type="button" class="join-edit" id="editLink">Edit</button></p>
           <button class="join-cta" id="checkoutBtn">PROCEED TO SECURE PAYMENT →</button>
+          <p class="join-secure">Payment is handled securely by Stripe.</p>
         </div>
 
       </div>
@@ -452,9 +442,10 @@
     updateTotal();
   });
 
-  /* ── Two-step: capture details → confirm → Stripe ─────── */
-  var stepOne = document.getElementById('stepOne');
-  var stepTwo = document.getElementById('stepTwo');
+  /* ── One step: capture the lead, then straight to Stripe ──
+     The Klaviyo POST is fire-and-forget, so it never needed a click
+     of its own. The old second step sat between a filled-in form and
+     the payment page and collected nothing new. */
   var fName   = document.getElementById('fName');
   var fEmail  = document.getElementById('fEmail');
 
@@ -462,7 +453,8 @@
   function tierName()  { return getTier() === 'full' ? 'Privé Passport Full Access' : 'Privé Passport Standard'; }
   function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  document.getElementById('continueBtn').addEventListener('click', function () {
+  document.getElementById('checkoutBtn').addEventListener('click', function () {
+    var btn   = this;
     var name  = fName.value.trim();
     var email = fEmail.value.trim();
     var nameOk = name.length >= 1, emailOk = validEmail(email);
@@ -470,33 +462,21 @@
     fEmail.parentNode.classList.toggle('invalid', !emailOk);
     if (!nameOk || !emailOk) { (nameOk ? fEmail : fName).focus(); return; }
 
+    btn.disabled = true;
+    btn.textContent = 'REDIRECTING…';
+
     /* Lead micro-conversion */
     gtag('event', 'generate_lead', { currency: 'USD', value: tierPrice() });
     fbq('track', 'Lead', { content_name: tierName() });
 
-    /* Capture the lead in Klaviyo — never block checkout if it fails */
+    /* Capture the lead in Klaviyo — never block checkout if it fails.
+       Sent alongside the checkout call rather than before it, so an
+       abandoned Stripe session still leaves us the email. */
     fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, firstName: name, source: 'join_checkout', tier: getTier(), value: tierPrice(), retreat: retreat })
     }).catch(function () {});
-
-    document.getElementById('reviewName').textContent  = name;
-    document.getElementById('reviewEmail').textContent = email;
-    stepOne.classList.remove('active');
-    stepTwo.classList.add('active');
-  });
-
-  document.getElementById('editLink').addEventListener('click', function () {
-    stepTwo.classList.remove('active');
-    stepOne.classList.add('active');
-    fName.focus();
-  });
-
-  document.getElementById('checkoutBtn').addEventListener('click', function () {
-    var btn = this;
-    btn.disabled = true;
-    btn.textContent = 'REDIRECTING…';
 
     gtag('event', 'begin_checkout', {
       currency: 'USD',
@@ -519,7 +499,7 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         tier: getTier(), addPartner: isPartner(), retreat: retreat,
-        email: fEmail.value.trim(), firstName: fName.value.trim(),
+        email: email, firstName: name,
         fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href
       })
     })

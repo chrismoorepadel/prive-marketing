@@ -923,21 +923,14 @@
 
       <!-- STEP 1 -->
       <div class="lp-step active" id="stepOne">
-        <div class="lp-step-head"><span class="lp-step-badge">Step 1 of 2</span><span class="lp-step-name">Your details</span></div>
+        <div class="lp-step-head"><span class="lp-step-name">Your details</span></div>
         <div class="lp-field"><input type="text" id="fName" placeholder="First name" autocomplete="given-name"></div>
         <div class="lp-field">
           <input type="email" id="fEmail" placeholder="Email address" autocomplete="email" inputmode="email">
           <p class="lp-field-err">Enter your name and a valid email to continue.</p>
         </div>
-        <button class="lp-checkout-btn" id="continueBtn">Continue →</button>
-        <div class="lp-checkout-secure">We'll hold your founding rate — no card required at this step.</div>
-      </div>
-
-      <!-- STEP 2 -->
-      <div class="lp-step" id="stepTwo">
-        <div class="lp-step-head"><span class="lp-step-badge">Step 2 of 2</span><span class="lp-step-name">Confirm &amp; lock in</span></div>
-        <div class="lp-review">Joining as <strong id="reviewName"></strong> &nbsp;·&nbsp; <span id="reviewEmail"></span><button type="button" class="lp-edit-link" id="editLink">Edit</button></div>
         <button class="lp-checkout-btn" id="checkoutBtn">Claim your membership →</button>
+        <div class="lp-checkout-secure">Your founding rate is applied at checkout. Payment is handled securely by Stripe.</div>
       </div>
 
       <ul class="lp-trust">
@@ -1188,13 +1181,13 @@
   });
 
   /* two-step: capture details → confirm → Stripe */
-  var stepOne = document.getElementById('stepOne');
-  var stepTwo = document.getElementById('stepTwo');
   var fName = document.getElementById('fName');
   var fEmail = document.getElementById('fEmail');
   function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  document.getElementById('continueBtn').addEventListener('click', function () {
+  /* checkout → Stripe */
+  var btn = document.getElementById('checkoutBtn');
+  btn.addEventListener('click', function () {
     var name = fName.value.trim(), email = fEmail.value.trim();
     var nameOk = name.length >= 1, emailOk = validEmail(email);
     fName.parentNode.classList.toggle('invalid', !nameOk);
@@ -1211,21 +1204,6 @@
       body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer', tier: 'founding', value: 595 })
     }).catch(function () {});
 
-    document.getElementById('reviewName').textContent = name;
-    document.getElementById('reviewEmail').textContent = email;
-    stepOne.classList.remove('active');
-    stepTwo.classList.add('active');
-  });
-
-  document.getElementById('editLink').addEventListener('click', function () {
-    stepTwo.classList.remove('active');
-    stepOne.classList.add('active');
-    fName.focus();
-  });
-
-  /* checkout → Stripe */
-  var btn = document.getElementById('checkoutBtn');
-  btn.addEventListener('click', function () {
     btn.disabled = true;
     btn.textContent = 'Redirecting…';
     gtag('event', 'begin_checkout', {
