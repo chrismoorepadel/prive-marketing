@@ -1325,6 +1325,23 @@ footer{
   position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(14,25,35,.2) 0%,rgba(14,25,35,.1) 40%,rgba(14,25,35,.8) 100%);
 }
+/* A brighter photograph needs a heavier scrim. The shared overlay only
+   darkens 10% at mid-height, which is fine over the darker hero images
+   but leaves the eyebrow and sub-copy washed out over sand and water. */
+.club-hero--bright .club-hero-overlay{
+  background:linear-gradient(180deg,rgba(14,25,35,.34) 0%,rgba(14,25,35,.3) 28%,rgba(14,25,35,.62) 58%,rgba(14,25,35,.92) 100%);
+}
+/* Gold measures 1.6:1 against sunlit sand however heavy the scrim — it is
+   a rule colour, not a text colour, and a photograph is the hardest
+   ground there is. Cream carries here; gold stays on the darker heroes. */
+.club-hero--bright .club-hero-eyebrow{
+  color:var(--cream);
+  text-shadow:0 1px 6px rgba(0,0,0,.7), 0 2px 18px rgba(0,0,0,.5);
+}
+.club-hero--bright .club-hero-title,
+.club-hero--bright .club-hero-sub{
+  text-shadow:0 1px 10px rgba(0,0,0,.45);
+}
 .club-hero-content{
   position:relative;z-index:2;
   padding:0 80px 80px;width:100%;
