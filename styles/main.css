@@ -450,6 +450,10 @@ nav.scrolled .nav-cta{color:var(--navy);border-color:rgba(27,42,74,0.3);}
   letter-spacing:0.22em;text-transform:uppercase;
   color:var(--mid);
   display:flex;align-items:center;gap:12px;
+  /* The label sits in a flex row with the rule that follows it, so a
+     label one character longer breaks onto a second line and pushes
+     the rule out of alignment. */
+  white-space:nowrap;
   transition:color .3s;
 }
 .view-all-link:hover{color:var(--navy);}
