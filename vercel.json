@@ -6,37 +6,105 @@
   "headers": [
     {
       "source": "/styles/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/js/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/data/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/(.*)\\.html",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=0, must-revalidate"
+        }
+      ]
     }
   ],
   "redirects": [
-    { "source": "/membership", "destination": "/passport", "permanent": true },
-    { "source": "/collection", "destination": "/passport/destinations", "permanent": true },
-    { "source": "/destinations", "destination": "/passport/destinations", "permanent": true },
-    { "source": "/experiences", "destination": "/passport/experiences", "permanent": true },
-    { "source": "/clubs", "destination": "/passport/club-partners", "permanent": true },
-    { "source": "/club-partners", "destination": "/passport/club-partners", "permanent": true },
-    { "source": "/club-montauk", "destination": "/montauk", "permanent": true },
-    { "source": "/club-coral-gables", "destination": "/miami", "permanent": true },
-    { "source": "/founding-checkout", "destination": "/join", "permanent": true },
-    { "source": "/welcome", "destination": "/join", "permanent": true },
-    { "source": "/coming-soon", "destination": "/", "permanent": true },
-    { "source": "/password", "destination": "/", "permanent": true }
+    {
+      "source": "/membership",
+      "destination": "/passport",
+      "permanent": true
+    },
+    {
+      "source": "/collection",
+      "destination": "/passport/destinations",
+      "permanent": true
+    },
+    {
+      "source": "/destinations",
+      "destination": "/passport/destinations",
+      "permanent": true
+    },
+    {
+      "source": "/experiences",
+      "destination": "/passport/experiences",
+      "permanent": true
+    },
+    {
+      "source": "/clubs",
+      "destination": "/locations",
+      "permanent": true
+    },
+    {
+      "source": "/club-partners",
+      "destination": "/passport/club-partners",
+      "permanent": true
+    },
+    {
+      "source": "/club-montauk",
+      "destination": "/montauk",
+      "permanent": true
+    },
+    {
+      "source": "/club-coral-gables",
+      "destination": "/miami",
+      "permanent": true
+    },
+    {
+      "source": "/welcome",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/coming-soon",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/password",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
