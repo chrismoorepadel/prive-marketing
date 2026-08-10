@@ -474,6 +474,7 @@
        abandoned Stripe session still leaves us the email. */
     fetch('/api/subscribe', {
       method: 'POST',
+      keepalive: true,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, firstName: name, source: 'join_checkout', tier: getTier(), value: tierPrice(), retreat: retreat })
     }).catch(function () {});

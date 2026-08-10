@@ -1200,7 +1200,8 @@
 
     /* capture the lead in Klaviyo (founding bucket) — never block checkout */
     fetch('/api/subscribe', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      keepalive: true, headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer', tier: 'founding', value: 595 })
     }).catch(function () {});
 
