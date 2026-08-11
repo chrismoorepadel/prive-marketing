@@ -510,11 +510,13 @@
     /* Meta CAPI match signals — pixel cookies + page URL, carried through Stripe so
        the server-side Purchase (fired from the webhook) matches this browser. */
     function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
+    function pageLocale() { try { return (window.Weglot && Weglot.getCurrentLang && Weglot.getCurrentLang()) || (navigator.language || 'en').slice(0,2); } catch (e) { return 'en'; } }
     fetch('/api/checkout', {
+
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        tier: getTier(), addPartner: isPartner(), retreat: retreat,
+        tier: getTier(), addPartner: isPartner(), retreat: retreat, locale: pageLocale(),
         email: email, firstName: name,
         fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href
       })

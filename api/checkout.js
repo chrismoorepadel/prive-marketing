@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: 'Checkout not yet configured' });
   }
 
-  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl, retreat } = req.body;
+  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl, retreat, locale } = req.body;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-04-10',
@@ -59,8 +59,16 @@ export default async function handler(req, res) {
     src_url:   eventSourceUrl || '',
   };
 
+  // Stripe renders its own checkout, so Weglot cannot reach it — someone
+  // browsing in Spanish would hit an English payment page at the moment
+  // they pay. The page tells us which language it is showing; anything
+  // unrecognised falls back to Stripe's own browser detection.
+  const STRIPE_LOCALES = ['en', 'es'];
+  const checkoutLocale = STRIPE_LOCALES.includes(locale) ? locale : 'auto';
+
   const session = await stripe.checkout.sessions.create({
     mode:                 'subscription',
+    locale:               checkoutLocale,
     line_items:           lineItems,
     allow_promotion_codes: true,
     ...(email ? { customer_email: email } : {}),
