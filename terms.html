@@ -2,6 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Weglot — translation + language switcher. Loads before the rest of
+       the head so it can observe the DOM from the start; the site builds
+       several sections with JS and Weglot has to catch those as they render.
+       The wg_ key is a public, client-side key by design. -->
+  <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+  <script>
+    Weglot.initialize({
+      api_key: 'wg_47458ae48b4fd4be0816bcc013fe5bb77',
+      // Containers built by JS after a click. Weglot's crawler never sees
+      // them, so they must be named here or they stay in English — the
+      // booking form on the retreat pages is the one that matters.
+      dynamic: '.rb-panel, #propertyDrawer, .drawer-body, .xlb-panel'
+    });
+  </script>
+
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
