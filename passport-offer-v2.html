@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- REFERSION TRACKING: BEGIN -->
+  <script>
+  !function(e,n,t,i,o,c,s,a){
+    e.TrackingSystemObject="r",(s=n.createElement(t)).async=1,s.src="https://cdn.refersion.com/refersion.js",s.onload=function(){
+      r.pubKey="pub_a85f754b7f29e5208b20",r.settings.fp_off=!1;
+      r.initializeXDLS().then(()=>{r.launchDefault()})
+    },(a=n.getElementsByTagName(t)[0]).parentNode.insertBefore(s,a)
+  }(window,document,"script");
+  </script>
+  <!-- REFERSION TRACKING: END -->
+
   <!-- Weglot — translation + language switcher. Loads before the rest of
        the head so it can observe the DOM from the start; the site builds
        several sections with JS and Weglot has to catch those as they render.
@@ -1230,11 +1241,12 @@
     /* Meta CAPI match signals — pixel cookies + page URL, carried through Stripe so
        the server-side Purchase (fired from the webhook) matches this browser. */
     function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
+    function rfsnIds() { try { return { id: localStorage.getItem('rfsn_v4_id') || '', aid: localStorage.getItem('rfsn_v4_aid') || '', cs: localStorage.getItem('rfsn_v4_cs') || '' }; } catch (e) { return { id:'', aid:'', cs:'' }; } }
     function pageLocale() { try { return (window.Weglot && Weglot.getCurrentLang && Weglot.getCurrentLang()) || (navigator.language || 'en').slice(0,2); } catch (e) { return 'en'; } }
     fetch('/api/checkout', {
 
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tier: 'founding', locale: pageLocale(), addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim(), fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href })
+      body: JSON.stringify({ tier: 'founding', locale: pageLocale(), rfsn: rfsnIds(), addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim(), fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href })
     })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })

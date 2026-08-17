@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: 'Checkout not yet configured' });
   }
 
-  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl, retreat, locale } = req.body;
+  const { tier, addPartner, email, firstName, fbp, fbc, eventSourceUrl, retreat, locale, rfsn } = req.body;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-04-10',
@@ -51,6 +51,17 @@ export default async function handler(req, res) {
   // see any of this. IP/UA come from the request headers; fbp/fbc from the pixel
   // cookies read browser-side and posted in the body.
   const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  // Refersion writes the affiliate ID to localStorage on prive-padel.com, but
+  // Stripe returns the buyer to passport.prive-padel.com — a different origin,
+  // where that localStorage is unreachable. Carried through Stripe metadata the
+  // way the Meta signals below already are, so the confirmation page can read
+  // it back and attribute the sale.
+  const referral = {
+    rfsn_id:  (rfsn && rfsn.id)  || '',
+    rfsn_aid: (rfsn && rfsn.aid) || '',
+    rfsn_cs:  (rfsn && rfsn.cs)  || '',
+  };
+
   const capi = {
     fbp:       fbp || '',
     fbc:       fbc || '',
@@ -72,7 +83,7 @@ export default async function handler(req, res) {
     line_items:           lineItems,
     allow_promotion_codes: true,
     ...(email ? { customer_email: email } : {}),
-    metadata:             { ...metadata, ...capi },
+    metadata:             { ...metadata, ...capi, ...referral },
     subscription_data:    { metadata },
     success_url:          `https://passport.prive-padel.com/welcome?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url:           `https://prive-padel.com/join`,
