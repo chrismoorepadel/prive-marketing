@@ -52,6 +52,11 @@
   ],
   "redirects": [
     {
+      "source": "/passport-offer",
+      "destination": "/passport-offer-v2",
+      "permanent": false
+    },
+    {
       "source": "/membership",
       "destination": "/passport",
       "permanent": true

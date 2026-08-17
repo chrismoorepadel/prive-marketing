@@ -655,6 +655,86 @@
     @media (min-width: 1040px) {
       .hero-inner, .offer-head, .final .wrap { }
     }
+
+    /* ── value stack (above-the-fold: why join / offer teaser / trust) ── */
+    .vstack { padding: 64px 0 12px; }
+    .vstack-head { text-align: center; margin-bottom: 34px; }
+
+    /* Why Join grid */
+    .why-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .why-card { padding: 24px 22px; display: flex; gap: 15px; align-items: flex-start; }
+    .why-ico { color: var(--gold); width: 26px; height: 26px; flex-shrink: 0; margin-top: 1px; }
+    .why-ico svg { width: 26px; height: 26px; }
+    .why-title { font-size: 15px; font-weight: 400; color: var(--cream); margin-bottom: 5px; letter-spacing: .01em; }
+    .why-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.72); line-height: 1.45; }
+
+    /* Founding offer teaser */
+    .teaser { margin-top: 20px; padding: 34px 28px; text-align: center; }
+    .teaser .offer-badge { display: inline-block; margin-bottom: 18px; }
+    .teaser-price { display: flex; align-items: baseline; justify-content: center; gap: 14px; margin-bottom: 10px; }
+    .teaser-old { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px,7vw,32px); font-weight: 300; color: rgba(245,240,232,.34); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .teaser-new { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px,14vw,66px); font-weight: 300; font-style: italic; color: var(--cream); line-height: .9; }
+    .teaser-new small { font-style: normal; font-size: 20px; color: rgba(245,240,232,.6); letter-spacing: .02em; }
+    .teaser-lock { font-size: 13px; letter-spacing: .04em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+    .teaser-early { font-size: 14px; font-weight: 300; color: rgba(245,240,232,.8); line-height: 1.5; max-width: 42ch; margin: 0 auto 22px; }
+    .teaser-early b { font-weight: 400; color: var(--cream); }
+
+    /* Mini rating / social proof strip */
+    .proof { margin-top: 20px; padding: 22px 26px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+    .proof-stars { color: var(--gold); font-size: 16px; letter-spacing: 3px; }
+    .proof-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; font-weight: 300; color: var(--cream); line-height: 1.35; max-width: 52ch; }
+    .proof-attrib { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.5); }
+
+    @media (min-width: 720px) {
+      .vstack { padding: 84px 0 20px; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    }
+  
+    /* ═══ VARIANT B ═══════════════════════════════════════════
+       Appended last so it wins over the media queries above. */
+
+    /* The why points were cards and collected 100 taps with nothing
+       behind them. Flattened to hairline rows: no card, no tap affordance. */
+    .why-grid { display: block; gap: 0; }
+    .why-row { padding: 20px 4px; display: flex; gap: 15px; align-items: flex-start;
+               border-bottom: 1px solid rgba(184,151,106,.16); }
+    .why-row:last-child { border-bottom: none; }
+
+    /* Collection teaser, promoted directly under the hero. */
+    .sec-teaser { padding: 54px 0 10px; }
+    .ct-head { text-align: center; margin-bottom: 26px; }
+    .ct-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .ct-item { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px;
+               background: #0E1923; display: block; text-decoration: none; }
+    .ct-item img { width: 100%; height: 100%; object-fit: cover; }
+    .ct-item-cap { position: absolute; inset: auto 0 0 0; padding: 14px 12px 11px;
+                   background: linear-gradient(180deg, transparent, rgba(14,25,35,.92));
+                   font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400;
+                   letter-spacing: .1em; text-transform: uppercase; color: #F5F0E8; }
+    .ct-more { display: block; margin: 22px auto 0; text-align: center;
+               font-family: 'Jost',sans-serif; font-size: 11.5px; font-weight: 400;
+               letter-spacing: .2em; text-transform: uppercase; color: var(--gold);
+               text-decoration: none; }
+    @media (max-width: 700px) { .ct-row { grid-template-columns: repeat(2, 1fr); } }
+
+    /* 65 closes against 2 CTA taps: the only CTA sat under a very long
+       panel. This one stays on screen the whole way down. */
+    .plb-claim { position: sticky; bottom: 0; z-index: 5; display: flex;
+                 align-items: center; justify-content: space-between; gap: 16px;
+                 padding: 14px 20px; background: rgba(14,25,35,.93);
+                 -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+                 border-top: 1px solid rgba(184,151,106,.3); }
+    .plb-claim-price { font-family: 'Cormorant Garamond',serif; font-size: 20px; color: #F5F0E8; }
+    .plb-claim-price s { font-size: 14px; opacity: .6; margin-right: 7px; }
+    .plb-claim-btn { font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400;
+                     letter-spacing: .18em; text-transform: uppercase; color: var(--dark);
+                     background: var(--gold); border: none; border-radius: 100px;
+                     padding: 13px 24px; cursor: pointer; white-space: nowrap; }
+    @media (max-width: 560px) {
+      .plb-claim { padding: 12px 14px; }
+      .plb-claim-price { font-size: 17px; }
+      .plb-claim-btn { padding: 12px 16px; font-size: 10.5px; }
+    }
   </style>
 </head>
 <body>
@@ -701,6 +781,68 @@
       <button class="btn btn-gold js-checkout">Claim your membership →</button>
       <div class="hero-micro">Founding offer &nbsp;·&nbsp; <strong>$595 for life</strong> &nbsp;·&nbsp; Full Access, normally $995</div>
       <div class="scrollcue">Play the world</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COLLECTION TEASER · promoted above the fold ══ -->
+<section class="sec-teaser">
+  <div class="wrap-wide">
+    <div class="ct-head">
+      <div class="eyebrow">The collection</div>
+      <h2 class="display" style="font-size:clamp(26px,6vw,38px);">Forty destinations,<em style="display:inline;"> one membership.</em></h2>
+    </div>
+    <div class="ct-row" id="ctRow"></div>
+    <a href="#collection" class="ct-more">See the full collection →</a>
+  </div>
+</section>
+
+
+<!-- ══ §1.6 · VALUE STACK (why join · offer teaser · trust) ══ -->
+<section class="vstack">
+  <div class="wrap-wide">
+    <div class="vstack-head">
+      <div class="eyebrow">The founding offer</div>
+      <h2 class="display" style="font-size:clamp(30px,8vw,46px);">One membership,<em style="display:inline;"> a world of play.</em></h2>
+    </div>
+
+
+
+    <!-- Founding offer teaser -->
+    <div class="glass teaser">
+      <span class="offer-badge">Founding offer · Limited time</span>
+      <div class="teaser-price">
+        <span class="teaser-old">$995</span>
+        <span class="teaser-new">$595<small> for life</small></span>
+      </div>
+      <div class="teaser-lock">Full Access · rate locked for life</div>
+      <p class="teaser-early">Full Access is normally <b>$995/year</b>. Join as a founding member and lock <b>$595 for life</b> — including unlimited Privé Montauk &amp; Miami.</p>
+      <button class="btn btn-gold js-checkout">Claim your founding membership →</button>
+    </div>
+
+    <!-- Social proof strip -->
+    <div class="glass proof">
+      <div class="proof-stars">★★★★★</div>
+      <p class="proof-quote">“We booked the Madagascar retreat on a whim and it became the best trip we've taken in years — expert padel programming and a real excursion into the destination.”</p>
+      <div class="proof-attrib">Elena &amp; Marc R., London · Full-Access Members</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §1.5 · PRESS (moved up for early trust) ══ -->
+<section class="press">
+  <div class="wrap-wide">
+    <div class="press-label">As featured in</div>
+    <div class="press-logos">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451122/goop_oohm01.png" alt="goop" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451129/haute-living_zvofdg.png" alt="Haute Living" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451133/iconic-life_viet1g.png" alt="Iconic Life" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451127/observer_il47nz.png" alt="Observer" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451130/modern-luxury-hamptons_jc2u4n.png" alt="Modern Luxury Hamptons" loading="lazy">
+      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451125/resident_gye8ap.png" alt="Hotels Above Par" loading="lazy">
     </div>
   </div>
 </section>
@@ -797,25 +939,37 @@
   </div>
 </section>
 
-<!-- ══ §1.5 · PRESS ══ -->
-<section class="press">
-  <div class="wrap-wide">
-    <div class="press-label">As featured in</div>
-    <div class="press-logos">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451122/goop_oohm01.png" alt="goop" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451129/haute-living_zvofdg.png" alt="Haute Living" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451133/iconic-life_viet1g.png" alt="Iconic Life" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451127/observer_il47nz.png" alt="Observer" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451130/modern-luxury-hamptons_jc2u4n.png" alt="Modern Luxury Hamptons" loading="lazy">
-      <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451125/resident_gye8ap.png" alt="Hotels Above Par" loading="lazy">
+<!-- ══ §6 · OFFER + CHECKOUT ══ -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:left;">
+      <div class="eyebrow">Questions</div>
+      <h2 class="display">Everything you<em>need to know.</em></h2>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination returns more than the membership costs, between your founding rate and member rates. Add full access to Privé Montauk and Miami and 20% off every retreat, and most members find the question answers itself on the first booking.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What exactly does the founding rate lock?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Your $595/year rate, for the lifetime of your membership — never subject to a price increase. Full Access is normally $995/year; once founding spots close, that's the rate. Founding members lock the full membership — including unlimited Privé Montauk &amp; Miami — at $595 for life.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Full Access — your founding membership — includes unlimited member play at both Privé Clubs, year-round. It's the one thing beyond the base membership, and it's included with your founding rate. Privé Miami is open now at THesis Hotel in Coral Gables; Privé Montauk returns Spring 2027.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Can I cancel?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes — annual subscription via Stripe, cancel before renewal and keep access through your paid period. Note: cancel a founding membership and later re-subscribe, and the founding rate no longer applies. Questions? <a id="contactEmail" href="#"></a></div>
     </div>
   </div>
 </section>
 
-<!-- ══ §6 · OFFER + CHECKOUT ══ -->
 <section class="offer" id="checkout">
   <div class="wrap">
     <div class="offer-head">
@@ -853,15 +1007,8 @@
       </div>
 
       <!-- STEP 1 -->
-      <div class="lp-step active" id="stepOne">
-        <div class="lp-step-head"><span class="lp-step-name">Your details</span></div>
-        <div class="lp-field"><input type="text" id="fName" placeholder="First name" autocomplete="given-name"></div>
-        <div class="lp-field">
-          <input type="email" id="fEmail" placeholder="Email address" autocomplete="email" inputmode="email">
-          <p class="lp-field-err">Enter your name and a valid email to continue.</p>
-        </div>
-        <button class="lp-checkout-btn" id="checkoutBtn">Claim your membership →</button>
-        <div class="lp-checkout-secure">Your founding rate is applied at checkout. Payment is handled securely by Stripe.</div>
+      <button class="lp-checkout-btn" id="checkoutBtn">Claim your membership →</button>
+        <div class="lp-checkout-secure">One step. Your founding rate is applied at checkout, and Stripe takes it from there.</div>
       </div>
 
       <ul class="lp-trust">
@@ -875,6 +1022,42 @@
 </section>
 
 <!-- ══ TESTIMONIALS ══ -->
+<section class="sec-tight">
+  <div class="wrap-wide">
+    <!-- Why Join · 4 points -->
+    <div class="why-grid">
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-court"/></svg></span>
+        <div>
+          <div class="why-title">A court everywhere you travel</div>
+          <div class="why-text">40+ hotels &amp; resorts across 18 countries — a padel court on-site or at the local club, waiting at every one.</div>
+        </div>
+      </div>
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-discount"/></svg></span>
+        <div>
+          <div class="why-title">Member rates &amp; upgrades</div>
+          <div class="why-text">Preferred room rates up to 20% off, complimentary upgrades, and spa, wellness &amp; dining privileges at every stay.</div>
+        </div>
+      </div>
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-racquet"/></svg></span>
+        <div>
+          <div class="why-title">Privé Montauk &amp; Miami, included</div>
+          <div class="why-text">Full Access founding membership includes unlimited visits and member pricing at both Privé Clubs.</div>
+        </div>
+      </div>
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-key"/></svg></span>
+        <div>
+          <div class="why-title">Your founding rate, locked for life</div>
+          <div class="why-text">Join now at $595 and your rate never rises — a benefit reserved for founding members only.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec-tight">
   <div class="wrap-wide">
     <div class="sec-head">
@@ -902,35 +1085,7 @@
 </section>
 
 <!-- ══ FAQ ══ -->
-<section class="sec-tight">
-  <div class="wrap">
-    <div class="sec-head" style="text-align:left;">
-      <div class="eyebrow">Questions</div>
-      <h2 class="display">Everything you<em>need to know.</em></h2>
-    </div>
 
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination returns more than the membership costs, between your founding rate and member rates. Add full access to Privé Montauk and Miami and 20% off every retreat, and most members find the question answers itself on the first booking.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">What exactly does the founding rate lock?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Your $595/year rate, for the lifetime of your membership — never subject to a price increase. Full Access is normally $995/year; once founding spots close, that's the rate. Founding members lock the full membership — including unlimited Privé Montauk &amp; Miami — at $595 for life.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Full Access — your founding membership — includes unlimited member play at both Privé Clubs, year-round. It's the one thing beyond the base membership, and it's included with your founding rate. Privé Miami is open now at THesis Hotel in Coral Gables; Privé Montauk returns Spring 2027.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">Can I cancel?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Yes — annual subscription via Stripe, cancel before renewal and keep access through your paid period. Note: cancel a founding membership and later re-subscribe, and the founding rate no longer applies. Questions? <a id="contactEmail" href="#"></a></div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ §7 · FINAL CTA ══ -->
 <section class="final">
@@ -1077,7 +1232,11 @@
       <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
       <button class="plb-cta-btn" id="plbCtaBtn">Claim your membership →</button>
     </div>
-  </div>
+      <div class="plb-claim">
+      <div class="plb-claim-price"><s>$995</s>$595<span style="font-size:13px;opacity:.7;"> /yr</span></div>
+      <button type="button" class="plb-claim-btn" id="plbClaimNow">Claim your membership →</button>
+    </div>
+</div>
 </div>
 
 <!-- ══ FOOTER ══ -->
@@ -1111,47 +1270,30 @@
     totalEl.textContent = '$' + (partnerInput.checked ? '690' : '595') + ' / year';
   });
 
-  /* two-step: capture details → confirm → Stripe */
-  var fName = document.getElementById('fName');
-  var fEmail = document.getElementById('fEmail');
-  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-
   /* checkout → Stripe */
   var btn = document.getElementById('checkoutBtn');
   btn.addEventListener('click', function () {
-    var name = fName.value.trim(), email = fEmail.value.trim();
-    var nameOk = name.length >= 1, emailOk = validEmail(email);
-    fName.parentNode.classList.toggle('invalid', !nameOk);
-    fEmail.parentNode.classList.toggle('invalid', !emailOk);
-    if (!nameOk || !emailOk) { (nameOk ? fEmail : fName).focus(); return; }
-
-    /* lead micro-conversion */
-    gtag('event', 'generate_lead', { currency: 'USD', value: 595 });
-    fbq('track', 'Lead', { content_name: 'Founding Passport' });
-
-    /* capture the lead in Klaviyo (founding bucket) — never block checkout */
-    fetch('/api/subscribe', {
-      method: 'POST',
-      keepalive: true, headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer', tier: 'founding', value: 595 })
-    }).catch(function () {});
-
     btn.disabled = true;
     btn.textContent = 'Redirecting…';
+
+    /* No email is collected here — Stripe does it. That means no Klaviyo
+       lead and no abandoned-checkout flow for this variant, which is the
+       cost of testing a one-click page. */
     gtag('event', 'begin_checkout', {
       currency: 'USD', value: 595,
       items: [{ item_id: 'founding', item_name: 'Privé Passport Founding', price: 595, quantity: 1 }]
     });
     fbq('track', 'InitiateCheckout', { value: 595, currency: 'USD', content_ids: ['founding'], content_type: 'product' });
-    /* Meta CAPI match signals — pixel cookies + page URL, carried through Stripe so
-       the server-side Purchase (fired from the webhook) matches this browser. */
-    function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
-    function rfsnIds() { try { return { id: localStorage.getItem('rfsn_v4_id') || '', aid: localStorage.getItem('rfsn_v4_aid') || '', cs: localStorage.getItem('rfsn_v4_cs') || '' }; } catch (e) { return { id:'', aid:'', cs:'' }; } }
-    function pageLocale() { try { return (window.Weglot && Weglot.getCurrentLang && Weglot.getCurrentLang()) || (navigator.language || 'en').slice(0,2); } catch (e) { return 'en'; } }
-    fetch('/api/checkout', {
 
+    function cookie(n) { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
+    function pageLocale() { try { return (window.Weglot && Weglot.getCurrentLang && Weglot.getCurrentLang()) || (navigator.language || 'en').slice(0,2); } catch (e) { return 'en'; } }
+    function rfsnIds() { try { return { id: localStorage.getItem('rfsn_v4_id') || '', aid: localStorage.getItem('rfsn_v4_aid') || '', cs: localStorage.getItem('rfsn_v4_cs') || '' }; } catch (e) { return { id:'', aid:'', cs:'' }; } }
+
+    fetch('/api/checkout', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tier: 'founding', locale: pageLocale(), rfsn: rfsnIds(), addPartner: partnerInput.checked, email: fEmail.value.trim(), firstName: fName.value.trim(), fbp: cookie('_fbp'), fbc: cookie('_fbc'), eventSourceUrl: window.location.href })
+      body: JSON.stringify({ tier: 'founding', locale: pageLocale(), rfsn: rfsnIds(),
+        addPartner: partnerInput.checked, fbp: cookie('_fbp'), fbc: cookie('_fbc'),
+        eventSourceUrl: window.location.href })
     })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })
@@ -1389,7 +1531,40 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
   function ctaToCheckout() { closeLightbox(); document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' }); }
   document.getElementById('plbCtaBtn').addEventListener('click', ctaToCheckout);
+  // Variant B: nothing left to fill in, so the lightbox can go straight to
+  // Stripe rather than closing and scrolling the visitor back to a form.
+  var claimNow = document.getElementById('plbClaimNow');
+  if (claimNow) claimNow.addEventListener('click', function () {
+    closeLightbox();
+    document.getElementById('checkoutBtn').click();
+  });
   document.getElementById('plbLockCta').addEventListener('click', ctaToCheckout);
+
+
+  /* ── Collection teaser (variant B) ──────────────────────────
+     Four properties directly under the hero. The collection was the
+     page's attention magnet at ~45% depth; this puts a taste of it where
+     visitors were dropping off instead. Tapping one opens the same
+     lightbox the full grid uses. */
+  (function () {
+    var row = document.getElementById('ctRow');
+    if (!row || !window.DESTINATIONS) return;
+    var PICK = ['don-carlos-marbella', 'the-savoy', 'patina-maldives', 'rosewood-hong-kong'];
+    var byId = {};
+    window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
+    PICK.map(function (id) { return byId[id]; }).filter(Boolean).forEach(function (d) {
+      var a = document.createElement('a');
+      a.className = 'ct-item';
+      a.href = '#collection';
+      a.setAttribute('aria-label', d.name);
+      a.innerHTML = '<img src="' + d.image + '" alt="" loading="lazy" decoding="async">' +
+                    '<div class="ct-item-cap">' + d.name + '</div>';
+      a.addEventListener('click', function (e) {
+        if (window.openPropertyLightbox) { e.preventDefault(); window.openPropertyLightbox(d); }
+      });
+      row.appendChild(a);
+    });
+  })();
 
   /* ── Portfolio grid (original curated set + expand) ────── */
   var grid = document.getElementById('pfGrid');
