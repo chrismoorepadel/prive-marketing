@@ -701,8 +701,7 @@
     .why-row:last-child { border-bottom: none; }
 
     /* Collection teaser, promoted directly under the hero. */
-    .sec-teaser { padding: 54px 0 10px; }
-    .ct-head { text-align: center; margin-bottom: 26px; }
+    .sec-teaser { padding: 26px 0 0; }
     .ct-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .ct-item { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px;
                background: #0E1923; display: block; text-decoration: none; }
@@ -711,10 +710,6 @@
                    background: linear-gradient(180deg, transparent, rgba(14,25,35,.92));
                    font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400;
                    letter-spacing: .1em; text-transform: uppercase; color: #F5F0E8; }
-    .ct-more { display: block; margin: 22px auto 0; text-align: center;
-               font-family: 'Jost',sans-serif; font-size: 11.5px; font-weight: 400;
-               letter-spacing: .2em; text-transform: uppercase; color: var(--gold);
-               text-decoration: none; }
     @media (max-width: 700px) { .ct-row { grid-template-columns: repeat(2, 1fr); } }
 
     /* 65 closes against 2 CTA taps: the only CTA sat under a very long
@@ -786,14 +781,10 @@
 </section>
 
 <!-- ══ COLLECTION TEASER · promoted above the fold ══ -->
+<!-- ══ COLLECTION STRIP · imagery only, promoted under the hero ══ -->
 <section class="sec-teaser">
   <div class="wrap-wide">
-    <div class="ct-head">
-      <div class="eyebrow">The collection</div>
-      <h2 class="display" style="font-size:clamp(26px,6vw,38px);">Forty destinations,<em style="display:inline;"> one membership.</em></h2>
-    </div>
     <div class="ct-row" id="ctRow"></div>
-    <a href="#collection" class="ct-more">See the full collection →</a>
   </div>
 </section>
 
@@ -1549,7 +1540,11 @@
   (function () {
     var row = document.getElementById('ctRow');
     if (!row || !window.DESTINATIONS) return;
-    var PICK = ['don-carlos-marbella', 'the-savoy', 'patina-maldives', 'rosewood-hong-kong'];
+    // Picked partly on image brightness — this strip sits on navy, and
+    // Rosewood's night exterior (mean luminance 95 vs ~145 for the rest)
+    // read as a missing image. Also spreads the geography: Spain, London,
+    // Indian Ocean, Morocco.
+    var PICK = ['don-carlos-marbella', 'the-savoy', 'patina-maldives', 'fairmont-royal-palm'];
     var byId = {};
     window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
     PICK.map(function (id) { return byId[id]; }).filter(Boolean).forEach(function (d) {
