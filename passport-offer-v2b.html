@@ -700,17 +700,32 @@
                border-bottom: 1px solid rgba(184,151,106,.16); }
     .why-row:last-child { border-bottom: none; }
 
-    /* Collection teaser, promoted directly under the hero. */
-    .sec-teaser { padding: 26px 0 0; }
-    .ct-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .ct-item { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px;
-               background: #0E1923; display: block; text-decoration: none; }
-    .ct-item img { width: 100%; height: 100%; object-fit: cover; }
-    .ct-item-cap { position: absolute; inset: auto 0 0 0; padding: 14px 12px 11px;
+    /* Collection slider, promoted directly under the hero. Proportions are
+       deliberately wider and shorter than the .imgrow strip further down so
+       the two do not read as the same component. */
+    .sec-teaser { padding: 26px 0 4px; }
+    .ct-row { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity;
+              padding: 0 24px 6px; -webkit-overflow-scrolling: touch;
+              scrollbar-width: none; cursor: grab; }
+    .ct-row::-webkit-scrollbar { display: none; }
+    .ct-row.dragging { cursor: grabbing; scroll-snap-type: none; }
+    .ct-item { position: relative; flex: 0 0 auto; width: 260px; aspect-ratio: 4/3;
+               border-radius: 4px; overflow: hidden; background: #0E1923;
+               scroll-snap-align: start; text-decoration: none; display: block;
+               border: 1px solid rgba(245,240,232,.08); }
+    .ct-item img { width: 100%; height: 100%; object-fit: cover;
+                   transition: transform .6s; pointer-events: none; }
+    .ct-item:hover img { transform: scale(1.04); }
+    .ct-item-cap { position: absolute; inset: auto 0 0 0; padding: 22px 14px 12px;
                    background: linear-gradient(180deg, transparent, rgba(14,25,35,.92));
-                   font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400;
+                   font-family: 'Jost',sans-serif; font-size: 11.5px; font-weight: 400;
                    letter-spacing: .1em; text-transform: uppercase; color: #F5F0E8; }
-    @media (max-width: 700px) { .ct-row { grid-template-columns: repeat(2, 1fr); } }
+    .ct-item-loc { display: block; margin-top: 3px; font-size: 10.5px;
+                   letter-spacing: .08em; color: rgba(245,240,232,.6); }
+    @media (max-width: 700px) {
+      .ct-row { padding: 0 16px 6px; }
+      .ct-item { width: 232px; }
+    }
 
     /* 65 closes against 2 CTA taps: the only CTA sat under a very long
        panel. This one stays on screen the whole way down. */
@@ -1540,24 +1555,44 @@
   (function () {
     var row = document.getElementById('ctRow');
     if (!row || !window.DESTINATIONS) return;
-    // Picked partly on image brightness — this strip sits on navy, and
-    // Rosewood's night exterior (mean luminance 95 vs ~145 for the rest)
-    // read as a missing image. Also spreads the geography: Spain, London,
-    // Indian Ocean, Morocco.
-    var PICK = ['don-carlos-marbella', 'the-savoy', 'patina-maldives', 'fairmont-royal-palm'];
+
+    /* Same curated nine the full grid leads with, so the slider is a real
+       sample of the collection rather than a separate editorial choice. */
+    var PICK = ['don-carlos-marbella','the-savoy','patina-maldives','fairmont-royal-palm',
+                'only-aesthesis','al-baleed-oman','chable-yucatan','the-surrey','rosewood-hong-kong'];
     var byId = {};
     window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
+
     PICK.map(function (id) { return byId[id]; }).filter(Boolean).forEach(function (d) {
       var a = document.createElement('a');
       a.className = 'ct-item';
       a.href = '#collection';
-      a.setAttribute('aria-label', d.name);
-      a.innerHTML = '<img src="' + d.image + '" alt="" loading="lazy" decoding="async">' +
-                    '<div class="ct-item-cap">' + d.name + '</div>';
+      a.setAttribute('aria-label', d.name + ' — ' + (d.loc || ''));
+      a.innerHTML =
+        '<img src="' + d.image + '" alt="" loading="lazy" decoding="async">' +
+        '<div class="ct-item-cap">' + d.name +
+        (d.loc ? '<span class="ct-item-loc">' + d.loc + '</span>' : '') + '</div>';
       a.addEventListener('click', function (e) {
+        if (dragged) { e.preventDefault(); return; }   /* a drag is not a tap */
         if (window.openPropertyLightbox) { e.preventDefault(); window.openPropertyLightbox(d); }
       });
       row.appendChild(a);
+    });
+
+    /* Pointer drag, so the slider works on a desktop trackpad-less mouse
+       as well as by touch. */
+    var down = false, startX = 0, startLeft = 0, dragged = false;
+    row.addEventListener('pointerdown', function (e) {
+      down = true; dragged = false; startX = e.clientX; startLeft = row.scrollLeft;
+    });
+    row.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { dragged = true; row.classList.add('dragging'); }
+      if (dragged) row.scrollLeft = startLeft - dx;
+    });
+    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+      row.addEventListener(ev, function () { down = false; row.classList.remove('dragging'); });
     });
   })();
 
