@@ -689,6 +689,62 @@
       .vstack { padding: 84px 0 20px; }
       .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     }
+  
+    /* ═══ VARIANT B ═══════════════════════════════════════════
+       Appended last so it wins over the media queries above. */
+
+    /* The why points were cards and collected 100 taps with nothing
+       behind them. Flattened to hairline rows: no card, no tap affordance. */
+    .why-grid { display: block; gap: 0; }
+    .why-row { padding: 20px 4px; display: flex; gap: 15px; align-items: flex-start;
+               border-bottom: 1px solid rgba(184,151,106,.16); }
+    .why-row:last-child { border-bottom: none; }
+
+    /* Collection slider, promoted directly under the hero. Proportions are
+       deliberately wider and shorter than the .imgrow strip further down so
+       the two do not read as the same component. */
+    .sec-teaser { padding: 26px 0 4px; }
+    .ct-row { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity;
+              padding: 0 24px 6px; -webkit-overflow-scrolling: touch;
+              scrollbar-width: none; cursor: grab; }
+    .ct-row::-webkit-scrollbar { display: none; }
+    .ct-row.dragging { cursor: grabbing; scroll-snap-type: none; }
+    .ct-item { position: relative; flex: 0 0 auto; width: 260px; aspect-ratio: 4/3;
+               border-radius: 4px; overflow: hidden; background: #0E1923;
+               scroll-snap-align: start; text-decoration: none; display: block;
+               border: 1px solid rgba(245,240,232,.08); }
+    .ct-item img { width: 100%; height: 100%; object-fit: cover;
+                   transition: transform .6s; pointer-events: none; }
+    .ct-item:hover img { transform: scale(1.04); }
+    .ct-item-cap { position: absolute; inset: auto 0 0 0; padding: 22px 14px 12px;
+                   background: linear-gradient(180deg, transparent, rgba(14,25,35,.92));
+                   font-family: 'Jost',sans-serif; font-size: 11.5px; font-weight: 400;
+                   letter-spacing: .1em; text-transform: uppercase; color: #F5F0E8; }
+    .ct-item-loc { display: block; margin-top: 3px; font-size: 10.5px;
+                   letter-spacing: .08em; color: rgba(245,240,232,.6); }
+    @media (max-width: 700px) {
+      .ct-row { padding: 0 16px 6px; }
+      .ct-item { width: 232px; }
+    }
+
+    /* 65 closes against 2 CTA taps: the only CTA sat under a very long
+       panel. This one stays on screen the whole way down. */
+    .plb-claim { position: sticky; bottom: 0; z-index: 5; display: flex;
+                 align-items: center; justify-content: space-between; gap: 16px;
+                 padding: 14px 20px; background: rgba(14,25,35,.93);
+                 -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+                 border-top: 1px solid rgba(184,151,106,.3); }
+    .plb-claim-price { font-family: 'Cormorant Garamond',serif; font-size: 20px; color: #F5F0E8; }
+    .plb-claim-price s { font-size: 14px; opacity: .6; margin-right: 7px; }
+    .plb-claim-btn { font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400;
+                     letter-spacing: .18em; text-transform: uppercase; color: var(--dark);
+                     background: var(--gold); border: none; border-radius: 100px;
+                     padding: 13px 24px; cursor: pointer; white-space: nowrap; }
+    @media (max-width: 560px) {
+      .plb-claim { padding: 12px 14px; }
+      .plb-claim-price { font-size: 17px; }
+      .plb-claim-btn { padding: 12px 16px; font-size: 10.5px; }
+    }
   </style>
 </head>
 <body>
@@ -739,45 +795,24 @@
   </div>
 </section>
 
+<!-- ══ COLLECTION TEASER · promoted above the fold ══ -->
+<!-- ══ COLLECTION STRIP · imagery only, promoted under the hero ══ -->
+<section class="sec-teaser">
+  <div class="wrap-wide">
+    <div class="ct-row" id="ctRow"></div>
+  </div>
+</section>
+
+
 <!-- ══ §1.6 · VALUE STACK (why join · offer teaser · trust) ══ -->
 <section class="vstack">
   <div class="wrap-wide">
     <div class="vstack-head">
-      <div class="eyebrow">Why join</div>
+      <div class="eyebrow">The founding offer</div>
       <h2 class="display" style="font-size:clamp(30px,8vw,46px);">One membership,<em style="display:inline;"> a world of play.</em></h2>
     </div>
 
-    <!-- Why Join · 4 points -->
-    <div class="why-grid">
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-court"/></svg></span>
-        <div>
-          <div class="why-title">A court everywhere you travel</div>
-          <div class="why-text">40+ hotels &amp; resorts across 18 countries — a padel court on-site or at the local club, waiting at every one.</div>
-        </div>
-      </div>
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-discount"/></svg></span>
-        <div>
-          <div class="why-title">Member rates &amp; upgrades</div>
-          <div class="why-text">Preferred room rates up to 20% off, complimentary upgrades, and spa, wellness &amp; dining privileges at every stay.</div>
-        </div>
-      </div>
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-racquet"/></svg></span>
-        <div>
-          <div class="why-title">Privé Montauk &amp; Miami, included</div>
-          <div class="why-text">Full Access founding membership includes unlimited visits and member pricing at both Privé Clubs.</div>
-        </div>
-      </div>
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-key"/></svg></span>
-        <div>
-          <div class="why-title">Your founding rate, locked for life</div>
-          <div class="why-text">Join now at $595 and your rate never rises — a benefit reserved for founding members only.</div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Founding offer teaser -->
     <div class="glass teaser">
@@ -911,6 +946,36 @@
 </section>
 
 <!-- ══ §6 · OFFER + CHECKOUT ══ -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:left;">
+      <div class="eyebrow">Questions</div>
+      <h2 class="display">Everything you<em>need to know.</em></h2>
+    </div>
+
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination returns more than the membership costs, between your founding rate and member rates. Add full access to Privé Montauk and Miami and 20% off every retreat, and most members find the question answers itself on the first booking.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What exactly does the founding rate lock?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Your $595/year rate, for the lifetime of your membership — never subject to a price increase. Full Access is normally $995/year; once founding spots close, that's the rate. Founding members lock the full membership — including unlimited Privé Montauk &amp; Miami — at $595 for life.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Full Access — your founding membership — includes unlimited member play at both Privé Clubs, year-round. It's the one thing beyond the base membership, and it's included with your founding rate. Privé Miami is open now at THesis Hotel in Coral Gables; Privé Montauk returns Spring 2027.</div>
+    </div>
+    <div class="lp-faq-item">
+      <button class="lp-faq-q"><span class="lp-faq-q-text">Can I cancel?</span><span class="lp-faq-icon"></span></button>
+      <div class="lp-faq-a">Yes — annual subscription via Stripe, cancel before renewal and keep access through your paid period. Note: cancel a founding membership and later re-subscribe, and the founding rate no longer applies. Questions? <a id="contactEmail" href="#"></a></div>
+    </div>
+  </div>
+</section>
+
 <section class="offer" id="checkout">
   <div class="wrap">
     <div class="offer-head">
@@ -947,8 +1012,10 @@
         <div class="lp-total-amount" id="totalDisplay">$595 / year</div>
       </div>
 
+      <!-- STEP 1 -->
       <button class="lp-checkout-btn" id="checkoutBtn">Claim your membership →</button>
-      <div class="lp-checkout-secure">One step. Your founding rate is applied at checkout, and Stripe takes it from there.</div>
+        <div class="lp-checkout-secure">One step. Your founding rate is applied at checkout, and Stripe takes it from there.</div>
+      </div>
 
       <ul class="lp-trust">
         <li>Secure checkout via Stripe — we never see your card details.</li>
@@ -961,6 +1028,42 @@
 </section>
 
 <!-- ══ TESTIMONIALS ══ -->
+<section class="sec-tight">
+  <div class="wrap-wide">
+    <!-- Why Join · 4 points -->
+    <div class="why-grid">
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-court"/></svg></span>
+        <div>
+          <div class="why-title">A court everywhere you travel</div>
+          <div class="why-text">40+ hotels &amp; resorts across 18 countries — a padel court on-site or at the local club, waiting at every one.</div>
+        </div>
+      </div>
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-discount"/></svg></span>
+        <div>
+          <div class="why-title">Member rates &amp; upgrades</div>
+          <div class="why-text">Preferred room rates up to 20% off, complimentary upgrades, and spa, wellness &amp; dining privileges at every stay.</div>
+        </div>
+      </div>
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-racquet"/></svg></span>
+        <div>
+          <div class="why-title">Privé Montauk &amp; Miami, included</div>
+          <div class="why-text">Full Access founding membership includes unlimited visits and member pricing at both Privé Clubs.</div>
+        </div>
+      </div>
+      <div class="why-row">
+        <span class="why-ico"><svg><use href="#i-key"/></svg></span>
+        <div>
+          <div class="why-title">Your founding rate, locked for life</div>
+          <div class="why-text">Join now at $595 and your rate never rises — a benefit reserved for founding members only.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec-tight">
   <div class="wrap-wide">
     <div class="sec-head">
@@ -988,35 +1091,7 @@
 </section>
 
 <!-- ══ FAQ ══ -->
-<section class="sec-tight">
-  <div class="wrap">
-    <div class="sec-head" style="text-align:left;">
-      <div class="eyebrow">Questions</div>
-      <h2 class="display">Everything you<em>need to know.</em></h2>
-    </div>
 
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">Is it worth it if I only travel once or twice a year?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Yes. A single seven-night stay at a partner destination returns more than the membership costs, between your founding rate and member rates. Add full access to Privé Montauk and Miami and 20% off every retreat, and most members find the question answers itself on the first booking.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">What exactly does the founding rate lock?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Your $595/year rate, for the lifetime of your membership — never subject to a price increase. Full Access is normally $995/year; once founding spots close, that's the rate. Founding members lock the full membership — including unlimited Privé Montauk &amp; Miami — at $595 for life.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Full Access — your founding membership — includes unlimited member play at both Privé Clubs, year-round. It's the one thing beyond the base membership, and it's included with your founding rate. Privé Miami is open now at THesis Hotel in Coral Gables; Privé Montauk returns Spring 2027.</div>
-    </div>
-    <div class="lp-faq-item">
-      <button class="lp-faq-q"><span class="lp-faq-q-text">Can I cancel?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">Yes — annual subscription via Stripe, cancel before renewal and keep access through your paid period. Note: cancel a founding membership and later re-subscribe, and the founding rate no longer applies. Questions? <a id="contactEmail" href="#"></a></div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ §7 · FINAL CTA ══ -->
 <section class="final">
@@ -1163,7 +1238,11 @@
       <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
       <button class="plb-cta-btn" id="plbCtaBtn">Claim your membership →</button>
     </div>
-  </div>
+      <div class="plb-claim">
+      <div class="plb-claim-price"><s>$995</s>$595<span style="font-size:13px;opacity:.7;"> /yr</span></div>
+      <button type="button" class="plb-claim-btn" id="plbClaimNow">Claim your membership →</button>
+    </div>
+</div>
 </div>
 
 <!-- ══ FOOTER ══ -->
@@ -1203,10 +1282,9 @@
     btn.disabled = true;
     btn.textContent = 'Redirecting…';
 
-    /* No email is collected here — Stripe does it. So this variant fires no
-       Klaviyo lead and has no abandoned-checkout flow, and generate_lead
-       cannot fire: begin_checkout is the only funnel event it shares with
-       the control. That is the cost of testing a one-click page. */
+    /* No email is collected here — Stripe does it. That means no Klaviyo
+       lead and no abandoned-checkout flow for this variant, which is the
+       cost of testing a one-click page. */
     gtag('event', 'begin_checkout', {
       currency: 'USD', value: 595,
       items: [{ item_id: 'founding', item_name: 'Privé Passport Founding', price: 595, quantity: 1 }]
@@ -1459,7 +1537,64 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
   function ctaToCheckout() { closeLightbox(); document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' }); }
   document.getElementById('plbCtaBtn').addEventListener('click', ctaToCheckout);
+  // Variant B: nothing left to fill in, so the lightbox can go straight to
+  // Stripe rather than closing and scrolling the visitor back to a form.
+  var claimNow = document.getElementById('plbClaimNow');
+  if (claimNow) claimNow.addEventListener('click', function () {
+    closeLightbox();
+    document.getElementById('checkoutBtn').click();
+  });
   document.getElementById('plbLockCta').addEventListener('click', ctaToCheckout);
+
+
+  /* ── Collection teaser (variant B) ──────────────────────────
+     Four properties directly under the hero. The collection was the
+     page's attention magnet at ~45% depth; this puts a taste of it where
+     visitors were dropping off instead. Tapping one opens the same
+     lightbox the full grid uses. */
+  (function () {
+    var row = document.getElementById('ctRow');
+    if (!row || !window.DESTINATIONS) return;
+
+    /* Same curated nine the full grid leads with, so the slider is a real
+       sample of the collection rather than a separate editorial choice. */
+    var PICK = ['don-carlos-marbella','the-savoy','patina-maldives','fairmont-royal-palm',
+                'only-aesthesis','al-baleed-oman','chable-yucatan','the-surrey','rosewood-hong-kong'];
+    var byId = {};
+    window.DESTINATIONS.forEach(function (d) { byId[d.id] = d; });
+
+    PICK.map(function (id) { return byId[id]; }).filter(Boolean).forEach(function (d) {
+      var a = document.createElement('a');
+      a.className = 'ct-item';
+      a.href = '#collection';
+      a.setAttribute('aria-label', d.name + ' — ' + (d.loc || ''));
+      a.innerHTML =
+        '<img src="' + d.image + '" alt="" loading="lazy" decoding="async">' +
+        '<div class="ct-item-cap">' + d.name +
+        (d.loc ? '<span class="ct-item-loc">' + d.loc + '</span>' : '') + '</div>';
+      a.addEventListener('click', function (e) {
+        if (dragged) { e.preventDefault(); return; }   /* a drag is not a tap */
+        if (window.openPropertyLightbox) { e.preventDefault(); window.openPropertyLightbox(d); }
+      });
+      row.appendChild(a);
+    });
+
+    /* Pointer drag, so the slider works on a desktop trackpad-less mouse
+       as well as by touch. */
+    var down = false, startX = 0, startLeft = 0, dragged = false;
+    row.addEventListener('pointerdown', function (e) {
+      down = true; dragged = false; startX = e.clientX; startLeft = row.scrollLeft;
+    });
+    row.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { dragged = true; row.classList.add('dragging'); }
+      if (dragged) row.scrollLeft = startLeft - dx;
+    });
+    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+      row.addEventListener(ev, function () { down = false; row.classList.remove('dragging'); });
+    });
+  })();
 
   /* ── Portfolio grid (original curated set + expand) ────── */
   var grid = document.getElementById('pfGrid');
