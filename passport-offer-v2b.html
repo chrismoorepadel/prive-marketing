@@ -788,7 +788,7 @@
       </div>
       <div class="teaser-lock">Full Access · rate locked for life</div>
       <p class="teaser-early">Full Access is normally <b>$995/year</b>. Join as a founding member and lock <b>$595 for life</b> — including unlimited Privé Montauk &amp; Miami.</p>
-      <button class="btn btn-gold js-checkout">Claim your founding membership →</button>
+      <button class="btn btn-gold js-checkout-direct">Claim your founding membership →</button>
     </div>
 
     <!-- Social proof strip -->
@@ -1197,11 +1197,14 @@
     totalEl.textContent = '$' + (partnerInput.checked ? '690' : '595') + ' / year';
   });
 
-  /* checkout → Stripe */
-  var btn = document.getElementById('checkoutBtn');
-  btn.addEventListener('click', function () {
-    btn.disabled = true;
-    btn.textContent = 'Redirecting…';
+  /* checkout → Stripe
+     Shared by the checkout button and any CTA that goes direct. Nothing is
+     collected on this page, so a CTA has no reason to scroll the visitor to
+     a form that is not there — it can start checkout where they stand. */
+  function startCheckout(el) {
+    var label = el.textContent;
+    el.disabled = true;
+    el.textContent = 'Redirecting…';
 
     /* No email is collected here — Stripe does it. So this variant fires no
        Klaviyo lead and has no abandoned-checkout flow, and generate_lead
@@ -1225,7 +1228,16 @@
     })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) { window.location.href = d.url; })
-      .catch(function () { btn.disabled = false; btn.textContent = 'Claim your membership →'; });
+      .catch(function () { el.disabled = false; el.textContent = label; });
+  }
+
+  var btn = document.getElementById('checkoutBtn');
+  btn.addEventListener('click', function () { startCheckout(btn); });
+
+  /* The offer CTA under "One membership, a world of play." goes straight to
+     Stripe rather than scrolling to the checkout card. */
+  document.querySelectorAll('.js-checkout-direct').forEach(function (b) {
+    b.addEventListener('click', function () { startCheckout(b); });
   });
 
   /* FAQ accordion */
