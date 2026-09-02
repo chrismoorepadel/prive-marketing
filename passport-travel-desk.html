@@ -137,6 +137,7 @@
       text-shadow:0 1px 10px rgba(0,0,0,.6);}
     .td-valueline span{white-space:nowrap;}
     .td-valueline span + span::before{content:'·';margin:0 12px;color:var(--gold);}
+    .td-sub-short{display:none;}
     .td-hero-actions{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:28px;}
     .td-scrolllink{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
       letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.85);
@@ -186,6 +187,8 @@
       line-height:1.55;color:rgba(27,42,74,.74);}
     .td-pillar-fact b{font-weight:400;color:var(--gold-ink);}
 
+    .td-pillar-slide-img{display:none;}
+    .td-pillar-dots{display:none;}
     .td-midcta{margin-top:44px;text-align:center;}
 
     /* ── moment 3 · value and proof, one viewport ───────────── */
@@ -246,9 +249,12 @@
       grid-template-columns:55fr 45fr;background:var(--dark);
       opacity:0;pointer-events:none;transition:opacity .35s ease;}
     .td-desk.open{opacity:1;pointer-events:auto;}
-    .td-desk-media{position:relative;overflow:hidden;}
+    /* isolate, or the caption's z-index escapes this element (which has no
+       stacking context of its own) and paints its gradient over the cream
+       panel below — which read as a dark band and a half-buried line. */
+    .td-desk-media{position:relative;overflow:hidden;isolation:isolate;}
     .td-desk-img{position:absolute;inset:0;background-size:cover;background-position:center;
-      transition:opacity .45s ease;}
+      transition:opacity .22s ease;}
     .td-desk-scrim{position:absolute;inset:0;
       background:linear-gradient(180deg,rgba(14,25,35,.22) 0%,rgba(14,25,35,.3) 48%,rgba(14,25,35,.88) 100%);}
     /* The six stills are a mix, and several are bright (an indoor court under
@@ -359,11 +365,48 @@
       .td-wrap{padding:0 26px;}
       .td-sec,.td-value,.td-personal{padding:68px 0;}
       .td-pillars-grid,.td-value-inner{grid-template-columns:1fr;gap:34px;}
-      .td-pillar-stage{min-height:300px;}
+      /* On a phone the shared stage cannot follow a vertical list, and four
+         stacked blocks of copy read as a wall. Each pillar becomes its own
+         card carrying its own image, swiped one at a time. */
+      .td-pillars-grid{display:block;}
+      .td-pillar-stage{display:none;}
+      .td-pillar-list{display:flex;flex-direction:row;gap:14px;
+        overflow-x:auto;-webkit-overflow-scrolling:touch;
+        scroll-snap-type:x mandatory;scrollbar-width:none;
+        margin:0 -26px;padding:0 26px 2px;}
+      .td-pillar-list::-webkit-scrollbar{display:none;}
+      .td-pillar-copy{flex:0 0 84%;scroll-snap-align:center;
+        padding:0 0 22px;border:1px solid var(--td-line);border-radius:2px;
+        background:rgba(255,255,255,.5);overflow:hidden;}
+      .td-pillar-copy:last-child{border-bottom:1px solid var(--td-line);}
+      .td-pillar-copy:hover,.td-pillar-copy.on{padding-left:0;border-left:1px solid var(--td-line);}
+      .td-pillar-copy.on{border-color:var(--gold-ink);}
+      .td-pillar-slide-img{display:block;height:172px;margin-bottom:20px;
+        background-size:cover;background-position:center;background-color:var(--light);}
+      .td-pillar-copy-top,.td-pillar-copy p{padding:0 20px;}
+      .td-pillar-copy p{max-width:none;}
+      .td-pillar-fact{margin-top:14px;padding-top:14px !important;
+        border-top:1px solid var(--td-line);}
+
+      .td-pillar-dots{display:flex;justify-content:center;gap:7px;margin-top:22px;}
+      .td-pillar-dots i{width:6px;height:6px;border-radius:50%;
+        background:rgba(27,42,74,.22);transition:background .25s,transform .25s;}
+      .td-pillar-dots i.on{background:var(--gold-ink);transform:scale(1.3);}
     }
     @media (max-width:820px){
       .td-hero{min-height:100svh;padding-top:100px;}
       .td-hero .club-hero-content{padding:0 24px 44px;}
+      /* the full sentence is three lines on a phone, on top of everything
+         else the hero is already carrying */
+      .td-sub-long{display:none;}
+      .td-sub-short{display:inline;}
+      .td-hero .club-hero-sub{font-size:16px;line-height:1.6;color:rgba(255,255,255,.92);}
+      /* this frame is busy and bright in places; the type needs its own ground */
+      .td-hero .club-hero-overlay{background:linear-gradient(180deg,
+        rgba(14,25,35,.30) 0%,rgba(14,25,35,.26) 22%,
+        rgba(14,25,35,.62) 52%,rgba(14,25,35,.88) 74%,rgba(14,25,35,.94) 100%);}
+      /* the chips and the section below already invite the scroll */
+      .td-scrolllink{display:none;}
       /* On a phone the four claims become chips that wrap, rather than four
          stacked lines eating the fold. Each carries its own ground so it
          stays legible wherever the backdrop is bright. */
@@ -386,12 +429,32 @@
       .td-nav-cta{font-size:9.5px;letter-spacing:.12em;padding:14px 14px;}
 
       /* the desk becomes a sheet: image masthead, cream dossier over it */
+      /* the value section stacks a price panel, a long quote and a worked
+         example — at desktop sizes that is a wall of type on a phone */
+      .td-value{padding:64px 0;}
+      .td-value-inner{gap:26px;}
+      .td-rate{padding:26px 22px;}
+      .td-quote{font-size:19px;line-height:1.45;}
+      .td-cite{margin-top:16px;font-size:10px;letter-spacing:.2em;}
+      .td-worked{margin-top:24px;padding-top:20px;}
+      .td-worked-v{font-size:14px;line-height:1.62;}
+      .td-personal{padding:64px 0;}
+      .td-personal h2{font-size:30px;}
+      .td-personal p{font-size:15px;line-height:1.65;margin-bottom:26px;}
+      .td-support{font-size:12px;}
+
       .td-desk{grid-template-columns:1fr;grid-template-rows:30vh 1fr;}
       .td-desk-media{min-height:30vh;}
-      .td-desk-story{padding:64px 22px 24px;}
+      /* the panel overlaps the masthead by 28px; clear it */
+      .td-desk-story{padding:56px 22px 16px;bottom:32px;}
       .td-desk-line{font-size:21px;max-width:none;}
       .td-desk-panel{margin-top:-28px;border-radius:16px 16px 0 0;}
-      .td-desk-inner{padding:36px 22px 48px;max-width:none;}
+      .td-desk-inner{padding:30px 22px 40px;max-width:none;}
+      .td-desk-head{margin-bottom:22px;}
+      .td-q{font-size:27px;}
+      .td-hint{margin-bottom:20px;}
+      .td-field{margin-bottom:12px;}
+      .td-field input{padding:11px 0;font-size:16px;}
       .td-desk-close{top:10px;right:10px;width:44px;height:44px;color:var(--cream);
         text-shadow:0 1px 8px rgba(0,0,0,.6);}
       .td-nav{position:sticky;bottom:0;padding-bottom:8px;margin-top:28px;
@@ -435,7 +498,7 @@
       <div class="club-hero-left">
         <div class="club-hero-eyebrow">Privé Passport</div>
         <h1 class="club-hero-title">The game travels<br><em>with you.</em></h1>
-        <p class="club-hero-sub">A private travel membership connecting padel players to remarkable hotels, retreats, and clubs around the world.</p>
+        <p class="club-hero-sub"><span class="td-sub-long">A private travel membership connecting padel players to remarkable hotels, retreats, and clubs around the world.</span><span class="td-sub-short">A private travel membership for padel players.</span></p>
 
         <div class="td-valueline">
           <span>40+ destinations</span><span>Privé Miami and Montauk</span><span>Signature retreats</span><span>Preferred member benefits</span>
@@ -467,30 +530,36 @@
 
         <div class="td-pillar-list" id="pillarList">
           <button class="td-pillar-copy on" type="button" data-p="0" aria-pressed="true">
+            <span class="td-pillar-slide-img" data-slide="0"></span>
             <div class="td-pillar-copy-top"><span class="td-pillar-num">01</span><h3>Padel Destinations</h3></div>
             <p>Forty-plus hotels and resorts across eighteen countries, each with a padel court on site or at the local club.</p>
             <p class="td-pillar-fact"><b>Preferred room rates up to 20% off</b>, complimentary upgrades, and spa, wellness and dining privileges.</p>
           </button>
 
           <button class="td-pillar-copy" type="button" data-p="1" aria-pressed="false">
+            <span class="td-pillar-slide-img" data-slide="1"></span>
             <div class="td-pillar-copy-top"><span class="td-pillar-num">02</span><h3>Signature Experiences</h3></div>
             <p>All-inclusive retreats built around the game and the place — Madagascar, Bordeaux, Sumba — with a dedicated pro and every meal handled.</p>
             <p class="td-pillar-fact"><b>Members save 20% and are invited first.</b> On the Madagascar week that is $1,650.</p>
           </button>
 
           <button class="td-pillar-copy" type="button" data-p="2" aria-pressed="false">
+            <span class="td-pillar-slide-img" data-slide="2"></span>
             <div class="td-pillar-copy-top"><span class="td-pillar-num">03</span><h3>Partner Clubs</h3></div>
             <p>Leading clubs in Los Angeles, New York, London and Hong Kong. Stay at a paired destination and your court is arranged for you.</p>
             <p class="td-pillar-fact"><b>15–20% off court bookings</b>, and full facility access while you are there.</p>
           </button>
 
           <button class="td-pillar-copy" type="button" data-p="3" aria-pressed="false">
+            <span class="td-pillar-slide-img" data-slide="3"></span>
             <div class="td-pillar-copy-top"><span class="td-pillar-num">04</span><h3>Privé Miami and Montauk</h3></div>
             <p>The two clubs we run ourselves. Miami plays year-round at THesis Hotel; Montauk returns for its season in Spring 2027.</p>
             <p class="td-pillar-fact"><b>Member court pricing at both</b> — 20% off in Miami, 50% off at Montauk.</p>
           </button>
         </div>
       </div>
+
+      <div class="td-pillar-dots" id="pillarDots" aria-hidden="true"></div>
 
       <div class="td-midcta reveal">
         <button class="btn-primary td-open" type="button">Begin my application</button>
@@ -749,13 +818,13 @@
   var STAGE = 'https://res.cloudinary.com/dfjqa5f05/image/upload/' +
               'c_fill,ar_4:5,g_auto,q_auto,f_auto,w_1100/';
   var PILLARS = [
-    { img: STAGE + 'v1788369821/JoeKelly_PaddleCourt_0552_copy_uby4fs_cetckn.jpg',
+    { pub: 'v1788369821/JoeKelly_PaddleCourt_0552_copy_uby4fs_cetckn.jpg',
       cap: 'Nihi Sumba, and over 40 more like it.' },
-    { img: STAGE + 'v1775680021/Villa-living-room_algtvz.jpg',
+    { pub: 'v1775680021/Villa-living-room_algtvz.jpg',
       cap: 'A week in Madagascar, the padel running through it.' },
-    { img: STAGE + 'v1775952979/Rosewood_HK_Exterior_3_night_Large_oqqsyc.jpg',
+    { pub: 'v1775952979/Rosewood_HK_Exterior_3_night_Large_oqqsyc.jpg',
       cap: 'Hong Kong, and a court arranged before you land.' },
-    { img: STAGE + 'v1777408711/Untitled_design-94_ea2ofp.png',
+    { pub: 'v1777408711/Untitled_design-94_ea2ofp.png',
       cap: 'The only court in the heart of Coral Gables.' }
   ];
   (function () {
@@ -768,6 +837,7 @@
       if (i === shown) return;
       shown = i;
       var p = PILLARS[i];
+      p.img = p.img || (STAGE + p.pub);
       cap.textContent = p.cap;
       list.querySelectorAll('.td-pillar-copy').forEach(function (b, n) {
         b.classList.toggle('on', n === i);
@@ -796,6 +866,61 @@
       b.addEventListener('click',      function () { show(i); });
     });
     show(0);
+
+    /* ── mobile · each card carries its own still ─────────────
+       Below 820px the list is a scroll-snap slider, so the shared stage is
+       hidden and every card gets the image inline. Painted once, from the
+       same PILLARS table, at a size that suits a card rather than a
+       half-page stage. */
+    var CARD = 'https://res.cloudinary.com/dfjqa5f05/image/upload/' +
+               'c_fill,ar_16:9,g_auto,q_auto,f_auto,w_760/';
+    list.querySelectorAll('.td-pillar-slide-img').forEach(function (el) {
+      var p = PILLARS[+el.dataset.slide];
+      if (p) el.style.backgroundImage = 'url("' + CARD + p.pub + '")';
+    });
+
+    /* dots follow the swipe rather than driving it */
+    var dots = document.getElementById('pillarDots');
+    PILLARS.forEach(function () { dots.appendChild(document.createElement('i')); });
+    function markDot(i) {
+      Array.prototype.forEach.call(dots.children, function (d, n) {
+        d.classList.toggle('on', n === i);
+      });
+    }
+    markDot(0);
+
+    /* Whichever card sits under the middle of the slider is the live one.
+       Idempotent, so it does not matter how often it is called or by which
+       of the two signals below. */
+    var current = 0;
+    function syncActive() {
+      var mid = list.scrollLeft + list.clientWidth / 2;
+      var best = 0, bestD = Infinity;
+      Array.prototype.forEach.call(list.children, function (c, n) {
+        var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+        if (d < bestD) { bestD = d; best = n; }
+      });
+      if (best === current) return;
+      current = best;
+      markDot(best);
+      show(best);
+    }
+
+    /* Two signals, because neither is guaranteed on its own: an observer
+       misses nothing during momentum, and the scroll listener covers
+       engines that batch observer callbacks behind the swipe. Both land on
+       the same function, so a double fire is a no-op. */
+    var tick;
+    list.addEventListener('scroll', function () {
+      clearTimeout(tick);
+      tick = setTimeout(syncActive, 60);
+    }, { passive: true });
+
+    if (window.IntersectionObserver) {
+      var io = new IntersectionObserver(syncActive,
+        { root: list, threshold: [0.25, 0.5, 0.75] });
+      list.querySelectorAll('.td-pillar-copy').forEach(function (c) { io.observe(c); });
+    }
   })();
 
   /* ── the desk's reactive imagery, by interest ─────────────
@@ -853,29 +978,58 @@
 
   var storyKey = '_default';
 
+  /* Warmed on open so a pick is instant. Six stills at the shape this
+     breakpoint uses is a handful of requests during the transition, while
+     the visitor is still reading step 1 — far better than making every
+     toggle wait on a fetch before anything moves. */
+  var warmed = {};
+  function warmStories() {
+    Object.keys(STORY).forEach(function (k) {
+      var u = storyUrl(STORY[k].pub, STORY[k].g);
+      if (warmed[u]) return;
+      var i = new Image();
+      warmed[u] = i;
+      i.src = u;
+    });
+  }
+
   function paintStory(key) {
     storyKey = STORY[key] ? key : '_default';
     var s = STORY[storyKey];
     var url = storyUrl(s.pub, s.g);
     if (img.dataset.src === url) return;
-    var first = !img.dataset.src;
     img.dataset.src = url;
     storyEy.textContent = s.eyebrow;
     storyLn.textContent = s.line;
-    if (first) { img.style.backgroundImage = 'url("' + url + '")'; img.style.opacity = '1'; return; }
-    img.style.opacity = '.45';
-    var pre = new Image();
-    pre.onload = pre.onerror = function () {
+
+    /* Already decoded — swap on the spot. No dip, no wait. */
+    var pre = warmed[url];
+    if (!img.dataset.painted || (pre && pre.complete && pre.naturalWidth)) {
+      img.style.backgroundImage = 'url("' + url + '")';
+      img.style.opacity = '1';
+      img.dataset.painted = '1';
+      return;
+    }
+    /* Cold: hold the current frame rather than blanking, and swap when it lands. */
+    img.style.opacity = '.55';
+    var load = pre || new Image();
+    var done = function () {
       if (img.dataset.src !== url) return;   /* a newer pick already won */
       img.style.backgroundImage = 'url("' + url + '")';
       img.style.opacity = '1';
     };
-    pre.src = url;
+    if (load.complete && load.naturalWidth) { done(); return; }
+    load.onload = load.onerror = done;
+    if (!pre) { warmed[url] = load; load.src = url; }
   }
 
   /* re-request at the other shape when the breakpoint flips */
   (function () {
-    var reshape = function () { img.dataset.src = ''; paintStory(storyKey); };
+    var reshape = function () {
+      img.dataset.src = ''; img.dataset.painted = '';
+      if (desk.classList.contains('open')) warmStories();
+      paintStory(storyKey);
+    };
     if (DESK_MQ.addEventListener) DESK_MQ.addEventListener('change', reshape);
     else if (DESK_MQ.addListener) DESK_MQ.addListener(reshape);
   })();
@@ -1159,6 +1313,7 @@
   function open() {
     lastFocus = document.activeElement;
     paintStory(state.primaryInterest || '_default');
+    warmStories();
     desk.classList.add('open');
     document.body.classList.add('td-locked');
     page.setAttribute('inert', '');          /* the page behind is out of reach */
