@@ -1,12 +1,24 @@
 # Travel Desk — manual review workflow and applicant communications
 
-Companion to `passport-travel-desk.html`. Nothing here is built yet: the
-revision brief says not to change production code without approval, so this
-is the design for §7–§9 for you to sign off before anything is wired.
+Companion to `passport-travel-desk.html`.
 
-The page itself is finished and ends at a pending-review state. It never
-calls `/api/checkout`. Stripe only ever begins from the invitation email
-below.
+**Sections 1, 6 and 7 are deliberately not built.** The review workflow runs
+manually while volume is low — the inbox is the queue, and the notification
+email carries everything needed to reply. They are written up here so the
+shape is settled if and when the volume justifies the plumbing.
+
+**What is built and live:** the page, which ends at a pending-review state
+and never calls `/api/checkout`; the notification to you; and the operational
+confirmation to the applicant. Both send through Resend from
+`api/application.js`, gated to `travel_desk_v2`.
+
+**How an invitation works today:** you reply by hand, and when you want to
+invite someone you send them `/founding-checkout` — unlisted, already live.
+The one thing that costs you is attribution: that page carries no application
+id, so the purchase will not tie back to the application. You will know cost
+per application; you will not know invitation-to-purchase rate. That is the
+trade being made, and it is the trigger for building §9 when it starts to
+matter.
 
 ---
 
