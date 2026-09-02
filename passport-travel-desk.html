@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <!-- REFERSION TRACKING: BEGIN -->
+
+  <script>
+  !function(e,n,t,i,o,c,s,a){
+    e.TrackingSystemObject="r",(s=n.createElement(t)).async=1,s.src="https://cdn.refersion.com/refersion.js",s.onload=function(){
+      r.pubKey="pub_a85f754b7f29e5208b20",r.settings.fp_off=!1;
+      r.initializeXDLS().then(()=>{r.launchDefault()})
+    },(a=n.getElementsByTagName(t)[0]).parentNode.insertBefore(s,a)
+  }(window,document,"script");
+  </script>
+
+  <!-- REFERSION TRACKING: END -->
+
+  <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+
+  <script>
+    Weglot.initialize({
+      api_key: 'wg_47458ae48b4fd4be0816bcc013fe5bb77',
+      /* The Travel Desk is opened by a click, so Weglot's crawler never
+         sees it. Named here or it stays in English. */
+      dynamic: '.td-desk, .td-desk-panel, .td-received, .td-pillar-copy'
+    });
+  </script>
+
+  <!-- Meta Pixel Code -->
+
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2265018770516086');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2265018770516086&ev=PageView&noscript=1"
+  /></noscript>
+
+  <!-- End Meta Pixel Code -->
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wjvz0qk7qd");
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7WWTFXWSE"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V7WWTFXWSE');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Preview route. Stays out of the index until it replaces /passport-apply. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta name="theme-color" content="#0E1923">
+
+  <title>The Privé Travel Desk — Privé Passport</title>
+  <meta name="description" content="A private travel membership connecting padel players to remarkable hotels, retreats, and clubs around the world. 40+ destinations across 18 countries. Every application is read personally.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The game travels with you — Privé Passport">
+  <meta property="og:description" content="One membership. 40+ destinations. A court at every one. Apply, and hear back the same day.">
+  <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1200/v1788369761/hero-2_lkuamw.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <!-- The site's own stylesheet: nav shell, footer, hero, buttons, tokens.
+       The block below adds only what is new to this page. -->
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <style>
+    /* ══ THE PRIVÉ TRAVEL DESK ════════════════════════════════
+       Composed from the components already in styles/main.css.
+       main.css has no neutral hairline token, so this page names one. */
+    :root{ --td-line:#DCD3C4; --td-line-dark:rgba(184,151,106,.22); }
+
+    /* ── focused header · wordmark, login, one CTA ───────────
+       No section links: this is a paid-acquisition page and every extra
+       link is an exit. The #mainNav id stays because js/main.js reads it
+       unguarded for the scroll state. */
+    #mainNav .nav-right{display:flex;align-items:center;gap:22px;}
+    .td-nav-login{font-family:'Jost',sans-serif;font-size:10.5px;font-weight:300;
+      letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72);
+      transition:color .3s;}
+    .td-nav-login:hover{color:var(--white);}
+    nav.scrolled .td-nav-login{color:rgba(27,42,74,.7);}
+    nav.scrolled .td-nav-login:hover{color:var(--navy);}
+    .td-nav-cta{font-family:'Jost',sans-serif;font-size:10.5px;font-weight:400;
+      letter-spacing:.2em;text-transform:uppercase;color:var(--white);
+      border:1px solid rgba(255,255,255,.4);padding:11px 22px;border-radius:100px;
+      background:none;cursor:pointer;transition:background .25s,border-color .25s,color .25s;}
+    .td-nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    nav.scrolled .td-nav-cta{color:var(--navy);border-color:rgba(27,42,74,.3);}
+    nav.scrolled .td-nav-cta:hover{color:var(--dark);}
+
+    /* ── moment 1 · hero, one viewport ───────────────────────
+       .club-hero--bright is the site's existing lighter scrim: the brief
+       asks for the image to stay the subject. */
+    .td-hero{height:auto;min-height:100vh;padding-top:130px;}
+    .td-hero .club-hero-content{padding-bottom:60px;grid-template-columns:1fr;}
+    .td-hero .club-hero-title{margin-bottom:20px;}
+    .td-hero .club-hero-sub{color:rgba(255,255,255,.8);text-shadow:0 1px 10px rgba(0,0,0,.5);}
+
+    .td-valueline{display:flex;flex-wrap:wrap;gap:8px 0;margin-top:24px;padding-top:20px;
+      border-top:1px solid rgba(245,240,232,.18);max-width:640px;
+      font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:.14em;
+      text-transform:uppercase;color:rgba(245,240,232,.9);
+      text-shadow:0 1px 10px rgba(0,0,0,.6);}
+    .td-valueline span{white-space:nowrap;}
+    .td-valueline span + span::before{content:'·';margin:0 12px;color:var(--gold);}
+    .td-hero-actions{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:28px;}
+    .td-scrolllink{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+      letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.85);
+      text-shadow:0 1px 10px rgba(0,0,0,.6);border-bottom:1px solid rgba(245,240,232,.35);
+      padding-bottom:4px;transition:color .25s,border-color .25s;}
+    .td-scrolllink:hover{color:var(--white);border-color:var(--gold);}
+    .td-price{margin-top:22px;font-family:'Jost',sans-serif;font-size:12.5px;font-weight:300;
+      letter-spacing:.05em;color:rgba(245,240,232,.82);text-shadow:0 1px 10px rgba(0,0,0,.6);}
+    .td-price b{font-weight:400;color:var(--gold);}
+
+    /* ── shared furniture ────────────────────────────────────── */
+    .td-wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 40px;}
+    .td-sec{padding:76px 0;}
+
+    /* ── moment 2 · four pillars, one viewport ───────────────
+       One image, four numbered summaries; picking one changes the image. */
+    .td-pillars{background:var(--cream);}
+    .td-pillars .section-title{font-size:clamp(32px,3.2vw,46px);}
+    .td-pillars .section-title em{font-style:italic;color:var(--gold-ink);}
+    .td-pillars-head{margin-bottom:36px;max-width:620px;}
+    .td-pillars-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch;}
+    .td-pillar-stage{position:relative;min-height:460px;overflow:hidden;background:var(--light);}
+    .td-pillar-stage-img{position:absolute;inset:0;background-size:cover;background-position:center;
+      transition:opacity .45s ease;}
+    .td-pillar-stage-scrim{position:absolute;inset:auto 0 0 0;height:45%;
+      background:linear-gradient(180deg,rgba(14,25,35,0),rgba(14,25,35,.78));}
+    .td-pillar-stage-cap{position:absolute;inset:auto 0 0 0;padding:28px 30px;z-index:2;
+      font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+      font-size:21px;line-height:1.32;color:var(--cream);
+      text-shadow:0 2px 16px rgba(0,0,0,.5);}
+
+    .td-pillar-list{display:flex;flex-direction:column;}
+    .td-pillar-copy{flex:1;display:block;width:100%;text-align:left;background:none;
+      border:0;border-top:1px solid var(--td-line);padding:18px 0 18px 2px;cursor:pointer;
+      transition:padding-left .25s;}
+    .td-pillar-copy:last-child{border-bottom:1px solid var(--td-line);}
+    .td-pillar-copy:hover,.td-pillar-copy.on{padding-left:14px;}
+    .td-pillar-copy.on{border-left:2px solid var(--gold-ink);}
+    .td-pillar-copy-top{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
+    .td-pillar-num{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.22em;
+      color:var(--gold-ink);}
+    .td-pillar-copy h3{font-family:'Cormorant Garamond',serif;font-weight:300;
+      font-size:clamp(22px,2.1vw,28px);line-height:1.14;color:var(--navy);}
+    .td-pillar-copy p{font-family:'Jost',sans-serif;font-size:14.5px;font-weight:300;
+      line-height:1.68;color:rgba(27,42,74,.74);max-width:46ch;}
+    .td-pillar-fact{margin-top:9px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
+      line-height:1.55;color:rgba(27,42,74,.74);}
+    .td-pillar-fact b{font-weight:400;color:var(--gold-ink);}
+
+    .td-midcta{margin-top:44px;text-align:center;}
+
+    /* ── moment 3 · value and proof, one viewport ───────────── */
+    .td-value{position:relative;overflow:hidden;padding:88px 0;color:var(--cream);}
+    .td-value-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+    .td-value-scrim{position:absolute;inset:0;background:rgba(14,25,35,.72);}
+    .td-value-inner{position:relative;z-index:2;display:grid;grid-template-columns:.85fr 1.15fr;
+      gap:64px;align-items:center;}
+    .td-value .section-eyebrow{color:var(--cream);
+      text-shadow:0 1px 6px rgba(0,0,0,.7), 0 2px 18px rgba(0,0,0,.5);}
+    .td-value .section-eyebrow::before{background:var(--gold);}
+    /* The rate box carries its own ground so the gold label clears 4.5:1
+       even where the backdrop image is at its brightest. */
+    .td-rate{padding:36px 34px;border:1px solid rgba(184,151,106,.4);
+      background:rgba(14,25,35,.6);backdrop-filter:blur(3px);}
+    .td-rate-label{font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:.25em;
+      text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+    .td-rate-figures{display:flex;align-items:baseline;gap:12px;
+      font-family:'Cormorant Garamond',serif;line-height:1;}
+    .td-rate-figures s{font-size:23px;color:rgba(245,240,232,.62);}
+    .td-rate-figures span{font-size:clamp(46px,5vw,60px);font-style:italic;font-weight:300;}
+    .td-rate-figures i{font-style:normal;font-family:'Jost',sans-serif;font-size:14px;
+      color:rgba(245,240,232,.75);}
+    .td-rate-note{margin-top:20px;padding-top:18px;border-top:1px solid var(--td-line-dark);
+      font-family:'Jost',sans-serif;font-size:13.5px;font-weight:300;line-height:1.65;
+      color:rgba(245,240,232,.82);}
+
+    .td-quote{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+      font-size:clamp(22px,2.7vw,32px);line-height:1.36;color:var(--cream);
+      text-shadow:0 2px 20px rgba(0,0,0,.4);}
+    /* Gold reads at 2.6:1 against a bright frame of the backdrop. main.css
+       solves the same problem on .club-hero--bright by going cream with a
+       shadow; these two labels follow it. */
+    .td-cite{display:block;margin-top:22px;font-family:'Jost',sans-serif;font-style:normal;
+      font-size:11px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;
+      color:var(--cream);text-shadow:0 1px 6px rgba(0,0,0,.7), 0 2px 18px rgba(0,0,0,.5);}
+    .td-worked{margin-top:34px;padding-top:26px;border-top:1px solid var(--td-line-dark);}
+    .td-worked-k{font-family:'Jost',sans-serif;font-size:10.5px;font-weight:400;letter-spacing:.24em;
+      text-transform:uppercase;color:var(--cream);margin-bottom:10px;
+      text-shadow:0 1px 6px rgba(0,0,0,.7), 0 2px 18px rgba(0,0,0,.5);}
+    .td-worked-v{font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.7;
+      color:rgba(245,240,232,.88);max-width:56ch;}
+    .td-worked-v b{font-weight:400;color:var(--cream);}
+
+    /* ── moment 4 · personal invitation ─────────────────────── */
+    .td-personal{background:var(--light);padding:84px 0;text-align:center;}
+    .td-personal .section-eyebrow{justify-content:center;}
+    .td-personal h2{font-family:'Cormorant Garamond',serif;font-weight:300;
+      font-size:clamp(32px,3.4vw,48px);line-height:1.08;color:var(--navy);margin-bottom:20px;}
+    .td-personal h2 em{font-style:italic;color:var(--gold-ink);}
+    .td-personal p{font-family:'Jost',sans-serif;font-size:16px;font-weight:300;line-height:1.72;
+      color:rgba(27,42,74,.8);max-width:54ch;margin:0 auto 34px;}
+    .td-support{margin-top:16px;font-family:'Jost',sans-serif;font-size:12.5px;font-weight:300;
+      letter-spacing:.06em;color:rgba(27,42,74,.74);}
+
+    /* ── the desk · 55 / 45 asymmetric split ────────────────── */
+    .td-desk{position:fixed;inset:0;z-index:9000;display:grid;
+      grid-template-columns:55fr 45fr;background:var(--dark);
+      opacity:0;pointer-events:none;transition:opacity .35s ease;}
+    .td-desk.open{opacity:1;pointer-events:auto;}
+    .td-desk-media{position:relative;overflow:hidden;}
+    .td-desk-img{position:absolute;inset:0;background-size:cover;background-position:center;
+      transition:opacity .45s ease;}
+    .td-desk-scrim{position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(14,25,35,.22) 0%,rgba(14,25,35,.3) 48%,rgba(14,25,35,.88) 100%);}
+    /* The six stills are a mix, and several are bright (an indoor court under
+       a white roof, pale resort drone shots). The panel scrim alone leaves the
+       gold eyebrow at 1.4:1 on those, so the caption block carries its own
+       ramp — the type sits on a known ground rather than on the photograph. */
+    .td-desk-story{position:absolute;inset:auto 0 0 0;padding:96px 56px 52px;z-index:2;
+      background:linear-gradient(180deg,rgba(14,25,35,0) 0%,rgba(14,25,35,.62) 34%,
+                                 rgba(14,25,35,.84) 62%,rgba(14,25,35,.9) 100%);}
+    /* the still behind it is uncontrolled, so the label carries its own ground */
+    .td-desk-eyebrow{font-family:'Jost',sans-serif;font-size:10.5px;font-weight:300;letter-spacing:.3em;
+      text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+      text-shadow:0 1px 6px rgba(0,0,0,.75), 0 2px 18px rgba(0,0,0,.5);}
+    .td-desk-line{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+      font-size:clamp(22px,2.2vw,32px);line-height:1.28;color:var(--cream);max-width:19ch;
+      text-shadow:0 2px 18px rgba(0,0,0,.45);}
+
+    .td-desk-panel{position:relative;background:var(--cream);color:var(--navy);overflow-y:auto;
+      -webkit-overflow-scrolling:touch;}
+    .td-desk-inner{max-width:470px;margin:0 auto;padding:76px 44px 60px;}
+    /* Anchored to the desk, not the panel: on desktop that is the panel's
+       corner anyway, and on mobile it sits over the image masthead rather
+       than on the cream it would vanish into. */
+    .td-desk-close{position:absolute;top:22px;right:26px;width:40px;height:40px;border:0;
+      background:none;color:rgba(27,42,74,.55);font-size:30px;line-height:1;cursor:pointer;z-index:4;}
+    .td-desk-close:hover{color:var(--navy);}
+    .td-desk-head{margin-bottom:34px;}
+    .td-steps{display:flex;gap:6px;margin-top:4px;}
+    .td-steps i{width:36px;height:2px;background:rgba(27,42,74,.15);transition:background .3s;}
+    .td-steps i.done{background:var(--gold-ink);}
+
+    .td-step{display:none;}
+    .td-step.active{display:block;}
+    .td-q{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3vw,38px);
+      line-height:1.1;color:var(--navy);margin-bottom:10px;}
+    .td-q em{font-style:italic;color:var(--gold-ink);}
+    .td-hint{font-family:'Jost',sans-serif;font-size:14px;font-weight:300;line-height:1.6;
+      color:rgba(27,42,74,.74);margin-bottom:28px;}
+
+    .td-field{margin-bottom:20px;}
+    .td-field--loose{margin-top:26px;}
+    .td-field label{display:block;margin-bottom:6px;font-family:'Jost',sans-serif;font-size:10.5px;
+      font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(27,42,74,.74);}
+    .td-field label em{font-style:normal;letter-spacing:.1em;color:rgba(27,42,74,.55);}
+    .td-field input{width:100%;padding:13px 0;border:0;border-bottom:1px solid var(--td-line);
+      background:none;color:var(--navy);font-family:'Jost',sans-serif;font-size:17px;font-weight:300;
+      transition:border-color .18s;}
+    .td-field input::placeholder{color:rgba(27,42,74,.42);}
+    .td-field input:focus{outline:none;border-bottom-color:var(--gold-ink);}
+    .td-field.invalid input{border-bottom-color:#A8453B;}
+
+    .td-choice{display:grid;gap:8px;}
+    .td-choice button{width:100%;text-align:left;padding:17px 20px;
+      border:1px solid var(--td-line);background:rgba(255,255,255,.5);color:var(--navy);
+      font-family:'Jost',sans-serif;font-size:15px;font-weight:300;cursor:pointer;
+      transition:border-color .18s,background .18s;}
+    .td-choice button:hover{border-color:var(--gold-ink);background:rgba(184,151,106,.08);}
+    .td-choice button.sel{border-color:var(--gold-ink);background:rgba(184,151,106,.15);}
+
+    .td-check{display:flex;gap:12px;align-items:flex-start;margin-top:26px;cursor:pointer;
+      font-family:'Jost',sans-serif;font-size:13.5px;font-weight:300;line-height:1.55;
+      color:rgba(27,42,74,.8);}
+    .td-check input{margin-top:3px;width:16px;height:16px;flex:0 0 16px;accent-color:var(--gold-ink);}
+    .td-check a{color:var(--gold-ink);text-decoration:underline;text-underline-offset:2px;}
+    .td-operational{margin-top:12px;font-family:'Jost',sans-serif;font-size:12.5px;font-weight:300;
+      line-height:1.55;color:rgba(27,42,74,.72);}
+
+    .td-nav{display:flex;gap:10px;align-items:center;margin-top:36px;}
+    /* a class-level display beats the UA's [hidden] rule, so say it explicitly */
+    .td-nav[hidden]{display:none;}
+    .td-next{flex:1;padding:18px;border:0;border-radius:100px;background:var(--gold);color:var(--dark);
+      font-family:'Jost',sans-serif;font-size:11.5px;font-weight:400;letter-spacing:.2em;
+      text-transform:uppercase;cursor:pointer;transition:background .2s,opacity .2s;}
+    .td-next:hover:not(:disabled){background:#C9A87C;}
+    .td-next:disabled{opacity:.55;cursor:default;}
+    .td-back{padding:18px;border:0;background:none;color:rgba(27,42,74,.72);
+      font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.18em;
+      text-transform:uppercase;cursor:pointer;}
+    .td-back:hover{color:var(--navy);}
+    .td-err{margin-top:12px;font-family:'Jost',sans-serif;font-size:13.5px;color:#A8453B;}
+    .td-err a{color:var(--gold-ink);}
+
+    body.td-locked{overflow:hidden;}
+
+    /* ── the received state · a real review is pending ───────
+       No checkout here. Stripe begins only from the team's invitation email. */
+    .td-received-eyebrow{font-family:'Jost',sans-serif;font-size:10.5px;font-weight:300;
+      letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:16px;}
+    .td-received h3{font-family:'Cormorant Garamond',serif;font-weight:300;
+      font-size:clamp(30px,3.2vw,40px);line-height:1.08;color:var(--navy);margin-bottom:16px;}
+    .td-received h3 em{font-style:italic;color:var(--gold-ink);}
+    .td-received p{font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.72;
+      color:rgba(27,42,74,.8);}
+    .td-received p + p{margin-top:16px;}
+    .td-received b{font-weight:400;color:var(--navy);}
+    .td-received-note{margin:28px 0;padding:22px 24px;border-left:2px solid var(--gold-ink);
+      background:rgba(184,151,106,.09);font-family:'Jost',sans-serif;font-size:14px;
+      font-weight:300;line-height:1.68;color:rgba(27,42,74,.82);}
+    .td-received-actions{margin-top:30px;display:grid;gap:12px;}
+    .td-received-actions .btn-primary{width:100%;text-align:center;}
+    .td-secondary{display:block;width:100%;padding:14px;background:none;border:0;
+      font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.18em;
+      text-transform:uppercase;color:rgba(27,42,74,.74);text-align:center;text-decoration:none;}
+    .td-secondary:hover{color:var(--navy);}
+
+    /* ── responsive ─────────────────────────────────────────── */
+    @media (max-width:1000px){
+      .td-wrap{padding:0 26px;}
+      .td-sec,.td-value,.td-personal{padding:68px 0;}
+      .td-pillars-grid,.td-value-inner{grid-template-columns:1fr;gap:34px;}
+      .td-pillar-stage{min-height:300px;}
+    }
+    @media (max-width:820px){
+      .td-hero{min-height:100svh;padding-top:100px;}
+      .td-hero .club-hero-content{padding:0 24px 44px;}
+      /* On a phone the four claims become chips that wrap, rather than four
+         stacked lines eating the fold. Each carries its own ground so it
+         stays legible wherever the backdrop is bright. */
+      .td-valueline{gap:7px;font-size:9px;letter-spacing:.1em;padding-top:18px;}
+      .td-valueline span{border:1px solid rgba(245,240,232,.38);border-radius:100px;
+        padding:7px 12px;background:rgba(14,25,35,.52);
+        -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+        text-shadow:0 1px 6px rgba(0,0,0,.6);}
+      .td-valueline span + span::before{display:none;}
+      .td-hero-actions{flex-direction:column;align-items:stretch;gap:18px;}
+      .td-hero-actions .btn-primary{width:100%;}
+      .td-scrolllink{text-align:center;border-bottom:0;}
+      .td-midcta .btn-primary,.td-personal .btn-primary{width:100%;}
+
+      /* header: wordmark left, compact CTA right, login as a small link */
+      #mainNav .nav-right{gap:14px;}
+      .td-nav-login{font-size:9.5px;letter-spacing:.12em;}
+      /* 44px minimum tap target, kept compact enough that Member Login
+         still fits beside it at 375px. */
+      .td-nav-cta{font-size:9.5px;letter-spacing:.12em;padding:14px 14px;}
+
+      /* the desk becomes a sheet: image masthead, cream dossier over it */
+      .td-desk{grid-template-columns:1fr;grid-template-rows:30vh 1fr;}
+      .td-desk-media{min-height:30vh;}
+      .td-desk-story{padding:64px 22px 24px;}
+      .td-desk-line{font-size:21px;max-width:none;}
+      .td-desk-panel{margin-top:-28px;border-radius:16px 16px 0 0;}
+      .td-desk-inner{padding:36px 22px 48px;max-width:none;}
+      .td-desk-close{top:10px;right:10px;width:44px;height:44px;color:var(--cream);
+        text-shadow:0 1px 8px rgba(0,0,0,.6);}
+      .td-nav{position:sticky;bottom:0;padding-bottom:8px;margin-top:28px;
+        background:linear-gradient(180deg,rgba(245,240,232,0),var(--cream) 22%);}
+      /* Weglot pins its switcher bottom-right at the maximum z-index, which
+         lands it on top of the sticky Continue. The lift is measured from the
+         action bar's real height rather than guessed, so a taller translated
+         label or a larger text size cannot put them back on top of each other. */
+      body.td-locked .weglot-container,
+      body.td-locked .weglot_switcher,
+      body.td-locked .country-selector{bottom:var(--td-switcher-lift,120px) !important;}
+    }
+    @media (max-width:359px){
+      .td-nav-login{display:none;}   /* below iPhone SE width the CTA wins the corner */
+      /* shave the chips so the four claims still pack into two rows */
+      .td-valueline{gap:6px;}
+      .td-valueline span{padding:7px 8px;letter-spacing:.06em;}
+    }
+  </style>
+</head>
+<body>
+
+<div id="tdPage">
+
+  <nav id="mainNav">
+    <a class="nav-logo" href="/">
+      <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
+      <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
+    </a>
+    <div class="nav-right">
+      <a class="td-nav-login" href="https://passport.prive-padel.com/login">Member Login</a>
+      <button class="td-nav-cta td-open" type="button">Begin application</button>
+    </div>
+  </nav>
+
+  <!-- ══ MOMENT 1 · HERO ════════════════════════════════════════ -->
+  <section class="club-hero club-hero--bright td-hero">
+    <div class="club-hero-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_2400/v1788369761/hero-2_lkuamw.png');"></div>
+    <div class="club-hero-overlay"></div>
+    <div class="club-hero-content">
+      <div class="club-hero-left">
+        <div class="club-hero-eyebrow">Privé Passport</div>
+        <h1 class="club-hero-title">The game travels<br><em>with you.</em></h1>
+        <p class="club-hero-sub">A private travel membership connecting padel players to remarkable hotels, retreats, and clubs around the world.</p>
+
+        <div class="td-valueline">
+          <span>40+ destinations</span><span>Privé Miami and Montauk</span><span>Signature retreats</span><span>Preferred member benefits</span>
+        </div>
+
+        <div class="td-hero-actions">
+          <button class="btn-primary td-open" type="button">Begin my application</button>
+          <a href="#pillars" class="td-scrolllink">See what Passport opens ↓</a>
+        </div>
+        <div class="td-price">Founding Full Access &nbsp;·&nbsp; <b>$595/year</b> &nbsp;·&nbsp; Rate locked while your membership remains active</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MOMENT 2 · FOUR PILLARS ════════════════════════════════ -->
+  <section class="td-sec td-pillars" id="pillars">
+    <div class="td-wrap">
+      <div class="td-pillars-head reveal">
+        <div class="section-eyebrow">What Passport opens</div>
+        <h2 class="section-title">One membership.<br><em>Four ways to play.</em></h2>
+      </div>
+
+      <div class="td-pillars-grid reveal">
+        <div class="td-pillar-stage">
+          <div class="td-pillar-stage-img" id="pillarImg"></div>
+          <div class="td-pillar-stage-scrim"></div>
+          <div class="td-pillar-stage-cap" id="pillarCap"></div>
+        </div>
+
+        <div class="td-pillar-list" id="pillarList">
+          <button class="td-pillar-copy on" type="button" data-p="0" aria-pressed="true">
+            <div class="td-pillar-copy-top"><span class="td-pillar-num">01</span><h3>Padel Destinations</h3></div>
+            <p>Forty-plus hotels and resorts across eighteen countries, each with a padel court on site or at the local club.</p>
+            <p class="td-pillar-fact"><b>Preferred room rates up to 20% off</b>, complimentary upgrades, and spa, wellness and dining privileges.</p>
+          </button>
+
+          <button class="td-pillar-copy" type="button" data-p="1" aria-pressed="false">
+            <div class="td-pillar-copy-top"><span class="td-pillar-num">02</span><h3>Signature Experiences</h3></div>
+            <p>All-inclusive retreats built around the game and the place — Madagascar, Bordeaux, Sumba — with a dedicated pro and every meal handled.</p>
+            <p class="td-pillar-fact"><b>Members save 20% and are invited first.</b> On the Madagascar week that is $1,650.</p>
+          </button>
+
+          <button class="td-pillar-copy" type="button" data-p="2" aria-pressed="false">
+            <div class="td-pillar-copy-top"><span class="td-pillar-num">03</span><h3>Partner Clubs</h3></div>
+            <p>Leading clubs in Los Angeles, New York, London and Hong Kong. Stay at a paired destination and your court is arranged for you.</p>
+            <p class="td-pillar-fact"><b>15–20% off court bookings</b>, and full facility access while you are there.</p>
+          </button>
+
+          <button class="td-pillar-copy" type="button" data-p="3" aria-pressed="false">
+            <div class="td-pillar-copy-top"><span class="td-pillar-num">04</span><h3>Privé Miami and Montauk</h3></div>
+            <p>The two clubs we run ourselves. Miami plays year-round at THesis Hotel; Montauk returns for its season in Spring 2027.</p>
+            <p class="td-pillar-fact"><b>Member court pricing at both</b> — 20% off in Miami, 50% off at Montauk.</p>
+          </button>
+        </div>
+      </div>
+
+      <div class="td-midcta reveal">
+        <button class="btn-primary td-open" type="button">Begin my application</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MOMENT 3 · VALUE AND PROOF ═════════════════════════════ -->
+  <section class="td-value">
+    <div class="td-value-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773539952/Destinations_-_Vila_Vita_Parc_r1gjac.jpg');"></div>
+    <div class="td-value-scrim"></div>
+    <div class="td-wrap">
+      <div class="td-value-inner reveal">
+        <div class="td-rate">
+          <div class="td-rate-label">Founding Full Access</div>
+          <div class="td-rate-figures"><s>$995</s><span>$595</span><i>/year</i></div>
+          <div class="td-rate-note">The founding rate, held for as long as your membership remains active. Full Access includes member pricing at both Privé Locations.</div>
+        </div>
+
+        <div>
+          <div class="section-eyebrow">Why it is worth it</div>
+          <blockquote class="td-quote">&ldquo;I joined to access Montauk and Miami, and stayed for everywhere else. I travel constantly, and as a passionate padel player I love knowing I can book a trip with the Passport and count on two things: real benefits at the resort, and a court ready for me right on property.&rdquo;</blockquote>
+          <cite class="td-cite">Daniel K. &nbsp;·&nbsp; Miami &nbsp;·&nbsp; Founding Member</cite>
+
+          <div class="td-worked">
+            <div class="td-worked-k">One booking, in numbers</div>
+            <div class="td-worked-v">The Voaara Madagascar retreat is <b>$8,250</b> at list and <b>$6,600</b> as a member — <b>$1,650 back</b> on a single booking, against a $595 membership.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MOMENT 4 · PERSONAL INVITATION ═════════════════════════ -->
+  <section class="td-personal">
+    <div class="td-wrap reveal">
+      <div class="section-eyebrow">The Privé Travel Desk</div>
+      <h2>Tell us where the game<br><em>could take you.</em></h2>
+      <p>Every application is personally read by the Privé membership team. Share how you travel and play, and you will hear back the same day.</p>
+      <button class="btn-primary td-open" type="button">Begin my application</button>
+      <div class="td-support">About a minute &nbsp;·&nbsp; No payment required &nbsp;·&nbsp; Personal response the same day</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-col-title">Privé Passport</div>
+        <ul class="footer-links">
+          <li><a href="/passport/destinations.html">Padel Destinations</a></li>
+          <li><a href="/passport/experiences.html">Padel Experiences</a></li>
+          <li><a href="/passport/club-partners.html">Padel Club Partners</a></li>
+          <li><a href="/locations.html">Privé Locations</a></li>
+          <li><a href="join.html" class="footer-cta-link">Get Your Passport</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Privé Montauk</div>
+        <ul class="footer-links">
+          <li><a href="montauk.html">Visit</a></li>
+          <li><a href="join.html">Membership</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Privé Miami</div>
+        <ul class="footer-links">
+          <li><a href="miami.html">Visit</a></li>
+          <li><a href="join.html">Membership</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">About Privé</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Privé</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Stay Connected</div>
+        <form class="footer-sub-form" id="footerSubForm" novalidate>
+          <div class="footer-sub-field" id="footerSubField">
+            <input type="email" id="footerSubEmail" placeholder="Your email" autocomplete="email">
+            <p class="footer-sub-err">Valid email required.</p>
+          </div>
+          <button type="submit" class="footer-sub-btn" id="footerSubBtn">SUBSCRIBE</button>
+        </form>
+        <div class="footer-sub-confirm" id="footerSubConfirm">Thank you. We'll be in touch.</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Privé Hospitality Corp. All rights reserved.</div>
+    </div>
+  </footer>
+
+</div><!-- /#tdPage -->
+
+<!-- ══ THE TRAVEL DESK ══════════════════════════════════════════ -->
+<div class="td-desk" id="tdDesk" role="dialog" aria-modal="true" aria-labelledby="tdDeskLabel">
+  <div class="td-desk-media">
+    <div class="td-desk-img" id="tdImg"></div>
+    <div class="td-desk-scrim"></div>
+    <div class="td-desk-story">
+      <div class="td-desk-eyebrow" id="tdStoryEyebrow">The Privé Travel Desk</div>
+      <div class="td-desk-line" id="tdStoryLine">Tell us how you travel, and we&rsquo;ll take it from there.</div>
+    </div>
+  </div>
+
+  <button class="td-desk-close" id="tdClose" type="button" aria-label="Close the Travel Desk">&times;</button>
+
+  <div class="td-desk-panel">
+    <div class="td-desk-inner">
+
+      <div class="td-desk-head">
+        <div class="section-eyebrow" id="tdDeskLabel">Your Passport application</div>
+        <div class="td-steps" id="tdSteps"></div>
+      </div>
+
+      <form id="tdForm" novalidate>
+
+        <!-- Step 1 — About you. Name, email and city on one screen. -->
+        <section class="td-step" data-step="0">
+          <h3 class="td-q">About you.</h3>
+          <p class="td-hint">So the membership team knows who they are writing back to.</p>
+          <div class="td-field" id="f-firstName">
+            <label for="firstName">First name</label>
+            <input id="firstName" autocomplete="given-name" maxlength="80" enterkeyhint="next">
+          </div>
+          <div class="td-field" id="f-email">
+            <label for="email">Email</label>
+            <input id="email" type="email" inputmode="email" autocomplete="email" maxlength="320" enterkeyhint="next">
+          </div>
+          <div class="td-field" id="f-homeCity">
+            <label for="homeCity">Home city</label>
+            <input id="homeCity" autocomplete="address-level2" maxlength="120" enterkeyhint="next">
+          </div>
+          <div class="td-err" role="alert"></div>
+        </section>
+
+        <!-- Step 2 — How you would use it. Drives the imagery. -->
+        <section class="td-step" data-step="1">
+          <h3 class="td-q">How would <em>you</em> use it?</h3>
+          <p class="td-hint">Pick the one that fits best. It shapes what they write back about.</p>
+          <div class="td-choice" data-name="primaryInterest" id="f-primaryInterest">
+            <button type="button" data-value="travel">Play while traveling</button>
+            <button type="button" data-value="clubs">Privé Miami or Montauk</button>
+            <button type="button" data-value="retreats">Signature retreats</button>
+            <button type="button" data-value="hotel_benefits">Hotel and resort privileges</button>
+            <button type="button" data-value="community">Community and events</button>
+          </div>
+          <div class="td-err" role="alert"></div>
+        </section>
+
+        <!-- Step 3 — Timing, an optional note, and optional consent. -->
+        <section class="td-step" data-step="2">
+          <h3 class="td-q">And <em>when?</em></h3>
+          <p class="td-hint">So the answer you get is about the trip you are actually planning.</p>
+          <div class="td-choice" data-name="useTiming" id="f-useTiming">
+            <button type="button" data-value="specific">A specific trip or club visit in mind</button>
+            <button type="button" data-value="1_3_months">Likely within 1&ndash;3 months</button>
+            <button type="button" data-value="4_12_months">Likely within 4&ndash;12 months</button>
+            <button type="button" data-value="exploring">Exploring for the future</button>
+          </div>
+          <div class="td-field td-field--loose" id="f-destinationInterest">
+            <label for="destinationInterest">A destination, retreat, or question <em>optional</em></label>
+            <input id="destinationInterest" maxlength="160" placeholder="Marbella in March, or the Madagascar week">
+          </div>
+          <label class="td-check">
+            <input type="checkbox" id="marketingConsent">
+            <span>Send me Privé destinations, retreats, events and member news. See our <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+          </label>
+          <p class="td-operational">Our membership team will reply about your application either way.</p>
+          <div class="td-err" role="alert"></div>
+        </section>
+
+        <!-- Step 4 — Received. A real review is pending; no checkout here. -->
+        <section class="td-step" data-step="3">
+          <div class="td-received">
+            <div class="td-received-eyebrow">Application received</div>
+            <h3>Thank you, <em id="tdName">there</em>.</h3>
+            <p>The Privé membership team reads every Passport application personally. You will hear back at <b id="tdEmailBack"></b> today.</p>
+            <div class="td-received-note">They may ask about an upcoming trip, your home club, or how you hope to use Passport. If it feels like the right fit, the reply will include a private link to activate your membership.</div>
+            <div class="td-received-actions">
+              <a class="btn-primary" href="/passport">Explore Passport while you wait</a>
+              <a class="td-secondary" href="/">Return to Privé Padel</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="td-nav" id="tdNav">
+          <button type="button" class="td-back" id="tdBack" hidden>Back</button>
+          <button type="submit" class="td-next" id="tdNext">Continue</button>
+        </div>
+        <div class="td-err" id="tdFormErr" role="alert"></div>
+        <div id="tdStatus" role="status" aria-live="polite" class="sr-only"
+             style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);"></div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+
+<script>
+/* ── THE PRIVÉ TRAVEL DESK · travel_desk_v2 ────────────────────
+   Applications are read and answered personally, so this page ends at a
+   pending-review state. Stripe begins only from the invitation email the
+   membership team sends — there is no checkout call anywhere below, and
+   neither begin_checkout nor InitiateCheckout fires on submission.
+
+   The /api/application contract, the stable application id, and the
+   existing GA4/Meta/Clarity event names are unchanged. No PII reaches
+   analytics, the URL, or a log — only step numbers, field names and the
+   application id. */
+(function () {
+  'use strict';
+
+  var VARIANT  = 'travel_desk_v2';
+  var STORE    = 'pp_travel_desk_v2';
+  var RECEIVED = 3;                /* index of the received step */
+
+  var desk    = document.getElementById('tdDesk');
+  var page    = document.getElementById('tdPage');
+  var form    = document.getElementById('tdForm');
+  var steps   = Array.prototype.slice.call(form.querySelectorAll('.td-step'));
+  var prog    = document.getElementById('tdSteps');
+  var next    = document.getElementById('tdNext');
+  var back    = document.getElementById('tdBack');
+  var nav     = document.getElementById('tdNav');
+  var formErr = document.getElementById('tdFormErr');
+  var status  = document.getElementById('tdStatus');
+  var img     = document.getElementById('tdImg');
+  var storyEy = document.getElementById('tdStoryEyebrow');
+  var storyLn = document.getElementById('tdStoryLine');
+
+  var step    = 0;
+  var started = false;             /* the Started event fires once */
+  var sending = false;
+
+  var CDN = 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_1600/';
+
+  /* ── moment 2 · one stage, four pillars ────────────────────
+     The stage is portrait on desktop (about 2:3, because the grid stretches
+     it to the height of the list) and landscape on mobile. A single
+     uncropped landscape file therefore gets sliced to its middle third on
+     desktop, which decapitated the Rosewood tower. Cloudinary's
+     content-aware 4:5 crop sits between the two box shapes, so each subject
+     survives both without a second file or a breakpoint swap. */
+  var STAGE = 'https://res.cloudinary.com/dfjqa5f05/image/upload/' +
+              'c_fill,ar_4:5,g_auto,q_auto,f_auto,w_1100/';
+  var PILLARS = [
+    { img: STAGE + 'v1788369821/JoeKelly_PaddleCourt_0552_copy_uby4fs_cetckn.jpg',
+      cap: 'Nihi Sumba, and over 40 more like it.' },
+    { img: STAGE + 'v1775680021/Villa-living-room_algtvz.jpg',
+      cap: 'A week in Madagascar, the padel running through it.' },
+    { img: STAGE + 'v1775952979/Rosewood_HK_Exterior_3_night_Large_oqqsyc.jpg',
+      cap: 'Hong Kong, and a court arranged before you land.' },
+    { img: STAGE + 'v1777408711/Untitled_design-94_ea2ofp.png',
+      cap: 'The only court in the heart of Coral Gables.' }
+  ];
+  (function () {
+    var stage = document.getElementById('pillarImg');
+    var cap   = document.getElementById('pillarCap');
+    var list  = document.getElementById('pillarList');
+    var shown = -1;
+
+    function show(i) {
+      if (i === shown) return;
+      shown = i;
+      var p = PILLARS[i];
+      cap.textContent = p.cap;
+      list.querySelectorAll('.td-pillar-copy').forEach(function (b, n) {
+        b.classList.toggle('on', n === i);
+        b.setAttribute('aria-pressed', n === i ? 'true' : 'false');
+      });
+      if (!stage.dataset.src) {                    /* first paint, nothing to fade from */
+        stage.dataset.src = p.img;
+        stage.style.backgroundImage = 'url("' + p.img + '")';
+        return;
+      }
+      stage.dataset.src = p.img;
+      stage.style.opacity = '.45';
+      var pre = new Image();
+      pre.onload = pre.onerror = function () {
+        if (stage.dataset.src !== p.img) return;   /* a newer pick already won */
+        stage.style.backgroundImage = 'url("' + p.img + '")';
+        stage.style.opacity = '1';
+      };
+      pre.src = p.img;
+    }
+
+    list.querySelectorAll('.td-pillar-copy').forEach(function (b) {
+      var i = +b.dataset.p;
+      b.addEventListener('mouseenter', function () { show(i); });
+      b.addEventListener('focus',      function () { show(i); });
+      b.addEventListener('click',      function () { show(i); });
+    });
+    show(0);
+  })();
+
+  /* ── the desk's reactive imagery, by interest ─────────────
+     Six stills, a mix of portrait and landscape sources. The panel they sit
+     in is portrait on desktop (about 0.88) and a landscape masthead on
+     mobile (about 1.54) — too wide a swing for a single crop to serve
+     without decapitating something. Each is therefore requested
+     content-aware at the shape the current breakpoint actually needs.
+     Nothing is fetched until an interest is chosen. */
+  var DESK_MQ = window.matchMedia('(max-width:820px)');
+  /* `g` overrides Cloudinary's automatic subject detection for a frame where
+     it picks the wrong side — see the travel still below. */
+  function storyUrl(pub, g) {
+    var grav = g || 'auto';
+    return 'https://res.cloudinary.com/dfjqa5f05/image/upload/' +
+      (DESK_MQ.matches ? 'c_fill,ar_3:2,g_' + grav + ',q_auto,f_auto,w_900/'
+                       : 'c_fill,ar_4:5,g_' + grav + ',q_auto,f_auto,w_1000/') + pub;
+  }
+
+  var STORY = {
+    _default: {
+      pub: 'v1778190443/SnapInsta.to_635507810_18435836359116458_2001003794935302703_n_adxoql.jpg',
+      eyebrow: 'The Privé Passport Member Team',
+      line: 'Tell us how you travel for padel, and we’ll take it from there.'
+    },
+    travel: {
+      pub: 'v1775952719/One_Only_Aesthesis_P4_Tennis_People_Drone-1063_MASTER_2_jcy1tv.webp',
+      /* the courts sit right of centre; g_auto reads the buildings as the
+         subject and crops away the thing the toggle is about */
+      g: 'east',
+      eyebrow: 'Padel Destinations',
+      line: 'A padel court at every destination, part of the trip.'
+    },
+    clubs: {
+      pub: 'v1777425553/ChatGPT_Image_Apr_28_2026_09_18_58_PM_hodpz9.png',
+      eyebrow: 'Privé Locations',
+      line: 'Miami now, and when Montauk returns next season.'
+    },
+    retreats: {
+      pub: 'v1788369821/JoeKelly_PaddleCourt_0552_copy_uby4fs_cetckn.jpg',
+      eyebrow: 'Padel Experiences',
+      line: 'Invited first, and special member pricing on every retreat.'
+    },
+    hotel_benefits: {
+      pub: 'v1775999764/Fairmont_Royal_Palm_Marrakech11_qepqp1.jpg',
+      eyebrow: 'Member privileges',
+      line: 'You arrive recognized, at rates and benefits not available to the public.'
+    },
+    community: {
+      pub: 'v1775399710/nathanhipgravevisuals_sleepgym-23_websize_jiixkg.jpg',
+      eyebrow: 'The Privé community',
+      line: 'Events around the world, on court.'
+    }
+  };
+
+  var storyKey = '_default';
+
+  function paintStory(key) {
+    storyKey = STORY[key] ? key : '_default';
+    var s = STORY[storyKey];
+    var url = storyUrl(s.pub, s.g);
+    if (img.dataset.src === url) return;
+    var first = !img.dataset.src;
+    img.dataset.src = url;
+    storyEy.textContent = s.eyebrow;
+    storyLn.textContent = s.line;
+    if (first) { img.style.backgroundImage = 'url("' + url + '")'; img.style.opacity = '1'; return; }
+    img.style.opacity = '.45';
+    var pre = new Image();
+    pre.onload = pre.onerror = function () {
+      if (img.dataset.src !== url) return;   /* a newer pick already won */
+      img.style.backgroundImage = 'url("' + url + '")';
+      img.style.opacity = '1';
+    };
+    pre.src = url;
+  }
+
+  /* re-request at the other shape when the breakpoint flips */
+  (function () {
+    var reshape = function () { img.dataset.src = ''; paintStory(storyKey); };
+    if (DESK_MQ.addEventListener) DESK_MQ.addEventListener('change', reshape);
+    else if (DESK_MQ.addListener) DESK_MQ.addListener(reshape);
+  })();
+
+  /* ── state · this session only ───────────────────────────── */
+  var state = { primaryInterest: '', useTiming: '' };
+  try {
+    var saved = sessionStorage.getItem(STORE);
+    if (saved) state = JSON.parse(saved);
+  } catch (e) {}
+
+  function persist() {
+    try { sessionStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {}
+  }
+
+  /* A stable id, generated before the first call and reused on every retry
+     so the server deduplicates rather than opening a second application. */
+  function applicationId() {
+    if (!state.applicationId) {
+      state.applicationId = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+      persist();
+    }
+    return state.applicationId;
+  }
+
+  /* ── analytics · never carries an answer ─────────────────── */
+  function ga(name, params) { if (window.gtag) gtag('event', name, params || {}); }
+  function clarityTag(k, v) { try { if (window.clarity) clarity('set', k, v); } catch (e) {} }
+  function cookie(n) {
+    var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : '';
+  }
+
+  var params = new URLSearchParams(location.search);
+  var refHost = '';
+  try { refHost = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+
+  /* Classified from what the visit actually carries, rather than assuming
+     every visitor arrived from a paid social ad. */
+  function trafficType() {
+    var med = (params.get('utm_medium') || '').toLowerCase();
+    var src = (params.get('utm_source') || '').toLowerCase();
+    var paidMedium   = /^(cpc|ppc|paid|paidsocial|paid_social|cpm|display|paid-social)$/.test(med);
+    var socialSource = /facebook|instagram|meta|fb|ig|tiktok|linkedin|pinterest|snapchat|threads|youtube|reddit|twitter|^x$/;
+    var searchHost   = /^(google|bing|duckduckgo|yahoo|ecosia|baidu)\./;
+    var socialHost   = /(facebook|instagram|l\.instagram|lm\.facebook|tiktok|linkedin|pinterest|reddit|t\.co|twitter|x)\.com$/;
+
+    if (params.get('fbclid') || params.get('gclid') || paidMedium) {
+      return socialSource.test(src) || socialHost.test(refHost) || params.get('fbclid')
+        ? 'paid_social' : 'paid_other';
+    }
+    if (/^(email|e-mail|newsletter)$/.test(med) || /klaviyo|mailchimp/.test(src)) return 'email';
+    if (/^(social|organic_social|social-organic)$/.test(med) || socialSource.test(src)) return 'organic_social';
+    if (/^(referral|affiliate)$/.test(med) || params.get('rfsn')) return 'referral';
+    if (/^organic$/.test(med) || searchHost.test(refHost)) return 'organic_search';
+    if (socialHost.test(refHost)) return 'organic_social';
+    if (refHost && refHost !== location.hostname.replace(/^www\./, '')) return 'referral';
+    return 'direct_or_unknown';
+  }
+
+  function attribution() {
+    return {
+      landing_page: location.origin + location.pathname,
+      page_variant: VARIANT,
+      traffic_type: trafficType(),
+      utm_source:   params.get('utm_source')   || '',
+      utm_medium:   params.get('utm_medium')   || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content:  params.get('utm_content')  || '',
+      utm_term:     params.get('utm_term')     || '',
+      fbclid:       params.get('fbclid')       || '',
+      fbp: cookie('_fbp'), fbc: cookie('_fbc'),
+      referrer_host: refHost
+    };
+  }
+
+  /* ── rendering ───────────────────────────────────────────── */
+  for (var n = 0; n < RECEIVED; n++) prog.appendChild(document.createElement('i'));
+
+  function paint() {
+    steps.forEach(function (s, i) { s.classList.toggle('active', i === step); });
+    Array.prototype.forEach.call(prog.children, function (i, k) {
+      i.classList.toggle('done', k <= Math.min(step, RECEIVED - 1));
+    });
+    back.hidden = step === 0 || step === RECEIVED;
+    nav.hidden  = step === RECEIVED;
+    next.textContent = step === RECEIVED - 1 ? 'Send my application' : 'Continue';
+
+    var focusable = steps[step].querySelector('input, button, a');
+    if (focusable && step > 0) { try { focusable.focus({ preventScroll: true }); } catch (e) {} }
+    var panel = document.querySelector('.td-desk-panel');
+    if (panel) panel.scrollTop = 0;
+    setSwitcherLift();
+  }
+
+  function fieldError(id, message) {
+    var wrap = document.getElementById('f-' + id);
+    if (wrap) wrap.classList.toggle('invalid', !!message);
+    var el = steps[step].querySelector('.td-err');
+    if (el) el.textContent = message || '';
+    if (message) ga('application_validation_error', { field: id, step: step, page_variant: VARIANT });
+  }
+  function clearErrors() {
+    steps[step].querySelectorAll('.td-err').forEach(function (e) { e.textContent = ''; });
+    steps[step].querySelectorAll('.td-field').forEach(function (e) { e.classList.remove('invalid'); });
+    formErr.textContent = '';
+  }
+
+  /* ── choice groups ───────────────────────────────────────── */
+  form.querySelectorAll('.td-choice').forEach(function (group) {
+    var name = group.dataset.name;
+    group.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-value]');
+      if (!b) return;
+      group.querySelectorAll('button').forEach(function (x) { x.classList.remove('sel'); });
+      b.classList.add('sel');
+      state[name] = b.dataset.value;
+      persist();
+      clearErrors();
+      if (name === 'primaryInterest') paintStory(b.dataset.value);
+    });
+    if (state[name]) {
+      var pre = group.querySelector('[data-value="' + state[name] + '"]');
+      if (pre) pre.classList.add('sel');
+    }
+  });
+
+  /* restore typed answers */
+  ['firstName', 'email', 'homeCity', 'destinationInterest'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (state[id]) el.value = state[id];
+    el.addEventListener('input', function () {
+      state[id] = el.value;
+      persist();
+      if (el.value.trim()) fieldError(id, '');
+    });
+  });
+  var consent = document.getElementById('marketingConsent');
+  if (state.marketingConsent) consent.checked = true;
+  consent.addEventListener('change', function () {
+    state.marketingConsent = consent.checked; persist();
+  });
+
+  /* ── validation ──────────────────────────────────────────── */
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function val(id) { return (document.getElementById(id).value || '').trim(); }
+
+  function validate() {
+    if (step === 0) {
+      if (!val('firstName')) { fieldError('firstName', 'Please add your first name.'); return false; }
+      if (!validEmail(val('email'))) { fieldError('email', 'Please add a valid email address.'); return false; }
+      if (!val('homeCity')) { fieldError('homeCity', 'Please add your city.'); return false; }
+    }
+    if (step === 1 && !state.primaryInterest) { fieldError('primaryInterest', 'Please choose one.'); return false; }
+    if (step === 2 && !state.useTiming) { fieldError('useTiming', 'Please choose one.'); return false; }
+    return true;
+  }
+
+  /* ── server calls · the existing contract, unchanged ─────── */
+  function send(stage) {
+    return fetch('/api/application', {
+      method: 'POST',
+      keepalive: stage === 'started',   /* must survive a bounce */
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        stage: stage,
+        applicationId: applicationId(),
+        email: (state.email || '').trim(),
+        firstName: (state.firstName || '').trim(),
+        homeCity: (state.homeCity || '').trim(),
+        primaryInterest: state.primaryInterest,
+        useTiming: state.useTiming,
+        destinationInterest: (state.destinationInterest || '').trim(),
+        notes: '',
+        marketingConsent: !!state.marketingConsent,
+        variant: VARIANT,
+        attribution: attribution()
+      })
+    });
+  }
+
+  /* Fires as soon as a valid email exists, so an abandoned application is
+     still reachable. Never repeated. */
+  function markStarted() {
+    if (started || !validEmail((state.email || '').trim())) return;
+    started = true;
+    clarityTag('application_state', 'started');
+    ga('application_start', { page_variant: VARIANT });
+    send('started').catch(function () {});
+  }
+
+  function showReceived() {
+    var name = (state.firstName || '').trim();
+    document.getElementById('tdName').textContent  = name || 'there';
+    document.getElementById('tdEmailBack').textContent = (state.email || '').trim();
+    paintStory(state.primaryInterest || '_default');
+    step = RECEIVED;
+    paint();
+    status.textContent = 'Application received. The membership team will reply today.';
+    ga('application_received_view', { page_variant: VARIANT, intent_segment: state.segment || 'unknown' });
+    try { document.querySelector('.td-received-actions .btn-primary').focus({ preventScroll: true }); } catch (e) {}
+  }
+
+  function submit() {
+    if (sending) return;
+    sending = true;
+    next.disabled = true;
+    next.textContent = 'Sending…';
+    formErr.textContent = '';
+    status.textContent = 'Sending your application.';
+
+    send('submitted')
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.d && res.d.error);
+        state.segment = res.d.segment || '';
+        ga('application_submit', { page_variant: VARIANT, intent_segment: state.segment });
+        if (window.fbq) fbq('track', 'Lead',
+          { content_name: 'Passport Application' }, { eventID: applicationId() });
+        clarityTag('application_state', 'submitted');
+        clarityTag('intent_segment', state.segment);
+
+        showReceived();
+        /* the answers are on the server now; do not leave them in the browser */
+        try { sessionStorage.removeItem(STORE); } catch (e) {}
+      })
+      .catch(function () {
+        sending = false;
+        next.disabled = false;
+        next.textContent = 'Send my application';
+        ga('application_submit_failed', { page_variant: VARIANT });
+        formErr.innerHTML = 'Something went wrong. Please try again, or email ' +
+          '<a href="mailto:chris@prive-padel.com">chris@prive-padel.com</a>.';
+        status.textContent = 'Your application could not be sent. Please try again.';
+      });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearErrors();
+    if (!validate()) return;
+    ga('application_step_complete', { step: step, page_variant: VARIANT });
+    if (step === 0) markStarted();
+    if (step === RECEIVED - 1) { submit(); return; }
+    step = Math.min(step + 1, RECEIVED);
+    paint();
+  });
+
+  back.addEventListener('click', function () {
+    clearErrors();
+    step = Math.max(0, step - 1);
+    paint();
+  });
+
+  /* ── opening, closing, and keyboard containment ──────────── */
+  var lastFocus = null;
+  var FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), ' +
+                  'select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  function visibleFocusable() {
+    return Array.prototype.filter.call(desk.querySelectorAll(FOCUSABLE), function (el) {
+      return el.offsetParent !== null || el === document.activeElement;
+    });
+  }
+
+  /* The action bar is sticky at the foot of the panel on mobile, exactly where
+     Weglot parks its switcher. Measure the bar and hand the CSS a real number. */
+  function setSwitcherLift() {
+    if (!desk.classList.contains('open')) return;
+    var r = nav.getBoundingClientRect();
+    var lift = nav.hidden ? 0 : Math.round(window.innerHeight - r.top + 10);
+    document.body.style.setProperty('--td-switcher-lift', Math.max(lift, 20) + 'px');
+  }
+  window.addEventListener('resize', setSwitcherLift);
+  var deskPanel = document.querySelector('.td-desk-panel');
+  if (deskPanel) deskPanel.addEventListener('scroll', setSwitcherLift, { passive: true });
+
+  function open() {
+    lastFocus = document.activeElement;
+    paintStory(state.primaryInterest || '_default');
+    desk.classList.add('open');
+    document.body.classList.add('td-locked');
+    page.setAttribute('inert', '');          /* the page behind is out of reach */
+    page.setAttribute('aria-hidden', 'true');
+    ga('application_desk_open', { page_variant: VARIANT });
+    setSwitcherLift();
+    setTimeout(function () {
+      var f = steps[step].querySelector('input, button[data-value], a');
+      if (f) { try { f.focus({ preventScroll: true }); } catch (e) {} }
+    }, 380);
+  }
+
+  function close() {
+    desk.classList.remove('open');
+    document.body.classList.remove('td-locked');
+    page.removeAttribute('inert');
+    page.removeAttribute('aria-hidden');
+    if (lastFocus) { try { lastFocus.focus(); } catch (e) {} }
+  }
+
+  document.querySelectorAll('.td-open').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.preventDefault(); open(); });
+  });
+  document.getElementById('tdClose').addEventListener('click', close);
+
+  document.addEventListener('keydown', function (e) {
+    if (!desk.classList.contains('open')) return;
+
+    /* Escape is available until the application has been sent — after that
+       the received state is the only place the confirmation exists. */
+    if (e.key === 'Escape' && step !== RECEIVED) { close(); return; }
+
+    if (e.key !== 'Tab') return;
+    var items = visibleFocusable();
+    if (!items.length) return;
+    var first = items[0], last = items[items.length - 1];
+    if (!desk.contains(document.activeElement)) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ── page load ───────────────────────────────────────────── */
+  clarityTag('page_variant', VARIANT);
+  clarityTag('traffic_type', trafficType());
+  ga('application_view', { page_variant: VARIANT, traffic_type: trafficType() });
+  if (window.fbq) fbq('track', 'ViewContent', { content_name: 'Passport Application' });
+  paint();
+})();
+</script>
+
+</body>
+</html>

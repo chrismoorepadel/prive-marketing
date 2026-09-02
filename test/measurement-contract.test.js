@@ -167,3 +167,70 @@ test('the application is written before the optional marketing subscription', ()
   assert.ok(profileAt < eventAt, 'profile must precede the event');
   assert.ok(eventAt < subAt, 'event must precede the marketing subscription');
 });
+
+/* ── application notifications ───────────────────────────── */
+
+test('a submitted application reaches a human inbox', () => {
+  assert.match(applyApi, /api\.resend\.com\/emails/);
+  assert.match(applyApi, /to: \[TEAM\]/);
+  assert.match(applyApi, /reply_to: email/);
+});
+
+test('the applicant is confirmed regardless of marketing consent', () => {
+  // the confirmation is operational, so it must not sit behind the opt-in
+  const mailAt = applyApi.indexOf('await Promise.allSettled');
+  const subAt  = applyApi.indexOf('if (marketingConsent && marketingList)');
+  assert.ok(mailAt < subAt, 'confirmation must not depend on the consent branch');
+  assert.match(applyApi, /We received your Privé Passport application/);
+});
+
+test('mail is awaited, not fired and forgotten', () => {
+  // an unawaited send can be frozen the moment the response returns
+  assert.match(applyApi, /const \[notify, confirm\] = await Promise\.allSettled/);
+});
+
+test('a mail failure cannot cost an application', () => {
+  // both sends run after the Klaviyo writes and neither returns non-2xx
+  const eventAt = applyApi.indexOf("klaviyo('events/'");
+  const mailAt  = applyApi.indexOf('await Promise.allSettled');
+  assert.ok(eventAt < mailAt, 'email must follow the durable write');
+  assert.match(applyApi, /console\.error\('Application notification failed'/);
+  assert.doesNotMatch(
+    applyApi.slice(mailAt),
+    /return res\.status\(5\d\d\)/,
+    'a Resend failure must not fail the request',
+  );
+});
+
+test('a retry cannot send either email twice', () => {
+  assert.match(applyApi, /'Idempotency-Key'/);
+  assert.match(applyApi, /`application-\$\{applicationId\}-team`/);
+  assert.match(applyApi, /`application-\$\{applicationId\}-applicant`/);
+});
+
+test('only a completed application notifies anyone', () => {
+  assert.match(applyApi, /if \(stage === 'submitted' && REVIEW_LED\.has\(variant\) && process\.env\.RESEND_API_KEY\)/);
+  // a partial ('started') application must never mail anyone
+  assert.doesNotMatch(applyApi, /stage === 'started'[^\n]*sendEmail/);
+});
+
+test('applicant text is escaped into the email, and the subject is stripped', () => {
+  assert.match(applyApi, /const esc = v =>[\s\S]{0,80}replace\(\/\[&<>"\]\/g/);
+  assert.match(applyApi, /const subj = \(v, max/);
+  assert.match(applyApi, /\$\{subj\(firstName, 32\)\}/);
+});
+
+test('the confirmation email sells nothing', () => {
+  const start = applyApi.indexOf('function confirmationHtml');
+  const body  = applyApi.slice(start, applyApi.indexOf('\n}', start));
+  for (const banned of ['checkout', 'Stripe', '$595', 'Activate']) {
+    assert.ok(!body.includes(banned), `confirmation must not mention ${banned}`);
+  }
+});
+
+test('the live self-serve funnel is left exactly as it was', () => {
+  // application_v1 ends at Stripe activation; a "we'll reply today" mail
+  // there would contradict its own completion page
+  assert.match(applyApi, /REVIEW_LED = new Set\(\['travel_desk_v2'\]\)/);
+  assert.match(applyApi, /stage === 'submitted' && REVIEW_LED\.has\(variant\)/);
+});
