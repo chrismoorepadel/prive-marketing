@@ -19,6 +19,12 @@ function getRawBody(req) {
   });
 }
 
+async function dispatch(name, url, options) {
+  const response = await fetch(url, options);
+  if (!response.ok) throw new Error(`${name} returned ${response.status}`);
+  return name;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).end();
@@ -46,6 +52,8 @@ export default async function handler(req, res) {
     // avoid double-counting. Set ENABLE_MARKETING_ANALYTICS=true only if the portal
     // does NOT already send server-side Purchase events.
     const sendAnalytics = process.env.ENABLE_MARKETING_ANALYTICS === 'true';
+    // A $0 or unpaid session must never be reported as a purchase.
+    const isRevenuePurchase = session.payment_status === 'paid' && value > 0;
 
     try {
       await Promise.all([
@@ -53,7 +61,7 @@ export default async function handler(req, res) {
         // Klaviyo "Placed Order" — the exclusion signal for the abandoned-checkout
         // flow. Matched to the captured profile by email, so the flow filter
         // ("has not Placed Order since starting") skips anyone who converted.
-        ...(email ? [fetch('https://a.klaviyo.com/api/events/', {
+        ...(email ? [dispatch('klaviyo', 'https://a.klaviyo.com/api/events/', {
           method:  'POST',
           headers: {
             'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_PRIVATE_KEY}`,
@@ -76,19 +84,27 @@ export default async function handler(req, res) {
         })] : []),
 
         // GA4 Measurement Protocol (gated — see ENABLE_MARKETING_ANALYTICS above)
-        ...(sendAnalytics ? [fetch(
+        ...(sendAnalytics && isRevenuePurchase ? [dispatch('ga4',
           `https://www.google-analytics.com/mp/collect?measurement_id=G-V7WWTFXWSE&api_secret=${process.env.GA4_API_SECRET}`,
           {
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              client_id: session.customer || session.id,
+              client_id: session.metadata?.ga_client_id || session.customer || session.id,
               events: [{
                 name: 'purchase',
                 params: {
                   transaction_id: session.id,
                   value,
-                  currency: 'USD',
+                  currency: (session.currency || 'usd').toUpperCase(),
+                  // GA4 attributes a Measurement Protocol event to the browser's
+                  // own session only when both ids are present. Guarded, because
+                  // no page sends them yet — this is ready for when one does.
+                  ...(session.metadata?.ga_session_id
+                    ? { session_id: Number(session.metadata.ga_session_id) || session.metadata.ga_session_id }
+                    : {}),
+                  engagement_time_msec: 1,
+                  ...(session.metadata?.page_variant ? { page_variant: session.metadata.page_variant } : {}),
                   items: [{
                     item_id:   tier,
                     item_name: tier === 'full' ? 'Privé Passport Full Access' : 'Privé Passport Standard',
@@ -107,7 +123,7 @@ export default async function handler(req, res) {
         // fires from Stripe's servers and can't see the buyer's browser.
         // event_id === session.id so any browser-side Purchase with the same id
         // deduplicates against this server event.
-        ...(sendAnalytics ? [fetch(
+        ...(sendAnalytics && isRevenuePurchase ? [dispatch('meta',
           `https://graph.facebook.com/v19.0/2265018770516086/events?access_token=${process.env.META_PIXEL_ACCESS_TOKEN}`,
           {
             method:  'POST',
@@ -129,7 +145,7 @@ export default async function handler(req, res) {
                 },
                 custom_data: {
                   value,
-                  currency:     'USD',
+                  currency:     (session.currency || 'usd').toUpperCase(),
                   content_ids:  [tier],
                   content_type: 'product',
                 },
@@ -141,7 +157,9 @@ export default async function handler(req, res) {
           }
         )] : []),
 
-      ]);
+      ]).then(results => {
+        console.info('Analytics dispatch complete', { sessionId: session.id, destinations: results });
+      });
     } catch (err) {
       console.error('Analytics dispatch error:', err);
     }
