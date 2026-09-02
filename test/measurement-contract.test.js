@@ -98,3 +98,72 @@ test('GA4 prefers the browser client id when one was captured', () => {
   assert.match(webhook, /session\.metadata\?\.ga_client_id \|\| session\.customer \|\| session\.id/);
   assert.match(webhook, /transaction_id: session\.id/);
 });
+
+/* ── application funnel · acceptance tests (spec §11) ────── */
+
+const apply    = read('passport-apply.html');
+const invite   = read('passport-apply/complete.html');
+const applyApi = read('api/application.js');
+
+test('§11.1 the application feature does not touch v2 or v2b', () => {
+  // the funnel must not reference or reuse the experiment's markup
+  assert.doesNotMatch(apply,  /passport-offer-v2/);
+  assert.doesNotMatch(invite, /passport-offer-v2/);
+  // and the experiment must not know the funnel exists
+  assert.doesNotMatch(offerV2,  /passport-apply/);
+  assert.doesNotMatch(offerV2b, /passport-apply/);
+});
+
+test('§11.3 the application id is generated once and reused for retries', () => {
+  assert.match(apply, /state\.applicationId/);
+  assert.match(applyApi, /unique_id: `\$\{applicationId\}:\$\{stage\}`/);
+});
+
+test('§11.4 input is allowlisted and length-limited', () => {
+  assert.match(applyApi, /INTERESTS\s*=\s*new Set/);
+  assert.match(applyApi, /TIMINGS\s*=\s*new Set/);
+  assert.match(applyApi, /clean\(b\.notes, 1000\)/);
+  assert.match(applyApi, /clean\(b\.email, 320\)/);
+});
+
+test('§11.5 marketing consent is optional and recorded separately', () => {
+  assert.match(applyApi, /passport_marketing_consent/);
+  // never required to submit
+  assert.doesNotMatch(applyApi, /marketingConsent[^;]*return res\.status\(400\)/);
+  // the checkbox ships unchecked
+  assert.match(apply, /id="marketingConsent"(?![^>]*checked)/);
+});
+
+test('§11.6 no PII reaches analytics or the URL', () => {
+  // the redirect carries an id and a segment label only
+  assert.match(apply, /'\/passport-apply\/complete\?' \+ q/);
+  assert.match(apply, /id=' \+ encodeURIComponent\(applicationId\(\)\)/);
+  assert.doesNotMatch(apply, /encodeURIComponent\(state\.email\)/);
+  // server logs carry the application id, never the applicant
+  assert.match(applyApi, /console\.error\('Application profile write failed', \{\s*\n?\s*applicationId/);
+});
+
+test('§11.8 activation uses the existing checkout path', () => {
+  assert.match(invite, /fetch\('\/api\/checkout'/);
+  assert.doesNotMatch(invite, /stripe\.checkout\.sessions\.create/);
+});
+
+test('§11.9 checkout still returns to Passport onboarding', () => {
+  // guarded by the existing success_url test; assert the invitation adds no other
+  assert.doesNotMatch(invite, /success_url/);
+});
+
+test('§11.14 the page survives analytics being unavailable', () => {
+  assert.match(apply, /if \(window\.gtag\)/);
+  assert.match(apply, /if \(window\.fbq\)/);
+  assert.match(apply, /try \{ if \(window\.clarity\)/);
+  assert.match(invite, /if \(window\.gtag\)/);
+});
+
+test('the application is written before the optional marketing subscription', () => {
+  const profileAt = applyApi.indexOf('profile-import/');
+  const eventAt   = applyApi.indexOf("klaviyo('events/'");
+  const subAt     = applyApi.indexOf('profile-subscription-bulk-create-jobs/');
+  assert.ok(profileAt < eventAt, 'profile must precede the event');
+  assert.ok(eventAt < subAt, 'event must precede the marketing subscription');
+});
