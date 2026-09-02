@@ -53,7 +53,7 @@
   "rewrites": [
     {
       "source": "/apply",
-      "destination": "/passport-travel-desk.html"
+      "destination": "/passport-travel-desk"
     }
   ],
   "redirects": [
