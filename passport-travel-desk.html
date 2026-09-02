@@ -72,13 +72,17 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
 
-  <!-- Preview route. Stays out of the index until it replaces /passport-apply. -->
-  <meta name="robots" content="noindex, nofollow">
+  <!-- Served at /apply via a rewrite in vercel.json, so that is the URL the
+       visitor sees and the one that gets ranked. The canonical points there
+       rather than at the filename, which is reachable but not the address. -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://prive-padel.com/apply">
 
   <meta name="theme-color" content="#0E1923">
 
   <title>The Privé Travel Desk — Privé Passport</title>
   <meta name="description" content="A private travel membership connecting padel players to remarkable hotels, retreats, and clubs around the world. 40+ destinations across 18 countries. Every application is read personally.">
+  <meta property="og:url" content="https://prive-padel.com/apply">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The game travels with you — Privé Passport">
   <meta property="og:description" content="One membership. 40+ destinations. A court at every one. Apply, and hear back the same day.">
