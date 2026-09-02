@@ -46,18 +46,21 @@ because the marketing subscription is the only step allowed to fail:
    `${applicationId}:${stage}`
 3. marketing subscription — last, and non-fatal
 
-The revision adds two steps, both after (2) and both non-fatal:
+What actually ships adds one more step, after (2) and non-fatal:
 
-4. **set `passport_application_state = pending_review`** and
-   `passport_application_submitted_at`
-5. **notify you**, via Resend (already provisioned in `prive-passport`)
+4. **two emails through Resend** — the notification to you and the
+   confirmation to the applicant, awaited so the function cannot be frozen
+   mid-send, and keyed on the application id so a retry cannot double-send.
 
-The applicant's confirmation email is best sent by a Klaviyo flow triggered
-on `Passport Application Submitted`, not from the endpoint — that keeps the
-send retryable and editable without a deploy.
+Deliberately *not* added: `passport_application_state`. Nothing sets or reads
+it while the workflow is manual.
 
-Because the application id already deduplicates the event, a duplicate
-submit cannot produce a second notification or a second confirmation.
+Both emails send from the endpoint rather than from a Klaviyo flow. A flow
+would be editable without a deploy, which is the better long-run answer, but
+it puts the same-day promise behind a second system that has already failed
+silently once on this site — a wrong list id killed `Started Checkout` for
+four weeks in August. Sending from the endpoint means a failure appears in
+the function log rather than nowhere.
 
 ## 3. Your notification
 
@@ -95,27 +98,29 @@ Sent within a minute of submitting. No purchase CTA anywhere in it.
 
 > **Subject:** We received your Privé Passport application
 
-> Hi Chris,
+This is verbatim what sends, in the team voice the page uses:
+
+> Thank you, [First name].
 >
-> Thank you for applying for Privé Passport — your application is with me now.
+> Your application for Privé Passport is with our membership team now.
 >
-> I read every application myself rather than passing them to a team, so the
-> reply you get will be from me, and it will come today.
+> We read every application ourselves rather than passing them to a queue, so
+> the reply you get will be a real one — and it will come today.
 >
-> I may ask about a trip you have coming up, where you play at home, or what
-> you are hoping Passport does for you. If it is a good fit, I will send you
+> We may ask about a trip you have coming up, where you play at home, or what
+> you are hoping Passport does for you. If it is a good fit, we will send you
 > everything you need to join.
 >
-> In the meantime, if there is anything you would like me to know — a
+> In the meantime, if there is anything you would like us to know — a
 > destination you have in mind, a question about how the membership works —
-> just reply to this email.
+> simply reply to this email.
 >
-> Christopher
-> Founder, Privé Padel
+> — The Privé Passport membership team
 
-If the application arrives after hours, "today" becomes "in the morning" —
-worth a send-time condition in the flow rather than a promise you have to
-keep at midnight.
+It says "today" unconditionally. An application that lands at 11pm gets a
+promise that is technically already broken. Softening it to "today" only
+inside working hours needs a send-time branch, which is the strongest single
+argument for moving this send into a Klaviyo flow later.
 
 ## 5. The invitation
 
