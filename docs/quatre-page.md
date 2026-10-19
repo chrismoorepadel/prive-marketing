@@ -6,7 +6,21 @@
 
 Four service groups cover project planning and specification, court design and manufacturing, site preparation and installation, and operational consulting. The inquiry form accepts a complete court project, any of those four services, or help defining the project. Early-stage paid consulting has a scope and upfront fee agreed before work begins. Buyers may request a complete project or court proposal directly; submitting the form is not a paid engagement.
 
-The customer-facing copy uses a company/team identity. The existing business mailbox remains the delivery and mailto destination, with a generic visible contact label. Photography uses an existing Privé Cloudinary asset of the Quatre project at THēsis. The wordmark is live text.
+The customer-facing copy uses a company/team identity. The existing business mailbox remains the delivery and mailto destination, with a generic visible contact label. The wordmark is live text.
+
+## Design and acquisition journey
+
+Quatre has a separate visual identity from the Privé marketing site: Manrope typography, a charcoal/white palette with a court-green accent, a bold product headline, project imagery and a proposal CTA. Its stylesheet and script are scoped to this page and do not import the Privé site styles. No new software service or package dependency is introduced.
+
+The page order is an image-led hero with a two-step inquiry, selected project photographs, the complete service offering, property-specific entry points, the Privé relationship and credentials, practical project FAQs, and a final proposal CTA. The core action is to request a project proposal. Property/service links prefill the same inquiry; architect/builder links select client representation. A mobile proposal CTA appears while the inquiry is offscreen and hides when the inquiry is visible or has succeeded. It leaves bottom space at the footer and respects the device safe area.
+
+The user supplied these three project image sources for this redesign:
+
+- Miami: `https://res.cloudinary.com/dfjqa5f05/image/upload/v1792452686/miami_court_ftbrn9.png`
+- Montauk: `https://res.cloudinary.com/dfjqa5f05/image/upload/v1792452687/montuak_ci50lv.png`
+- St. Kitts: `https://res.cloudinary.com/dfjqa5f05/image/upload/v1792452254/St_Kitts_3_fduyzh.png`
+
+The page references those assets through Cloudinary format/quality/width variants with responsive source sets. The Miami hero has loading priority; the three project images load lazily. Source artwork is not altered. Image dimensions reserve layout space. The Manrope stylesheet comes from Google Fonts, with system sans-serif fallbacks.
 
 ## Brand relationships and claim scope
 
@@ -31,6 +45,8 @@ The page has its own stylesheet and script, with no change to the Passport appli
 The visitor's address is the notification's reply-to address. The endpoint sends one notification to the fixed team address. It does not send a visitor confirmation, subscribe the visitor to marketing, or create a CRM record.
 
 Required fields: full name, email, project location, project type, and support requested. Optional fields: representing a client, company/role, phone, and project details. The form captures UTM source, medium, campaign, content and term, plus the landing pathname and referrer hostname. It does not store visitor details in browser storage or transmit them to an analytics service.
+
+Step 1 asks for property type, location and service (default: complete court project). Step 2 asks for the visitor's contact details, with optional phone, project details and client representation. Continue and Enter on step 1 only advance the form; no inquiry is sent until a valid final submission. Each step is validated explicitly so hidden required controls cannot block the first step or fail silently. Back retains entered details, and any invalid required field is brought into view. The form appears only after its script initializes; visitors without JavaScript receive a direct team email link.
 
 Success is shown only when Resend accepts the notification and returns an email ID. Acceptance is not proof of inbox delivery. Failures preserve the form and present an email fallback. The client retains the same inquiry ID and serialized payload for a retry in the same page session; changing the details creates a new inquiry. Resend's idempotency window is 24 hours. A page reload starts a new session.
 
@@ -60,7 +76,7 @@ For launch:
 
 `node --test test/quatre-inquiry.test.js` exercises the real handler with mocked email transport. It covers successful acceptance, invalid fields and JSON, origin restrictions, field lengths, header/HTML injection, honeypot handling, missing configuration, uncertain provider responses, provider throttling and duplicate retry behavior. `npm test` also runs the repository's existing measurement contract checks.
 
-Browser verification should cover desktop and mobile layouts, keyboard access, service/project preselection, the client representative field, required-field blocking, submission success and failure, and stable request IDs on retries. All local email requests must remain mocked.
+Browser verification should cover desktop and mobile layouts, the supplied images and new fonts, keyboard access, both inquiry steps, Back and Enter behavior, hidden-field validation, service/project preselection, the client representative field, pending duplicate suppression, submission success and failure, stable request IDs on retries, and mobile CTA visibility. All local email requests must remain mocked. The visual checks alone do not establish conversion performance; assess that using real campaign inquiries after launch.
 
 External references:
 

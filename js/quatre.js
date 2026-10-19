@@ -7,6 +7,15 @@
   const button = form.querySelector('button[type="submit"]');
   const client = form.elements.onBehalfOfClient;
   const companyField = document.getElementById('company-field');
+  const projectStep = document.getElementById('form-step-project');
+  const contactStep = document.getElementById('form-step-contact');
+  const nextButton = document.getElementById('form-next');
+  const backButton = document.getElementById('form-back');
+  const stepLabel = document.getElementById('form-step-label');
+  const indicators = document.querySelectorAll('#form-progress [data-step-indicator]');
+  const mobileCTA = document.getElementById('mobile-project-cta');
+  const project = document.getElementById('project');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const fields = ['fullName', 'email', 'location', 'projectType', 'support', 'company', 'phone', 'details', 'website'];
   const query = new URLSearchParams(window.location.search);
   const attribution = { landing_page: window.location.pathname, referrer_host: '' };
@@ -16,7 +25,71 @@
   try { attribution.referrer_host = document.referrer ? new URL(document.referrer).hostname : ''; } catch { /* Referrer is optional. */ }
   let lastAttempt = null;
   let inFlight = false;
+  let currentStep = 1;
   const buttonLabel = button.innerHTML;
+
+  // Hidden required fields must not block the first step's Continue action.
+  // Each step is validated explicitly; submission still checks every field.
+  form.noValidate = true;
+  if (!form.elements.support.value) form.elements.support.value = 'full_service';
+
+  function syncMobileCTA() {
+    if (!mobileCTA || !project) return;
+    const bounds = project.getBoundingClientRect();
+    mobileCTA.hidden = !success.hidden || (bounds.bottom > 0 && bounds.top < window.innerHeight);
+  }
+
+  function focusControl(control) {
+    if (!control) return;
+    control.focus({ preventScroll: true });
+    const bounds = control.getBoundingClientRect();
+    if (bounds.top < 88 || bounds.bottom > window.innerHeight - 20) {
+      control.scrollIntoView({ block: 'center', behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    }
+  }
+
+  function showStep(step, { focus = true } = {}) {
+    currentStep = step;
+    projectStep.hidden = step !== 1;
+    contactStep.hidden = step !== 2;
+    form.dataset.step = String(step);
+    stepLabel.textContent = step === 1 ? 'Step 1 of 2 · Your project' : 'Step 2 of 2 · Your details';
+    indicators.forEach(indicator => {
+      const number = Number(indicator.dataset.stepIndicator);
+      indicator.dataset.state = number === step ? 'current' : number < step ? 'complete' : 'upcoming';
+      if (number === step) indicator.setAttribute('aria-current', 'step');
+      else indicator.removeAttribute('aria-current');
+    });
+    if (focus) {
+      const section = step === 1 ? projectStep : contactStep;
+      focusControl(section.querySelector('input:not([type="hidden"]), select, textarea'));
+    }
+    syncMobileCTA();
+  }
+
+  function firstInvalid(container) {
+    return Array.from(container.querySelectorAll('input, select, textarea'))
+      .find(control => {
+        if (!control.willValidate) return false;
+        // The API trims required text, so whitespace cannot count as a value.
+        if (control.required && !control.value.trim()) control.value = '';
+        return !control.validity.valid;
+      });
+  }
+
+  function reportInvalid(control) {
+    showStep(projectStep.contains(control) ? 1 : 2, { focus: false });
+    focusControl(control);
+    control.reportValidity();
+  }
+
+  function advance() {
+    if (inFlight) return;
+    const invalid = firstInvalid(projectStep);
+    if (invalid) return reportInvalid(invalid);
+    error.hidden = true;
+    showStep(2);
+  }
 
   function uuid() {
     if (window.crypto.randomUUID) return window.crypto.randomUUID();
@@ -30,24 +103,41 @@
   function showError(message) {
     error.textContent = message;
     error.hidden = false;
-    error.focus();
+    focusControl(error);
   }
 
+  nextButton.addEventListener('click', advance);
+  backButton.addEventListener('click', () => {
+    if (!inFlight) showStep(1);
+  });
+  projectStep.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && !event.isComposing && event.target instanceof HTMLInputElement) {
+      event.preventDefault();
+      advance();
+    }
+  });
   client.addEventListener('change', () => { companyField.hidden = !client.checked; });
+  companyField.hidden = !client.checked;
   document.querySelectorAll('[data-support], [data-project-type], [data-client-project]').forEach(link => {
     link.addEventListener('click', () => {
+      if (inFlight || !success.hidden) return;
       if (link.dataset.support) form.elements.support.value = link.dataset.support;
       if (link.dataset.projectType) form.elements.projectType.value = link.dataset.projectType;
       if (link.hasAttribute('data-client-project')) {
         client.checked = true;
         companyField.hidden = false;
       }
+      showStep(1, { focus: false });
     });
   });
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (inFlight || !form.reportValidity()) return;
+    if (inFlight) return;
+    // Enter on the first step advances the form; it never sends an inquiry.
+    if (currentStep === 1) return advance();
+    const invalid = firstInvalid(form);
+    if (invalid) return reportInvalid(invalid);
     error.hidden = true;
     const data = Object.fromEntries(fields.map(name => [name, form.elements[name].value.trim()]));
     data.onBehalfOfClient = client.checked;
@@ -62,13 +152,15 @@
         lastAttempt = { fingerprint, payload: JSON.stringify({ ...data, inquiryId: uuid() }) };
       }
     } catch {
-      showError('The form could not start. Please use the email link above to contact our team.');
+      showError('The form could not start. Please use the email link on this page to contact our team.');
       return;
     }
     const controller = new AbortController();
     const timer = window.setTimeout(() => controller.abort(), 18000);
     inFlight = true;
     button.disabled = true;
+    nextButton.disabled = true;
+    backButton.disabled = true;
     button.textContent = 'Sending your inquiry…';
     form.setAttribute('aria-busy', 'true');
     try {
@@ -81,24 +173,39 @@
       });
       const result = await response.json().catch(() => null);
       if (!response.ok || !result || result.ok !== true) {
-        if (response.status === 429) throw new Error('The inquiry service is busy. Please wait a moment and try again, or contact our team using the email link above.');
-        if (response.status === 400) throw new Error('Please check your project details and try again. You can also contact our team using the email link above.');
-        throw new Error('We could not confirm your submission. Your details are still here. Please retry, or contact our team using the email link above.');
+        if (response.status === 429) throw new Error('The inquiry service is busy. Please wait a moment and try again, or contact our team using the email link on this page.');
+        if (response.status === 400) throw new Error('Please check your project details and try again. You can also contact our team using the email link on this page.');
+        throw new Error('We could not confirm your submission. Your details are still here. Please retry, or contact our team using the email link on this page.');
       }
       form.hidden = true;
       success.hidden = false;
-      success.focus();
+      syncMobileCTA();
+      focusControl(success);
     } catch (err) {
       showError(err.name === 'AbortError' || err instanceof TypeError
-        ? 'We could not confirm your submission. Please retry with your existing details, or contact our team using the email link above.'
+        ? 'We could not confirm your submission. Please retry with your existing details, or contact our team using the email link on this page.'
         : err.message);
     } finally {
       window.clearTimeout(timer);
       inFlight = false;
       button.disabled = false;
+      nextButton.disabled = false;
+      backButton.disabled = false;
       button.innerHTML = buttonLabel;
       form.removeAttribute('aria-busy');
     }
   });
+  showStep(1, { focus: false });
   form.hidden = false;
+  syncMobileCTA();
+  if (mobileCTA && project) {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(syncMobileCTA, { threshold: 0 });
+      observer.observe(project);
+    } else {
+      // Keep the form unobscured in browsers without IntersectionObserver.
+      window.addEventListener('scroll', syncMobileCTA, { passive: true });
+    }
+    window.addEventListener('resize', syncMobileCTA, { passive: true });
+  }
 })();
