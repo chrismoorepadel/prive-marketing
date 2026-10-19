@@ -2,9 +2,25 @@
 
 ## Purpose and scope
 
-`/quatre` introduces Quatre Padel Courts to private homeowners, country and racquet clubs, developers, resorts, and professionals representing clients. Three entry points lead to one project inquiry form: paid project consulting, a court supply quotation, and installation coordination. The consulting scope and upfront fee are agreed before work begins; submitting this form is not a paid engagement.
+`/quatre` positions Quatre Padel Courts as a full-service court design, manufacturing and installation company for luxury hospitality, private estates, clubs, developments and the professionals representing them. It leads with the official builder relationship to Privé Padel and selected Quatre projects: Montauk Yacht Club, THēsis Hotel Miami and Safe Harbor St. Kitts.
 
-Chris Moore's operating experience and the court photograph are attributed to Privé Padel. The page does not claim a separate portfolio of completed Quatre installations. The wordmark is live text. Photography uses an existing Privé Cloudinary asset.
+Four service groups cover project planning and specification, court design and manufacturing, site preparation and installation, and operational consulting. The inquiry form accepts a complete court project, any of those four services, or help defining the project. Early-stage paid consulting has a scope and upfront fee agreed before work begins. Buyers may request a complete project or court proposal directly; submitting the form is not a paid engagement.
+
+The customer-facing copy uses a company/team identity. The existing business mailbox remains the delivery and mailto destination, with a generic visible contact label. Photography uses an existing Privé Cloudinary asset of the Quatre project at THēsis. The wordmark is live text.
+
+## Brand relationships and claim scope
+
+Privé Hospitality Corp owns Quatre Padel Courts and Privé Padel. Quatre is the official court builder for Privé Padel locations. Company ownership, project attribution, manufacturing capability and the 45+ hotel partnership figure were supplied by the business owner for this revision.
+
+The 45+ figure is explicitly labeled as Privé Padel's hotel partnership network. It is not an installation count or a claim that Privé operates every partner hotel's courts. Recognition by The World's 50 Best Hotels and membership of The Leading Hotels of the World describe hotels within that network.
+
+The Astria credential is attributed to Privé Padel. Astria's public account carries the endorsement announcement, its supplier collection directly lists Privé Padel Court Building, and Forbes Travel Guide describes Astria as its preferred vendor platform. The page does not assert a Quatre Star Rating, an exclusive category appointment or an Official Brand designation. External organization logos are not used.
+
+Brand references:
+
+- [Astria's Privé Padel Court Building listing](https://www.discoverastria.com/product/prive-padel-court-building/)
+- [Astria's public endorsement announcement](https://www.linkedin.com/company/discover-astria)
+- [Forbes Travel Guide's description of Astria](https://www.forbestravelguide.com/forbes-travel-guide-brands)
 
 The page has its own stylesheet and script, with no change to the Passport application or checkout flows and no new npm dependencies.
 

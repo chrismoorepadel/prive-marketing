@@ -62,7 +62,7 @@
         lastAttempt = { fingerprint, payload: JSON.stringify({ ...data, inquiryId: uuid() }) };
       }
     } catch {
-      showError('The form could not start. Please email your project details to chris@prive-padel.com.');
+      showError('The form could not start. Please use the email link above to contact our team.');
       return;
     }
     const controller = new AbortController();
@@ -81,16 +81,16 @@
       });
       const result = await response.json().catch(() => null);
       if (!response.ok || !result || result.ok !== true) {
-        if (response.status === 429) throw new Error('The inquiry service is busy. Please wait a moment and try again, or email chris@prive-padel.com.');
-        if (response.status === 400) throw new Error('Please check your project details and try again. You can also email chris@prive-padel.com.');
-        throw new Error('We could not confirm your submission. Your details are still here. Please retry, or email chris@prive-padel.com.');
+        if (response.status === 429) throw new Error('The inquiry service is busy. Please wait a moment and try again, or contact our team using the email link above.');
+        if (response.status === 400) throw new Error('Please check your project details and try again. You can also contact our team using the email link above.');
+        throw new Error('We could not confirm your submission. Your details are still here. Please retry, or contact our team using the email link above.');
       }
       form.hidden = true;
       success.hidden = false;
       success.focus();
     } catch (err) {
       showError(err.name === 'AbortError' || err instanceof TypeError
-        ? 'We could not confirm your submission. Please retry with the details below, or email chris@prive-padel.com.'
+        ? 'We could not confirm your submission. Please retry with your existing details, or contact our team using the email link above.'
         : err.message);
     } finally {
       window.clearTimeout(timer);

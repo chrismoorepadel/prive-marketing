@@ -13,10 +13,12 @@ const PROJECTS = {
   other: 'Other project',
 };
 const SUPPORT = {
-  consulting: 'Project consulting',
-  court_supply: 'Court supply quotation',
-  installation: 'Installation coordination',
-  not_sure: 'Help choosing the right approach',
+  consulting: 'Project planning & consulting',
+  court_supply: 'Court design & manufacturing',
+  installation: 'Site preparation & installation',
+  not_sure: 'Help defining the project',
+  full_service: 'Complete court project',
+  operations: 'Operational consulting',
 };
 const UTM_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 const CONTROL = /[\u0000-\u001f\u007f-\u009f\u2028\u2029]/;

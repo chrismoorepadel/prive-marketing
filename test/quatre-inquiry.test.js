@@ -83,6 +83,7 @@ async function invoke(payload = body(), headers = {}, method = 'POST') {
 test('one accepted inquiry notifies only the team with the visitor as reply-to', async () => {
   const res = await invoke(body({
     company: 'Example Studio', phone: '+1 555 0100', onBehalfOfClient: true,
+    support: 'full_service',
     details: 'Two courts for a client.',
     attribution: { utm_source: 'partner', utm_campaign: 'builders', landing_page: '/quatre', referrer_host: 'example.com' },
     to: 'not-a-recipient@example.com', marketingConsent: true,
@@ -101,7 +102,7 @@ test('one accepted inquiry notifies only the team with the visitor as reply-to',
   assert.equal(notification.bcc, undefined);
   assert.match(notification.text, /Example Studio/);
   assert.match(notification.text, /Inquiring for a client: Yes/);
-  assert.match(notification.text, /Support requested: Project consulting/);
+  assert.match(notification.text, /Support requested: Complete court project/);
   assert.match(notification.text, /utm_campaign: builders/);
   assert.doesNotMatch(notification.text, /marketingConsent|not-a-recipient/);
   assert.equal(calls[0].options.headers['Idempotency-Key'], `quatre-inquiry/${ID}`);
@@ -129,12 +130,21 @@ test('identical retries produce byte-identical payloads and keys despite object 
 });
 
 test('notification labels preserve the selected offer without broadening its scope', async () => {
-  await invoke(body({ support: 'installation', projectType: 'development' }));
-  await invoke(body({ support: 'court_supply', projectType: 'club' }));
-  assert.match(JSON.parse(calls[0].options.body).text, /Support requested: Installation coordination/);
-  assert.match(JSON.parse(calls[0].options.body).text, /Project type: Development or resort/);
-  assert.match(JSON.parse(calls[1].options.body).text, /Support requested: Court supply quotation/);
-  assert.match(JSON.parse(calls[1].options.body).text, /Project type: Country or racquet club/);
+  const selections = [
+    ['installation', 'Site preparation & installation', 'development', 'Development or resort'],
+    ['court_supply', 'Court design & manufacturing', 'club', 'Country or racquet club'],
+    ['consulting', 'Project planning & consulting', 'home', 'Private home'],
+    ['not_sure', 'Help defining the project', 'other', 'Other project'],
+    ['full_service', 'Complete court project', 'home', 'Private home'],
+    ['operations', 'Operational consulting', 'club', 'Country or racquet club'],
+  ];
+  for (const [support, supportLabel, projectType, projectLabel] of selections) {
+    const res = await invoke(body({ support, projectType }));
+    assert.equal(res.statusCode, 200, support);
+    const notification = JSON.parse(calls.at(-1).options.body);
+    assert.ok(notification.text.includes(`Support requested: ${supportLabel}`), support);
+    assert.ok(notification.text.includes(`Project type: ${projectLabel}`), projectType);
+  }
 });
 
 test('a network failure can be retried with the exact same notification', async () => {
