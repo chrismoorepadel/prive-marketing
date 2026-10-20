@@ -58,6 +58,18 @@
   ],
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "quatrepadelcourts.com" }],
+      "destination": "https://www.prive-padel.com/quatre",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.quatrepadelcourts.com" }],
+      "destination": "https://www.prive-padel.com/quatre",
+      "permanent": false
+    },
+    {
       "source": "/passport-offer",
       "destination": "/passport-offer-v2",
       "permanent": false
@@ -119,3 +131,4 @@
     }
   ]
 }
+

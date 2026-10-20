@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quatre Padel Courts | Design, Manufacturing & Installation</title>
+  <meta name="description" content="Premium padel courts for resorts, private estates, clubs and developments. Design, manufacturing and installation from the official court builder for Privé Padel. Request a project proposal.">
+  <link rel="canonical" href="https://www.prive-padel.com/quatre">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Quatre Padel Courts — Courts for exceptional properties">
+  <meta property="og:description" content="Court design, manufacturing and installation. Explore our projects in Miami, Montauk and St. Kitts, then tell us what you want to build.">
+  <meta property="og:url" content="https://www.prive-padel.com/quatre">
+  <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1600/v1792452686/miami_court_ftbrn9.png">
+  <meta name="theme-color" content="#fbf8f0">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/quatre.css">
+  <script src="/js/quatre.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="/quatre" aria-label="Quatre Padel Courts home"><img class="brand-logo" src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_480/v1792454639/Quatre_Padel_Courts_logo_in_forest_green_dlzphv.png" alt="Quatre Padel Courts" width="1922" height="818" decoding="async"></a>
+      <nav aria-label="Main navigation">
+        <a class="nav-detail" href="#experience">The Privé connection</a>
+        <a class="nav-detail" href="#projects">Our projects</a>
+        <a class="nav-detail" href="#services">Our services</a>
+        <a class="button button-small header-cta" href="#project">Discuss your project <span aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <figure class="hero-figure">
+        <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1600/v1792452686/miami_court_ftbrn9.png" srcset="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452686/miami_court_ftbrn9.png 800w, https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1600/v1792452686/miami_court_ftbrn9.png 1600w, https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1920/v1792452686/miami_court_ftbrn9.png 1920w" sizes="100vw" alt="The Quatre padel court within the illuminated courtyard at THēsis Hotel Miami" width="1920" height="1080" fetchpriority="high">
+        <figcaption><span class="location-dot" aria-hidden="true"></span>THēsis Hotel Miami <span>Coral Gables, Florida</span></figcaption>
+      </figure>
+      <div class="hero-inner page-width">
+        <div class="hero-copy">
+          <p class="eyebrow">The court builder for luxury hospitality</p>
+          <h1 id="hero-title">Padel courts for<br><span>exceptional properties.</span></h1>
+          <p class="hero-description">Quatre designs, manufactures and installs padel courts for luxury hotels, resorts, private estates, clubs and developments. Every stage, from your first plans to the first game.</p>
+          <a class="hero-work-link" href="#projects">View our projects <span aria-hidden="true">→</span></a>
+          <p class="hero-affiliation">The official court builder for <strong>Privé Padel</strong></p>
+        </div>
+        <aside class="inquiry-card" id="project" aria-labelledby="inquiry-title">
+          <div class="inquiry-card-heading">
+            <p class="eyebrow">Project inquiries</p>
+            <h2 id="inquiry-title">Start your project.</h2>
+            <p>Tell us what you have in mind. We’ll help define the scope and next step.</p>
+          </div>
+          <noscript><p class="form-notice">Please <a href="mailto:chris@prive-padel.com?subject=Quatre%20project%20inquiry">email the Quatre team</a> with your project details, or enable JavaScript to use the inquiry form.</p></noscript>
+          <form id="project-form" action="/api/quatre-inquiry" method="post" hidden>
+            <ol class="form-progress" id="form-progress" aria-label="Inquiry steps">
+              <li data-step-indicator="1" aria-current="step"><span>01</span> Your project</li>
+              <li data-step-indicator="2"><span>02</span> Your details</li>
+            </ol>
+            <p id="form-step-label" class="sr-only" aria-live="polite">Step 1 of 2 · Your project</p>
+            <div id="form-step-project" class="form-step">
+              <div class="field"><label for="projectType">What are you building for? <span aria-hidden="true">*</span></label><select id="projectType" name="projectType" required><option value="" disabled selected>Select your property type</option><option value="development">Hotel, resort or development</option><option value="home">Private residence</option><option value="club">Country, racquet or yacht club</option><option value="other">Other</option></select></div>
+              <div class="field"><label for="location">Where is the project? <span aria-hidden="true">*</span></label><input id="location" name="location" placeholder="City, state / region, country" required maxlength="200" autocomplete="off"></div>
+              <div class="field"><label for="support">How can we help?</label><select id="support" name="support" required><option value="full_service" selected>Complete court project</option><option value="court_supply">Court design &amp; manufacturing</option><option value="installation">Site preparation &amp; installation</option><option value="consulting">Project planning &amp; consulting</option><option value="operations">Operational consulting</option><option value="not_sure">Help defining the project</option></select></div>
+              <button class="button form-next" id="form-next" type="button">Continue <span aria-hidden="true">→</span></button>
+              <p class="form-reassurance">Next: your contact details. No payment required.</p>
+            </div>
+            <div id="form-step-contact" class="form-step" hidden>
+              <div class="field"><label for="fullName">Your name <span aria-hidden="true">*</span></label><input id="fullName" name="fullName" autocomplete="name" required maxlength="120"></div>
+              <div class="field"><label for="email">Email address <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+              <div class="field"><label for="phone">Phone <span class="optional">Optional</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+              <div class="field"><label for="details">Anything else we should know? <span class="optional">Optional</span></label><textarea id="details" name="details" rows="2" maxlength="3000" placeholder="Court count, target timing, existing site…"></textarea></div>
+              <div class="field client-field"><label class="checkbox-label" for="onBehalfOfClient"><input id="onBehalfOfClient" name="onBehalfOfClient" type="checkbox">I’m representing a client</label></div>
+              <div class="field" id="company-field" hidden><label for="company">Company / role <span class="optional">Optional</span></label><input id="company" name="company" autocomplete="organization" maxlength="160"></div>
+              <div class="form-trap" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+              <p class="privacy-note">We use your details to respond to this inquiry. <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a>.</p>
+              <button class="button submit-button" type="submit">Request a project proposal <span aria-hidden="true">↗</span></button>
+              <div class="form-bottom-row"><button class="form-back" id="form-back" type="button"><span aria-hidden="true">←</span> Back</button><span>No commitment to a paid engagement.</span></div>
+            </div>
+            <p id="form-error" class="form-error" role="alert" tabindex="-1" hidden></p>
+          </form>
+          <div id="form-success" class="form-success" role="status" tabindex="-1" hidden><span class="success-symbol" aria-hidden="true">✓</span><h3>Your project starts here.</h3><p>Your inquiry has been submitted. Our team will review your plans and follow up about the next step.</p><a class="text-link" href="#projects">Explore our projects <span aria-hidden="true">↗</span></a></div>
+          <p class="direct-contact">Prefer to talk by email? <a href="mailto:chris@prive-padel.com?subject=Quatre%20project%20inquiry">Contact our team <span aria-hidden="true">↗</span></a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="experience section" id="experience" aria-labelledby="experience-title">
+      <div class="page-width">
+        <div class="experience-layout">
+          <div class="experience-copy">
+            <p class="eyebrow">The Privé connection</p>
+            <div class="experience-brand">
+              <div class="prive-logo"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" width="740" height="740" loading="lazy" decoding="async"></div>
+              <h2 id="experience-title">Built on<br>hospitality.</h2>
+            </div>
+            <p>Quatre is the official court builder for Privé Padel locations. Both companies are part of Privé Hospitality Corp, bringing court manufacturing and installation together with hospitality experience.</p>
+            <div class="astria-credential"><p><strong>Privé Padel is endorsed by Astria</strong>, Forbes Travel Guide’s preferred vendor platform. Privé’s court-building service is featured in its <a href="https://www.discoverastria.com/product/prive-padel-court-building/" target="_blank" rel="noopener noreferrer">supplier collection</a>.</p></div>
+          </div>
+          <div class="credential-list">
+            <div class="network-credential"><strong>45<span>+</span></strong><div><h3>Luxury hotel partners</h3><p>Across Privé Padel’s international network of hotels with padel.</p></div></div>
+            <div class="hotel-recognition" aria-label="Recognition of hotels within Privé Padel’s network">
+              <figure><div class="recognition-mark"><img src="https://www.lhw.com/Assets/d/images/global/logo-print.svg" alt="The Leading Hotels of the World" width="161" height="71" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><figcaption>Member hotels within<br>Privé Padel’s network</figcaption></figure>
+              <figure><div class="recognition-mark"><span class="fifty-best-mark"><img class="fifty-best-logo" src="https://www.the50.com/stories/filestore/W50BH-launch-incopy-2.png" alt="The World’s 50 Best Hotels" width="800" height="535" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span></div><figcaption>Recognized hotels within<br>Privé Padel’s network</figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="press-proof" aria-labelledby="press-title">
+          <p class="eyebrow" id="press-title">Privé Padel, as seen in</p>
+          <div class="press-logos">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451135/wwd_h75maa.png" alt="WWD" width="408" height="120" loading="lazy" decoding="async">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451123/conde-nast-traveler_chweno.png" alt="Condé Nast Traveler" width="327" height="120" loading="lazy" decoding="async">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451131/travel-and-leisure_u4tlb7.png" alt="Travel + Leisure" width="480" height="120" loading="lazy" decoding="async">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451122/goop_oohm01.png" alt="goop" width="300" height="120" loading="lazy" decoding="async">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451129/haute-living_zvofdg.png" alt="Haute Living" width="255" height="120" loading="lazy" decoding="async">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451127/observer_il47nz.png" alt="Observer" width="859" height="120" loading="lazy" decoding="async">
+            <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,h_120/v1783451130/modern-luxury-hamptons_jc2u4n.png" alt="Modern Luxury Hamptons" width="447" height="120" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects section page-width" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><div><p class="eyebrow">Selected Quatre projects</p><h2 id="projects-title">See what we build.</h2></div><p>Different properties. The same attention<br class="desktop-break"> to the court and everything around it.</p></div>
+      <div class="project-grid">
+        <figure class="project-card"><div class="project-image"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452686/miami_court_ftbrn9.png" srcset="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452686/miami_court_ftbrn9.png 800w, https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1600/v1792452686/miami_court_ftbrn9.png 1600w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1050px) 44vw, 30vw" alt="The green padel court between the illuminated buildings of THēsis Hotel Miami" width="1920" height="1080" loading="lazy" decoding="async"><span class="project-number">01 / MIAMI</span></div><figcaption><div><h3>THēsis Hotel Miami</h3><p>Coral Gables, Florida</p></div><span class="project-category">Hotel</span></figcaption></figure>
+        <figure class="project-card"><div class="project-image"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452687/montuak_ci50lv.png" srcset="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452687/montuak_ci50lv.png 800w, https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1536/v1792452687/montuak_ci50lv.png 1536w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1050px) 44vw, 30vw" alt="Two blue padel courts at Montauk Yacht Club, with seating along the central lawn" width="1536" height="1024" loading="lazy" decoding="async"><span class="project-number">02 / MONTAUK</span></div><figcaption><div><h3>Montauk Yacht Club</h3><p>Montauk, New York</p></div><span class="project-category">Yacht club</span></figcaption></figure>
+        <figure class="project-card"><div class="project-image"><img src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452254/St_Kitts_3_fduyzh.png" srcset="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_800/v1792452254/St_Kitts_3_fduyzh.png 800w, https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_1448/v1792452254/St_Kitts_3_fduyzh.png 1448w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1050px) 44vw, 30vw" alt="The padel court at Safe Harbor St. Kitts, with a glass enclosure and curved lights beside the beach" width="1448" height="1086" loading="lazy" decoding="async"><span class="project-number">03 / ST. KITTS</span></div><figcaption><div><h3>Safe Harbor St. Kitts</h3><p>St. Kitts &amp; Nevis</p></div><span class="project-category">Yacht club</span></figcaption></figure>
+      </div>
+      <div class="project-next"><p>What could padel look like at your property?</p><a class="text-link" href="#project">Request a project proposal <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="services section" id="services" aria-labelledby="services-title">
+      <div class="page-width services-layout">
+        <div class="section-intro"><p class="eyebrow">One partner. Every stage.</p><h2 id="services-title">You bring<br>the vision.<br><span>We build<br>the court.</span></h2><p>Bring us an idea, a planned development or a site ready to build. We’ll shape the right scope for your project.</p><a class="button" href="#project" data-support="full_service">Request a project proposal <span aria-hidden="true">↗</span></a></div>
+        <div class="service-grid">
+          <article class="service"><div class="service-top"><span class="service-number">01</span><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26h20M8 22 22 8l4 4-14 14H8v-4ZM19 11l4 4M6 6h8M6 6v8"/></svg></div><h3>Plan &amp; specify</h3><p>Site assessment, court layouts, property integration and preliminary budgets. A clear brief for the decisions ahead.</p><a class="text-link" href="#project" data-support="consulting">Discuss project planning <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><div class="service-top"><span class="service-number">02</span><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m16 4 11 6v12l-11 6-11-6V10l11-6Zm0 12v12M5 10l11 6 11-6M10.5 7l11 6v6"/></svg></div><h3>Design &amp; manufacture</h3><p>Courts manufactured to your project specification, with configuration, playing surfaces, finishes and branding considered together.</p><a class="text-link" href="#project" data-support="court_supply">Discuss court manufacturing <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><div class="service-top"><span class="service-number">03</span><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 7h22v18H5V7Zm11 0v18M5 16h22M5 11h5v10H5m22-10h-5v10h5"/></svg></div><h3>Deliver &amp; install</h3><p>Court logistics, site preparation and installation, coordinated with your team through the supporting works and handover.</p><a class="text-link" href="#project" data-support="installation">Discuss your installation <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><div class="service-top"><span class="service-number">04</span><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26V7m0 19h21M11 20l6-7 5 3 5-9M21 7h6v6"/></svg></div><h3>Prepare for play</h3><p>Operational guidance on court care, programming and the guest or member experience, with Privé Padel services available for hospitality projects.</p><a class="text-link" href="#project" data-support="operations">Discuss court operations <span aria-hidden="true">↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="property-section section page-width" aria-labelledby="property-title">
+      <div class="section-heading"><div><p class="eyebrow">Your property. Your project.</p><h2 id="property-title">Built to belong.</h2></div><p>Tell us where you want to play.<br class="desktop-break"> We’ll take it from there.</p></div>
+      <div class="property-grid">
+        <a class="property-choice" href="#project" data-project-type="development"><span class="property-index">01 / HOSPITALITY</span><h3>Hotels, resorts<br>&amp; developments</h3><p>Connect padel to the property's design, guest experience and daily operations.</p><span class="property-action">Plan a hospitality project <span aria-hidden="true">↗</span></span></a>
+        <a class="property-choice" href="#project" data-project-type="home"><span class="property-index">02 / RESIDENTIAL</span><h3>Private homes<br>&amp; estates</h3><p>A court considered around your setting, playing preferences and available space.</p><span class="property-action">Plan a private court <span aria-hidden="true">↗</span></span></a>
+        <a class="property-choice" href="#project" data-project-type="club"><span class="property-index">03 / MEMBERSHIP</span><h3>Country, racquet<br>&amp; yacht clubs</h3><p>Expand the member experience with a court that fits your club's facilities and character.</p><span class="property-action">Plan a club project <span aria-hidden="true">↗</span></span></a>
+      </div>
+    </section>
+
+    <section class="faq section page-width" id="questions" aria-labelledby="faq-title">
+      <div class="faq-intro"><p class="eyebrow">Before you build</p><h2 id="faq-title">Good questions.<br>Clear next steps.</h2><p>Every property is different. Here’s how we get your project moving.</p><a class="text-link" href="#project">Ask about your project <span aria-hidden="true">↗</span></a></div>
+      <div class="faq-list">
+        <details open><summary>What determines the cost of a court project?<span aria-hidden="true">+</span></summary><div><p>Court quantity and configuration, site conditions, supporting works, delivery location and installation requirements all inform the proposal. Share your property details so we can define the scope and prepare the right next step.</p></div></details>
+        <details><summary>Can Quatre handle the complete project?<span aria-hidden="true">+</span></summary><div><p>Yes. Our services cover planning, court manufacturing, logistics, site preparation, installation and operational consulting. The proposal sets out your court specifications, supporting works and project responsibilities.</p></div></details>
+        <details><summary>Can an existing tennis court be converted?<span aria-hidden="true">+</span></summary><div><p>We can assess an existing court or sports surface as part of project planning. The available area, surface condition, base requirements and local project requirements determine the suitable approach.</p></div></details>
+        <details><summary>Do I need a finished design to get started?<span aria-hidden="true">+</span></summary><div><p>You can come to us with an early idea or a project ready for a court proposal. If you need feasibility or detailed planning work, we agree a paid consulting scope and upfront fee before that work begins. An inquiry does not commit you to a paid engagement.</p></div></details>
+        <details><summary>Can you work with our architect or builder?<span aria-hidden="true">+</span></summary><div><p>Yes. We work with property teams, architects, builders and project managers to integrate the court with the wider development. <a href="#project" data-client-project>Tell us about your client’s project.</a></p></div></details>
+      </div>
+    </section>
+
+    <section class="closing-cta" aria-labelledby="closing-title"><div class="page-width"><div><p class="eyebrow">Let’s put your project in play</p><h2 id="closing-title">Your court<br>starts here.</h2></div><div><p>A private court. A new club amenity.<br>A destination for your guests.</p><a class="button button-dark" href="#project">Request a project proposal <span aria-hidden="true">↗</span></a><a class="closing-client" href="#project" data-client-project>Planning for a client? Start here <span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="page-width footer-inner"><a class="wordmark" href="/quatre" aria-label="Quatre Padel Courts home"><img class="brand-logo" src="https://res.cloudinary.com/dfjqa5f05/image/upload/f_auto,q_auto,w_480/v1792454639/Quatre_Padel_Courts_logo_in_forest_green_dlzphv.png" alt="Quatre Padel Courts" width="1922" height="818" loading="lazy" decoding="async"></a><p>A Privé Hospitality Corp company.<br>The official court builder for Privé Padel.</p><div><a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy</a><a href="mailto:chris@prive-padel.com?subject=Quatre%20project%20inquiry">Contact our team <span aria-hidden="true">↗</span></a></div></div></footer>
+  <a class="mobile-project-cta" id="mobile-project-cta" href="#project" hidden>Request a project proposal <span aria-hidden="true">↗</span></a>
+</body>
+</html>
