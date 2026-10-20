@@ -65,7 +65,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-copy { padding-block: 12px; }
 .hero-copy .eyebrow { color: var(--gold-light); font-size: 10px; margin-bottom: 28px; }
 .hero h1 { font-family: var(--display); font-size: clamp(54px, 5.3vw, 78px); font-weight: 400; letter-spacing: -.035em; line-height: 1.07; font-optical-sizing: auto; }
-.hero h1 > span { color: var(--gold-light); font-style: italic; }
+.hero h1 > span { color: var(--gold-light); font-style: normal; }
 .hero-description { font-size: 15px; line-height: 1.9; color: #e2e6df; max-width: 465px; margin-top: 28px; }
 .hero-work-link { display: inline-flex; align-items: center; gap: 29px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.5); font-size: 12px; font-weight: 500; margin-top: 28px; }
 .hero-work-link > span { font-size: 19px; }
@@ -98,7 +98,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .form-next { margin-top: 5px; }
 .form-reassurance { font-size: 9px; color: var(--muted); text-align: center; margin-top: 11px; line-height: 1.6; }
 .form-bottom-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 11px; }
-.form-bottom-row > span { font-size: 8px; line-height: 1.6; color: var(--muted); text-align: right; }
 .form-back { border: 0; background: none; color: var(--ink); padding: 5px 0; font-size: 11px; white-space: nowrap; }
 .form-back > span { margin-right: 4px; }
 .form-back:disabled { cursor: wait; opacity: .6; }
@@ -116,7 +115,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .direct-contact a { font-weight: 700; color: var(--ink); }
 .direct-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; margin-bottom: 38px; }
-.section-heading .eyebrow, .section-intro > .eyebrow, .experience-copy > .eyebrow, .faq-intro > .eyebrow { margin-bottom: 18px; color: var(--gold-dark); }
+.section-heading .eyebrow, .section-intro > .eyebrow, .faq-intro > .eyebrow { margin-bottom: 18px; color: var(--gold-dark); }
 .section-heading > p { font-size: 13px; color: var(--muted); line-height: 1.8; padding-bottom: 3px; }
 .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .project-image { position: relative; overflow: hidden; aspect-ratio: 1.3; background: var(--off-white); }
@@ -135,7 +134,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .services { background: var(--off-white); border-block: 1px solid var(--line); }
 .services-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 95px; }
 .section-intro h2 { font-size: clamp(46px, 4.8vw, 67px); letter-spacing: -.025em; line-height: 1.07; }
-.section-intro h2 > span { color: #687967; font-style: italic; }
+.section-intro h2 > span { color: #687967; font-style: normal; }
 .section-intro > p:not(.eyebrow) { font-size: 13px; color: var(--muted); max-width: 315px; margin-top: 26px; line-height: 1.85; }
 .section-intro > .button { margin-top: 27px; font-size: 12px; }
 .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 39px 34px; }
@@ -156,38 +155,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .property-choice p { font-size: 12px; line-height: 1.85; color: var(--muted); margin-top: 17px; margin-bottom: 28px; max-width: 315px; }
 .property-action { display: flex; align-items: center; justify-content: space-between; gap: 13px; margin-top: auto; width: 100%; font-size: 11px; font-weight: 700; padding-top: 21px; border-top: 1px solid var(--line); }
 .property-action > span { font-size: 20px; font-weight: 500; }
-.experience { background: var(--ivory); color: var(--ink); border-bottom: 1px solid var(--line); padding-block: 62px 44px; }
-.experience-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
-.experience-copy > .eyebrow { color: var(--gold-dark); margin-bottom: 16px; }
-.experience-brand { display: flex; align-items: center; gap: 29px; margin-bottom: 20px; }
-.prive-logo { position: relative; display: block; width: 116px; height: 91px; overflow: hidden; flex-shrink: 0; }
-.prive-logo img { position: absolute; width: 173px; max-width: none; height: 173px; left: -28px; top: -35px; object-fit: contain; }
-.experience h2 { font-size: clamp(32px, 3vw, 42px); letter-spacing: -.025em; line-height: 1.12; }
-.experience-copy > p:not(.eyebrow) { color: var(--muted); font-size: 13px; line-height: 1.9; max-width: 505px; }
-.astria-credential { margin-top: 19px; padding-top: 17px; border-top: 1px solid var(--line); }
-.astria-credential p { font-size: 11px; line-height: 1.85; color: var(--muted); max-width: 465px; }
-.astria-credential strong { font-weight: 600; color: var(--ink); }
+.experience { background: var(--ivory); color: var(--ink); border-bottom: 1px solid var(--line); padding-block: 64px 38px; }
+.experience-layout { max-width: 1080px; margin-inline: auto; }
+.experience-overview { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: center; gap: 40px; }
+.prive-logo { position: relative; display: block; width: 100px; height: 79px; overflow: hidden; }
+.prive-logo img { position: absolute; width: 149px; max-width: none; height: 149px; left: -24px; top: -30px; object-fit: contain; }
+.experience h2 { font-size: clamp(32px, 3vw, 42px); letter-spacing: -.025em; line-height: 1.15; margin-bottom: 15px; }
+.experience-copy > p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+.experience-copy > .astria-credential { margin-top: 5px; font-size: 13px; }
 .astria-credential a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .astria-credential a:hover { color: var(--gold-dark); }
-.network-credential { display: flex; align-items: center; gap: 27px; }
-.network-credential > strong { font-family: var(--display); flex-shrink: 0; font-size: 77px; letter-spacing: -.065em; font-weight: 400; line-height: 1; color: var(--ink); }
-.network-credential > strong > span { font-size: 37px; vertical-align: top; line-height: 1.3; letter-spacing: 0; }
-.network-credential h3 { font-size: 16px; line-height: 1.4; font-weight: 500; }
-.network-credential p { font-size: 11px; color: var(--muted); margin-top: 5px; line-height: 1.8; }
-.hotel-recognition { display: grid; grid-template-columns: 1fr 1fr; margin-top: 22px; border-top: 1px solid var(--line); padding-top: 22px; gap: 25px; }
-.hotel-recognition figure { text-align: center; }
-.hotel-recognition figure + figure { border-left: 1px solid var(--line); padding-left: 25px; }
-.recognition-mark { height: 96px; display: flex; justify-content: center; align-items: center; }
-.recognition-mark img { width: 146px; height: 66px; object-fit: contain; }
-.fifty-best-mark { position: relative; display: block; width: 82px; height: 96px; overflow: hidden; }
-.recognition-mark .fifty-best-logo { position: absolute; width: 196px; max-width: none; height: auto; left: -57px; top: -17px; mix-blend-mode: multiply; }
-.hotel-recognition figcaption { max-width: 195px; margin: 12px auto 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
-.press-proof { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 25px; }
-.press-proof > .eyebrow { text-align: center; color: var(--muted); font-size: 9px; margin-bottom: 24px; }
-.press-logos { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); align-items: center; gap: 30px; }
-.press-logos img { width: 100%; max-width: 135px; height: 33px; object-fit: contain; justify-self: center; }
-.press-logos img:nth-child(1), .press-logos img:nth-child(4) { max-width: 86px; }
-.press-logos img:nth-child(5) { max-width: 90px; }
+.experience-network { display: grid; grid-template-columns: minmax(0, 1fr) 238px; gap: 48px; align-items: center; margin: 30px 0 0 140px; }
+.experience-network > p { font-size: 13px; line-height: 1.85; color: var(--muted); max-width: 590px; }
+.experience-network strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.hotel-recognition { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+.recognition-mark { display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+.recognition-mark img { width: 140px; height: 62px; object-fit: contain; }
+.fifty-best-mark { position: relative; display: block; width: 58px; height: 68px; overflow: hidden; }
+.recognition-mark .fifty-best-logo { position: absolute; width: 139px; max-width: none; height: auto; left: -40px; top: -12px; mix-blend-mode: multiply; }
+.press-proof { margin-top: 38px; border-top: 1px solid var(--line); padding-top: 26px; }
+.press-proof > .eyebrow { text-align: center; color: var(--muted); font-size: 9px; margin-bottom: 22px; }
+.press-logos { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); align-items: center; gap: 30px; max-width: 1160px; margin-inline: auto; }
+.press-logos img { width: 100%; max-width: 125px; height: 28px; object-fit: contain; justify-self: center; }
+.press-logos img:nth-child(1), .press-logos img:nth-child(4) { max-width: 80px; }
+.press-logos img:nth-child(5) { max-width: 85px; }
 .faq { display: grid; grid-template-columns: .85fr 1.15fr; gap: 105px; }
 .faq h2 { font-size: clamp(34px, 3.5vw, 48px); }
 .faq-intro > p:not(.eyebrow) { font-size: 13px; line-height: 1.85; color: var(--muted); margin-top: 24px; max-width: 320px; }
@@ -232,9 +223,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .project-category { display: none; }
   .property-choice { padding: 25px; }
   .property-choice h3 { font-size: 23px; }
-  .experience-layout, .faq, .closing-cta > div { gap: 65px; }
-  .network-credential { gap: 23px; }
-  .network-credential > strong { font-size: 70px; }
+  .faq, .closing-cta > div { gap: 65px; }
+  .experience-network { gap: 32px; }
 }
 @media (max-width: 900px) {
   .header-inner { min-height: 78px; }
@@ -260,12 +250,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .property-choice { padding: 20px; }
   .property-choice h3 { font-size: 21px; }
   .property-action { font-size: 10px; }
-  .experience-layout { gap: 40px; }
-  .experience-brand { gap: 20px; }
-  .experience h2 { font-size: 32px; }
-  .hotel-recognition { gap: 15px; }
-  .hotel-recognition figure + figure { padding-left: 15px; }
-  .recognition-mark img { width: 125px; height: 60px; }
+  .experience { padding-block: 48px 34px; }
+  .experience-overview { grid-template-columns: 90px minmax(0, 1fr); gap: 30px; }
+  .prive-logo { transform: scale(.9); transform-origin: left center; }
+  .experience h2 { font-size: 34px; }
+  .experience-network { grid-template-columns: minmax(0, 1fr) 215px; gap: 30px; margin-left: 120px; }
+  .hotel-recognition { gap: 25px; }
+  .recognition-mark img { width: 130px; height: 58px; }
   .press-logos { gap: 22px; }
   .faq { gap: 45px; }
   .faq h2 { font-size: 35px; }
@@ -300,12 +291,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .field .checkbox-label { font-size: 12px; }
   .form-step .button { min-height: 49px; font-size: 12px; }
   .form-reassurance, .privacy-note { font-size: 10px; }
-  .form-bottom-row > span { font-size: 8px; max-width: 190px; }
   .direct-contact { font-size: 10px; }
   .form-error { font-size: 12px; }
   .section { padding-block: 57px; }
   .section-heading { display: block; margin-bottom: 27px; }
-  .section-heading .eyebrow, .section-intro > .eyebrow, .experience-copy > .eyebrow, .faq-intro > .eyebrow { font-size: 10px; margin-bottom: 16px; }
+  .section-heading .eyebrow, .section-intro > .eyebrow, .faq-intro > .eyebrow { font-size: 10px; margin-bottom: 16px; }
   .section-heading h2 { font-size: 36px; }
   .section-heading > p { font-size: 13px; max-width: 340px; margin-top: 19px; }
   .project-grid { grid-template-columns: 1fr; gap: 31px; }
@@ -334,23 +324,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .property-choice h3 { font-size: 28px; }
   .property-choice p { font-size: 13px; margin-top: 15px; margin-bottom: 22px; max-width: 400px; }
   .property-action { font-size: 12px; padding-top: 17px; }
-  .experience-layout { grid-template-columns: 1fr; gap: 35px; }
-  .experience { padding-block: 42px 35px; }
-  .experience-copy > .eyebrow { margin-bottom: 19px; }
-  .experience-brand { gap: 25px; margin-bottom: 20px; }
-  .experience h2 { font-size: 36px; }
-  .experience-copy > p:not(.eyebrow) { font-size: 13px; }
-  .credential-list { border-top: 1px solid var(--line); padding-top: 27px; }
-  .hotel-recognition { margin-top: 20px; padding-top: 21px; }
-  .recognition-mark img { width: 132px; height: 63px; }
-  .press-proof { margin-top: 28px; padding-top: 23px; }
-  .press-proof > .eyebrow { font-size: 9px; margin-bottom: 23px; }
-  .press-logos { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 23px 22px; }
-  .press-logos img { height: 26px; }
-  .network-credential { display: flex; gap: 26px; }
-  .network-credential > strong { font-size: 70px; }
-  .network-credential > strong > span { font-size: 32px; }
-  .network-credential p { font-size: 11px; }
+  .experience { padding-block: 40px 32px; }
+  .experience-overview { grid-template-columns: 1fr; gap: 22px; }
+  .prive-logo { transform: none; }
+  .experience h2 { font-size: 35px; max-width: 470px; margin-bottom: 16px; }
+  .experience-copy > p { font-size: 14px; }
+  .experience-copy > .astria-credential { margin-top: 10px; font-size: 13px; }
+  .experience-network { grid-template-columns: 1fr; gap: 22px; margin: 27px 0 0; }
+  .experience-network > p { max-width: 470px; }
+  .hotel-recognition { justify-content: flex-start; gap: 44px; }
+  .recognition-mark img { width: 140px; height: 62px; }
+  .press-proof { margin-top: 30px; padding-top: 24px; }
+  .press-proof > .eyebrow { font-size: 9px; margin-bottom: 22px; }
+  .press-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 22px; }
+  .press-logos img { width: calc((100% - 44px) / 3); max-width: 120px; height: 25px; }
+  .press-logos img:nth-child(1), .press-logos img:nth-child(4), .press-logos img:nth-child(5) { max-width: 80px; }
   .faq { grid-template-columns: 1fr; gap: 31px; }
   .faq h2 { font-size: 36px; }
   .faq-intro > p:not(.eyebrow) { font-size: 14px; margin-top: 19px; max-width: 420px; }
@@ -382,13 +370,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .service .text-link { font-size: 11px; }
   .project-card h3 { font-size: 19px; }
   .project-category { font-size: 7px; padding: 4px; }
-  .network-credential { gap: 19px; }
-  .network-credential > strong { font-size: 60px; }
-  .experience-brand { gap: 17px; }
   .experience h2 { font-size: 33px; }
-  .press-logos { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 25px 22px; }
-  .press-logos img:last-child { grid-column: 2; }
-  .network-credential p { font-size: 11px; }
+  .press-logos { gap: 24px 18px; }
+  .press-logos img { width: calc((100% - 36px) / 3); }
   .header-cta { font-size: 9px; gap: 10px; padding-inline: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
