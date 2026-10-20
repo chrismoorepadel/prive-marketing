@@ -10,7 +10,7 @@ The customer-facing copy uses a company/team identity. The existing business mai
 
 ## Design and acquisition journey
 
-Quatre has a separate visual identity from the Privé marketing site, guided by its supplied logo: forest green (`#132924`), gold (`#D4A72A`) and warm ivory, with Manrope typography, a bold product headline, project imagery and a proposal CTA. The original transparent logo appears on light header and footer surfaces with its complete lockup and aspect ratio preserved. Small gold corner details on the inquiry and project photography echo the logo's frame. Primary buttons use white text on forest green; light gold highlights are reserved for dark sections, and small gold-toned text on light backgrounds uses a darker shade for legibility. Its stylesheet and script are scoped to this page and do not import the Privé site styles. No new software service or package dependency is introduced. The brand refinement preserves the approved content, section order and two-step inquiry flow.
+Quatre has a separate visual identity from the Privé marketing site, guided by its supplied logo: forest green (`#132924`), gold (`#D4A72A`) and warm ivory. Newsreader serif display headings and Manrope body/UI text give the page a more restrained hospitality presentation. The hero uses sentence case, lighter type and a small manufacturing/building positioning line; buttons remain clear and do not jump on hover. The original transparent Quatre logo appears on light header and footer surfaces with its complete lockup and aspect ratio preserved. Thin gold corner details on the inquiry and project photography echo the logo's frame. Primary buttons use white text on forest green; light gold highlights are reserved for the dark hero, and small gold-toned text on light backgrounds uses a darker shade for legibility. Its stylesheet and script are scoped to this page and do not import the Privé site styles. No new software service or package dependency is introduced.
 
 Logo source supplied by the business owner:
 
@@ -18,7 +18,7 @@ Logo source supplied by the business owner:
 
 The logo is a 1922 × 818 transparent PNG. The page uses a Cloudinary format/quality variant at 480px width for both placements. It is not cropped, recolored or recreated; explicit dimensions reserve its space. Logo widths adapt to the existing desktop and mobile header sizes.
 
-The page order is an image-led hero with a two-step inquiry, selected project photographs, the complete service offering, property-specific entry points, the Privé relationship and credentials, practical project FAQs, and a final proposal CTA. The core action is to request a project proposal. Property/service links prefill the same inquiry; architect/builder links select client representation. A mobile proposal CTA appears while the inquiry is offscreen and hides when the inquiry is visible or has succeeded. It leaves bottom space at the footer and respects the device safe area.
+The page order is an image-led hero with a two-step inquiry, an early Privé relationship and social-proof section, selected Quatre project photographs, the complete service offering, property-specific entry points, practical project FAQs, and a final proposal CTA. The Privé section appears directly after the hero and is linked from the main navigation. It replaces the later dark credential section and the redundant capability strip. The approved project, service, property-choice, FAQ and form markup remains intact. The core action is to discuss a project and request a proposal. Property/service links prefill the same inquiry; architect/builder links select client representation. A mobile proposal CTA appears while the inquiry is offscreen and hides when the inquiry is visible or has succeeded. It leaves bottom space at the footer and respects the device safe area.
 
 The user supplied these three project image sources for this redesign:
 
@@ -26,7 +26,17 @@ The user supplied these three project image sources for this redesign:
 - Montauk: `https://res.cloudinary.com/dfjqa5f05/image/upload/v1792452687/montuak_ci50lv.png`
 - St. Kitts: `https://res.cloudinary.com/dfjqa5f05/image/upload/v1792452254/St_Kitts_3_fduyzh.png`
 
-The page references those assets through Cloudinary format/quality/width variants with responsive source sets. The Miami hero has loading priority; the three project images load lazily. Source artwork is not altered. Image dimensions reserve layout space. The Manrope stylesheet comes from Google Fonts, with system sans-serif fallbacks.
+The page references those assets through Cloudinary format/quality/width variants with responsive source sets. The Miami hero has loading priority; the three project images load lazily. Source artwork is not altered. Image dimensions reserve layout space. Manrope and Newsreader come from Google Fonts, with system sans-serif and serif fallbacks. Newsreader is used at weight 400 in normal and italic styles with optical sizing.
+
+## Social-proof assets
+
+The early Privé section uses its actual dark logo and the exact seven press assets already referenced by the site's root `index.html`: WWD, Condé Nast Traveler, Travel + Leisure, goop, Haute Living, Observer and Modern Luxury Hamptons. The press row is explicitly headed **Privé Padel, as seen in**. The homepage provides no coverage links for these logo images, so the row retains its existing non-linked presentation.
+
+- Privé logo: `https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png`
+- The Leading Hotels of the World: `https://www.lhw.com/Assets/d/images/global/logo-print.svg`, the standalone original vector referenced by its official homepage.
+- The World's 50 Best Hotels: `https://www.the50.com/stories/filestore/W50BH-launch-incopy-2.png`, the original year-free black/gold artwork in the organizer's [brand-launch article](https://www.the50.com/stories/News/the-worlds-50-best-hotels-launching-2023.html).
+
+The two hotel-organization marks have adjacent captions identifying member or recognized hotels within Privé Padel's network. The supplied Privé asset has large transparent margins, and the 50 Best asset has white margins. CSS accounts for that whitespace while keeping the complete artwork and original aspect ratios visible. The 50 Best image uses multiply blending on ivory to integrate its white background. All social-proof images have descriptive alt text, explicit intrinsic dimensions and lazy loading. No logo was recreated or AI-generated.
 
 ## Brand relationships and claim scope
 
@@ -34,7 +44,7 @@ Privé Hospitality Corp owns Quatre Padel Courts and Privé Padel. Quatre is the
 
 The 45+ figure is explicitly labeled as Privé Padel's hotel partnership network. It is not an installation count or a claim that Privé operates every partner hotel's courts. Recognition by The World's 50 Best Hotels and membership of The Leading Hotels of the World describe hotels within that network.
 
-The Astria credential is attributed to Privé Padel. Astria's public account carries the endorsement announcement, its supplier collection directly lists Privé Padel Court Building, and Forbes Travel Guide describes Astria as its preferred vendor platform. The page does not assert a Quatre Star Rating, an exclusive category appointment or an Official Brand designation. External organization logos are not used.
+The Astria credential is attributed to Privé Padel. Astria's public account carries the endorsement announcement, its supplier collection directly lists Privé Padel Court Building, and Forbes Travel Guide describes Astria as its preferred vendor platform. The page does not assert a Quatre Star Rating, an exclusive category appointment or an Official Brand designation. Press logos describe Privé coverage; LHW and 50 Best logos describe recognition of hotels within its network. They are not presented as Quatre memberships, awards, direct endorsement or a count of Quatre installations.
 
 Brand references:
 
@@ -82,7 +92,7 @@ For launch:
 
 `node --test test/quatre-inquiry.test.js` exercises the real handler with mocked email transport. It covers successful acceptance, invalid fields and JSON, origin restrictions, field lengths, header/HTML injection, honeypot handling, missing configuration, uncertain provider responses, provider throttling and duplicate retry behavior. `npm test` also runs the repository's existing measurement contract checks.
 
-Browser verification should cover desktop and mobile layouts, the supplied images and new fonts, keyboard access, both inquiry steps, Back and Enter behavior, hidden-field validation, service/project preselection, the client representative field, pending duplicate suppression, submission success and failure, stable request IDs on retries, and mobile CTA visibility. All local email requests must remain mocked. The visual checks alone do not establish conversion performance; assess that using real campaign inquiries after launch.
+Browser verification should cover desktop and mobile layouts, the supplied images and new fonts, keyboard access, both inquiry steps, Back and Enter behavior, hidden-field validation, service/project preselection, the client representative field, pending duplicate suppression, submission success and failure, stable request IDs on retries, and mobile CTA visibility. For the hospitality design refinement, local checks at 320, 375, 768, 1024 and 1440px confirmed the Newsreader font, no horizontal overflow or header overlap, and no missing resources or page errors. The actual ten social-proof images loaded; their captions and complete artwork were reviewed on desktop and mobile. The contact step was visually checked, and source comparison confirmed the inquiry form and project/service/property/FAQ markup were preserved. No inquiry behavior changed in this refinement, and no live email was sent. All local email requests must remain mocked. The visual checks alone do not establish conversion performance; assess that using real campaign inquiries after launch.
 
 External references:
 
