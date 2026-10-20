@@ -3,7 +3,7 @@
 // Retry the same inquiryId AND payload. Resend retains idempotency keys
 // for 24 hours; this endpoint is not a durable inquiry database.
 
-const TEAM = 'chris@prive-padel.com';
+const TEAM = 'chris@quatrepadelcourts.com';
 const SEND_TIMEOUT_MS = 8000;
 const MAX_BODY_BYTES = 32 * 1024;
 const PROJECTS = {

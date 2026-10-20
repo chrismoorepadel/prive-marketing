@@ -5,7 +5,7 @@ import handler from '../api/quatre-inquiry.js';
 const ENV_NAMES = ['RESEND_API_KEY', 'RESEND_FROM', 'VERCEL_URL', 'VERCEL_BRANCH_URL', 'VERCEL_PROJECT_PRODUCTION_URL'];
 const savedEnv = Object.fromEntries(ENV_NAMES.map(name => [name, process.env[name]]));
 const realFetch = globalThis.fetch;
-const TEAM = 'chris@prive-padel.com';
+const TEAM = 'chris@quatrepadelcourts.com';
 const ID = '9d7bd616-7cab-4aa4-b4ce-0b361a068ec8';
 let calls;
 let deliveryLogs;
