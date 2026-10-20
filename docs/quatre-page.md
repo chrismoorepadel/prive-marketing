@@ -6,7 +6,7 @@
 
 Four service groups cover project planning and specification, court design and manufacturing, site preparation and installation, and operational consulting. The inquiry form accepts a complete court project, any of those four services, or help defining the project. Early-stage paid consulting has a scope and upfront fee agreed before work begins. Buyers may request a complete project or court proposal directly; submitting the form is not a paid engagement.
 
-The customer-facing copy uses a company/team identity. The existing business mailbox remains the delivery and mailto destination, with a generic visible contact label. The header and footer use the supplied Quatre Padel Courts logo.
+The customer-facing copy uses a company/team identity. The delivery and mailto destination is `chris@quatrepadelcourts.com`, a verified alias delivering into the existing business Gmail inbox, with a generic visible contact label. The header and footer use the supplied Quatre Padel Courts logo.
 
 ## Design and acquisition journey
 
@@ -56,7 +56,9 @@ The page has its own stylesheet and script, with no change to the Passport appli
 
 ## Inquiry flow
 
-`quatre.html` → `js/quatre.js` → `POST /api/quatre-inquiry` → existing Resend account → team notification to `chris@prive-padel.com` → an on-page confirmation.
+`quatre.html` → `js/quatre.js` → `POST /api/quatre-inquiry` → existing Resend account → team notification to `chris@quatrepadelcourts.com` → an on-page confirmation.
+
+The direct contact links, no-JavaScript fallback and API delivery-error messages use the same Quatre address. The alias was verified in Gmail on 2026-10-20 and receives mail in the existing `chris@prive-padel.com` inbox. Changing the destination does not change the Resend sender or require another mailbox.
 
 The visitor's address is the notification's reply-to address. The endpoint sends one notification to the fixed team address. It does not send a visitor confirmation, subscribe the visitor to marketing, or create a CRM record.
 
