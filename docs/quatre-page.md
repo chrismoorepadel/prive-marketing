@@ -6,11 +6,17 @@
 
 Four service groups cover project planning and specification, court design and manufacturing, site preparation and installation, and operational consulting. The inquiry form accepts a complete court project, any of those four services, or help defining the project. Early-stage paid consulting has a scope and upfront fee agreed before work begins. Buyers may request a complete project or court proposal directly; submitting the form is not a paid engagement.
 
-The customer-facing copy uses a company/team identity. The existing business mailbox remains the delivery and mailto destination, with a generic visible contact label. The wordmark is live text.
+The customer-facing copy uses a company/team identity. The existing business mailbox remains the delivery and mailto destination, with a generic visible contact label. The header and footer use the supplied Quatre Padel Courts logo.
 
 ## Design and acquisition journey
 
-Quatre has a separate visual identity from the Privé marketing site: Manrope typography, a charcoal/white palette with a court-green accent, a bold product headline, project imagery and a proposal CTA. Its stylesheet and script are scoped to this page and do not import the Privé site styles. No new software service or package dependency is introduced.
+Quatre has a separate visual identity from the Privé marketing site, guided by its supplied logo: forest green (`#132924`), gold (`#D4A72A`) and warm ivory, with Manrope typography, a bold product headline, project imagery and a proposal CTA. The original transparent logo appears on light header and footer surfaces with its complete lockup and aspect ratio preserved. Small gold corner details on the inquiry and project photography echo the logo's frame. Primary buttons use white text on forest green; light gold highlights are reserved for dark sections, and small gold-toned text on light backgrounds uses a darker shade for legibility. Its stylesheet and script are scoped to this page and do not import the Privé site styles. No new software service or package dependency is introduced. The brand refinement preserves the approved content, section order and two-step inquiry flow.
+
+Logo source supplied by the business owner:
+
+- `https://res.cloudinary.com/dfjqa5f05/image/upload/v1792454639/Quatre_Padel_Courts_logo_in_forest_green_dlzphv.png`
+
+The logo is a 1922 × 818 transparent PNG. The page uses a Cloudinary format/quality variant at 480px width for both placements. It is not cropped, recolored or recreated; explicit dimensions reserve its space. Logo widths adapt to the existing desktop and mobile header sizes.
 
 The page order is an image-led hero with a two-step inquiry, selected project photographs, the complete service offering, property-specific entry points, the Privé relationship and credentials, practical project FAQs, and a final proposal CTA. The core action is to request a project proposal. Property/service links prefill the same inquiry; architect/builder links select client representation. A mobile proposal CTA appears while the inquiry is offscreen and hides when the inquiry is visible or has succeeded. It leaves bottom space at the footer and respects the device safe area.
 
