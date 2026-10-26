@@ -271,7 +271,7 @@ These were settled in conversation and exist only in code and commit messages:
 
 1. **"Privé Locations", not "Privé Clubs."** The newer copy had drifted to Clubs; `/passport` was renamed back. `/locations` keeps the Locations name.
 2. **Venue allowance is four visits per *month*.** An earlier instruction said per year and every surface was changed to match, then reverted. Per month is correct — 8 mentions across three pages.
-3. **Member court rates differ per club and appear only on `/locations`:** Miami 20% off, Montauk 50% off. `/miami` states its own 20%. The shared tier copy says "member pricing" because one rate can't cover both.
+3. **Member court rates differ per club and appear only on `/locations`:** Miami 25% off, Montauk 50% off. `/miami` states its own 25%. The shared tier copy says "member pricing" because one rate can't cover both.
 4. **Partner-club access is member pricing, not free play.** Booking is arranged between the hotel concierge and the Privé Passport team. An earlier draft claimed "no court fee" — that was wrong and is corrected.
 5. **Cards only on non-cream surfaces.** Cream sections stay editorial — hairlines, no containers. Tiles and cards belong on dark or sand. This is why the homepage stat row was rebuilt as a hairline strip, then cut entirely.
 6. **`--gold-ink` (#7E6135) for gold set as type.** `#B8976A` measures ~2.4:1 on cream — fine as a rule or icon, unreadable as text. Lives in `main.css :root`.
