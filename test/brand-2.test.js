@@ -126,3 +126,25 @@ test('every property page is in the sitemap and linked from the destinations gri
   for (const d of DESTINATIONS) assert.ok(sitemap.includes(`<loc>https://prive-padel.com/destinations/${d.id}</loc>`), d.id);
   assert.match(read('passport/destinations.html'), /card\.href = '\/destinations\/' \+ d\.id \+ '\.html';/);
 });
+
+/* ── clubs and flagship pages ── */
+
+test('Clubs lists Beach Enclave with placeholders, never a guessed date or logo', () => {
+  const html = read('locations.html');
+  assert.match(html, /Privé Padel at Beach Enclave, <em>Turks and Caicos\.<\/em>/);
+  assert.match(html, /<div class="loc-status">Opening [^<]+<\/div>/);
+});
+
+test('Montauk and Miami heroes carry the place name in caps-serif', () => {
+  assert.match(read('montauk.html'), /<h1 class="club-hero-name caps-serif">Privé Montauk<\/h1>/);
+  assert.match(read('miami.html'), /<h1 class="club-hero-name caps-serif">Privé Miami<\/h1>/);
+  assert.match(read('montauk.html'), /<footer>/);
+});
+
+test('every Playtomic link on a public page says "Book on Playtomic"', () => {
+  for (const page of PAGES) {
+    for (const m of read(page).matchAll(/<a href="https:\/\/playtomic\.com\/[^"]*"[^>]*>([^<]*)<\/a>/g)) {
+      assert.equal(m[1], 'Book on Playtomic', `${page}: ${m[0]}`);
+    }
+  }
+});

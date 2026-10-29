@@ -3499,3 +3499,31 @@ nav.nav-dark .nav-hamburger span { background: var(--ink); }
     padding-top: 30px;
   }
 }
+
+/* Brand 2.0 — flagship heroes and the co-brand lockup */
+.club-hero-seal{display:block;height:44px;width:auto;opacity:.9;margin-bottom:22px;}
+.club-hero-name{font-size:clamp(30px,4.4vw,58px);color:var(--cream);margin:0 0 22px;}
+.club-hero-upsell{font-family:'Jost',sans-serif;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--eyebrow);margin-top:18px;}
+.club-play .gold-rule{margin-left:0;}
+.loc-entry-img--lockup{background:#EDE8E0;display:flex;align-items:center;justify-content:center;padding:48px;}
+.cobrand{display:flex;align-items:center;gap:28px;}
+.cobrand img{height:72px;width:auto;display:block;}
+.cobrand-rule{width:1px;align-self:stretch;background:var(--ink);}
+.cobrand-partner{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(15,27,34,.72);
+  border:1px dashed rgba(15,27,34,.4);padding:22px 20px;text-align:center;}
+.montauk-hero{--accent:var(--cream);--on-accent:var(--ink);--eyebrow:rgba(245,240,232,.75);--line:rgba(245,240,232,.16);--tint:rgba(245,240,232,.06);}
+.montauk-hero{min-height:100vh;background:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 40px;}
+.montauk-hero .club-hero-seal{margin:0 auto 26px;height:56px;}
+.montauk-hero .club-hero-name{margin-bottom:18px;}
+.montauk-when{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:rgba(245,240,232,.82);margin:0;}
+.montauk-form{display:flex;gap:0;max-width:420px;margin:40px auto 0;}
+.montauk-form input{flex:1;min-width:0;background:rgba(245,240,232,.06);border:1px solid rgba(245,240,232,.3);border-right:none;padding:15px 16px;
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--cream);outline:none;border-radius:0;}
+.montauk-form input::placeholder{color:rgba(245,240,232,.6);}
+.montauk-form input:focus{border-color:var(--cream);}
+.montauk-form.err input{border-color:#E07070;}
+.montauk-confirm{display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--cream);margin-top:36px;}
+@media (max-width:768px){
+  .cobrand{gap:18px;} .cobrand img{height:56px;} .loc-entry-img--lockup{min-height:240px;}
+  .montauk-form{flex-direction:column;gap:10px;} .montauk-form input{border-right:1px solid rgba(245,240,232,.3);}
+}
