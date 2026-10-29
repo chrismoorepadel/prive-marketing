@@ -3,16 +3,24 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.boundsPen import BoundsPen
-from fontTools.pens.recordingPen import RecordingPen
+from fontTools.pens.recordingPen import RecordingPen, DecomposingRecordingPen
 from fontTools.svgLib.path import parse_path
 
 parts=json.load(open('src/monogram-parts.json'))
+WP=json.load(open('src/wordmark-prive.json'))
+def prive_rec(cap):
+    rp=RecordingPen()
+    for d in WP['paths']: parse_path(d,TransformPen(rp,(cap/1000,0,0,cap/1000,0,0)))
+    return rp
 MW,MH=parts['W'],parts['H']
-FONTS={'cormorant':TTFont('fonts-dl/CormorantGaramond-500.ttf'),'jost':TTFont('fonts-dl/Jost-300.ttf')}
+FONTS={'bodoni':TTFont('fonts-dl/BodoniModa-450-opsz11.ttf'),'jost':TTFont('fonts-dl/Jost-300.ttf')}
+def cap_ratio(font):
+    f=FONTS[font]; gs=f.getGlyphSet(); bp=BoundsPen(gs); gs[f.getBestCmap()[ord('H')]].draw(bp); return bp.bounds[3]/f['head'].unitsPerEm
+CAP_B=cap_ratio('bodoni'); CAP_J=cap_ratio('jost'); print('cap ratios',CAP_B,CAP_J)
 
 def text_rec(font,text,fs,tracking):
     f=FONTS[font]; cmap=f.getBestCmap(); gs=f.getGlyphSet(); hmtx=f['hmtx']; upm=f['head'].unitsPerEm
-    sc=fs/upm; x=0; rp=RecordingPen()
+    sc=fs/upm; x=0; rp=DecomposingRecordingPen(gs)
     for ch in text:
         g=cmap[ord(ch)]
         gs[g].draw(TransformPen(rp,(sc,0,0,-sc,x,0)))
@@ -24,6 +32,9 @@ def rec_svg(rp,dx,dy):
     sp=SVGPathPen(None); rp.replay(TransformPen(sp,(1,0,0,1,dx,dy))); return re.sub(r'(\d+\.\d{2})\d+',r'\1',sp.getCommands())
 def path_rec(d,dx=0,dy=0):
     rp=RecordingPen(); parse_path(d,TransformPen(rp,(1,0,0,1,dx,dy))); return rp
+
+def rec_from_d(d):
+    rp=RecordingPen(); parse_path(d,rp); return rp
 
 def monogram(dx,dy,scale=1.0):
     """returns list of (RecordingPen) for ring+glyph placed with top-left at dx,dy"""
@@ -46,17 +57,17 @@ def compose(elements):
 # ---------- layouts (icon height = 1000 units) ----------
 def primary():
     el=[(r, i==0) for i,r in enumerate(monogram(-MW/2,0))]
-    cap_p=216; fs_p=cap_p/0.625; prive=text_rec('cormorant','PRIVÉ',fs_p,0.18)
+    cap_p=216; prive=prive_rec(cap_p)
     pb=rec_bounds(prive); base_p=1000+196+cap_p
     el.append((path_rec(rec_svg(prive,-(pb[0]+pb[2])/2,base_p)),False))
-    cap_d=72; fs_d=cap_d/0.7; padel=text_rec('jost','PADEL',fs_d,0.8)
+    cap_d=72; fs_d=cap_d/CAP_J; padel=text_rec('jost','PADEL',fs_d,0.8)
     db=rec_bounds(padel); base_d=base_p+84+cap_d
     el.append((path_rec(rec_svg(padel,-(db[0]+db[2])/2,base_d)),False))
     return el
 def horizontal():
     el=[(r, i==0) for i,r in enumerate(monogram(0,0))]
-    cap_p=360; fs_p=cap_p/0.625; prive=text_rec('cormorant','PRIVÉ',fs_p,0.18); pb=rec_bounds(prive)
-    cap_d=120; fs_d=cap_d/0.7; padel=text_rec('jost','PADEL',fs_d,0.8); db=rec_bounds(padel)
+    cap_p=360; prive=prive_rec(cap_p); pb=rec_bounds(prive)
+    cap_d=120; fs_d=cap_d/CAP_J; padel=text_rec('jost','PADEL',fs_d,0.8); db=rec_bounds(padel)
     gap=140; block=cap_p+gap+cap_d; top=(1000-block)/2
     x_text=MW+230
     base_p=top+cap_p; el.append((path_rec(rec_svg(prive,x_text-pb[0],base_p)),False))
@@ -66,11 +77,12 @@ def horizontal():
 def icon():
     return [(r, i==0) for i,r in enumerate(monogram(0,0))]
 def wordmark_line():
-    t=text_rec('cormorant','PRIVÉ PADEL',1000,0.18); return [(t,False)]
+    WO=json.load(open('src/wordmark-oneline-exact.json'))
+    return [(rec_from_d(d),False) for d in WO['paths']]
 def wordmark_stacked():
-    prive=text_rec('cormorant','PRIVÉ',1000,0.18); pb=rec_bounds(prive); el=[(prive,False)]
-    cap_d=72/216*625; fs_d=cap_d/0.7; padel=text_rec('jost','PADEL',fs_d,0.8); db=rec_bounds(padel)
-    base_d=84/216*625+cap_d
+    prive=prive_rec(1000); pb=rec_bounds(prive); el=[(prive,False)]
+    cap_d=72/216*1000; fs_d=cap_d/CAP_J; padel=text_rec('jost','PADEL',fs_d,0.8); db=rec_bounds(padel)
+    base_d=84/216*1000+cap_d
     el.append((path_rec(rec_svg(padel,(pb[0]+pb[2])/2-(db[0]+db[2])/2,base_d)),False))
     return el
 

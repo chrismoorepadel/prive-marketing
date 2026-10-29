@@ -8,10 +8,10 @@ All files are tight to the artwork with no clear space. Clear space is the heigh
 | File stem | What it is | Natural proportion |
 |---|---|---|
 | `prive-padel_icon` | Oval seal alone | 741 × 1000 |
-| `prive-padel_primary` | Seal over PRIVÉ / PADEL (the primary lockup) | 1176 × 1568 |
-| `prive-padel_horizontal` | Seal left, PRIVÉ / PADEL right | 2931 × 1000 |
-| `prive-padel_wordmark` | PRIVÉ PADEL on one line, no seal | 7778 × 792 |
-| `prive-padel_wordmark-stacked` | PRIVÉ over PADEL, no seal | 3403 × 1240 |
+| `prive-padel_primary` | Seal over PRIVÉ / PADEL (the primary lockup) | 1178 × 1568 |
+| `prive-padel_horizontal` | Seal left, PRIVÉ / PADEL right | 2935 × 1000 |
+| `prive-padel_wordmark` | PRIVÉ PADEL on one line in the serif, no seal | 12816 × 1328 |
+| `prive-padel_wordmark-stacked` | PRIVÉ over PADEL, no seal | 5448 × 2050 |
 
 Each variant comes in four colours: `ink` (#0F1B22), `cream` (#F5F0E8), `black` (#000000), `white` (#FFFFFF).
 
@@ -25,13 +25,13 @@ Minimum sizes: seal alone from 16 px, 10 mm print, 14 mm embroidered. Stacked lo
 
 - The oval ring is a mathematically exact ellipse pair (outer 741 × 1000, uniform stroke 29.2 units), not a trace.
 - The P glyph was traced from the approved rounded monogram, then made exactly symmetrical: the left scroll is mirrored to form the right scroll about the stem's centre.
-- The wordmark is live type converted to outlines, so no fonts are needed to open the files:
-  - PRIVÉ: Cormorant Garamond, weight 500, capitals, tracking 0.18 em.
-  - PADEL: Jost, weight 300, capitals, tracking 0.80 em.
-  - Proportions were measured from the supplied stacked logo: PADEL cap height is one third of PRIVÉ's.
-- `source/` holds the monogram master, the two static font instances (both SIL Open Font License) and the two Python scripts that rebuild everything. Rebuilding needs `fonttools`, `vtracer`, `pillow`, `resvg-py`, `svglib` and `reportlab`.
+- PRIVÉ is traced from the supplied stacked logo, not set in a font. No available typeface matched the letterforms (a Bodoni Moda cut came closest and was rejected against the reference), so the word was vectorised at 4× with smoothing from the 253 px cap-height source. `source/wordmark-prive-master.svg` is the result, normalised to a 1000-unit cap height.
+- PADEL under the seal is live type converted to outlines: Jost, weight 300, capitals, tracking 0.80 em, cap height one third of PRIVÉ's, as in the supplied logo.
+- The one-line serif wordmark is traced too. P, R, I, V, É and E reuse the high-resolution traces; A, D and L are traced from the supplied one-line mark (634 px wide, 47 px cap height) at 16× with the threshold tuned so their stems match the other letters. Letter positions and the word space come from that mark. `source/wordmark-oneline-master.svg` is the result. Because of the small source, those three letters are the least precise outlines in the set; a larger export of the one-line mark would let them be retraced at the same quality as PRIVÉ.
+- `source/` holds the monogram master, the traced PRIVÉ master, the Jost static instance (SIL Open Font License) and the two Python scripts that rebuild everything. Rebuilding needs `fonttools`, `vtracer`, `pillow`, `resvg-py`, `svglib` and `reportlab`.
 
 ## What is not here yet
+
 
 - Place lockups (Privé · Montauk, Privé · Miami, Privé · Turks and Caicos) and the residency seal. These compose from the icon and the wordmark; the scripts can generate them once the names are final.
 - A favicon set. Export from `svg/prive-padel_icon_ink.svg` at 16, 32, 180 and 512 px.
