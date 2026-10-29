@@ -14,5 +14,49 @@
   <url><loc>https://prive-padel.com/privacy</loc><priority>0.3</priority></url>
   <url><loc>https://prive-padel.com/terms</loc><priority>0.3</priority></url>
   <url><loc>https://www.prive-padel.com/quatre</loc><priority>0.8</priority></url>
+  <!-- property pages: scripts/build-destinations.js -->
+  <url><loc>https://prive-padel.com/destinations/don-carlos-marbella</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/chateau-de-lussac</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/vila-vita-parc</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/chable-yucatan</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/camiral</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/marbella-club</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/finca-la-bobadilla</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/the-savoy</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/st-james-hotel</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/finca-serena</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/the-lodge-mallorca</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/mas-de-torrent</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/kimpton-aysla</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/voaara-madagascar</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/voaara-grenadines</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/biltmore-dubai</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/nihi-sumba</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/nay-palad</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/fairmont-windsor-park</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/al-baleed-oman</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/d-maris-bay</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/etereo-kanai</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/fairmont-royal-palm</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/patina-maldives</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/riviera-maya-edition</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/st-regis-kanai</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/tortuga-bay</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/vilalara</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/hotel-royal-evian</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/fairmont-century-plaza</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/hotel-unico-madrid</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/maybourne-beverly-hills</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/the-principal-madrid</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/the-surrey</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/only-aesthesis</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/elounda-mare</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/elounda-peninsula</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/porto-elounda</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/verdura-resort</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/only-le-saint-geran</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/rosewood-hong-kong</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/banyan-tree-mayakoba</loc><priority>0.7</priority></url>
+  <url><loc>https://prive-padel.com/destinations/hotel-pitrizza</loc><priority>0.7</priority></url>
 </urlset>
 

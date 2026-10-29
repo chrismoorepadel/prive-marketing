@@ -1,0 +1,199 @@
+// ─── PROPERTY PAGES ─────────────────────────────────────────
+// Writes one public page per entry in data/destinations.js to
+// destinations/<id>.html. The generated files are committed; nothing
+// builds on Vercel. Idempotent: run it again and only changed data changes
+// a file.
+//
+//   node scripts/build-destinations.js
+//
+// The tracking head, nav, mobile menu and footer are lifted from
+// passport/destinations.html at build time, so these pages can't drift
+// from the rest of the site. Re-run after editing either source.
+//
+// Member rates never appear here. Partner agreements generally restrict
+// negotiated rates to signed-in members, so the page says "Member rate in
+// the app" and links there.
+
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import vm from 'node:vm';
+
+const root = fileURLToPath(new URL('..', import.meta.url));
+const read = f => readFileSync(root + f, 'utf8');
+
+const SITE = 'https://prive-padel.com';
+const APP_URL = read('js/main.js').match(/window\.APP_URL = '([^']+)'/)[1];
+const SEAL = '/assets/brand-2.0/logo/svg/prive-padel_icon_cream.svg';
+
+// data/destinations.js assigns to window; evaluate it in a sandbox
+const sandbox = { window: {} };
+vm.runInNewContext(read('data/destinations.js'), sandbox);
+const DESTINATIONS = sandbox.window.DESTINATIONS;
+
+const source = read('passport/destinations.html');
+const between = (s, a, b) => {
+  const i = s.indexOf(a), j = s.indexOf(b, i);
+  if (i < 0 || j < 0) throw new Error(`build-destinations: can't find ${a} … ${b} in passport/destinations.html`);
+  return s.slice(i, j + b.length);
+};
+const TRACKING = between(source, '<!-- REFERSION TRACKING: BEGIN -->', "gtag('config', 'G-V7WWTFXWSE');\n  </script>");
+const NAV = between(source, '<nav id="mainNav">', '</nav>');
+const MENU = between(source, '<div id="mobileMenu" class="mobile-menu">', '\n</div>\n');
+const FOOTER = between(source, '<footer>', '</footer>');
+
+const REGION = { europe: 'Europe', americas: 'the Americas', 'middle-east-africa': 'the Middle East and Africa', 'asia-pacific': 'Asia Pacific' };
+
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Cloudinary: request a width, keeping whatever transformations are there
+function cl(src, w) {
+  if (!src || !src.includes('res.cloudinary.com')) return src;
+  const after = src.split('/upload/')[1] || '';
+  return src.replace('/upload/', /^v\d+\//.test(after) ? `/upload/w_${w}/` : `/upload/w_${w},`);
+}
+
+// The second clause in italic, where the name has one ("Golf & Spa", "Hotel and Club")
+function title(name) {
+  const m = name.match(/^(.*\S)\s+(&|and)\s+(.+)$/);
+  return m ? `${esc(m[1])} ${esc(m[2])} <em>${esc(m[3])}</em>` : esc(name);
+}
+
+// "1 Court" etc., then up to two benefits as hairline pills. Anything that
+// reads as a rate, a discount or a money amount stays in the app.
+const PRICED = /rate|discount|%|\$|€|£|\bfree\b|waived|credit|\d/i;
+function pills(d) {
+  const out = d.courts ? [d.courts] : [];
+  const benefits = (d.memberBenefits || []).filter(b => !PRICED.test(b) && !b.includes('\n') && b.length <= 40);
+  // no clean benefit? fall back to the property's own highlights
+  const extra = benefits.length ? benefits : (d.pills || []).filter(p => !/court|padel/i.test(p));
+  for (const b of extra) { if (out.length >= 3) break; out.push(b); }
+  return out;
+}
+
+function related(d) {
+  const same = DESTINATIONS.filter(x => x.id !== d.id && x.filter === d.filter && !x.comingSoon);
+  // featured first, then data order, three at most
+  return [...same.filter(x => x.featured), ...same.filter(x => !x.featured)].slice(0, 3);
+}
+
+function card(x) {
+  return `      <a class="portfolio-card prop-related-card" href="/destinations/${x.id}.html">
+        <div class="portfolio-card-bg" style="background-image:url('${esc(cl(x.image, 800))}');"></div>
+        <div class="portfolio-card-overlay"></div>
+        <div class="portfolio-card-info">
+          <div class="portfolio-card-region">${esc(x.region)}</div>
+          <div class="portfolio-card-name">${esc(x.name)}</div>
+          <div class="portfolio-card-loc">${esc(x.courts || '')}</div>
+        </div>
+      </a>`;
+}
+
+function page(d) {
+  const url = `${SITE}/destinations/${d.id}`;
+  const hero = d.heroImg || d.image;
+  const [locality, ...rest] = (d.loc || '').split(',').map(s => s.trim());
+  const jsonld = {
+    '@context': 'https://schema.org',
+    '@type': 'LodgingBusiness',
+    name: d.name,
+    description: d.desc,
+    image: hero,
+    url,
+    address: { '@type': 'PostalAddress', addressLocality: locality, ...(rest.length ? { addressRegion: rest.join(', ') } : {}) },
+  };
+  const rel = related(d);
+  const status = d.comingSoon ? '\n      <div class="prop-status">Coming soon to the collection</div>' : '';
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Generated by scripts/build-destinations.js from data/destinations.js. Edit those, not this file. -->
+  ${TRACKING}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padel at ${esc(d.name)} · Privé Padel</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="description" content="${esc(d.desc)}">
+  <link rel="canonical" href="${url}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Privé Padel">
+  <meta property="og:title" content="Padel at ${esc(d.name)} · Privé Padel">
+  <meta property="og:description" content="${esc(d.desc)}">
+  <meta property="og:image" content="${esc(hero)}">
+  <meta property="og:url" content="${url}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Padel at ${esc(d.name)} · Privé Padel">
+  <meta name="twitter:description" content="${esc(d.desc)}">
+  <meta name="twitter:image" content="${esc(hero)}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/property.css">
+  <script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, '\\u003c')}</script>
+</head>
+<body>
+${NAV}
+${MENU}
+
+<section class="prop-hero">
+  <div class="prop-hero-bg" style="background-image:url('${esc(cl(hero, 2000))}');"></div>
+  <div class="prop-hero-overlay"></div>
+  <img class="prop-seal" src="${SEAL}" alt="" aria-hidden="true" width="48" height="64">
+  <div class="prop-hero-content">
+    <div class="prop-eyebrow">${esc(d.region)}</div>
+    <h1 class="prop-name">${title(d.name)}</h1>
+    <div class="prop-loc">${esc(d.loc)}</div>
+  </div>
+</section>
+
+<section class="prop-body">
+  <div class="prop-inner">
+    <p class="prop-about">${esc(d.about || d.desc)}</p>
+    <div class="prop-pills">
+${pills(d).map(p => `      <span class="prop-pill">${esc(p)}</span>`).join('\n')}
+    </div>${status}
+    <a class="btn-primary prop-rate" href="${APP_URL}" data-app-link>Member rate in the app</a>
+  </div>
+</section>
+${rel.length ? `
+<section class="prop-related">
+  <div class="prop-related-head">
+    <div class="section-eyebrow">More in ${REGION[d.filter] || 'the collection'}</div>
+    <a class="view-all-link" href="/passport/destinations.html">All 40+ destinations</a>
+  </div>
+  <div class="prop-related-grid">
+${rel.map(card).join('\n')}
+  </div>
+</section>
+` : ''}
+${FOOTER}
+
+<script src="/js/main.js" defer></script>
+</body>
+</html>
+`;
+}
+
+mkdirSync(root + 'destinations', { recursive: true });
+let changed = 0;
+for (const d of DESTINATIONS) {
+  const file = `${root}destinations/${d.id}.html`;
+  const html = page(d);
+  if (existsSync(file) && readFileSync(file, 'utf8') === html) continue;
+  writeFileSync(file, html);
+  changed++;
+}
+
+// sitemap: the hand-kept entries, then one per property (rewritten each run)
+const sitemapFile = root + 'sitemap.xml';
+const sitemap = readFileSync(sitemapFile, 'utf8')
+  .replace(/\n  <!-- property pages: scripts\/build-destinations\.js -->[\s\S]*?(?=\n<\/urlset>)/, '');
+const props = DESTINATIONS.map(d => `  <url><loc>${SITE}/destinations/${d.id}</loc><priority>0.7</priority></url>`).join('\n');
+const next = sitemap.replace('\n</urlset>', `\n  <!-- property pages: scripts/build-destinations.js -->\n${props}\n</urlset>`);
+if (next !== readFileSync(sitemapFile, 'utf8')) { writeFileSync(sitemapFile, next); changed++; }
+
+console.log(`${DESTINATIONS.length} destinations, ${changed} file${changed === 1 ? '' : 's'} written`);

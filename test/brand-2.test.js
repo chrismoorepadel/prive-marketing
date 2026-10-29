@@ -6,7 +6,8 @@
 // paraphrase the one sentence that defines the Passport.
 
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import vm from 'node:vm';
 import test from 'node:test';
 
 const read = f => readFileSync(new URL(`../${f}`, import.meta.url), 'utf8');
@@ -92,4 +93,36 @@ test('/passport carries one worked example', () => {
   // Figures are Chris's to supply; until then they stay as bracketed placeholders.
   assert.match(read('passport.html'), /<p class="worked-line">A week at [^<]+: public rate [^<]+, member rate [^<]+\.<\/p>/);
   assert.match(read('passport.html'), /The Passport pays for itself in one trip\./);
+});
+
+/* ── property pages (scripts/build-destinations.js) ── */
+
+const sandbox = { window: {} };
+vm.runInNewContext(read('data/destinations.js'), sandbox);
+const DESTINATIONS = sandbox.window.DESTINATIONS;
+
+test('one property page per destination, and nothing else in destinations/', () => {
+  const files = readdirSync(new URL('../destinations/', import.meta.url)).filter(f => f.endsWith('.html')).sort();
+  assert.deepEqual(files, Array.from(DESTINATIONS, d => `${d.id}.html`).sort());
+});
+
+for (const d of DESTINATIONS) {
+  test(`destinations/${d.id}: title, JSON-LD, app CTA, and no rates`, () => {
+    const html = read(`destinations/${d.id}.html`);
+    const esc = s => s.replace(/&/g, '&amp;');
+    assert.ok(html.includes(`<title>Padel at ${esc(d.name)} · Privé Padel</title>`));
+    const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]*)<\/script>/)[1]);
+    assert.equal(ld['@type'], 'LodgingBusiness');
+    assert.equal(ld.name, d.name);
+    assert.ok(ld.address.addressLocality);
+    assert.match(html, new RegExp(`<a class="btn-primary prop-rate" href="${APP_URL}" data-app-link>Member rate in the app</a>`));
+    const body = html.slice(html.indexOf('<section class="prop-hero">'), html.indexOf('<footer>'));
+    assert.doesNotMatch(body, /\$\s?\d|\d+\s?%\s?off/i, 'a public property page must not show a rate');
+  });
+}
+
+test('every property page is in the sitemap and linked from the destinations grid', () => {
+  const sitemap = read('sitemap.xml');
+  for (const d of DESTINATIONS) assert.ok(sitemap.includes(`<loc>https://prive-padel.com/destinations/${d.id}</loc>`), d.id);
+  assert.match(read('passport/destinations.html'), /card\.href = '\/destinations\/' \+ d\.id \+ '\.html';/);
 });
