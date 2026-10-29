@@ -11,7 +11,7 @@
   font-weight: 400;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--eyebrow);
   margin-bottom: 32px;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@
   content: '';
   width: 24px;
   height: 1px;
-  background: var(--gold);
+  background: var(--eyebrow);
   flex-shrink: 0;
 }
 .about-heading {
@@ -45,7 +45,7 @@
 .about-gold-rule {
   width: 48px;
   height: 1px;
-  background: var(--gold);
+  background: var(--accent);
   margin: 52px 0;
 }
 .about-closing {
@@ -77,7 +77,7 @@
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 300;
   font-style: italic;
-  color: var(--gold);
+  color: var(--accent);
   line-height: 1.05;
 }
 

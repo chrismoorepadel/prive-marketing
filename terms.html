@@ -75,20 +75,25 @@
     .legal-section{padding:80px 80px 120px;background:var(--cream);}
     .legal-inner{max-width:800px;}
     .legal-intro{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.06em;color:var(--mid);margin-bottom:56px;line-height:1.8;}
-    .legal-h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--navy);margin:52px 0 16px;padding-top:52px;border-top:1px solid var(--sand);}
+    .legal-h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--ink);margin:52px 0 16px;padding-top:52px;border-top:1px solid var(--sand);}
     .legal-h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
     .legal-p{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.9;letter-spacing:0.03em;color:var(--mid);margin-bottom:16px;}
     .legal-p:last-child{margin-bottom:0;}
     .legal-ul{list-style:none;margin:0 0 16px;padding:0;}
     .legal-ul li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.9;letter-spacing:0.03em;color:var(--mid);padding-left:20px;position:relative;margin-bottom:6px;}
-    .legal-ul li::before{content:'—';position:absolute;left:0;color:var(--gold);}
-    .legal-contact{margin-top:56px;padding:36px 40px;background:var(--dark);border-left:2px solid var(--gold);}
+    .legal-ul li::before{content:'—';position:absolute;left:0;color:var(--accent);}
+    .legal-contact{margin-top:56px;padding:36px 40px;background:var(--dark);border-left:2px solid var(--accent);}
     .legal-contact p{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;line-height:1.9;letter-spacing:0.04em;color:rgba(255,255,255,.5);}
-    .legal-contact a{color:var(--gold);}
+    .legal-contact a{color:var(--accent);}
     @media(max-width:768px){
       .legal-section{padding:48px 24px 80px;}
       .legal-h2{font-size:22px;}
     }
+
+    /* Brand 2.0 — this page's own grounds. Dark ones flip the accent to cream;
+       light ones flip it back, for cream sections nested inside a dark one. */
+    .legal-contact{--accent:var(--cream);--on-accent:var(--ink);--eyebrow:rgba(245,240,232,.75);--line:rgba(245,240,232,.16);--tint:rgba(245,240,232,.06);}
+    .legal-section{--accent:var(--ink);--on-accent:var(--cream);--eyebrow:var(--ink);--line:rgba(15,27,34,.16);--tint:rgba(15,27,34,.04);}
   </style>
 </head>
 <body>
