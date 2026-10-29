@@ -222,6 +222,12 @@ nav.scrolled .nav-cta{color:var(--ink);border-color:rgba(15,27,34,0.3);}
 .caps-serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.3em;text-transform:uppercase;line-height:1.1;}
 .label-wide{font-family:'Jost',sans-serif;font-weight:300;letter-spacing:.45em;text-transform:uppercase;}
 
+/* The Passport's definition line. It sits beside the first mention on a page,
+   in the voice of a caption, and takes its colour from the ground it is on. */
+.passport-def{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.7;
+  letter-spacing:.01em;color:var(--accent);opacity:.8;max-width:56ch;margin:14px 0 0;}
+.mini-cta .passport-def,.cp-closing .passport-def{margin:14px auto 0;}
+
 /* Gold survives here and nowhere else: one centred 60px hairline. */
 .gold-rule{width:60px;height:1px;background:var(--gold);margin:20px auto;}
 

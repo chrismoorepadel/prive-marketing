@@ -5,6 +5,20 @@
 // ═══════════════════════════════════════════════════════
 
 
+// ─── APP_URL ─────────────────────────────────────────────
+// The one destination for every "Get the app" CTA on the site.
+//
+// PLACEHOLDER. The Passport portal has no free-signup route yet — it has
+// /login, and accounts are created at /welcome after a Stripe checkout — so
+// this URL does not resolve. Set the real one before this branch merges.
+//
+// Every app CTA also carries the URL in its href, so it works without JS and
+// on contact.html (which does not load this file); this keeps them in step.
+// test/brand-2.test.js fails if any of those hrefs drift from this constant.
+window.APP_URL = 'https://passport.prive-padel.com/signup';
+document.querySelectorAll('[data-app-link]').forEach(a => { a.href = window.APP_URL; });
+
+
 // ─── NAV SCROLL ──────────────────────────────────────────
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
