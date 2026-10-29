@@ -72,3 +72,24 @@ test('hero leads with the app, then Miami', () => {
   assert.match(slides, /secondaryLabel:\s+'Book Miami',\s+secondaryHref:\s+'https:\/\/playtomic\.com\//);
   assert.match(slides, /eyebrow: '40\+ destinations · Montauk · Miami · Turks and Caicos'/);
 });
+
+/* ── /passport is the upgrade page ── */
+
+test('/passport opens with the definition line', () => {
+  const hero = read('passport.html').match(/<section class="club-hero">[\s\S]*?<\/section>/)?.[0] ?? '';
+  assert.ok(hero.includes(`>${DEF}</p>`), 'definition line missing from the hero');
+});
+
+test('/passport presents both tiers, differing on one axis only', () => {
+  const tiers = read('passport.html').match(/<section class="tiers-sec"[\s\S]*?<\/section>/)?.[0] ?? '';
+  assert.match(tiers, /Standard[\s\S]*\$595[\s\S]*four visits a month/);
+  assert.match(tiers, /Full Access[\s\S]*\$995[\s\S]*unlimited visits/);
+  assert.match(tiers, /href="\/join\.html\?tier=standard"/);
+  assert.match(tiers, /href="\/join\.html\?tier=full"/);
+});
+
+test('/passport carries one worked example', () => {
+  // Figures are Chris's to supply; until then they stay as bracketed placeholders.
+  assert.match(read('passport.html'), /<p class="worked-line">A week at [^<]+: public rate [^<]+, member rate [^<]+\.<\/p>/);
+  assert.match(read('passport.html'), /The Passport pays for itself in one trip\./);
+});
