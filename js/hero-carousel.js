@@ -17,8 +17,15 @@
     el.setAttribute('role', 'tabpanel');
     el.setAttribute('aria-label', 'Slide ' + (index + 1));
 
+    // primaryHref 'app' is the app CTA: window.APP_URL, set in js/main.js.
+    var primary = s.primaryHref === 'app'
+      ? '<a href="' + window.APP_URL + '" class="btn-primary" data-app-link>' + s.primaryLabel + '</a>'
+      : '<a href="' + s.primaryHref + '" class="btn-primary">' + s.primaryLabel + '</a>';
+
+    // an off-site secondary (Playtomic) opens in a new tab
+    var external = /^https?:/.test(s.secondaryHref || '') ? ' target="_blank" rel="noopener noreferrer"' : '';
     var secondary = s.secondaryLabel
-      ? '<a href="' + s.secondaryHref + '" class="btn-ghost"><span class="btn-ghost-line"></span>' + s.secondaryLabel + '</a>'
+      ? '<a href="' + s.secondaryHref + '" class="btn-ghost"' + external + '><span class="btn-ghost-line"></span>' + s.secondaryLabel + '</a>'
       : '';
 
     var location = s.location
@@ -42,7 +49,7 @@
           '<h1 class="hc-slide-hl">' + s.headline + '</h1>' +
           '<p class="hc-slide-sub">' + s.sub + '</p>' +
           '<div class="hc-slide-actions">' +
-            '<a href="' + s.primaryHref + '" class="btn-primary">' + s.primaryLabel + '</a>' +
+            primary +
             secondary +
           '</div>' +
         '</div>' +

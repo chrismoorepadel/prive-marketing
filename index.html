@@ -62,19 +62,20 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privé Padel</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/favicon.png">
-  <meta name="description" content="A global travel membership for padel players. Preferred rates at 40+ luxury partner destinations, curated retreats, and club access worldwide.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="description" content="Padel at 40+ hotels and resorts with courts on property, partner clubs in major cities, and our own courts in Montauk and Miami.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Privé Padel">
-  <meta property="og:title" content="Privé Passport — Where the Game Travels">
-  <meta property="og:description" content="A global travel membership for padel players. Preferred rates at 40+ luxury partner destinations, curated retreats, and club access worldwide.">
-  <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390254/2_zd6wij.png">
+  <meta property="og:title" content="Privé Padel — The game travels with you">
+  <meta property="og:description" content="Padel at 40+ hotels and resorts with courts on property, partner clubs in major cities, and our own courts in Montauk and Miami.">
+  <meta property="og:image" content="https://www.prive-padel.com/assets/brand-2.0/og-image.png">
   <meta property="og:url" content="https://prive-padel.com/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privé Passport — Where the Game Travels">
-  <meta name="twitter:description" content="A global travel membership for padel players. Preferred rates at 40+ luxury partner destinations, curated retreats, and club access worldwide.">
-  <meta name="twitter:image" content="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777390254/2_zd6wij.png">
+  <meta name="twitter:title" content="Privé Padel — The game travels with you">
+  <meta name="twitter:description" content="Padel at 40+ hotels and resorts with courts on property, partner clubs in major cities, and our own courts in Montauk and Miami.">
+  <meta name="twitter:image" content="https://www.prive-padel.com/assets/brand-2.0/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
@@ -84,88 +85,58 @@
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/passport-sub.css">
   <style>
-    /* ── Founding offer popup ─────────────────────────── */
-    .pp{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;}
-    .pp.open{visibility:visible;pointer-events:auto;}
-    .pp-overlay{position:absolute;inset:0;background:rgba(14,25,35,.72);backdrop-filter:blur(4px);opacity:0;transition:opacity 400ms ease;}
-    .pp.open .pp-overlay{opacity:1;}
-    .pp-card{position:relative;z-index:1;background:#0E1923;border:1px solid rgba(184,151,106,.25);padding:52px 52px 44px;width:calc(100% - 32px);max-width:520px;border-radius:2px;opacity:0;transform:scale(.96);transition:opacity 400ms ease,transform 400ms ease;}
-    .pp.open .pp-card{opacity:1;transform:scale(1);}
-    .pp-close{position:absolute;top:18px;right:20px;background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:15px;color:rgba(245,240,232,.4);padding:6px;line-height:1;transition:color .2s;}
-    .pp-close:hover{color:var(--white);}
-    .pp-fo-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;text-align:center;}
-    .pp-fo-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,36px);font-weight:300;font-style:italic;color:var(--white);line-height:1.28;margin:0 0 24px;text-align:center;}
-    .pp-fo-divider{width:48px;height:1px;background:rgba(184,151,106,.4);margin:0 auto 28px;}
-    .pp-fo-prices{display:flex;justify-content:center;margin-bottom:32px;}
-    .pp-fo-col{flex:1;text-align:center;padding:0 20px;}
-    .pp-fo-col+.pp-fo-col{border-left:1px solid rgba(255,255,255,.08);}
-    .pp-fo-label{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.4);margin-bottom:8px;}
-    .pp-fo-amount{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,68px);font-weight:300;line-height:1;margin-bottom:8px;color:var(--white);}
-    .pp-fo-amount.receive{color:var(--gold);font-style:italic;}
-    .pp-fo-detail{font-family:'Jost',sans-serif;font-size:8px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.4);line-height:1.7;}
-    .pp-field{margin-bottom:12px;}
-    .pp-field input{width:100%;box-sizing:border-box;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:1px;padding:13px 16px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;letter-spacing:.02em;color:var(--white);outline:none;transition:border-color .2s;}
-    .pp-field input::placeholder{color:rgba(245,240,232,.3);}
-    .pp-field input:focus{border-color:rgba(184,151,106,.5);}
-    .pp-field.err input{border-color:rgba(220,90,90,.55);}
-    .pp-err{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:#e07070;margin:5px 0 0;display:none;}
-    .pp-field.err .pp-err{display:block;}
-    .pp-submit{width:100%;margin-top:10px;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;background:var(--gold);color:var(--white);border:none;cursor:pointer;padding:15px 32px;border-radius:1px;transition:background .3s;}
-    .pp-submit:hover{background:#a07d56;}
-    .pp-submit:disabled{opacity:.55;cursor:default;}
-    .pp-confirm{display:none;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;font-style:italic;color:var(--white);line-height:1.6;text-align:center;padding:20px 0;}
-    .pp-fo-note{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.02em;color:rgba(245,240,232,.28);text-align:center;margin:18px 0 0;line-height:1.65;}
-    @media(max-width:520px){.pp-card{padding:44px 24px 36px;}.pp-fo-col{padding:0 12px;}}
-    .pp-tab{position:fixed;right:0;top:50%;transform:translateY(-50%) translateX(110%);z-index:9998;background:#0E1923;border:1px solid rgba(184,151,106,.35);border-right:none;border-radius:3px 0 0 3px;padding:18px 10px;cursor:pointer;transition:transform 420ms ease;writing-mode:vertical-rl;}
-    .pp-tab.visible{transform:translateY(-50%) translateX(0);}
-    .pp-tab span{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);transform:rotate(180deg);display:block;}
+    /* Brand 2.0 — the seal stamped on the hero, the house mark, the app CTA */
+    .hero-seal{position:absolute;top:112px;right:48px;z-index:3;height:64px;width:auto;opacity:.9;pointer-events:none;}
+    .brand-anchor .padel-mark{width:96px;height:auto;}
+    .portal-app{margin-top:32px;}
+    @media (max-width:768px){ .hero-seal{top:88px;right:20px;height:56px;} }
   /* ── Property Lightbox ───────────────────────────────── */
   .plb{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;visibility:hidden;pointer-events:none;}
   .plb.open{visibility:visible;pointer-events:auto;}
-  .plb-backdrop{position:absolute;inset:0;background:rgba(14,25,35,.78);backdrop-filter:blur(4px);opacity:0;transition:opacity 380ms ease;}
+  .plb-backdrop{position:absolute;inset:0;background:rgba(15,27,34,.78);backdrop-filter:blur(4px);opacity:0;transition:opacity 380ms ease;}
   .plb.open .plb-backdrop{opacity:1;}
-  .plb-panel{position:relative;z-index:1;width:92%;max-width:1080px;height:90vh;overflow-y:auto;background:#F5F0E8;opacity:0;transform:translateY(16px);transition:opacity 380ms ease,transform 380ms ease;scrollbar-width:thin;scrollbar-color:rgba(184,151,106,.3) transparent;}
+  .plb-panel{position:relative;z-index:1;width:92%;max-width:1080px;height:90vh;overflow-y:auto;background:#F5F0E8;opacity:0;transform:translateY(16px);transition:opacity 380ms ease,transform 380ms ease;scrollbar-width:thin;scrollbar-color:var(--line) transparent;}
   .plb.open .plb-panel{opacity:1;transform:translateY(0);}
   .plb-panel::-webkit-scrollbar{width:4px;}
-  .plb-panel::-webkit-scrollbar-thumb{background:rgba(184,151,106,.35);border-radius:2px;}
-  .plb-close{position:absolute;top:20px;right:20px;z-index:10;background:rgba(14,25,35,.65);backdrop-filter:blur(6px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.16em;padding:9px 18px;cursor:pointer;transition:background .2s;}
-  .plb-close:hover{background:rgba(14,25,35,.9);}
+  .plb-panel::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px;}
+  .plb-close{position:absolute;top:20px;right:20px;z-index:10;background:rgba(15,27,34,.65);backdrop-filter:blur(6px);border:1px solid rgba(245,240,232,.15);border-radius:2px;color:#F5F0E8;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.16em;padding:9px 18px;cursor:pointer;transition:background .2s;}
+  .plb-close:hover{background:rgba(15,27,34,.9);}
   .plb-hero{position:relative;height:52vh;min-height:320px;background-size:cover;background-position:center;}
-  .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,25,35,.08) 0%,rgba(14,25,35,.7) 100%);}
+  .plb-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,27,34,.08) 0%,rgba(15,27,34,.7) 100%);}
   .plb-hero-foot{position:absolute;bottom:0;left:0;right:0;padding:40px 52px;}
   .plb-hero-collection{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:8px;}
   .plb-hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);font-weight:300;color:#F5F0E8;line-height:1.05;}
   .plb-hero-loc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.08em;color:rgba(245,240,232,.5);margin-top:8px;}
   .plb-hero-pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
   .plb-hero-pill{font-family:'Jost',sans-serif;font-size:8px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.65);display:flex;align-items:center;gap:6px;}
-  .plb-hero-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:#B8976A;display:block;}
+  .plb-hero-pill::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);display:block;}
   .plb-about{display:grid;grid-template-columns:1fr 1fr;}
   .plb-about-text{padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
   .plb-section-label{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-  .plb-section-label-rule{flex:1;height:1px;background:rgba(27,42,74,.12);}
-  .plb-section-label-text{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(27,42,74,.45);white-space:nowrap;}
-  .plb-about-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
-  .plb-about-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;font-style:italic;color:#1B2A4A;margin:0 0 20px;line-height:1.2;}
-  .plb-about-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.85;color:rgba(27,42,74,.7);}
+  .plb-section-label-rule{flex:1;height:1px;background:rgba(15,27,34,.12);}
+  .plb-section-label-text{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(15,27,34,.45);white-space:nowrap;}
+  .plb-about-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .plb-about-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;font-style:italic;color:#0F1B22;margin:0 0 20px;line-height:1.2;}
+  .plb-about-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.85;color:rgba(15,27,34,.7);}
   .plb-about-img{width:100%;height:100%;min-height:400px;object-fit:cover;display:block;}
-  .plb-benefits-wrap{background:#0E1923;padding:60px 52px;}
+  .plb-benefits-wrap{background:#0F1B22;padding:60px 52px;}
   .plb-benefits-bar-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.72);margin-bottom:32px;}
   .plb-benefits-blur-area{position:relative;}
   .plb-benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;filter:blur(6px);pointer-events:none;user-select:none;}
   .plb-benefits-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:2;}
-  .plb-lock-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:rgba(184,151,106,.75);}
-  .plb-lock-cta{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#0E1923;background:#B8976A;text-decoration:none;padding:13px 32px;border-radius:1px;margin-top:6px;}
+  .plb-lock-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--eyebrow);}
+  .plb-lock-cta{display:inline-block;font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--on-accent);background:var(--accent);text-decoration:none;padding:13px 32px;border-radius:1px;margin-top:6px;}
   .plb-benefit-cell{display:flex;flex-direction:column;gap:6px;}
   .plb-benefit-icon{width:26px;height:26px;margin-bottom:8px;flex-shrink:0;display:flex;align-items:center;}
   .plb-benefit-name{font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.08em;color:#F5F0E8;}
   .plb-benefit-detail{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(245,240,232,.45);line-height:1.4;}
   .plb-amenities-wrap{padding:60px 52px;background:#F5F0E8;}
-  .plb-amenities-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;color:#1B2A4A;margin:16px 0 32px;}
+  .plb-amenities-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,34px);font-weight:300;color:#0F1B22;margin:16px 0 32px;}
   .plb-amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
   .plb-amenity-card{position:relative;overflow:hidden;aspect-ratio:4/3;}
   .plb-amenity-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
   .plb-amenity-card:hover img{transform:scale(1.04);}
-  .plb-amenity-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,25,35,.82) 0%,transparent 55%);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;}
+  .plb-amenity-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,27,34,.82) 0%,transparent 55%);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;}
   .plb-amenity-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#F5F0E8;margin-bottom:6px;}
   .plb-amenity-desc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(245,240,232,.65);line-height:1.55;display:none;}
   .plb-amenity-card:hover .plb-amenity-desc{display:block;}
@@ -176,10 +147,10 @@
   .plb-accom-img-wrap{overflow:hidden;}
   .plb-accom-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
   .plb-accom-content{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;background:#F5F0E8;}
-  .plb-accom-tag{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(27,42,74,.4);margin-bottom:8px;}
-  .plb-accom-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,28px);font-weight:300;color:#1B2A4A;margin:0 0 14px;line-height:1.2;}
-  .plb-accom-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.65);}
-  .plb-dining-wrap{padding:60px 52px;background:#0E1923;}
+  .plb-accom-tag{font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,27,34,.4);margin-bottom:8px;}
+  .plb-accom-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,28px);font-weight:300;color:#0F1B22;margin:0 0 14px;line-height:1.2;}
+  .plb-accom-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(15,27,34,.65);}
+  .plb-dining-wrap{padding:60px 52px;background:#0F1B22;}
   .plb-dining-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;}
   .plb-dining-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);font-weight:300;color:#F5F0E8;line-height:1.15;}
   .plb-dining-title em{font-style:italic;}
@@ -197,15 +168,15 @@
   .plb-dining-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#F5F0E8;margin-bottom:8px;}
   .plb-dining-desc{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;line-height:1.7;color:rgba(245,240,232,.55);}
   .plb-dining-progress{height:1px;background:rgba(245,240,232,.1);margin-top:20px;position:relative;}
-  .plb-dining-fill{height:100%;background:#B8976A;transition:width 340ms ease;}
+  .plb-dining-fill{height:100%;background:var(--accent);transition:width 340ms ease;color:var(--on-accent);}
   .plb-wellness-wrap{padding:60px 52px;background:#F5F0E8;}
   .plb-wellness-panel{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
-  .plb-wellness-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;color:#1B2A4A;margin:12px 0 16px;}
-  .plb-wellness-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(27,42,74,.65);margin-bottom:24px;}
-  .plb-wellness-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(27,42,74,.1);}
-  .plb-wellness-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(27,42,74,.1);}
-  .plb-wellness-name{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;color:#1B2A4A;}
-  .plb-wellness-badge{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(27,42,74,.5);text-align:right;}
+  .plb-wellness-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;color:#0F1B22;margin:12px 0 16px;}
+  .plb-wellness-body{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(15,27,34,.65);margin-bottom:24px;}
+  .plb-wellness-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(15,27,34,.1);}
+  .plb-wellness-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(15,27,34,.1);}
+  .plb-wellness-name{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;color:#0F1B22;}
+  .plb-wellness-badge{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(15,27,34,.5);text-align:right;}
   .plb-wellness-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
   .plb-wellness-img-tall{grid-row:span 2;}
   .plb-wellness-imgs img{width:100%;height:160px;object-fit:cover;display:block;}
@@ -213,8 +184,8 @@
   .plb-strip{display:flex;gap:3px;overflow:hidden;}
   .plb-strip-item{flex:1;overflow:hidden;}
   .plb-strip-item img{width:100%;height:180px;object-fit:cover;display:block;}
-  .plb-cta-wrap{background:#0E1923;padding:52px;text-align:center;}
-  .plb-cta-eyebrow{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#B8976A;margin-bottom:12px;}
+  .plb-cta-wrap{background:#0F1B22;padding:52px;text-align:center;}
+  .plb-cta-eyebrow{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--eyebrow);margin-bottom:12px;}
   .plb-cta-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);font-weight:300;font-style:italic;color:#F5F0E8;margin:0 0 28px;}
   @media(max-width:700px){
     .plb-panel{width:100%;height:100vh;max-width:100%;}
@@ -231,23 +202,28 @@
     .plb-about-text,.plb-benefits-wrap,.plb-amenities-wrap,.plb-accom-wrap,.plb-accom-content,.plb-dining-wrap,.plb-wellness-wrap,.plb-cta-wrap{padding-left:24px;padding-right:24px;}
     .plb-hero-foot{padding:28px 24px;}
   }
+
+    /* Brand 2.0 — this page's own grounds. Dark ones flip the accent to cream;
+       light ones flip it back, for cream sections nested inside a dark one. */
+    .plb-benefits-wrap, .plb-dining-wrap, .plb-dining-card{--accent:var(--cream);--on-accent:var(--ink);--eyebrow:rgba(245,240,232,.75);--line:rgba(245,240,232,.16);--tint:rgba(245,240,232,.06);}
+    .plb-panel, .plb-amenities-wrap, .plb-accom-wrap, .plb-accom-content, .plb-wellness-wrap{--accent:var(--ink);--on-accent:var(--cream);--eyebrow:var(--ink);--line:rgba(15,27,34,.16);--tint:rgba(15,27,34,.04);}
   </style>
 </head>
 <body>
 <nav id="mainNav">
   <a class="nav-logo" href="index.html">
-    <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
-    <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
+    <picture class="logo-light"><source media="(max-width: 768px)" srcset="/assets/brand-2.0/logo/svg/prive-padel_icon_cream.svg"><img src="/assets/brand-2.0/logo/svg/prive-padel_horizontal_cream.svg" alt="Privé Padel" width="129" height="44"></picture>
+    <picture class="logo-dark"><source media="(max-width: 768px)" srcset="/assets/brand-2.0/logo/svg/prive-padel_icon_ink.svg"><img src="/assets/brand-2.0/logo/svg/prive-padel_horizontal_ink.svg" alt="Privé Padel" width="129" height="44"></picture>
   </a>
   <ul class="nav-links">
-    <li class="nav-item"><a class="nav-link" href="passport.html">Privé Passport</a></li>
-    <li class="nav-item"><a class="nav-link" href="montauk.html">Privé Montauk</a></li>
-    <li class="nav-item"><a class="nav-link" href="miami.html">Privé Miami</a></li>
-    <li class="nav-item"><a class="nav-link" href="about.html">About Privé</a></li>
+    <li class="nav-item"><a class="nav-link" href="/passport/destinations.html">Destinations</a></li>
+    <li class="nav-item"><a class="nav-link" href="/passport.html">Passport</a></li>
+    <li class="nav-item"><a class="nav-link" href="/locations.html">Clubs</a></li>
+    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
   </ul>
   <div class="nav-right">
     <a class="nav-login" href="https://passport.prive-padel.com/login">Member Login</a>
-    <a class="nav-cta" href="join.html">Get Your Passport</a>
+    <a class="nav-cta" href="https://passport.prive-padel.com/signup" data-app-link>Get the app</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -257,14 +233,14 @@
   <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
   <div class="mobile-nav">
     <div class="mobile-nav-group">
-      <a href="passport.html">Privé Passport</a>
-      <a href="montauk.html">Privé Montauk</a>
-      <a href="miami.html">Privé Miami</a>
-      <a href="about.html">About Privé</a>
+      <a href="/passport/destinations.html">Destinations</a>
+      <a href="/passport.html">Passport</a>
+      <a href="/locations.html">Clubs</a>
+      <a href="/about.html">About</a>
     </div>
     <div class="mobile-nav-group">
       <a href="https://passport.prive-padel.com/login" class="mobile-nav-login">Member Login</a>
-      <a href="join.html" class="mobile-nav-cta">Get Your Passport</a>
+      <a href="https://passport.prive-padel.com/signup" class="mobile-nav-cta" data-app-link>Get the app</a>
     </div>
   </div>
 </div>
@@ -274,6 +250,7 @@
      HERO CAROUSEL
 ═════════════════════════════════════════════════════ -->
 <section class="hero-carousel" id="heroCarousel" aria-label="Hero">
+  <img class="hero-seal" src="/assets/brand-2.0/logo/svg/prive-padel_icon_cream.svg" alt="" aria-hidden="true" width="48" height="64">
   <div class="hc-slides" id="hcSlides"></div>
   <div class="hc-dots" id="hcDots" role="tablist" aria-label="Slide navigation"></div>
 </section>
@@ -284,12 +261,13 @@
 <section class="brand-anchor">
   <div class="brand-anchor-content">
     <img loading="lazy" class="padel-mark"
-         src="/assets/padel_cream.png"
-         alt="Privé Padel">
+         src="/assets/brand-2.0/logo/svg/prive-padel_primary_cream.svg"
+         alt="Privé Padel" width="96" height="128">
     <div class="hairline-rule"></div>
     <div class="between-label">THE MEMBERSHIP</div>
-    <div class="membership-name">Privé Passport</div>
-    <p class="brand-anchor-body">Privé Padel builds the places where the game and good travel meet — our own clubs in Montauk and Miami, and a curated collection of hotels and resorts across five continents. Privé Passport is the membership that opens all of it: one annual membership, member rates and privileges wherever you stay, and a padel court waiting when you arrive.</p>
+    <div class="membership-name">Privé Padel Passport</div>
+    <p class="brand-anchor-body">Privé Padel builds the places where the game and good travel meet — our own clubs in Montauk and Miami, and a curated collection of hotels and resorts across five continents.</p>
+    <p class="passport-def">Passport is the Privé Padel membership: member rates and benefits at 40+ padel destinations, partner clubs, and our own courts in Montauk and Miami.</p>
   </div>
 </section>
 
@@ -336,12 +314,12 @@
       <a href="/passport/club-partners.html" class="offering-link">EXPLORE →</a>
     </div>
 
-    <!-- 4 · Privé Locations -->
+    <!-- 4 · Clubs -->
     <div class="offering">
       <div class="offering-image">
         <img src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777409568/DSC01153_gsoj22.jpg" alt="Privé Locations" loading="lazy">
       </div>
-      <div class="offering-eyebrow">PRIVÉ LOCATIONS</div>
+      <div class="offering-eyebrow">OUR CLUBS</div>
       <div class="offering-name">Montauk · <em>Miami.</em></div>
       <div class="offering-qualifier">Our flagship venues, in two of America's signature places.</div>
       <a href="/locations.html" class="offering-link">EXPLORE →</a>
@@ -442,12 +420,13 @@
 ═════════════════════════════════════════════════════ -->
 <section class="portal-band">
   <div class="portal-head">
-    <div class="portal-eyebrow">Inside your membership</div>
+    <div class="portal-eyebrow">The app</div>
     <h2 class="portal-title">The collection, <em>in your pocket.</em></h2>
-    <p class="portal-sub">Every membership opens the Privé Passport platform — the whole collection mapped, each property in full, and your membership managed in one place.</p>
+    <p class="portal-sub">The whole collection mapped, each property in full, and member rates once you join.</p>
+    <a class="btn-primary portal-app" href="https://passport.prive-padel.com/signup" data-app-link>Get the app</a>
   </div>
   <img class="portal-shot" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_2360/v1786061249/navy-04-macbook-iphone-map_nmpuam.png"
-       alt="The Privé Passport platform on laptop and phone, showing the destination map"
+       alt="The Privé Padel app on laptop and phone, showing the destination map"
        width="3840" height="2160" loading="lazy" decoding="async">
   <div class="portal-points">
     <div class="portal-point">
@@ -459,117 +438,20 @@
       <p>Courts, rooms, spa and dining — what's actually there, before you commit to going.</p>
     </div>
     <div class="portal-point">
-      <h3>Manage your membership</h3>
-      <p>Your plan, your details, your partner — all of it yours to change at any time.</p>
+      <h3>Member rates, in the app</h3>
+      <p>What partners extend to members lives in the app, not on a public page.</p>
     </div>
   </div>
 </section>
 
 <!-- ═════════════════════════════════════════════════════
-     PRICING
-═════════════════════════════════════════════════════ -->
-<section class="passport-pricing">
-  <div class="pp-head">
-    <div class="pp-card-eyebrow">MEMBERSHIP</div>
-    <h2 class="pp-head-title">Choose your <em>Passport.</em></h2>
-    <p class="pp-head-sub">Every benefit is in both tiers. The only difference is how often you play at our own clubs.</p>
-  </div>
-
-  <div class="pp-tiles">
-    <div class="pp-tile">
-      <div class="pp-tile-name">Standard</div>
-      <div class="pp-tile-price">$595<span>/ year</span></div>
-      <div class="pp-tile-diff">
-        <span class="pp-tile-diff-label">Privé Montauk &amp; Miami</span>
-        Member pricing · four visits a month
-      </div>
-      <a href="join.html?tier=standard" class="pp-tile-cta">Get Standard →</a>
-    </div>
-
-    <div class="pp-tile is-featured">
-      <span class="pp-tile-flag">Most complete</span>
-      <div class="pp-tile-name">Full Access</div>
-      <div class="pp-tile-price">$995<span>/ year</span></div>
-      <div class="pp-tile-diff">
-        <span class="pp-tile-diff-label">Privé Montauk &amp; Miami</span>
-        Member pricing · <em>unlimited visits</em>
-      </div>
-      <a href="join.html?tier=full" class="pp-tile-cta is-gold">Get Full Access →</a>
-    </div>
-  </div>
-
-  <p class="pp-tiles-note">Add a partner to either tier — $95 a year.</p>
-
-  <div class="passport-pricing-inner">
-
-    <!-- RIGHT — Benefits (two columns) -->
-    <div class="pp-benefits-wrap">
-      <div class="pp-benefits-eyebrow">WHAT YOUR PASSPORT INCLUDES</div>
-      <div class="pp-benefits-cols">
-
-        <!-- Column A: Padel Destinations -->
-        <div class="pp-benefits-col">
-          <div class="pp-cat-label">Padel Destinations</div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Preferred stays at over 40 luxury hotels &amp; resorts with padel courts</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Up to 20% off room rates</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Room upgrade upon availability</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Early check-in and late check-out, upon availability</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Resort, restaurant, and spa credits</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Preferred court access</div>
-          </div>
-        </div>
-
-        <!-- Column B: Experiences, Club Partners, Privé Locations -->
-        <div class="pp-benefits-col">
-          <div class="pp-cat-label">Padel Experiences</div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Curated retreats — first access and preferred pricing</div>
-          </div>
-
-          <div class="pp-cat-label" style="margin-top:28px;">Padel Club Partners</div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Preferred court pricing and full club access when staying at a partner hotel</div>
-          </div>
-
-          <div class="pp-cat-label" style="margin-top:28px;">Privé Locations</div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Preferred member rates</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Priority court bookings</div>
-          </div>
-          <div class="pp-benefit-item">
-            <div class="pp-benefit"><span class="pp-diamond">◆</span>Invitations to member events and openings</div>
-          </div>
-        </div>
-
-      </div>
-      <div class="pp-benefits-note">
-        <div class="pp-benefits-rule"></div>
-        <p class="pp-benefits-disclaimer">Specific benefits vary by destination</p>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 
 <!-- ═════════════════════════════════════════════════════
-     PRIVÉ LOCATIONS — MONTAUK
+     CLUBS — MIAMI, MONTAUK
 ═════════════════════════════════════════════════════ -->
 <section class="locations-section">
-  <div class="section-eyebrow" style="margin-bottom:60px;">Privé Locations</div>
+  <div class="section-eyebrow" style="margin-bottom:60px;">Our Clubs</div>
 
   <!-- Miami — open now -->
   <div class="location-feature">
@@ -578,9 +460,9 @@
       <div class="location-place">Coral Gables, Miami</div>
       <h2 class="location-heading">Privé <em>Miami.</em></h2>
       <div class="location-status is-open">Open Now</div>
-      <p class="location-body">Privé Padel at THesis Hotel brings the brand to Coral Gables — the only padel court in the neighborhood, run by Privé, with a programming calendar built around the city. Year-round play, member pricing on your Passport, and a club that reflects Miami's international membership.</p>
+      <p class="location-body">Privé Padel at THesis Hotel brings the brand to Coral Gables — the only padel court in the neighborhood, run by Privé, with a programming calendar built around the city. Year-round play, member pricing with the Passport, and a club that reflects Miami's international membership.</p>
       <div class="location-ctas">
-        <a href="https://playtomic.com/clubs/prive-at-thesis" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Court</a>
+        <a href="https://playtomic.com/clubs/prive-at-thesis" target="_blank" rel="noopener noreferrer" class="btn-primary">Book on Playtomic</a>
         <a href="miami.html" class="location-link">Visit Privé Miami →</a>
       </div>
     </div>
@@ -593,10 +475,10 @@
       <div class="location-place">Montauk, New York</div>
       <h2 class="location-heading">Privé <em>Montauk.</em></h2>
       <div class="location-status">Returning Spring 2027</div>
-      <p class="location-body">Where the Privé Padel brand first took shape. Launched in 2024 with two courts and a vision for what refined padel could look like in a luxury travel context, Montauk was the earliest version of what became Privé Passport. The original returns Spring 2027, at a new location on Lake Montauk.</p>
+      <p class="location-body">Where the Privé Padel brand first took shape. Launched in 2024 with two courts and a vision for what refined padel could look like in a luxury travel context, Montauk was the earliest version of what became the Passport. The original returns Spring 2027, at a new location on Lake Montauk.</p>
       <div class="location-ctas">
         <a href="montauk.html" class="btn-primary">Privé Montauk</a>
-        <a href="/locations.html" class="location-link">Explore Privé Locations →</a>
+        <a href="/locations.html" class="location-link">See all clubs →</a>
       </div>
     </div>
   </div>
@@ -608,7 +490,7 @@
 <section class="worldview-moment">
   <div class="wm-inner">
     <p class="wm-quote">A life played well.</p>
-    <p class="wm-sub">Privé Padel is our home. Privé Passport is how it travels with us.</p>
+    <p class="wm-sub">Privé Padel is our home. The Passport is how it travels with us.</p>
     <a href="about.html" class="btn-ghost"><span class="btn-ghost-line"></span>Read our story</a>
   </div>
 </section>
@@ -619,11 +501,11 @@
 <section class="closing-cta">
   <div class="closing-cta-bg"></div>
   <div class="closing-cta-inner">
-    <div class="closing-cta-eyebrow">PRIVÉ PASSPORT</div>
+    <div class="closing-cta-eyebrow">PRIVÉ PADEL</div>
     <h2 class="closing-cta-title">Play <em>the world.</em></h2>
-    <p class="closing-cta-sub">Your Passport is ready. From $595 a year.</p>
+    <p class="closing-cta-sub">Browse the collection, save the places you want to play, and see member rates in the app.</p>
     <div class="cta-buttons">
-      <a href="join.html" class="btn-primary">GET YOUR PASSPORT →</a>
+      <a href="https://passport.prive-padel.com/signup" class="btn-primary" data-app-link>Get the app</a>
     </div>
   </div>
 </section>
@@ -655,13 +537,13 @@
       <div class="plb-benefits-blur-area">
         <div class="plb-benefits-grid" id="plbBenefitsGrid"></div>
         <div class="plb-benefits-lock">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#B8976A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
             <rect x="6" y="15" width="22" height="15" rx="2"/>
             <path d="M11 15v-4.5a6 6 0 0 1 12 0V15"/>
-            <circle cx="17" cy="22.5" r="2" fill="#B8976A" stroke="none"/>
+            <circle cx="17" cy="22.5" r="2" fill="currentColor" stroke="none"/>
           </svg>
-          <div class="plb-lock-label">Members Only</div>
-          <a href="/join.html" class="plb-lock-cta">GET YOUR PASSPORT →</a>
+          <div class="plb-lock-label">Member rate in the app</div>
+          <a href="https://passport.prive-padel.com/signup" class="plb-lock-cta" data-app-link>Get the app</a>
         </div>
       </div>
     </div>
@@ -677,7 +559,7 @@
     <div class="plb-dining-wrap" id="plbDiningWrap">
       <div class="plb-dining-header">
         <div>
-          <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:10px;">DINING</div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--eyebrow);margin-bottom:10px;">DINING</div>
           <div class="plb-dining-title">Where every <em>meal matters.</em></div>
         </div>
         <div class="plb-dining-controls">
@@ -713,9 +595,9 @@
     </div>
     <div class="plb-strip" id="plbStrip"></div>
     <div class="plb-cta-wrap">
-      <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
+      <div class="plb-cta-eyebrow">THE PASSPORT</div>
       <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
-      <a href="/join.html" class="btn-primary" style="margin-top:28px;display:inline-block;">GET YOUR PASSPORT →</a>
+      <a href="https://passport.prive-padel.com/signup" class="btn-primary" style="margin-top:28px;display:inline-block;" data-app-link>Get the app</a>
     </div>
   </div>
 </div>
@@ -739,36 +621,37 @@
     <div class="drawer-images" id="drawerImages" style="display:none;"></div>
     <div class="drawer-benefits-label" id="drawerBenefitsLabel" style="display:none;"></div>
     <ul class="drawer-benefits" id="drawerBenefits"></ul>
-    <a href="/join.html" class="btn-primary" style="display:inline-flex;">Get Your Passport</a>
+    <a href="https://passport.prive-padel.com/signup" class="btn-primary" style="display:inline-flex;" data-app-link>Get the app</a>
   </div>
 </div>
 <div class="drawer-overlay" id="drawerOverlay"></div>
 
 
 <footer>
+  <a class="footer-mark" href="/" aria-label="Privé Padel home"><img src="/assets/brand-2.0/logo/svg/prive-padel_primary_cream.svg" alt="Privé Padel" width="90" height="120"></a>
   <div class="footer-top">
     <div>
-      <div class="footer-col-title">Privé Passport</div>
+      <div class="footer-col-title">Passport</div>
       <ul class="footer-links">
         <li><a href="/passport/destinations.html">Padel Destinations</a></li>
         <li><a href="/passport/experiences.html">Padel Experiences</a></li>
         <li><a href="/passport/club-partners.html">Padel Club Partners</a></li>
-        <li><a href="/locations.html">Privé Locations</a></li>
-        <li><a href="join.html" class="footer-cta-link">Get Your Passport</a></li>
+        <li><a href="/locations.html">Clubs</a></li>
+        <li><a href="https://passport.prive-padel.com/signup" class="footer-cta-link" data-app-link>Get the app</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Privé Montauk</div>
       <ul class="footer-links">
         <li><a href="montauk.html">Visit</a></li>
-        <li><a href="join.html">Membership</a></li>
+        <li><a href="/passport.html">Membership</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Privé Miami</div>
       <ul class="footer-links">
         <li><a href="miami.html">Visit</a></li>
-        <li><a href="join.html">Membership</a></li>
+        <li><a href="/passport.html">Membership</a></li>
       </ul>
     </div>
     <div>
@@ -835,148 +718,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- ── Email capture popup (homepage only) ──────────── -->
-<button class="pp-tab" id="ppTab" aria-label="Open founding offer"><span>FOUNDING OFFER</span></button>
-<div id="privePopup" class="pp" role="dialog" aria-modal="true" aria-label="Founding Offer" aria-hidden="true">
-  <div class="pp-overlay" id="ppOverlay"></div>
-  <div class="pp-card">
-    <button class="pp-close" id="ppClose" aria-label="Dismiss">✕</button>
-    <div class="pp-fo-eyebrow">THE FOUNDING OFFER &middot; FIRST 200</div>
-    <h2 class="pp-fo-headline">Pay the Standard price.<br>Receive Full Access.<br>For life.</h2>
-    <div class="pp-fo-divider"></div>
-    <div class="pp-fo-prices">
-      <div class="pp-fo-col">
-        <div class="pp-fo-label">You Pay</div>
-        <div class="pp-fo-amount">$595</div>
-        <div class="pp-fo-detail">ANNUALLY &middot; LOCKED<br>FOR LIFE</div>
-      </div>
-      <div class="pp-fo-col">
-        <div class="pp-fo-label">You Receive</div>
-        <div class="pp-fo-amount receive">$995</div>
-        <div class="pp-fo-detail">FULL ACCESS &middot; EVERY<br>BENEFIT</div>
-      </div>
-    </div>
-    <form id="ppForm" novalidate>
-      <div class="pp-field" id="ppFieldName">
-        <input type="text" id="ppFirstName" name="first_name" placeholder="First Name" autocomplete="given-name">
-        <p class="pp-err">Please enter your first name.</p>
-      </div>
-      <div class="pp-field" id="ppFieldEmail">
-        <input type="email" id="ppEmail" name="email" placeholder="Email" autocomplete="email">
-        <p class="pp-err">Please enter a valid email address.</p>
-      </div>
-      <button type="submit" class="pp-submit" id="ppSubmit">BECOME A FOUNDING MEMBER</button>
-    </form>
-    <div class="pp-confirm" id="ppConfirm">
-      Check your inbox — your founding rate link is on the way.
-    </div>
-    <p class="pp-fo-note">Limited to the first 200 members. Once filled, Full Access is $995 per year.<br>Founding members are not subject to periodic price increases.</p>
-  </div>
-</div>
-<script>
-(function () {
-  var COOKIE_DONE = 'prive_fo_v1';   // submitted — never show again
-  var COOKIE_SEEN = 'prive_fo_seen'; // dismissed — show tab on return
-  var SCROLL_TRIGGER = 0.50;
-
-  function hasCookie(name) {
-    return document.cookie.split('; ').some(function (c) { return c.startsWith(name + '='); });
-  }
-  function setCookie(name, days) {
-    var exp = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = name + '=1; expires=' + exp + '; path=/; SameSite=Lax';
-  }
-
-  if (hasCookie(COOKIE_DONE)) return;
-
-  var tab        = document.getElementById('ppTab');
-  var popup      = document.getElementById('privePopup');
-  var overlay    = document.getElementById('ppOverlay');
-  var closeBtn   = document.getElementById('ppClose');
-  var form       = document.getElementById('ppForm');
-  var submitBtn  = document.getElementById('ppSubmit');
-  var confirm    = document.getElementById('ppConfirm');
-  var fieldName  = document.getElementById('ppFieldName');
-  var fieldEmail = document.getElementById('ppFieldEmail');
-
-  function openPopup() {
-    tab.classList.remove('visible');
-    popup.classList.add('open');
-    popup.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-  function dismiss() {
-    popup.classList.remove('open');
-    popup.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    setCookie(COOKIE_SEEN, 60);
-    tab.classList.add('visible');
-  }
-  function done() {
-    popup.classList.remove('open');
-    popup.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    tab.classList.remove('visible');
-    setCookie(COOKIE_DONE, 365);
-  }
-
-  tab.addEventListener('click', openPopup);
-  closeBtn.addEventListener('click', dismiss);
-  overlay.addEventListener('click', dismiss);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && popup.classList.contains('open')) dismiss();
-  });
-
-  if (hasCookie(COOKIE_SEEN)) {
-    tab.classList.add('visible');
-    return;
-  }
-
-  var fired = false;
-  function onScroll() {
-    if (fired) return;
-    var total = document.documentElement.scrollHeight - window.innerHeight;
-    if (total > 0 && window.scrollY / total >= SCROLL_TRIGGER) {
-      fired = true;
-      window.removeEventListener('scroll', onScroll);
-      openPopup();
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  function validate(name, email) {
-    var ok = true;
-    if (!name)                { fieldName.classList.add('err');   ok = false; }
-    else                      { fieldName.classList.remove('err'); }
-    if (!emailRe.test(email)) { fieldEmail.classList.add('err');  ok = false; }
-    else                      { fieldEmail.classList.remove('err'); }
-    return ok;
-  }
-
-  function showConfirm() {
-    form.style.display = 'none';
-    confirm.style.display = 'block';
-    setTimeout(done, 1500);
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name  = document.getElementById('ppFirstName').value.trim();
-    var email = document.getElementById('ppEmail').value.trim();
-    if (!validate(name, email)) return;
-    submitBtn.disabled    = true;
-    submitBtn.textContent = 'SENDING…';
-    fetch('/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, firstName: name, source: 'founding_offer' })
-    })
-    .catch(function () {})
-    .then(showConfirm);
-  });
-})();
-</script>
 <script>
 function clUrl(src, w) {
   if (!src || !src.includes('res.cloudinary.com')) return src;

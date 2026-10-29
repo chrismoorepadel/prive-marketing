@@ -61,17 +61,18 @@
     gtag('config', 'G-V7WWTFXWSE');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Privé Passport — The Membership</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/favicon.png">
+  <title>The Passport · Privé Padel</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://prive-padel.com/passport">
   <meta name="theme-color" content="#0E1923">
-  <meta name="description" content="Privé Passport — one membership opening 40+ hotels and resorts across 18 countries, a padel court at every one, 20% off signature retreats, and member pricing at Privé Montauk &amp; Miami. From $595 a year.">
+  <meta name="description" content="The Privé Padel Passport: member rates and benefits at 40+ padel destinations, partner clubs, and our own courts in Montauk and Miami. Standard $595 or Full Access $995 a year.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="The world's first Padel Passport — Privé Padel">
-  <meta property="og:description" content="One membership. 40+ hotels and resorts. A court waiting at every one. From $595 a year.">
-  <meta property="og:image" content="https://res.cloudinary.com/dfjqa5f05/video/upload/so_0,w_1200,q_auto/v1784742354/Landing_Page_Hero_Video_w3mnrw.jpg">
+  <meta property="og:title" content="The Passport · Privé Padel">
+  <meta property="og:description" content="Member rates and benefits at 40+ padel destinations, partner clubs, and our own courts in Montauk and Miami.">
+  <meta property="og:image" content="https://www.prive-padel.com/assets/brand-2.0/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
@@ -81,7 +82,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --dark:  #0E1923;
+      --dark:  #0F1B22;
       --dark2: #152230;
       --navy:  #1B2A4A;
       --gold:  #B8976A;
@@ -90,14 +91,14 @@
       /* Light ground for this page. Deliberately NOT a redefinition of
          --cream/--dark: styles/main.css uses those with their original
          meanings for the site nav and hero, and both stylesheets load here. */
-      --ink:    #1B2A4A;
+      --ink:    #0F1B22;
       /* #B8976A is 2.24:1 on the beige — fine as a rule or an icon,
          unreadable as text. This is the same hue taken darker. */
-      --gold-ink: #7E6135;
+      --gold-ink: #0F1B22;
       --paper:  #F5F0E8;
       --paper2: #EDE8E0;
       --glass:      rgba(255,255,255,.55);
-      --glass-line: rgba(27,42,74,.12);
+      --glass-line: rgba(15,27,34,.12);
     }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
@@ -114,17 +115,17 @@
 
     .eyebrow {
       font-size: 10.5px; font-weight: 400; letter-spacing: .28em; text-transform: uppercase;
-      color: var(--gold-ink); margin-bottom: 18px;
+      color: var(--accent); margin-bottom: 18px;
     }
     /* the lightboxes keep their dark canvas, so gold still reads there */
-    .xlb .eyebrow, .plb .eyebrow { color: var(--gold); }
+    .xlb .eyebrow, .plb .eyebrow { color: var(--eyebrow); }
     .display {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
       font-size: clamp(34px, 9vw, 52px); line-height: 1.05; color: var(--ink); letter-spacing: .003em;
     }
-    .display em { font-style: italic; color: var(--gold); display: block; }
+    .display em { font-style: italic; color: inherit; display: block; }
     .lede {
-      font-size: 15px; font-weight: 300; line-height: 1.75; color: rgba(27,42,74,.62);
+      font-size: 15px; font-weight: 300; line-height: 1.75; color: rgba(15,27,34,.62);
     }
 
     /* Frosted-glass card */
@@ -134,7 +135,7 @@
       backdrop-filter: blur(22px) saturate(1.25);
       border: 1px solid var(--glass-line);
       border-radius: 22px;
-      box-shadow: 0 24px 60px -34px rgba(27,42,74,.28);
+      box-shadow: 0 24px 60px -34px rgba(15,27,34,.28);
     }
 
     /* Buttons */
@@ -146,13 +147,13 @@
       -webkit-tap-highlight-color: transparent;
     }
     .btn:active { transform: scale(.98); }
-    .btn-gold { background: var(--gold); color: var(--paper); padding: 17px 34px; }
+    .btn-gold { background: var(--accent); color:var(--on-accent); padding: 17px 34px; }
     .btn-gold:hover { opacity: .9; }
     .btn-ghost {
-      background: rgba(27,42,74,.06); color: var(--ink);
-      border: 1px solid rgba(27,42,74,.28); padding: 16px 32px;
+      background: rgba(15,27,34,.06); color: var(--ink);
+      border: 1px solid rgba(15,27,34,.28); padding: 16px 32px;
     }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
     .btn-full { width: 100%; }
 
     /* ── HEADER ────────────────────────────────────────────── */
@@ -162,7 +163,7 @@
       padding: 14px 20px; transition: background .3s, padding .3s;
       padding-top: calc(14px + env(safe-area-inset-top));
     }
-    .hdr.scrolled { background: rgba(14,25,35,.86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .hdr.scrolled { background: rgba(15,27,34,.86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
     .hdr img { height: 42px; width: auto; }
     .hdr .btn { padding: 11px 20px; font-size: 10px; }
 
@@ -171,13 +172,13 @@
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 210;
       display: flex; align-items: center; justify-content: space-between; gap: 14px;
       padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
-      background: rgba(14,25,35,.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(184,151,106,.22);
+      background: rgba(15,27,34,.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      border-top: 1px solid var(--line);
       transform: translateY(110%); transition: transform .35s ease;
     }
     .sticky.visible { transform: translateY(0); }
     .sticky-copy { font-size: 12px; color: rgba(245,240,232,.6); letter-spacing: .02em; line-height: 1.3; }
-    .sticky-copy strong { color: var(--gold); font-weight: 400; }
+    .sticky-copy strong { color: var(--accent); font-weight: 400; }
     .sticky .btn { flex-shrink: 0; padding: 13px 22px; font-size: 10px; }
 
     /* ── HERO ──────────────────────────────────────────────── */
@@ -192,7 +193,7 @@
     .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .hero-veil {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(14,25,35,.35) 0%, rgba(14,25,35,.55) 45%, rgba(14,25,35,.97) 100%);
+      background: linear-gradient(to bottom, rgba(15,27,34,.35) 0%, rgba(15,27,34,.55) 45%, rgba(15,27,34,.97) 100%);
     }
     .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 54px; padding-top: 120px; text-shadow: 0 2px 30px rgba(6,11,17,.55); }
     .hero .eyebrow { color: #DDBE93; font-size: 12px; letter-spacing: .24em; margin-bottom: 22px; }
@@ -200,7 +201,7 @@
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
       font-size: clamp(46px, 13vw, 76px); line-height: 1.0; color: var(--cream); margin-bottom: 22px;
     }
-    .hero h1 em { font-style: italic; color: var(--gold); display: block; }
+    .hero h1 em { font-style: italic; color: inherit; display: block; }
     .hero-sub { font-size: 16px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,.72); max-width: 30ch; margin-bottom: 30px; }
     .hero-micro {
       margin-top: 18px; font-size: 11.5px; font-weight: 300; letter-spacing: .06em;
@@ -209,9 +210,9 @@
     .hero-micro strong { color: rgba(245,240,232,.85); font-weight: 400; }
     .scrollcue {
       margin-top: 34px; font-size: 9.5px; letter-spacing: .3em; text-transform: uppercase;
-      color: rgba(27,42,74,.4); display: flex; align-items: center; gap: 10px;
+      color: rgba(15,27,34,.4); display: flex; align-items: center; gap: 10px;
     }
-    .scrollcue::before { content: ''; width: 26px; height: 1px; background: rgba(27,42,74,.4); }
+    .scrollcue::before { content: ''; width: 26px; height: 1px; background: rgba(15,27,34,.4); }
 
     /* ── generic section ───────────────────────────────────── */
     .sec { position: relative; padding: 84px 0; }
@@ -220,23 +221,23 @@
     /* Photo section (full-bleed image + glass content) */
     .photo-sec { position: relative; overflow: hidden; }
     .photo-sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-    .photo-sec-veil { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,25,35,.8) 0%, rgba(14,25,35,.62) 40%, rgba(14,25,35,.92) 100%); }
+    .photo-sec-veil { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,27,34,.8) 0%, rgba(15,27,34,.62) 40%, rgba(15,27,34,.92) 100%); }
     .photo-sec > .wrap { position: relative; z-index: 2; }
 
     /* ── stacked benefit / feature list (glass) ────────────── */
     .flist { padding: 8px 26px; margin-top: 30px; }
     .flist-row {
       display: flex; align-items: center; gap: 14px;
-      padding: 17px 0; border-bottom: 1px solid rgba(27,42,74,.1);
+      padding: 17px 0; border-bottom: 1px solid rgba(15,27,34,.1);
     }
     .flist-row:last-child { border-bottom: none; }
-    .flist-ico { color: var(--gold); width: 20px; height: 20px; flex-shrink: 0; }
+    .flist-ico { color: var(--accent); width: 20px; height: 20px; flex-shrink: 0; }
     .flist-ico svg { width: 20px; height: 20px; }
-    .flist-txt { font-size: 14.5px; font-weight: 300; color: rgba(27,42,74,.9); line-height: 1.4; }
+    .flist-txt { font-size: 14.5px; font-weight: 300; color: rgba(15,27,34,.9); line-height: 1.4; }
     .flist-txt b { font-weight: 400; color: var(--ink); }
     .flist-note {
       margin-top: 18px; text-align: center; font-size: 10px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(27,42,74,.34);
+      text-transform: uppercase; color: rgba(15,27,34,.66);
     }
 
     /* ── PORTFOLIO GRID ────────────────────────────────────── */
@@ -249,14 +250,14 @@
     }
     .pf-tile-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
     .pf-tile:hover .pf-tile-bg { transform: scale(1.06); }
-    .pf-tile-veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,25,35,.9) 0%, rgba(14,25,35,.05) 60%); }
+    .pf-tile-veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,27,34,.9) 0%, rgba(15,27,34,.05) 60%); }
     .pf-tile-label {
       position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 10px; z-index: 2; text-align: center;
       font-family: 'Jost', sans-serif; font-size: 9.5px; font-weight: 400; letter-spacing: .12em;
       text-transform: uppercase; color: rgba(245,240,232,.92);
     }
     .pf-foot { text-align: center; margin-top: 28px; }
-    .pf-foot-note { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(27,42,74,.4); margin-bottom: 20px; }
+    .pf-foot-note { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(15,27,34,.4); margin-bottom: 20px; }
 
     /* ── RETREATS ──────────────────────────────────────────── */
     .rt-list { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
@@ -266,53 +267,53 @@
     }
     .rt-item-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; }
     .rt-item:hover .rt-item-bg { transform: scale(1.05); }
-    .rt-item-veil { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(14,25,35,.9) 0%, rgba(14,25,35,.5) 55%, rgba(14,25,35,.2) 100%); }
+    .rt-item-veil { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(15,27,34,.9) 0%, rgba(15,27,34,.5) 55%, rgba(15,27,34,.2) 100%); }
     .rt-item-inner { position: relative; z-index: 2; padding: 22px 24px; width: 100%; }
-    .rt-item-loc { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .rt-item-loc { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .rt-item-name { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 300; color: var(--cream); line-height: 1.08; margin-bottom: 8px; }
     .rt-item-name em { font-style: italic; }
     .rt-item-meta { display: flex; align-items: baseline; gap: 10px; font-size: 12.5px; color: rgba(245,240,232,.7); }
-    .rt-item-save { color: var(--gold); }
+    .rt-item-save { color: var(--accent); }
     .rt-item-strike { text-decoration: line-through; color: rgba(245,240,232,.4); }
-    .rt-foot { text-align: center; margin-top: 26px; font-size: 13px; color: rgba(27,42,74,.6); }
-    .rt-foot a { color: var(--gold); border-bottom: 1px solid rgba(184,151,106,.5); padding-bottom: 2px; }
+    .rt-foot { text-align: center; margin-top: 26px; font-size: 13px; color: rgba(15,27,34,.6); }
+    .rt-foot a { color: var(--accent); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
 
     /* ── OFFER + CHECKOUT ──────────────────────────────────── */
     .offer { background: radial-gradient(120% 90% at 50% 0%, #16273a 0%, var(--paper) 62%); padding: 84px 0 92px; }
     .offer-head { text-align: center; margin-bottom: 34px; }
     .offer-badge {
       display: inline-block; font-size: 10px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(184,151,106,.4); border-radius: 100px; padding: 8px 18px; margin-bottom: 24px;
+      color: var(--accent); border: 1px solid var(--line); border-radius: 100px; padding: 8px 18px; margin-bottom: 24px;
     }
     .offer-price { display: flex; align-items: baseline; justify-content: center; gap: 16px; margin-bottom: 12px; }
-    .offer-old { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,8vw,40px); font-weight: 300; color: rgba(27,42,74,.34); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .offer-old { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,8vw,40px); font-weight: 300; color: rgba(15,27,34,.34); text-decoration: line-through; text-decoration-thickness: 1px; }
     .offer-new { font-family: 'Cormorant Garamond', serif; font-size: clamp(60px,18vw,84px); font-weight: 300; font-style: italic; color: var(--ink); line-height: .9; }
-    .offer-detail { text-align: center; font-size: 12px; letter-spacing: .06em; color: rgba(27,42,74,.5); margin-bottom: 20px; }
+    .offer-detail { text-align: center; font-size: 12px; letter-spacing: .06em; color: rgba(15,27,34,.5); margin-bottom: 20px; }
     .offer-includes {
-      text-align: center; font-size: 15px; line-height: 1.6; color: rgba(27,42,74,.82); max-width: 30ch; margin: 0 auto 6px;
+      text-align: center; font-size: 15px; line-height: 1.6; color: rgba(15,27,34,.82); max-width: 30ch; margin: 0 auto 6px;
     }
-    .offer-includes b { color: var(--gold); font-weight: 400; }
+    .offer-includes b { color: var(--accent); font-weight: 400; }
 
     /* checkout card (glass, dark) — class names kept for JS hooks */
     .lp-checkout-card { margin-top: 34px; padding: 30px 24px; }
     .lp-checkout-tier {
       display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
-      padding-bottom: 20px; border-bottom: 1px solid rgba(27,42,74,.12);
+      padding-bottom: 20px; border-bottom: 1px solid rgba(15,27,34,.12);
     }
     .lp-checkout-tier-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--ink); margin-bottom: 5px; }
-    .lp-checkout-tier-desc { font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.55); line-height: 1.5; }
+    .lp-checkout-tier-desc { font-size: 12.5px; font-weight: 300; color: rgba(15,27,34,.55); line-height: 1.5; }
     .lp-checkout-tier-price { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--ink); white-space: nowrap; }
-    .lp-checkout-tier-price span { font-size: 14px; color: rgba(27,42,74,.4); }
+    .lp-checkout-tier-price span { font-size: 14px; color: rgba(15,27,34,.4); }
 
     .lp-partner-row {
       display: flex; align-items: flex-start; gap: 13px; padding: 18px 0;
-      border-bottom: 1px solid rgba(27,42,74,.12); cursor: pointer; user-select: none;
+      border-bottom: 1px solid rgba(15,27,34,.12); cursor: pointer; user-select: none;
     }
     .lp-partner-check {
       width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
-      border: 1px solid rgba(27,42,74,.3); border-radius: 5px; position: relative; transition: .15s;
+      border: 1px solid rgba(15,27,34,.3); border-radius: 5px; position: relative; transition: .15s;
     }
-    .lp-partner-row.checked .lp-partner-check { border-color: var(--gold); background: var(--gold); }
+    .lp-partner-row.checked .lp-partner-check { border-color: var(--accent); background: var(--accent);color:var(--on-accent); }
     .lp-partner-row.checked .lp-partner-check::after {
       content: ''; position: absolute; left: 6px; top: 2.5px; width: 5px; height: 10px;
       border-right: 1.5px solid var(--paper); border-bottom: 1.5px solid var(--paper); transform: rotate(45deg);
@@ -320,50 +321,50 @@
     .lp-partner-row input { display: none; }
     .lp-partner-body { flex: 1; }
     .lp-partner-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--ink); margin-bottom: 3px; }
-    .lp-partner-sub { font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.55); line-height: 1.4; }
-    .lp-partner-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(27,42,74,.7); white-space: nowrap; }
-    .lp-partner-price span { font-size: 13px; color: rgba(27,42,74,.4); }
+    .lp-partner-sub { font-size: 12.5px; font-weight: 300; color: rgba(15,27,34,.55); line-height: 1.4; }
+    .lp-partner-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(15,27,34,.7); white-space: nowrap; }
+    .lp-partner-price span { font-size: 13px; color: rgba(15,27,34,.4); }
 
     .lp-total-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 20px; }
-    .lp-total-label { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.45); }
+    .lp-total-label { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(15,27,34,.45); }
     .lp-total-amount { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--ink); }
 
     .lp-step { display: none; }
     .lp-step.active { display: block; }
     .lp-step-head { display: flex; align-items: center; gap: 10px; margin: 22px 0 14px; }
-    .lp-step-badge { font-size: 9.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--paper); background: var(--gold); padding: 5px 9px; border-radius: 4px; }
-    .lp-step-name { font-size: 10.5px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(27,42,74,.5); }
+    .lp-step-badge { font-size: 9.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color:var(--on-accent); background: var(--accent); padding: 5px 9px; border-radius: 4px; }
+    .lp-step-name { font-size: 10.5px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: rgba(15,27,34,.5); }
     .lp-field { margin-bottom: 11px; }
     .lp-field input {
       width: 100%; padding: 15px 16px; font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300;
-      color: var(--ink); background: rgba(255,255,255,.05); border: 1px solid rgba(27,42,74,.18);
+      color: var(--ink); background: rgba(255,255,255,.05); border: 1px solid rgba(15,27,34,.18);
       border-radius: 10px; transition: border-color .15s;
     }
-    .lp-field input::placeholder { color: rgba(27,42,74,.4); }
-    .lp-field input:focus { outline: none; border-color: var(--gold); }
+    .lp-field input::placeholder { color: rgba(15,27,34,.4); }
+    .lp-field input:focus { outline: none; border-color: var(--accent); }
     .lp-field-err { display: none; margin-top: 7px; font-size: 12px; color: #E7A38C; }
     .lp-field.invalid input { border-color: #C56A4C; }
     .lp-field.invalid .lp-field-err { display: block; }
-    .lp-review { font-size: 13.5px; font-weight: 300; color: rgba(27,42,74,.68); line-height: 1.5; margin-bottom: 16px; }
+    .lp-review { font-size: 13.5px; font-weight: 300; color: rgba(15,27,34,.68); line-height: 1.5; margin-bottom: 16px; }
     .lp-review strong { color: var(--ink); font-weight: 400; }
-    .lp-edit-link { background: none; border: none; cursor: pointer; padding: 0 0 0 4px; font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .lp-edit-link { background: none; border: none; cursor: pointer; padding: 0 0 0 4px; font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
     .lp-checkout-btn {
-      display: block; width: 100%; padding: 17px; background: var(--gold); color: var(--paper);
-      border: none; border-radius: 100px; cursor: pointer; font-family: 'Jost', sans-serif;
+      display: block; width: 100%; padding: 17px; background: var(--accent); color:var(--on-accent);
+      border: none; border-radius: 0; cursor: pointer; font-family: 'Jost', sans-serif;
       font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; transition: opacity .2s;
     }
     .lp-checkout-btn:hover:not(:disabled) { opacity: .9; }
     .lp-checkout-btn:disabled { opacity: .5; cursor: default; }
-    .lp-checkout-secure { font-size: 11.5px; font-weight: 300; color: rgba(27,42,74,.42); text-align: center; margin-top: 14px; }
-    .lp-trust { list-style: none; margin: 22px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(27,42,74,.12); display: flex; flex-direction: column; gap: 11px; }
-    .lp-trust li { position: relative; padding-left: 26px; font-size: 12.5px; font-weight: 300; color: rgba(27,42,74,.66); line-height: 1.4; }
-    .lp-trust li::before { content: ''; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--gold); }
-    .lp-trust li::after { content: ''; position: absolute; left: 5.5px; top: 4px; width: 4px; height: 8px; border-right: 1.4px solid var(--gold); border-bottom: 1.4px solid var(--gold); transform: rotate(45deg); }
-    .lp-card-logos { margin-top: 16px; text-align: center; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(27,42,74,.4); }
+    .lp-checkout-secure { font-size: 11.5px; font-weight: 300; color: rgba(15,27,34,.42); text-align: center; margin-top: 14px; }
+    .lp-trust { list-style: none; margin: 22px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(15,27,34,.12); display: flex; flex-direction: column; gap: 11px; }
+    .lp-trust li { position: relative; padding-left: 26px; font-size: 12.5px; font-weight: 300; color: rgba(15,27,34,.66); line-height: 1.4; }
+    .lp-trust li::before { content: ''; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--accent); }
+    .lp-trust li::after { content: ''; position: absolute; left: 5.5px; top: 4px; width: 4px; height: 8px; border-right: 1.4px solid var(--accent); border-bottom: 1.4px solid var(--accent); transform: rotate(45deg); }
+    .lp-card-logos { margin-top: 16px; text-align: center; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(15,27,34,.4); }
 
     /* ── PRESS ─────────────────────────────────────────────── */
-    .press { padding: 42px 0; border-top: 1px solid rgba(27,42,74,.07); border-bottom: 1px solid rgba(27,42,74,.07); }
-    .press-label { text-align: center; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(27,42,74,.36); margin-bottom: 24px; }
+    .press { padding: 42px 0; border-top: 1px solid rgba(15,27,34,.07); border-bottom: 1px solid rgba(15,27,34,.07); }
+    .press-label { text-align: center; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(15,27,34,.36); margin-bottom: 24px; }
     .press-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 26px; }
         /* invert() made these white for the navy canvas; on beige they go dark */
     .press-logos img { height: 20px; width: auto; max-width: 96px; object-fit: contain; opacity: .42; filter: brightness(0); transition: opacity .25s; }
@@ -373,39 +374,39 @@
     .sec-head { text-align: center; margin-bottom: 30px; }
     .testis { display: flex; flex-direction: column; gap: 14px; }
     .testi { padding: 26px 24px; }
-    .testi-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 13px; }
-    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; font-style: italic; color: rgba(27,42,74,.9); line-height: 1.5; margin-bottom: 16px; }
-    .testi-attrib { font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(27,42,74,.5); }
+    .testi-stars { color: var(--accent); font-size: 12px; letter-spacing: 3px; margin-bottom: 13px; }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; font-style: italic; color: rgba(15,27,34,.9); line-height: 1.5; margin-bottom: 16px; }
+    .testi-attrib { font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(15,27,34,.5); }
 
     /* ── FAQ ───────────────────────────────────────────────── */
-    .lp-faq-item { border-bottom: 1px solid rgba(27,42,74,.12); }
-    .lp-faq-item:first-of-type { border-top: 1px solid rgba(27,42,74,.12); }
+    .lp-faq-item { border-bottom: 1px solid rgba(15,27,34,.12); }
+    .lp-faq-item:first-of-type { border-top: 1px solid rgba(15,27,34,.12); }
     .lp-faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; text-align: left; gap: 18px; }
     .lp-faq-q-text { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; color: var(--ink); line-height: 1.25; }
     .lp-faq-icon { width: 18px; height: 18px; flex-shrink: 0; position: relative; }
-    .lp-faq-icon::before, .lp-faq-icon::after { content: ''; position: absolute; background: var(--gold); border-radius: 1px; }
+    .lp-faq-icon::before, .lp-faq-icon::after { content: ''; position: absolute; background: var(--accent); border-radius: 1px; }
     .lp-faq-icon::before { width: 100%; height: 1px; top: 50%; transform: translateY(-50%); }
     .lp-faq-icon::after { width: 1px; height: 100%; left: 50%; transform: translateX(-50%); transition: transform .2s, opacity .2s; }
     .lp-faq-item.open .lp-faq-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
-    .lp-faq-a { font-size: 14.5px; font-weight: 300; color: rgba(27,42,74,.62); line-height: 1.75; overflow: hidden; max-height: 0; transition: max-height .3s ease, padding .3s ease; }
+    .lp-faq-a { font-size: 14.5px; font-weight: 300; color: rgba(15,27,34,.62); line-height: 1.75; overflow: hidden; max-height: 0; transition: max-height .3s ease, padding .3s ease; }
     .lp-faq-item.open .lp-faq-a { max-height: 640px; padding-bottom: 22px; }
-    .lp-faq-a a { color: var(--gold); text-underline-offset: 2px; text-decoration: underline; }
+    .lp-faq-a a { color: var(--accent); text-underline-offset: 2px; text-decoration: underline; }
 
     /* ── FINAL CTA ─────────────────────────────────────────── */
     .final { position: relative; padding: 108px 0; text-align: center; overflow: hidden;
       background: linear-gradient(165deg, #8a94a0 0%, #59636f 34%, #26313d 72%, var(--dark) 100%); }
     .final-eyebrow { font-size: 10.5px; letter-spacing: .28em; text-transform: uppercase; color: rgba(245,240,232,.7); margin-bottom: 22px; }
     .final h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px,13vw,72px); line-height: 1.0; color: var(--cream); margin-bottom: 12px; }
-    .final h2 em { font-style: italic; color: var(--gold); display: block; }
+    .final h2 em { font-style: italic; color: inherit; display: block; }
     .final-sub { font-size: 14px; color: rgba(245,240,232,.72); margin-bottom: 34px; }
     .final-micro { margin-top: 18px; font-size: 11px; letter-spacing: .06em; color: rgba(245,240,232,.5); }
 
     /* ── FOOTER ────────────────────────────────────────────── */
     .ftr { padding: 30px 24px calc(90px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
-    .ftr-copy { font-size: 11px; color: rgba(27,42,74,.28); }
+    .ftr-copy { font-size: 11px; color: rgba(15,27,34,.28); }
     .ftr-links { display: flex; gap: 22px; }
-    .ftr-links a { font-size: 11px; color: rgba(27,42,74,.4); }
-    .ftr-links a:hover { color: rgba(27,42,74,.7); }
+    .ftr-links a { font-size: 11px; color: rgba(15,27,34,.4); }
+    .ftr-links a:hover { color: rgba(15,27,34,.7); }
 
     /* ── ≥720px refinements ────────────────────────────────── */
     /* ── section tone + separation ─────────────────────────── */
@@ -415,7 +416,7 @@
     /* Framed, inset image (not full-bleed) */
     .frame {
       margin: 28px 0; border-radius: 18px; overflow: hidden;
-      border: 1px solid rgba(27,42,74,.08);
+      border: 1px solid rgba(15,27,34,.08);
       box-shadow: 0 30px 64px -36px rgba(0,0,0,.85);
     }
     .frame img { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/10; }
@@ -425,60 +426,60 @@
     .pf-tile-badge {
       position: absolute; top: 8px; right: 8px; z-index: 3;
       font-size: 7.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--cream); background: rgba(184,151,106,.9); padding: 4px 8px; border-radius: 100px;
+      color: var(--cream); background: var(--line); padding: 4px 8px; border-radius: 100px;
     }
     .pf-tile-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 13px 10px; z-index: 2; text-align: center; }
     .pf-tile-region { font-size: 8px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.6); margin-bottom: 4px; }
     .pf-tile-name { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 300; color: var(--cream); line-height: 1.1; }
     .pf-tile-view { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .25s; }
     .pf-tile:hover .pf-tile-view { opacity: 1; }
-    .pf-tile-view span { font-size: 8.5px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 8px 16px; border-radius: 100px; }
+    .pf-tile-view span { font-size: 8.5px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color:var(--on-accent); background: var(--accent); padding: 8px 16px; border-radius: 0; }
 
     /* ── PRIVÉ CLUBS ───────────────────────────────────────── */
     .clubs { padding: 84px 0; }
     .clubs-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
-    .club { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid rgba(245,240,232,.08); background: var(--dark2); box-shadow: 0 30px 64px -44px rgba(27,42,74,.3); }
+    .club { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid rgba(245,240,232,.08); background: var(--dark2); box-shadow: 0 30px 64px -44px rgba(15,27,34,.3); }
     .club-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
     .club-body { padding: 22px 24px 26px; }
-    .club-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 11px; }
+    .club-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 11px; }
     .club-name { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 11px; }
     .club-name em { font-style: italic; }
     .club-text { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.62); line-height: 1.6; margin-bottom: 18px; }
     .club-tag { display: flex; align-items: center; gap: 9px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 15px; font-size: 11px; font-weight: 400; letter-spacing: .05em; color: rgba(245,240,232,.72); }
-    .club-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .club-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
     /* ── image row (marquee destinations) ──────────────────── */
     .imgrow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 30px 24px 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .imgrow::-webkit-scrollbar { display: none; }
-    .imgrow-item { position: relative; flex: 0 0 auto; width: 216px; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; scroll-snap-align: center; border: 1px solid rgba(27,42,74,.08); }
+    .imgrow-item { position: relative; flex: 0 0 auto; width: 216px; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; scroll-snap-align: center; border: 1px solid rgba(15,27,34,.08); }
     .imgrow-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .imgrow-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 16px 10px 14px; text-align: center; font-size: 12.5px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--cream); background: linear-gradient(to top, rgba(14,25,35,.92) 10%, transparent); }
+    .imgrow-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 16px 10px 14px; text-align: center; font-size: 12.5px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--cream); background: linear-gradient(to top, rgba(15,27,34,.92) 10%, transparent); }
 
     /* ── stat band ─────────────────────────────────────────── */
-    .stats { display: flex; margin-top: 34px; border-top: 1px solid rgba(27,42,74,.14); border-bottom: 1px solid rgba(27,42,74,.14); }
+    .stats { display: flex; margin-top: 34px; border-top: 1px solid rgba(15,27,34,.14); border-bottom: 1px solid rgba(15,27,34,.14); }
     .stat { flex: 1; text-align: center; padding: 22px 6px; }
-    .stat + .stat { border-left: 1px solid rgba(27,42,74,.14); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,9vw,46px); font-weight: 300; color: var(--gold-ink); line-height: 1; }
-    .stat-label { font-size: 9px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(27,42,74,.55); margin-top: 9px; }
+    .stat + .stat { border-left: 1px solid rgba(15,27,34,.14); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,9vw,46px); font-weight: 300; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 9px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(15,27,34,.7); margin-top: 9px; }
 
     /* ── "also included" (secondary pillars) ────────────────── */
     .also { display: flex; flex-direction: column; gap: 40px; margin-top: 34px; }
     .also-col { flex: 1; }
-    .also-img { border-radius: 16px; overflow: hidden; border: 1px solid rgba(27,42,74,.08); margin-bottom: 20px; box-shadow: 0 26px 56px -38px rgba(0,0,0,.8); }
+    .also-img { border-radius: 16px; overflow: hidden; border: 1px solid rgba(15,27,34,.08); margin-bottom: 20px; box-shadow: 0 26px 56px -38px rgba(0,0,0,.8); }
     .also-img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
-    .also-eyebrow { font-size: 12px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 10px; }
+    .also-eyebrow { font-size: 12px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
     .also-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 300; color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
     .also-title em { font-style: italic; }
-    .also-list { display: flex; flex-direction: column; border-top: 1px solid rgba(27,42,74,.1); margin-bottom: 18px; }
-    .also-list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(27,42,74,.1); font-size: 16px; font-weight: 300; color: rgba(27,42,74,.82); transition: color .15s; }
+    .also-list { display: flex; flex-direction: column; border-top: 1px solid rgba(15,27,34,.1); margin-bottom: 18px; }
+    .also-list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(15,27,34,.1); font-size: 16px; font-weight: 300; color: rgba(15,27,34,.82); transition: color .15s; }
     .also-list a:hover { color: var(--ink); }
     .also-list-name b { font-weight: 400; color: var(--ink); }
-    .also-list-name span { color: rgba(27,42,74,.7); }
-    .also-list-name .also-list-rate { display: block; margin-top: 3px; color: var(--gold-ink); font-size: 13px; letter-spacing: .04em; }
-    .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--gold-ink); white-space: nowrap; }
-    .also-list-price s { color: rgba(27,42,74,.68); font-size: 17px; margin-right: 6px; text-decoration-thickness: 1px; }
-    .also-text { font-size: 18px; font-weight: 300; color: rgba(27,42,74,.8); line-height: 1.65; margin-bottom: 18px; }
-    .also-link { display: inline-block; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); background: none; border: 0; border-bottom: 1px solid rgba(126,97,53,.45); padding: 0 0 2px; cursor: pointer; }
+    .also-list-name span { color: rgba(15,27,34,.7); }
+    .also-list-name .also-list-rate { display: block; margin-top: 3px; color: var(--accent); font-size: 13px; letter-spacing: .04em; }
+    .also-list-price { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--accent); white-space: nowrap; }
+    .also-list-price s { color: rgba(15,27,34,.68); font-size: 17px; margin-right: 6px; text-decoration-thickness: 1px; }
+    .also-text { font-size: 18px; font-weight: 300; color: rgba(15,27,34,.8); line-height: 1.65; margin-bottom: 18px; }
+    .also-link { display: inline-block; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); background: none; border: 0; border-bottom: 1px solid rgba(126,97,53,.45); padding: 0 0 2px; cursor: pointer; }
     .also-link:hover { color: var(--ink); border-color: var(--ink); }
 
     /* ── EXPERIENCES LIGHTBOX ──────────────────────────────── */
@@ -486,27 +487,27 @@
     .xlb.open { visibility: visible; pointer-events: auto; }
     .xlb-backdrop { position: absolute; inset: 0; background: rgba(6,11,17,.82); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; transition: opacity .35s ease; }
     .xlb.open .xlb-backdrop { opacity: 1; }
-    .xlb-panel { position: relative; z-index: 1; width: 94%; max-width: 720px; max-height: 90vh; overflow-y: auto; background: var(--dark); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; padding: 44px 24px 32px; opacity: 0; transform: translateY(16px); transition: opacity .35s, transform .35s; scrollbar-width: thin; scrollbar-color: rgba(184,151,106,.35) transparent; }
+    .xlb-panel { position: relative; z-index: 1; width: 94%; max-width: 720px; max-height: 90vh; overflow-y: auto; background: var(--dark); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; padding: 44px 24px 32px; opacity: 0; transform: translateY(16px); transition: opacity .35s, transform .35s; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
     .xlb.open .xlb-panel { opacity: 1; transform: translateY(0); }
     .xlb-panel::-webkit-scrollbar { width: 4px; }
-    .xlb-panel::-webkit-scrollbar-thumb { background: rgba(184,151,106,.35); border-radius: 2px; }
+    .xlb-panel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
     .xlb-close { position: absolute; top: 14px; right: 14px; z-index: 2; background: rgba(6,11,17,.6); border: 1px solid rgba(245,240,232,.2); border-radius: 100px; color: var(--cream); font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .14em; padding: 9px 15px; cursor: pointer; }
     .xlb-close:hover { background: rgba(6,11,17,.85); }
     .xlb-head { text-align: center; margin-bottom: 26px; }
     .xlb-head .lede { max-width: 44ch; margin: 12px auto 0; font-size: 14px; }
     .xlb-list { display: flex; flex-direction: column; gap: 16px; }
     .xlb-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; border: 1px solid rgba(245,240,232,.1); background: var(--dark2); transition: border-color .2s, transform .2s; }
-    .xlb-card:hover { border-color: rgba(184,151,106,.5); }
+    .xlb-card:hover { border-color: var(--line); }
     .xlb-card-img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
     .xlb-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; }
-    .xlb-card-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+    .xlb-card-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 9px; }
     .xlb-card-name { font-family: 'Cormorant Garamond',serif; font-size: 26px; font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 10px; }
     .xlb-card-desc { font-size: 13.5px; font-weight: 300; color: rgba(245,240,232,.66); line-height: 1.6; margin-bottom: 16px; }
     .xlb-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(245,240,232,.1); padding-top: 15px; margin-top: auto; }
-    .xlb-price { font-family: 'Cormorant Garamond',serif; font-size: 21px; color: var(--gold); white-space: nowrap; }
+    .xlb-price { font-family: 'Cormorant Garamond',serif; font-size: 21px; color: var(--accent); white-space: nowrap; }
     .xlb-price s { color: rgba(245,240,232,.42); font-size: 15px; margin-right: 6px; }
     .xlb-card-link { font-size: 10.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); white-space: nowrap; }
-    .xlb-card:hover .xlb-card-link { color: var(--gold); }
+    .xlb-card:hover .xlb-card-link { color: var(--accent); }
     @media (min-width: 640px) {
       .xlb-panel { padding: 48px 32px 36px; }
       .xlb-card { flex-direction: row; }
@@ -518,27 +519,27 @@
     /* card is now a button opening an in-panel detail view */
     .xlb-card { width: 100%; text-align: left; font-family: inherit; color: inherit; cursor: pointer; -webkit-appearance: none; appearance: none; }
     /* experiences detail view */
-    .xlb-back { background: none; border: 0; padding: 0; margin-bottom: 16px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); cursor: pointer; }
+    .xlb-back { background: none; border: 0; padding: 0; margin-bottom: 16px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); cursor: pointer; }
     .xlb-back:hover { color: var(--cream); }
     .xlb-detail-hero img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-radius: 14px; }
-    .xlb-detail-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 22px 0 9px; }
+    .xlb-detail-eyebrow { font-size: 9.5px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--eyebrow); margin: 22px 0 9px; }
     .xlb-detail-name { font-family: 'Cormorant Garamond',serif; font-size: clamp(28px,7vw,38px); font-weight: 300; color: var(--cream); line-height: 1.04; margin-bottom: 14px; }
     .xlb-detail-intro { font-size: 14px; font-weight: 300; color: rgba(245,240,232,.72); line-height: 1.7; margin-bottom: 24px; }
     .xlb-glance { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(245,240,232,.1); border: 1px solid rgba(245,240,232,.1); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
     .xlb-glance-item { background: var(--dark2); padding: 16px 18px; }
-    .xlb-glance-label { font-size: 8.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .xlb-glance-label { font-size: 8.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
     .xlb-glance-val { font-size: 12.5px; font-weight: 300; color: rgba(245,240,232,.86); line-height: 1.4; }
     .xlb-incl-label { font-size: 10px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,240,232,.5); margin-bottom: 13px; }
     .xlb-incl ul { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
     .xlb-incl li { position: relative; padding-left: 22px; font-size: 13px; font-weight: 300; color: rgba(245,240,232,.8); line-height: 1.45; }
-    .xlb-incl li::before { content: ''; position: absolute; left: 2px; top: 3px; width: 5px; height: 9px; border-right: 1.4px solid var(--gold); border-bottom: 1.4px solid var(--gold); transform: rotate(45deg); }
+    .xlb-incl li::before { content: ''; position: absolute; left: 2px; top: 3px; width: 5px; height: 9px; border-right: 1.4px solid var(--accent); border-bottom: 1.4px solid var(--accent); transform: rotate(45deg); }
     .xlb-detail-foot { border-top: 1px solid rgba(245,240,232,.12); padding-top: 22px; }
     .xlb-detail-price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
     .xlb-detail-price .pub { font-family: 'Cormorant Garamond',serif; font-size: 22px; color: rgba(245,240,232,.42); text-decoration: line-through; }
     .xlb-detail-price .mem { font-family: 'Cormorant Garamond',serif; font-size: 34px; font-style: italic; color: var(--cream); line-height: 1; }
-    .xlb-detail-keep { font-size: 12px; color: var(--gold); margin-bottom: 20px; }
+    .xlb-detail-keep { font-size: 12px; color: var(--accent); margin-bottom: 20px; }
     .xlb-detail-link { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,240,232,.6); border-bottom: 1px solid rgba(245,240,232,.25); padding-bottom: 2px; }
-    .xlb-detail-link:hover { color: var(--gold); border-color: var(--gold); }
+    .xlb-detail-link:hover { color: var(--accent); border-color: var(--accent); }
 
     /* hide city/region label on mobile grid tiles */
     @media (max-width: 719px) { .pf-tile-region { display: none; } }
@@ -548,27 +549,27 @@
     .plb.open { visibility: visible; pointer-events: auto; }
     .plb-backdrop { position: absolute; inset: 0; background: rgba(6,11,17,.8); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; transition: opacity .38s ease; }
     .plb.open .plb-backdrop { opacity: 1; }
-    .plb-panel { position: relative; z-index: 1; width: 94%; max-width: 1000px; height: 90vh; overflow-y: auto; background: var(--dark); color: var(--cream); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; opacity: 0; transform: translateY(16px); transition: opacity .38s, transform .38s; scrollbar-width: thin; scrollbar-color: rgba(184,151,106,.35) transparent; }
+    .plb-panel { position: relative; z-index: 1; width: 94%; max-width: 1000px; height: 90vh; overflow-y: auto; background: var(--dark); color: var(--cream); border: 1px solid rgba(245,240,232,.1); border-radius: 20px; opacity: 0; transform: translateY(16px); transition: opacity .38s, transform .38s; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
     .plb.open .plb-panel { opacity: 1; transform: translateY(0); }
     .plb-panel::-webkit-scrollbar { width: 4px; }
-    .plb-panel::-webkit-scrollbar-thumb { background: rgba(184,151,106,.35); border-radius: 2px; }
+    .plb-panel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
     .plb-close { position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(6,11,17,.6); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border: 1px solid rgba(245,240,232,.2); border-radius: 100px; color: var(--cream); font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .14em; padding: 9px 16px; cursor: pointer; }
     .plb-close:hover { background: rgba(6,11,17,.85); }
     .plb-hero { position: relative; height: 46vh; min-height: 280px; background-size: cover; background-position: center; }
-    .plb-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,25,35,.12) 0%, rgba(14,25,35,.9) 100%); }
+    .plb-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,27,34,.12) 0%, rgba(15,27,34,.9) 100%); }
     .plb-hero-foot { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 28px; }
     .plb-hero-collection { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.55); margin-bottom: 8px; }
     .plb-hero-name { font-family: 'Cormorant Garamond',serif; font-size: clamp(30px,7vw,48px); font-weight: 300; color: var(--cream); line-height: 1.05; }
     .plb-hero-loc { font-family: 'Jost',sans-serif; font-size: 11px; letter-spacing: .08em; color: rgba(245,240,232,.55); margin-top: 8px; }
     .plb-hero-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
     .plb-hero-pill { font-family: 'Jost',sans-serif; font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.7); display: flex; align-items: center; gap: 6px; }
-    .plb-hero-pill::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+    .plb-hero-pill::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
     .plb-about { display: grid; grid-template-columns: 1fr; }
     .plb-about-text { padding: 40px 28px; }
     .plb-section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
     .plb-section-label-rule { flex: 1; height: 1px; background: rgba(245,240,232,.14); }
     .plb-section-label-text { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.5); white-space: nowrap; }
-    .plb-about-label { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .plb-about-label { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
     .plb-about-heading { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,30px); font-weight: 300; font-style: italic; color: var(--cream); margin: 0 0 18px; line-height: 1.2; }
     .plb-about-body { font-family: 'Jost',sans-serif; font-size: 13.5px; font-weight: 300; line-height: 1.85; color: rgba(245,240,232,.7); }
     .plb-about-img { width: 100%; height: 250px; object-fit: cover; display: block; }
@@ -577,8 +578,8 @@
     .plb-benefits-blur-area { position: relative; }
     .plb-benefits-static-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; filter: blur(6px); pointer-events: none; user-select: none; }
     .plb-benefits-lock { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 2; }
-    .plb-lock-label { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: rgba(184,151,106,.85); }
-    .plb-lock-cta { display: inline-block; font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); background: var(--gold); border: none; cursor: pointer; padding: 13px 30px; border-radius: 100px; margin-top: 4px; }
+    .plb-lock-label { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--eyebrow); }
+    .plb-lock-cta { display: inline-block; font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color:var(--on-accent); background: var(--accent); border: none; cursor: pointer; padding: 13px 30px; border-radius: 0; margin-top: 4px; }
     .plb-benefit-cell { display: flex; flex-direction: column; gap: 6px; }
     .plb-benefit-icon { width: 26px; height: 26px; margin-bottom: 6px; display: flex; align-items: center; }
     .plb-benefit-name { font-family: 'Jost',sans-serif; font-size: 10px; letter-spacing: .06em; color: var(--cream); }
@@ -615,7 +616,7 @@
     .plb-dining-name { font-family: 'Cormorant Garamond',serif; font-size: 19px; font-weight: 300; color: var(--cream); margin-bottom: 7px; }
     .plb-dining-desc { font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,.55); }
     .plb-dining-progress { height: 1px; background: rgba(245,240,232,.12); margin-top: 18px; position: relative; }
-    .plb-dining-fill { height: 100%; background: var(--gold); transition: width .34s ease; }
+    .plb-dining-fill { height: 100%; background: var(--accent); transition: width .34s ease;color:var(--on-accent); }
     .plb-wellness-wrap { padding: 40px 28px; background: var(--dark); }
     .plb-wellness-panel { display: grid; grid-template-columns: 1fr; gap: 28px; }
     .plb-wellness-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,30px); font-weight: 300; color: var(--cream); margin: 10px 0 14px; }
@@ -632,9 +633,9 @@
     .plb-strip-item { flex: 1; overflow: hidden; border-radius: 6px; }
     .plb-strip-item img { width: 100%; height: 150px; object-fit: cover; display: block; }
     .plb-cta-wrap { background: #0B141d; padding: 48px 28px; text-align: center; }
-    .plb-cta-eyebrow { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .plb-cta-eyebrow { font-family: 'Jost',sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 12px; }
     .plb-cta-headline { font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,5vw,32px); font-weight: 300; font-style: italic; color: var(--cream); margin: 0 0 26px; }
-    .plb-cta-btn { display: inline-block; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--dark); background: var(--gold); padding: 15px 36px; border: none; border-radius: 100px; cursor: pointer; }
+    .plb-cta-btn { display: inline-block; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color:var(--on-accent); background: var(--accent); padding: 15px 36px; border: none; border-radius: 0; cursor: pointer; }
     @media (min-width: 700px) {
       .plb-about { grid-template-columns: 1fr 1fr; }
       .plb-about-img { height: 100%; min-height: 340px; }
@@ -680,16 +681,16 @@
     /* Why Join grid */
     .why-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
     .why-card { padding: 24px 22px; display: flex; gap: 15px; align-items: flex-start; }
-    .why-ico { color: var(--gold); width: 26px; height: 26px; flex-shrink: 0; margin-top: 1px; }
+    .why-ico { color: var(--accent); width: 26px; height: 26px; flex-shrink: 0; margin-top: 1px; }
     .why-ico svg { width: 26px; height: 26px; }
     .why-title { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 5px; letter-spacing: .01em; }
-    .why-text { font-size: 13.5px; font-weight: 300; color: rgba(27,42,74,.72); line-height: 1.45; }
+    .why-text { font-size: 13.5px; font-weight: 300; color: rgba(15,27,34,.72); line-height: 1.45; }
 
     /* Mini rating / social proof strip */
     .proof { margin-top: 20px; padding: 22px 26px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
-    .proof-stars { color: var(--gold); font-size: 16px; letter-spacing: 3px; }
+    .proof-stars { color: var(--accent); font-size: 16px; letter-spacing: 3px; }
     .proof-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; font-weight: 300; color: var(--ink); line-height: 1.35; max-width: 52ch; }
-    .proof-attrib { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.5); }
+    .proof-attrib { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(15,27,34,.5); }
 
     @media (min-width: 720px) {
       .vstack { padding: 84px 0 20px; }
@@ -702,11 +703,11 @@
        the page's navy and vanish against it. */
     .ftr { padding: 62px 32px 40px; display: block; text-align: left; }
     .ftr-cols { display: grid; grid-template-columns: repeat(2,1fr); gap: 30px 20px; max-width: 1180px; margin: 0 auto 40px; }
-    .ftr-col-title { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .ftr-col-title { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     .ftr-cols ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .ftr-cols a { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.6); transition: color .2s; }
     .ftr-cols a:hover { color: #F5F0E8; }
-    .ftr-bottom { max-width: 1180px; margin: 0 auto; padding-top: 26px; border-top: 1px solid rgba(245,240,232,.1); font-size: 12px; color: rgba(245,240,232,.35); }
+    .ftr-bottom { max-width: 1180px; margin: 0 auto; padding-top: 26px; border-top: 1px solid rgba(245,240,232,.1); font-size: 12px; color: rgba(245,240,232,.6); }
     @media (min-width: 900px) { .ftr-cols { grid-template-columns: repeat(5,1fr); gap: 32px; } }
 
     /* ── TIERS (replaces the offer block) ──────────────────── */
@@ -716,43 +717,43 @@
     .tiers { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
     .tier {
       position: relative; padding: 34px 30px 30px; background: rgba(255,255,255,.5);
-      border: 1px solid rgba(27,42,74,.12); border-radius: 22px; display: flex; flex-direction: column;
+      border: 1px solid rgba(15,27,34,.12); border-radius: 22px; display: flex; flex-direction: column;
     }
-    .tier.is-featured { border-color: rgba(184,151,106,.6); background: rgba(184,151,106,.07); }
+    .tier.is-featured { border-color: var(--line); background: var(--tint); }
     .tier-flag {
       position: absolute; top: 16px; right: 18px; font-family: 'Jost', sans-serif;
       font-size: 8.5px; letter-spacing: .16em; text-transform: uppercase;
-      color: #0E1923; background: var(--gold); padding: 5px 11px; border-radius: 100px;
+      color:var(--on-accent); background: var(--accent); padding: 5px 11px; border-radius: 0;
     }
-    .tier-name { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(27,42,74,.82); margin-bottom: 14px; }
-    .tier.is-featured .tier-name { color: var(--gold-ink); }
-    .tier-price { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(46px,12vw,60px); color: var(--navy); line-height: 1; }
-    .tier-price span { font-style: normal; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .1em; color: rgba(27,42,74,.7); margin-left: 8px; }
-    .tier-diff { margin: 22px 0 26px; padding-top: 20px; flex: 1; border-top: 1px solid rgba(27,42,74,.12); font-family: 'Cormorant Garamond', serif; font-size: 16px; color: rgba(27,42,74,.75); line-height: 1.55; }
-    .tier-diff em { font-style: italic; color: var(--gold-ink); }
-    .tier-diff-label { display: block; font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(27,42,74,.72); margin-bottom: 9px; }
-    .tier-cta { font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; text-align: center; padding: 15px 22px; border-radius: 100px; border: 1px solid rgba(27,42,74,.3); color: var(--navy); transition: background .25s, border-color .25s; }
-    .tier-cta:hover { background: rgba(27,42,74,.06); }
-    .tier-cta.is-gold { background: var(--gold); border-color: var(--gold); color: #0E1923; }
+    .tier-name { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(15,27,34,.82); margin-bottom: 14px; }
+    .tier.is-featured .tier-name { color: var(--accent); }
+    .tier-price { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(46px,12vw,60px); color: var(--ink); line-height: 1; }
+    .tier-price span { font-style: normal; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .1em; color: rgba(15,27,34,.7); margin-left: 8px; }
+    .tier-diff { margin: 22px 0 26px; padding-top: 20px; flex: 1; border-top: 1px solid rgba(15,27,34,.12); font-family: 'Cormorant Garamond', serif; font-size: 16px; color: rgba(15,27,34,.75); line-height: 1.55; }
+    .tier-diff em { font-style: italic; color: var(--accent); }
+    .tier-diff-label { display: block; font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(15,27,34,.72); margin-bottom: 9px; }
+    .tier-cta { font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; text-align: center; padding: 15px 22px; border-radius: 100px; border: 1px solid rgba(15,27,34,.3); color: var(--ink); transition: background .25s, border-color .25s; }
+    .tier-cta:hover { background: rgba(15,27,34,.06); }
+    .tier-cta.is-gold { background: var(--accent); border-color: var(--accent); color:var(--on-accent); }
     .tier-cta.is-gold:hover { opacity: .9; }
-    .tiers-note { text-align: center; font-size: 13px; color: rgba(27,42,74,.76); margin-top: 22px; }
+    .tiers-note { text-align: center; font-size: 13px; color: rgba(15,27,34,.76); margin-top: 22px; }
     @media (min-width: 720px) { .tiers { grid-template-columns: 1fr 1fr; } }
     /* ── GLOBAL FOOTPRINT MAP ──────────────────────────────
        Dark by necessity: the Mapbox style is dark-v11, so the band
        around it stays dark rather than fighting the canvas. */
-    .passport-map-section{padding:80px 80px 100px;background:#0E1923;}
+    .passport-map-section{padding:80px 80px 100px;background:#0F1B22;}
     .passport-map-section .section-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px;}
     .passport-map-section .section-title{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.1;}
-    .passport-map-section .section-title em{font-style:italic;color:var(--gold);}
+    .passport-map-section .section-title em{font-style:italic;color:inherit;}
     .passport-map-cta{margin-top:36px;text-align:center;}
     .passport-map-container{margin-top:48px;border:1px solid rgba(255,255,255,.08);border-radius:2px;overflow:hidden;height:540px;position:relative;}
     #passport-map{width:100%;height:100%;}
     .mapboxgl-popup{pointer-events:none;}
-    .mapboxgl-popup-content{background:rgba(14,25,35,.95)!important;border:1px solid rgba(184,151,106,.3)!important;border-radius:2px!important;padding:10px 16px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;backdrop-filter:blur(8px);}
+    .mapboxgl-popup-content{background:rgba(15,27,34,.95)!important;border:1px solid var(--line)!important;border-radius:2px!important;padding:10px 16px!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;backdrop-filter:blur(8px);}
     .mapboxgl-popup-tip{display:none!important;}
-    .popup-hint{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(184,151,106,.85);margin-top:5px;}
+    .popup-hint{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--eyebrow);margin-top:5px;}
     .popup-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:#FFFFFF;white-space:nowrap;}
-    .mapboxgl-ctrl-group{background:rgba(14,25,35,.9)!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:2px!important;box-shadow:none!important;}
+    .mapboxgl-ctrl-group{background:rgba(15,27,34,.9)!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:2px!important;box-shadow:none!important;}
     .mapboxgl-ctrl-group button{width:30px;height:30px;}
     .mapboxgl-ctrl-icon{filter:invert(1) opacity(.6);}
     .mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon{filter:invert(1) opacity(1);}
@@ -760,13 +761,31 @@
     @media(max-width:768px){.passport-map-section{padding:60px 24px 80px;}.passport-map-container{height:380px;}}
     /* Hero eyebrow follows the homepage: white text, gold rule. */
     .club-hero-eyebrow { color: #FFFFFF; }
-    .club-hero-eyebrow::before { background: var(--gold); }
+    .club-hero-eyebrow::before { background: var(--eyebrow); }
     /* Mobile hero ends ~15% sooner. Scoped to this page rather than
        styles/main.css, which would also move /miami. */
     @media (max-width: 768px) {
       .club-hero { height: 85vh; }
     }
-</style>
+
+    /* Brand 2.0 — this page's own grounds. Dark ones flip the accent to cream;
+       light ones flip it back, for cream sections nested inside a dark one. */
+    .sticky, .pf-tile, .club, .xlb-panel, .xlb-card, .xlb-glance-item, .plb-panel, .plb-amenities-wrap, .plb-accom-item, .plb-dining-card, .plb-wellness-wrap{--accent:var(--cream);--on-accent:var(--ink);--eyebrow:rgba(245,240,232,.75);--line:rgba(245,240,232,.16);--tint:rgba(245,240,232,.06);}
+    body, .bg-d2, .tiers-sec{--accent:var(--ink);--on-accent:var(--cream);--eyebrow:var(--ink);--line:rgba(15,27,34,.16);--tint:rgba(15,27,34,.04);}
+  
+    /* Brand 2.0 — the upgrade page */
+    .btn, .tier-cta, .tier { border-radius: 0; }
+    .btn-line { background: none; color: var(--accent); border: 1px solid currentColor; padding: 16px 32px; }
+    .btn-line:hover { opacity: .8; }
+    .upgrade-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+    .passport-def-hero { max-width: 46ch; color: rgba(245,240,232,.92); font-weight: 400; text-shadow: 0 1px 18px rgba(15,27,34,.6); }
+    .tier-both { margin: 34px 0 0; padding: 20px 0; border-top: 1px solid rgba(15,27,34,.12); border-bottom: 1px solid rgba(15,27,34,.12);
+      text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.55; color: rgba(15,27,34,.8); }
+    .worked { background: var(--cream); }
+    .worked-line { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(24px,5vw,32px); line-height: 1.35; color: var(--ink); margin: 0 auto; max-width: 30ch; }
+    .worked-close { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: rgba(15,27,34,.78); margin-top: 16px; }
+    @media (max-width: 560px) { .upgrade-actions .btn { flex: 1 1 100%; } }
+  </style>
 </head>
 <body>
 
@@ -786,18 +805,18 @@
 <!-- ── HEADER ────────────────────────────────────────────── -->
 <nav id="mainNav">
   <a class="nav-logo" href="index.html">
-    <img class="logo-light" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187744/logo_light_nloide.png" alt="Privé Padel" style="height:70px;width:auto;">
-    <img class="logo-dark" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1773187743/logo_dark_drvkxb.png" alt="Privé Padel" style="height:70px;width:auto;">
+    <picture class="logo-light"><source media="(max-width: 768px)" srcset="/assets/brand-2.0/logo/svg/prive-padel_icon_cream.svg"><img src="/assets/brand-2.0/logo/svg/prive-padel_horizontal_cream.svg" alt="Privé Padel" width="129" height="44"></picture>
+    <picture class="logo-dark"><source media="(max-width: 768px)" srcset="/assets/brand-2.0/logo/svg/prive-padel_icon_ink.svg"><img src="/assets/brand-2.0/logo/svg/prive-padel_horizontal_ink.svg" alt="Privé Padel" width="129" height="44"></picture>
   </a>
   <ul class="nav-links">
-    <li class="nav-item"><a class="nav-link" href="passport.html">Privé Passport</a></li>
-    <li class="nav-item"><a class="nav-link" href="montauk.html">Privé Montauk</a></li>
-    <li class="nav-item"><a class="nav-link" href="miami.html">Privé Miami</a></li>
-    <li class="nav-item"><a class="nav-link" href="about.html">About Privé</a></li>
+    <li class="nav-item"><a class="nav-link" href="/passport/destinations.html">Destinations</a></li>
+    <li class="nav-item"><a class="nav-link active" href="/passport.html">Passport</a></li>
+    <li class="nav-item"><a class="nav-link" href="/locations.html">Clubs</a></li>
+    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
   </ul>
   <div class="nav-right">
     <a class="nav-login" href="https://passport.prive-padel.com/login">Member Login</a>
-    <a class="nav-cta" href="join.html">Get Your Passport</a>
+    <a class="nav-cta" href="https://passport.prive-padel.com/signup" data-app-link>Get the app</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -807,14 +826,14 @@
   <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
   <div class="mobile-nav">
     <div class="mobile-nav-group">
-      <a href="passport.html">Privé Passport</a>
-      <a href="montauk.html">Privé Montauk</a>
-      <a href="miami.html">Privé Miami</a>
-      <a href="about.html">About Privé</a>
+      <a href="/passport/destinations.html">Destinations</a>
+      <a href="/passport.html" class="active">Passport</a>
+      <a href="/locations.html">Clubs</a>
+      <a href="/about.html">About</a>
     </div>
     <div class="mobile-nav-group">
       <a href="https://passport.prive-padel.com/login" class="mobile-nav-login">Member Login</a>
-      <a href="join.html" class="mobile-nav-cta">Get Your Passport</a>
+      <a href="https://passport.prive-padel.com/signup" class="mobile-nav-cta" data-app-link>Get the app</a>
     </div>
   </div>
 </div>
@@ -825,70 +844,71 @@
   <div class="club-hero-overlay"></div>
   <div class="club-hero-content">
     <div class="club-hero-left">
-      <div class="club-hero-eyebrow">The Membership</div>
-      <h1 class="club-hero-title">The game travels<br><em>with you.</em></h1>
-      <p class="club-hero-sub">A global travel membership for padel players. Stay at the world's leading destinations, play at every one, and find a court wherever the year takes you.</p>
-      <div style="margin-top:40px;">
-        <a href="join.html" class="btn-primary">Get Your Passport</a>
+      <div class="club-hero-eyebrow">The Privé Padel Passport</div>
+      <h1 class="club-hero-title">Stay as<br><em>a member.</em></h1>
+      <p class="club-hero-sub passport-def-hero">Passport is the Privé Padel membership: member rates and benefits at 40+ padel destinations, partner clubs, and our own courts in Montauk and Miami.</p>
+      <div class="upgrade-actions">
+        <a href="/join.html" class="btn btn-gold">Join</a>
+        <a href="https://passport.prive-padel.com/signup" class="btn btn-line" data-app-link>Get the app</a>
       </div>
-    </div>
-    <div class="club-hero-meta">
-      <div class="club-hero-season">Membership · Annual</div>
-      <div class="club-hero-status">From $595 / year</div>
     </div>
   </div>
 </section>
 
-<!-- ══ §1.6 · VALUE STACK (why join · offer teaser · trust) ══ -->
-<section class="vstack">
-  <div class="wrap-wide">
-    <div class="vstack-head">
-      <div class="eyebrow">Why join</div>
-      <h2 class="display" style="font-size:clamp(30px,8vw,46px);">One membership,<em style="display:inline;"> a world of play.</em></h2>
+<!-- ══ §2 · TWO TIERS — one difference ══ -->
+<section class="tiers-sec" id="tiers">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow">Two tiers</div>
+      <h2 class="display" style="font-size:clamp(30px,8vw,46px);">One <em style="display:inline;">difference.</em></h2>
+      <p class="lede" style="max-width:44ch;margin:16px auto 0;">Every benefit is in both tiers. The only difference is how often you play at our own clubs.</p>
     </div>
 
-    <!-- Why Join · 4 points -->
-    <div class="why-grid">
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-court"/></svg></span>
-        <div>
-          <div class="why-title">A court everywhere you travel</div>
-          <div class="why-text">40+ hotels &amp; resorts across 18 countries — a padel court on-site or at the local club, waiting at every one.</div>
-        </div>
-      </div>
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-discount"/></svg></span>
-        <div>
-          <div class="why-title">Member rates &amp; upgrades</div>
-          <div class="why-text">Preferred room rates up to 20% off, complimentary upgrades, and spa, wellness &amp; dining privileges at every stay.</div>
-        </div>
-      </div>
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-racquet"/></svg></span>
-        <div>
-          <div class="why-title">Privé Montauk &amp; Miami, included</div>
-          <div class="why-text">Member pricing at both Privé Locations — four visits a month on Standard, unlimited on Full Access.</div>
-        </div>
-      </div>
-      <div class="glass why-card">
-        <span class="why-ico"><svg><use href="#i-key"/></svg></span>
-        <div>
-          <div class="why-title">First access to every retreat</div>
-          <div class="why-text">Members save 20% on all-inclusive Privé Experiences and are invited before they open to anyone else.</div>
-        </div>
-      </div>
+    <div class="tier-both">
+      <span class="tier-diff-label">In both tiers</span>
+      Member rates and benefits at 40+ padel destinations · partner clubs · Padel Experiences at member pricing
     </div>
 
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-name">Standard</div>
+        <div class="tier-price">$595<span>/ year</span></div>
+        <div class="tier-diff">
+          <span class="tier-diff-label">Montauk · Miami · Turks and Caicos</span>
+          Member pricing · four visits a month
+        </div>
+        <a href="/join.html?tier=standard" class="tier-cta">Join Standard</a>
+      </div>
+      <div class="tier is-featured">
+        <div class="tier-name">Full Access</div>
+        <div class="tier-price">$995<span>/ year</span></div>
+        <div class="tier-diff">
+          <span class="tier-diff-label">Montauk · Miami · Turks and Caicos</span>
+          Member pricing · <em>unlimited visits</em>
+        </div>
+        <a href="/join.html?tier=full" class="tier-cta is-gold">Join Full Access</a>
+      </div>
+    </div>
+    <p class="tiers-note">Add a partner to either tier — $95 a year.</p>
   </div>
 </section>
 
-<!-- ══ §2 · THE TRAVEL COLLECTION (core) ══ -->
+<!-- ══ §3 · ONE TRIP — the worked example. Figures to come from Chris; never invent them. ══ -->
+<section class="sec-tight worked">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">One trip</div>
+    <p class="worked-line">A week at [destination]: public rate [$__], member rate [$__].</p>
+    <p class="worked-close"><em>The Passport pays for itself in one trip.</em></p>
+  </div>
+</section>
+
+<!-- ══ §4 · THE TRAVEL COLLECTION ══ -->
 <section class="sec" id="collection">
   <div class="wrap">
     <div style="text-align:center;">
-      <div class="eyebrow">The Privé Passport</div>
+      <div class="eyebrow">The collection</div>
       <h2 class="display">The world's finest hotels.<em>A court at every one.</em></h2>
-      <p class="lede" style="max-width:42ch;margin:18px auto 0;">Your passport to a private collection of 40+ hotels and resorts across 18 countries and five continents — from the Marbella Club to Rosewood Hong Kong. Travel to any of them and stay as a member: a padel court on-site or at the local club, and Privé privileges waiting at every one.</p>
+      <p class="lede" style="max-width:42ch;margin:18px auto 0;">A private collection of 40+ hotels and resorts across 18 countries and five continents — from the Marbella Club to Rosewood Hong Kong. Travel to any of them and stay as a member: a padel court on-site or at the local club, and Privé privileges waiting at every one.</p>
     </div>
   </div>
 
@@ -919,7 +939,7 @@
       <div class="flist-row"><span class="flist-ico"><svg><use href="#i-upgrade"/></svg></span><span class="flist-txt">Complimentary room upgrades</span></div>
       <div class="flist-row"><span class="flist-ico"><svg><use href="#i-clock"/></svg></span><span class="flist-txt">Early arrivals &amp; unhurried departures</span></div>
       <div class="flist-row"><span class="flist-ico"><svg><use href="#i-spa"/></svg></span><span class="flist-txt">Spa, wellness &amp; dining privileges</span></div>
-      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-key"/></svg></span><span class="flist-txt">Concierge booking through the member portal</span></div>
+      <div class="flist-row"><span class="flist-ico"><svg><use href="#i-key"/></svg></span><span class="flist-txt">Concierge booking through the app</span></div>
     </div>
     <div class="flist-note">When available · at participating properties</div>
   </div>
@@ -927,10 +947,10 @@
 </section>
 
 
-<!-- ══ §2.5 · GLOBAL FOOTPRINT (map) ══ -->
+<!-- ══ §4.5 · GLOBAL FOOTPRINT (map) ══ -->
 <section class="passport-map-section">
-  <div class="section-eyebrow" style="color:rgba(255,255,255,.3);">Global Footprint</div>
-  <h2 class="section-title light" style="font-size:clamp(30px,3vw,44px);color:#FFFFFF;">40+ destinations,<br><em>one passport.</em></h2>
+  <div class="section-eyebrow">Global Footprint</div>
+  <h2 class="section-title light" style="font-size:clamp(30px,3vw,44px);color:#FFFFFF;">40+ destinations,<br><em>one Passport.</em></h2>
   <div class="passport-map-container">
     <div id="passport-map"></div>
   </div>
@@ -939,7 +959,7 @@
   </div>
 </section>
 
-<!-- ══ §3 · ALSO INCLUDED (secondary) ══ -->
+<!-- ══ §5 · ALSO INCLUDED ══ -->
 <section class="sec bg-d2">
   <div class="wrap-wide">
     <div class="sec-head">
@@ -947,22 +967,22 @@
       <h2 class="display">Also <em style="display:inline;">included.</em></h2>
     </div>
     <div class="also">
-      <!-- Privé Locations -->
+      <!-- Our clubs -->
       <div class="also-col">
-        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Locations"></div>
-        <div class="also-eyebrow">Privé Locations</div>
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1777410303/ChatGPT_Image_Apr_28_2026_05_04_46_PM_r8ubdz.png" alt="Privé Miami"></div>
+        <div class="also-eyebrow">Our clubs</div>
         <div class="also-title">Montauk &amp; Miami, <em>included.</em></div>
-        <p class="also-text">Your Passport includes member pricing at both Privé Locations — four visits a month on Standard, unlimited year-round on Full Access. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
+        <p class="also-text">The Passport includes member pricing at both of our clubs — four visits a month on Standard, unlimited year-round on Full Access. Privé Miami is open now at THesis Hotel, Coral Gables; Privé Montauk returns Spring 2027.</p>
         <div class="also-list">
           <a href="/miami.html"><span class="also-list-name"><b>Privé Miami</b> <span>· Coral Gables</span> <span class="also-list-rate">25% off court bookings</span></span><span class="also-list-price" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Open now</span></a>
           <a href="/montauk.html"><span class="also-list-name"><b>Privé Montauk</b> <span>· New York</span> <span class="also-list-rate">50% off court bookings</span></span><span class="also-list-price" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Spring 2027</span></a>
         </div>
-        <a class="also-link" href="/locations.html">Learn more about Privé Locations →</a>
+        <a class="also-link" href="/locations.html">See all clubs →</a>
       </div>
-      <!-- Privé Experiences (retreats) -->
+      <!-- Padel Experiences (retreats) -->
       <div class="also-col">
-        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Privé Experiences"></div>
-        <div class="also-eyebrow">Privé Experiences</div>
+        <div class="also-img"><img loading="lazy" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_900/v1775520201/20210323_taniaAraujo_DJI_0947_copy_t068ru.jpg" alt="Padel Experiences"></div>
+        <div class="also-eyebrow">Padel Experiences</div>
         <div class="also-title">20% off signature <em>retreats.</em></div>
         <p class="also-text">All-inclusive padel retreats built around the game and the place — experience the destination, padel every day with a dedicated pro, expert programming, and a closing tournament.</p>
         <div class="also-list">
@@ -970,35 +990,35 @@
           <a href="/experiences/court-and-cellar.html"><span class="also-list-name"><b>Château de Lussac</b> <span>· Bordeaux</span></span><span class="also-list-price"><s>$4,200</s> $3,360</span></a>
           <a href="/experiences/nihi-sumba.html"><span class="also-list-name"><b>Nihi Sumba</b> <span>· Indonesia</span></span><span class="also-list-price"><s>$12,000</s> $9,600</span></a>
         </div>
-        <a class="also-link" href="/passport/experiences.html">Learn more about Privé Experiences →</a>
+        <a class="also-link" href="/passport/experiences.html">See every Padel Experience →</a>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ══ §3.5 · QUOTE ══ -->
+<!-- ══ §5.5 · QUOTE ══ -->
 <section class="passport-quote-visual">
   <div class="passport-quote-bg" style="background-image:url('https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto/v1777413321/crop_in_by_another_10__202604281755_xbtijn.jpg');"></div>
   <div class="passport-quote-overlay"></div>
   <div class="passport-quote-content">
-    <div class="passport-quote-eyebrow">PRIVÉ PASSPORT</div>
-    <blockquote class="passport-quote-text">"Privé Passport is what happens<br>when you stop choosing<br>between the trip and the game."</blockquote>
+    <div class="passport-quote-eyebrow">THE PASSPORT</div>
+    <blockquote class="passport-quote-text">"The Passport is what happens<br>when you stop choosing<br>between the trip and the game."</blockquote>
   </div>
 </section>
 
 <!-- ══ THE PORTAL ══ -->
 <section class="portal-band">
   <div class="portal-head">
-    <div class="portal-eyebrow">Inside your membership</div>
-    <h2 class="portal-title">Your Passport is <em>a place you log in to.</em></h2>
-    <p class="portal-sub">The moment you join, the platform opens: the full collection, every property in detail, and your membership yours to manage.</p>
+    <div class="portal-eyebrow">The app</div>
+    <h2 class="portal-title">The Passport lives <em>in the app.</em></h2>
+    <p class="portal-sub">The full collection and every property in detail are there already. Join, and your member rates and your membership are there too.</p>
   </div>
   <img class="portal-shot" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_2360/v1786061248/navy-01-macbook-destination-page_ixy8kf.png"
-       alt="A destination page in the Privé Passport platform"
+       alt="A destination page in the Privé Padel app"
        width="3840" height="2160" loading="lazy" decoding="async">
   <img class="portal-shot portal-shot-narrow" src="https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto,f_auto,w_2360/v1786061247/navy-08-iphone-lineup_kzccq4.png"
-       alt="The Privé Passport platform on mobile — destinations, property detail, amenities and map"
+       alt="The Privé Padel app on mobile — destinations, property detail, amenities and map"
        width="3840" height="2160" loading="lazy" decoding="async">
   <div class="portal-points">
     <div class="portal-point">
@@ -1016,40 +1036,6 @@
   </div>
 </section>
 
-<!-- ══ §6 · MEMBERSHIP ══ -->
-<section class="tiers-sec" id="tiers">
-  <div class="wrap">
-    <div style="text-align:center;">
-      <div class="eyebrow">Membership</div>
-      <h2 class="display" style="font-size:clamp(30px,8vw,46px);">Choose your <em style="display:inline;">Passport.</em></h2>
-      <p class="lede" style="max-width:44ch;margin:16px auto 0;">Every benefit is in both tiers. The only difference is how often you play at our own clubs.</p>
-    </div>
-
-    <div class="tiers">
-      <div class="tier">
-        <div class="tier-name">Standard</div>
-        <div class="tier-price">$595<span>/ year</span></div>
-        <div class="tier-diff">
-          <span class="tier-diff-label">Privé Montauk &amp; Miami</span>
-          Member pricing · four visits a month
-        </div>
-        <a href="join.html?tier=standard" class="tier-cta">Get Standard →</a>
-      </div>
-      <div class="tier is-featured">
-        <span class="tier-flag">Most complete</span>
-        <div class="tier-name">Full Access</div>
-        <div class="tier-price">$995<span>/ year</span></div>
-        <div class="tier-diff">
-          <span class="tier-diff-label">Privé Montauk &amp; Miami</span>
-          Member pricing · <em>unlimited visits</em>
-        </div>
-        <a href="join.html?tier=full" class="tier-cta is-gold">Get Full Access →</a>
-      </div>
-    </div>
-    <p class="tiers-note">Add a partner to either tier — $95 a year.</p>
-  </div>
-</section>
-
 <!-- ══ FAQ ══ -->
 <section class="sec-tight">
   <div class="wrap">
@@ -1064,11 +1050,11 @@
     </div>
     <div class="lp-faq-item">
       <button class="lp-faq-q"><span class="lp-faq-q-text">What's the difference between Standard and Full Access?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">One thing: how often you play at Privé Montauk and Miami at member pricing. Standard includes four visits a month; Full Access is unlimited, year-round. Everything else — the destinations, member rates and privileges, partner clubs, and 20% off every Privé Experience — is identical in both.</div>
+      <div class="lp-faq-a">One thing: how often you play at Privé Montauk and Miami at member pricing. Standard includes four visits a month; Full Access is unlimited, year-round. Everything else — the destinations, member rates and privileges, partner clubs, and 20% off every Padel Experience — is identical in both.</div>
     </div>
     <div class="lp-faq-item">
       <button class="lp-faq-q"><span class="lp-faq-q-text">How do member benefits work?</span><span class="lp-faq-icon"></span></button>
-      <div class="lp-faq-a">You book through the member portal; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the portal.</div>
+      <div class="lp-faq-a">You book through the app; your member rate is applied and your reservation is flagged for member benefits. On-arrival benefits — a welcome amenity, dining or spa benefit, room upgrade upon availability — vary by property and are listed per destination in the app.</div>
     </div>
     <div class="lp-faq-item">
       <button class="lp-faq-q"><span class="lp-faq-q-text">What about Privé Montauk and Miami?</span><span class="lp-faq-icon"></span></button>
@@ -1085,15 +1071,18 @@
 <section class="final">
   <div class="wrap">
     <div class="final-eyebrow">Play the world</div>
-    <h2>Get your<em>Passport</em></h2>
+    <h2>Join the<em>Passport</em></h2>
     <p class="final-sub">Standard $595 / year · Full Access $995 / year</p>
-    <a class="btn btn-gold" href="join.html">Get your Passport →</a>
+    <div class="upgrade-actions" style="justify-content:center;">
+      <a class="btn btn-gold" href="/join.html">Join</a>
+      <a class="btn btn-line" href="https://passport.prive-padel.com/signup" data-app-link>Get the app</a>
+    </div>
     <div class="final-micro">Annual membership · secure checkout via Stripe</div>
   </div>
 </section>
 
 <!-- ══ EXPERIENCES LIGHTBOX ══ -->
-<div class="xlb" id="expLightbox" role="dialog" aria-modal="true" aria-label="Privé Experiences">
+<div class="xlb" id="expLightbox" role="dialog" aria-modal="true" aria-label="Padel Experiences">
   <div class="xlb-backdrop" id="xlbBackdrop"></div>
   <div class="xlb-panel">
     <button class="xlb-close" id="xlbClose">CLOSE ✕</button>
@@ -1101,7 +1090,7 @@
     <!-- list view -->
     <div id="xlbListView">
       <div class="xlb-head">
-        <div class="eyebrow">Privé Experiences</div>
+        <div class="eyebrow">Padel Experiences</div>
         <h2 class="display" style="font-size:clamp(30px,8vw,44px);">Signature <em style="display:inline;">retreats.</em></h2>
         <p class="lede">All-inclusive padel retreats built around the game and the place — members save 20% and book first.</p>
       </div>
@@ -1148,7 +1137,7 @@
       <div class="xlb-detail-foot">
         <div class="xlb-detail-price"><span class="pub" id="xdPub"></span><span class="mem" id="xdMem"></span></div>
         <div class="xlb-detail-keep" id="xdKeep"></div>
-        <a class="btn btn-gold btn-full" href="join.html">Get your Passport →</a>
+        <a class="btn btn-gold btn-full" href="/join.html">Join</a>
         <a class="xlb-detail-link" id="xdFull" href="#">See full itinerary →</a>
       </div>
     </div>
@@ -1182,9 +1171,9 @@
       <div class="plb-benefits-blur-area">
         <div class="plb-benefits-static-grid" id="plbBenefitsGrid"></div>
         <div class="plb-benefits-lock">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#B8976A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="22" height="15" rx="2"/><path d="M11 15v-4.5a6 6 0 0 1 12 0V15"/><circle cx="17" cy="22.5" r="2" fill="#B8976A" stroke="none"/></svg>
-          <div class="plb-lock-label">Members Only</div>
-          <a class="plb-lock-cta" href="join.html">Get your Passport →</a>
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="22" height="15" rx="2"/><path d="M11 15v-4.5a6 6 0 0 1 12 0V15"/><circle cx="17" cy="22.5" r="2" fill="currentColor" stroke="none"/></svg>
+          <div class="plb-lock-label">Member rate in the app</div>
+          <a class="plb-lock-cta" href="https://passport.prive-padel.com/signup" data-app-link>Get the app</a>
         </div>
       </div>
     </div>
@@ -1197,7 +1186,7 @@
     <div class="plb-dining-wrap" id="plbDiningWrap">
       <div class="plb-dining-header">
         <div>
-          <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:10px;">DINING</div>
+          <div style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--eyebrow);margin-bottom:10px;">DINING</div>
           <div class="plb-dining-title">Where every <em>meal matters.</em></div>
         </div>
         <div class="plb-dining-controls">
@@ -1224,26 +1213,27 @@
     <div class="plb-cta-wrap">
       <div class="plb-cta-eyebrow">PRIVÉ PASSPORT</div>
       <div class="plb-cta-headline">Stay here. Play here.<br><em>Every year.</em></div>
-      <a class="plb-cta-btn" href="join.html">Get your Passport →</a>
+      <a class="plb-cta-btn" href="/join.html">Join</a>
     </div>
   </div>
 </div>
 
 <!-- ══ FOOTER ══ -->
 <footer class="ftr">
+  <a class="footer-mark" href="/" aria-label="Privé Padel home"><img src="/assets/brand-2.0/logo/svg/prive-padel_primary_cream.svg" alt="Privé Padel" width="90" height="120"></a>
   <div class="ftr-cols">
     <div>
-      <div class="ftr-col-title">Privé Passport</div>
+      <div class="ftr-col-title">Passport</div>
       <ul>
         <li><a href="/passport/destinations.html">Padel Destinations</a></li>
         <li><a href="/passport/experiences.html">Padel Experiences</a></li>
         <li><a href="/passport/club-partners.html">Padel Club Partners</a></li>
-        <li><a href="/locations.html">Privé Locations</a></li>
-        <li><a href="/join.html">Get Your Passport</a></li>
+        <li><a href="/locations.html">Clubs</a></li>
+        <li><a href="https://passport.prive-padel.com/signup" data-app-link>Get the app</a></li>
       </ul>
     </div>
     <div><div class="ftr-col-title">Privé Montauk</div><ul><li><a href="/montauk.html">Visit</a></li><li><a href="/montauk.html">Spring 2027</a></li></ul></div>
-    <div><div class="ftr-col-title">Privé Miami</div><ul><li><a href="/miami.html">Visit</a></li><li><a href="https://playtomic.com/clubs/prive-at-thesis" target="_blank" rel="noopener noreferrer">Book a court</a></li></ul></div>
+    <div><div class="ftr-col-title">Privé Miami</div><ul><li><a href="/miami.html">Visit</a></li><li><a href="https://playtomic.com/clubs/prive-at-thesis" target="_blank" rel="noopener noreferrer">Book on Playtomic</a></li></ul></div>
     <div><div class="ftr-col-title">About Privé</div><ul><li><a href="/about.html">About Privé</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
     <div><div class="ftr-col-title">Legal</div><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
   </div>
@@ -1625,9 +1615,9 @@ map.on('load', function() {
     source: 'resorts',
     paint: {
       'circle-radius': 9,
-      'circle-color': 'rgba(184,151,106,0.15)',
+      'circle-color': 'rgba(245,240,232,0.15)',
       'circle-stroke-width': 1,
-      'circle-stroke-color': 'rgba(184,151,106,0.4)',
+      'circle-stroke-color': 'rgba(245,240,232,0.4)',
     }
   });
 
@@ -1637,7 +1627,7 @@ map.on('load', function() {
     source: 'resorts',
     paint: {
       'circle-radius': 4.5,
-      'circle-color': '#b8976a',
+      'circle-color': '#F5F0E8',
     }
   });
 

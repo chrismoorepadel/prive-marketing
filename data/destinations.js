@@ -471,7 +471,7 @@ window.DESTINATIONS = [
     ],
     wellness: {
       title: 'Racketeer',
-      intro: 'London\'s most ambitious padel destination occupies 9,000 square metres in North Acton — eleven panoramic glass courts, a full gym, sauna, cold plunge, and a bar and restaurant. Privé Passport members access Racketeer as extended club members, with court pricing and full facility privileges arranged through The Savoy concierge.',
+      intro: 'London\'s most ambitious padel destination occupies 9,000 square metres in North Acton — eleven panoramic glass courts, a full gym, sauna, cold plunge, and a bar and restaurant. Passport members access Racketeer as extended club members, with court pricing and full facility privileges arranged through The Savoy concierge.',
       items: [
         { name: 'Partner Club', detail: 'Courts at member price (15% below public rate)' },
         { name: 'Recovery Suite', detail: 'Sauna · Cold plunge · Full gym access' },
@@ -508,13 +508,13 @@ window.DESTINATIONS = [
     filter: 'europe',
     featured: false,
     collection: 'Privé Premier Collection',
-    desc: 'Set in a quietly magnificent Victorian townhouse on a cul-de-sac off St. James\'s Street, the Althoff St. James\'s Hotel & Club has been one of London\'s most discreet addresses since it opened as an elite gentlemen\'s club in 1857 — a heritage that endures. Winston Churchill and Ian Fleming were among its members. Today the hotel\'s 60 rooms and suites — some with private balconies and terraces — are complemented by the Francatelli restaurant and the Seven Park Place Bar & Lounge, where the widest selection of port in any London bar is poured. Privé Passport members receive privileged access to the Club, extending the full depth of this storied institution beyond the hotel\'s public rooms.',
-    about: 'Set in a quietly magnificent Victorian townhouse on a cul-de-sac off St. James\'s Street, the Althoff St. James\'s Hotel & Club has been one of London\'s most discreet addresses since it opened as an elite gentlemen\'s club in 1857 — a heritage that endures. Winston Churchill and Ian Fleming were among its members. Today the hotel\'s 60 rooms and suites — some with private balconies and terraces — are complemented by the Francatelli restaurant and the Seven Park Place Bar & Lounge, where the widest selection of port in any London bar is poured. Privé Passport members receive privileged access to the Club, extending the full depth of this storied institution beyond the hotel\'s public rooms.',
+    desc: 'Set in a quietly magnificent Victorian townhouse on a cul-de-sac off St. James\'s Street, the Althoff St. James\'s Hotel & Club has been one of London\'s most discreet addresses since it opened as an elite gentlemen\'s club in 1857 — a heritage that endures. Winston Churchill and Ian Fleming were among its members. Today the hotel\'s 60 rooms and suites — some with private balconies and terraces — are complemented by the Francatelli restaurant and the Seven Park Place Bar & Lounge, where the widest selection of port in any London bar is poured. Passport members receive privileged access to the Club, extending the full depth of this storied institution beyond the hotel\'s public rooms.',
+    about: 'Set in a quietly magnificent Victorian townhouse on a cul-de-sac off St. James\'s Street, the Althoff St. James\'s Hotel & Club has been one of London\'s most discreet addresses since it opened as an elite gentlemen\'s club in 1857 — a heritage that endures. Winston Churchill and Ian Fleming were among its members. Today the hotel\'s 60 rooms and suites — some with private balconies and terraces — are complemented by the Francatelli restaurant and the Seven Park Place Bar & Lounge, where the widest selection of port in any London bar is poured. Passport members receive privileged access to the Club, extending the full depth of this storied institution beyond the hotel\'s public rooms.',
     courts: 'Local Padel Access',
     pills: ['LOCAL PADEL ACCESS', 'ROSENSTEIN ART COLLECTION', 'MAYFAIR CLUB'],
     memberBenefits: ['Preferred bedroom rates — Member rate', '10% discount — Member discount on food and events', '25% off room hire — Member discount'],
     amenities: [
-      { name: 'Private Members Club Access', desc: 'Privé Passport members receive privileged access to one of London\'s oldest private members clubs — with preferential bedroom rates, dining discounts across Francatelli and Seven Park Place, reduced room hire, and entry to over 300 international clubs through the hotel\'s own reciprocal network.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775484464/csm_IMG_5754_255b51efeb.jpg_qleojz.webp' },
+      { name: 'Private Members Club Access', desc: 'Passport members receive privileged access to one of London\'s oldest private members clubs — with preferential bedroom rates, dining discounts across Francatelli and Seven Park Place, reduced room hire, and entry to over 300 international clubs through the hotel\'s own reciprocal network.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775484464/csm_IMG_5754_255b51efeb.jpg_qleojz.webp' },
       { name: 'The Rosenstein Collection', desc: 'The hotel\'s extensive private art collection featuring more than 400 paintings, pictures, and sculptures from the 1920s to 1950s, displayed throughout the common areas and guest rooms. A living gallery that deepens the sense of place.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775487356/csm_IMG_5714_5c447e2509.jpg_q6jmcn.webp' },
       { name: 'In-Room Spa Treatments', desc: 'Through a partnership with a nearby spa, a full menu of in-room treatments — massages, facials, and pedicures — can be arranged at any hour. Personal training sessions are also bookable.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775487356/csm_spa_treatments_mayfair_9648b3b640.jpg_vn2uke.webp' },
     ],
@@ -531,7 +531,7 @@ window.DESTINATIONS = [
     ],
     wellness: {
       title: 'Racketeer London',
-      intro: 'London\'s most ambitious padel destination occupies 9,000 square metres in North Acton — eleven panoramic glass courts, a full gym, sauna, cold plunge, and a bar and restaurant. Privé Passport members access Racketeer as extended club members, with court pricing and full facility privileges arranged through St. James\'s Hotel and Club concierge.',
+      intro: 'London\'s most ambitious padel destination occupies 9,000 square metres in North Acton — eleven panoramic glass courts, a full gym, sauna, cold plunge, and a bar and restaurant. Passport members access Racketeer as extended club members, with court pricing and full facility privileges arranged through St. James\'s Hotel and Club concierge.',
       items: [
         { name: 'Partner Club', detail: 'Courts at member price (15% below public rate)' },
         { name: 'Recovery Suite', detail: 'Sauna · Cold plunge · Full gym access' },
@@ -1059,7 +1059,7 @@ window.DESTINATIONS = [
     memberBenefits: ['Discount on Rooms — 20% off Best Available Rate', 'Priority Padel — Preferred access and complimentary equipment', 'Spa Access — Daily spa access'],
     amenities: [
       { name: 'Fairmont Spa & Wellness', desc: 'An award-winning 2,500m² spa and wellness center. Facilities include 18 treatment rooms, a traditional Hammam for up to six guests, a 20-metre indoor pool, cryotherapy chamber, thermal suite (sauna, steam room, experience showers), salt room, and Japanese foot bath. Products from Natura Bissé and La Sultane de Saba.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682219/DSC_2622_sqykqb.jpg' },
-      { name: 'Padel & Tennis Courts', desc: 'Two padel courts and two tennis courts set within the hotel\'s grounds — available to guests with a simple court reservation. Privé Passport members benefit from priority access and preferred court rates.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682356/FWP_Padel_4_copy_krpxu8.jpg' },
+      { name: 'Padel & Tennis Courts', desc: 'Two padel courts and two tennis courts set within the hotel\'s grounds — available to guests with a simple court reservation. Passport members benefit from priority access and preferred court rates.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682356/FWP_Padel_4_copy_krpxu8.jpg' },
       { name: 'Orchid Tea Room', desc: 'The hotel\'s celebrated afternoon tea destination, set in a vibrant and serene space inspired by the orchid gardens. Each bite captures the essence of the season, with a menu inspired by the rustic charm and natural beauty of the 40-acre estate.', img: 'https://res.cloudinary.com/dfjqa5f05/image/upload/q_auto/f_auto/v1775682402/Fairmont-Windsor-Park_Valentines-Day-2024_AFternoon-Tea_250124_0009_Edit_Web-Banner_bmuicj.jpg' },
     ],
     accommodations: [
@@ -1739,7 +1739,7 @@ window.DESTINATIONS = [
     ],
     wellness: {
       title: 'Padel Up Century City',
-      intro: 'Perched on the Skydeck of Westfield Century City — one of Los Angeles\' most iconic addresses — Padel Up brings rooftop padel to the heart of the Westside, open daily from 7am to 11pm. Privé Passport members receive exclusive partner benefits at the club, coordinated through the Fairmont Century Plaza concierge.',
+      intro: 'Perched on the Skydeck of Westfield Century City — one of Los Angeles\' most iconic addresses — Padel Up brings rooftop padel to the heart of the Westside, open daily from 7am to 11pm. Passport members receive exclusive partner benefits at the club, coordinated through the Fairmont Century Plaza concierge.',
       items: [
         { name: 'Court Reservations', detail: '20% off all court bookings' },
         { name: 'Clinics', detail: '20% off all clinics with coaches' },
@@ -1854,7 +1854,7 @@ window.DESTINATIONS = [
     ],
     wellness: {
       title: 'Padel Up Century City',
-      intro: 'Perched on the Skydeck of Westfield Century City — one of Los Angeles\' most iconic addresses — Padel Up brings rooftop padel to the heart of the Westside, open daily from 7am to 11pm. Privé Passport members receive exclusive partner benefits at the club, coordinated through The Maybourne concierge.',
+      intro: 'Perched on the Skydeck of Westfield Century City — one of Los Angeles\' most iconic addresses — Padel Up brings rooftop padel to the heart of the Westside, open daily from 7am to 11pm. Passport members receive exclusive partner benefits at the club, coordinated through The Maybourne concierge.',
       items: [
         { name: 'Court Reservations', detail: '20% off all court bookings' },
         { name: 'Clinics', detail: '20% off all clinics with coaches' },
@@ -1964,7 +1964,7 @@ window.DESTINATIONS = [
     ],
     wellness: {
       title: 'Padel Haus',
-      intro: 'New York City\'s premier padel network spans three locations across Brooklyn, each with locker rooms, lounges, and the social energy the brand has built since opening the city\'s first padel club in 2022. Privé Passport members have access to all three clubs, with court reservations arranged through the Surrey concierge.',
+      intro: 'New York City\'s premier padel network spans three locations across Brooklyn, each with locker rooms, lounges, and the social energy the brand has built since opening the city\'s first padel club in 2022. Passport members have access to all three clubs, with court reservations arranged through the Surrey concierge.',
       items: [
         { name: 'Williamsburg', detail: '15% off public rate' },
         { name: 'Dumbo', detail: '15% off public rate' },
@@ -2387,7 +2387,7 @@ window.DESTINATIONS = [
     ],
     wellness: {
       title: 'GO Park Sai Sha, Hong Kong',
-      intro: 'Set along the waterfront in Sai Sha — one of Hong Kong\'s most scenic natural reserves — GO Park is the city\'s most expansive outdoor sports destination. Privé Passport members access five glass-walled padel courts and the full park facilities as extended club members, with court bookings at member pricing and transport arranged through Rosewood\'s concierge.',
+      intro: 'Set along the waterfront in Sai Sha — one of Hong Kong\'s most scenic natural reserves — GO Park is the city\'s most expansive outdoor sports destination. Passport members access five glass-walled padel courts and the full park facilities as extended club members, with court bookings at member pricing and transport arranged through Rosewood\'s concierge.',
       items: [
         { name: 'Coaching Available', detail: 'The One Padel Academy on-site · Private and group sessions' },
         { name: 'Partner Club Courts', detail: 'Member pricing · 15% below public rate' },
