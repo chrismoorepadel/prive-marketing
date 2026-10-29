@@ -6,8 +6,8 @@ from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.recordingPen import RecordingPen, DecomposingRecordingPen
 from fontTools.svgLib.path import parse_path
 
-parts=json.load(open('src/monogram-parts.json'))
-WP=json.load(open('src/wordmark-prive.json'))
+parts=json.load(open('src/monogram-parts-smooth.json'))
+WP=json.load(open('src/wordmark-prive-smooth.json'))
 def prive_rec(cap):
     rp=RecordingPen()
     for d in WP['paths']: parse_path(d,TransformPen(rp,(cap/1000,0,0,cap/1000,0,0)))
@@ -77,7 +77,7 @@ def horizontal():
 def icon():
     return [(r, i==0) for i,r in enumerate(monogram(0,0))]
 def wordmark_line():
-    WO=json.load(open('src/wordmark-oneline-exact.json'))
+    WO=json.load(open('src/wordmark-oneline-smooth.json'))
     return [(rec_from_d(d),False) for d in WO['paths']]
 def wordmark_stacked():
     prive=prive_rec(1000); pb=rec_bounds(prive); el=[(prive,False)]

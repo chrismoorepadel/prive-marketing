@@ -27,8 +27,12 @@ Minimum sizes: seal alone from 16 px, 10 mm print, 14 mm embroidered. Stacked lo
 - The P glyph was traced from the approved rounded monogram, then made exactly symmetrical: the left scroll is mirrored to form the right scroll about the stem's centre.
 - PRIVÉ is traced from the supplied stacked logo, not set in a font. No available typeface matched the letterforms (a Bodoni Moda cut came closest and was rejected against the reference), so the word was vectorised at 4× with smoothing from the 253 px cap-height source. `source/wordmark-prive-master.svg` is the result, normalised to a 1000-unit cap height.
 - PADEL under the seal is live type converted to outlines: Jost, weight 300, capitals, tracking 0.80 em, cap height one third of PRIVÉ's, as in the supplied logo.
-- The one-line serif wordmark is traced too. P, R, I, V, É and E reuse the high-resolution traces; A, D and L are traced from the supplied one-line mark (634 px wide, 47 px cap height) at 16× with the threshold tuned so their stems match the other letters. Letter positions and the word space come from that mark. `source/wordmark-oneline-master.svg` is the result. Because of the small source, those three letters are the least precise outlines in the set; a larger export of the one-line mark would let them be retraced at the same quality as PRIVÉ.
+- The one-line serif wordmark is traced too. P, R, I, V, É and E reuse the high-resolution traces; A, D and L are traced from the supplied one-line mark (634 px wide, 47 px cap height) at 16× with the threshold tuned so their stems match the other letters. Letter positions and the word space come from that mark. `source/wordmark-oneline-master.svg` is the result. Because of the small source, those three letters are smoothed more heavily than the rest; a larger export of the one-line mark would let them be retraced at the same quality as PRIVÉ.
 - `source/` holds the monogram master, the traced PRIVÉ master, the Jost static instance (SIL Open Font License) and the two Python scripts that rebuild everything. Rebuilding needs `fonttools`, `vtracer`, `pillow`, `resvg-py`, `svglib` and `reportlab`.
+
+## Outline smoothing
+
+Every traced outline (the P glyph, PRIVÉ, and the one-line wordmark) is passed through `source/smooth.py` after tracing: the contour is resampled, true corners (serif ends, stroke joins) are detected and kept sharp, everything between corners is smoothed, straight edges are refitted as straight lines, and the rest is refitted as a minimal set of Bézier curves. This removes the pixel wobble from the source images and cuts the SVG files to a fraction of their size (the icon is under 3 KB). `source/smooth_all.py` applies it with settings matched to each source resolution.
 
 ## What is not here yet
 
