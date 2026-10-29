@@ -50,22 +50,23 @@ nav.scrolled{
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(184,151,106,0.2);
 }
+/* ── Logo · Brand 2.0 seal ─────────────────────────────
+   One <picture> per colour: the horizontal lockup on desktop, the seal
+   alone at phone width. Cream rides on photography, ink on the cream bar.
+   Sized here rather than inline, so the phone rule needs no !important. */
 .logo-light { display: block; }
 .logo-dark  { display: none; }
 nav.scrolled .logo-light { display: none; }
 nav.scrolled .logo-dark  { display: block; }
 .nav-logo{
+  display:flex;align-items:center;line-height:0;
   font-family:'Cormorant Garamond',serif;
   font-weight:300;font-size:17px;
   letter-spacing:0.28em;text-transform:uppercase;
   color:var(--white);
   transition:color .4s;
 }
-nav.scrolled .logo-light { display: block; }
-.logo-dark  { display: none; }
-nav.scrolled .logo-light { display: none; }
-nav.scrolled .logo-dark  { display: block; }
-.nav-logo{color:var(--navy);}
+.nav-logo img{display:block;width:129px;height:44px;}
 
 .nav-links{
   position:absolute;left:50%;transform:translateX(-50%);
@@ -985,6 +986,9 @@ footer{
   border-top:1px solid rgba(255,255,255,.06);
   padding:60px 80px 40px;
 }
+/* The primary lockup heads the footer, centred, clear space well past a P stem. */
+.footer-mark{display:block;width:90px;margin:0 auto 52px;line-height:0;}
+.footer-mark img{display:block;width:90px;height:120px;}
 .footer-top{
   display:grid;grid-template-columns:repeat(5,1fr);
   gap:48px;margin-bottom:56px;
@@ -1540,7 +1544,7 @@ footer{
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
   nav { padding: 0 24px; }
-  .nav-logo img { height: 56px !important; }
+  .nav-logo img { width: 27px; height: 36px; }
   .nav-links, .nav-right { display: none; }
   .nav-logo { font-size: 14px; letter-spacing: 0.2em; }
   .hero-content { grid-template-columns: 1fr; padding: 0 24px 80px; }
