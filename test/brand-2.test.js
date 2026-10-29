@@ -51,3 +51,24 @@ for (const page of PAGES) {
     for (const m of html.matchAll(/<p class="passport-def">([^<]*)<\/p>/g)) assert.equal(m[1], DEF);
   });
 }
+
+/* ── the homepage hands out the app; it doesn't sell the Passport ── */
+
+test('homepage shows no price and links to no checkout', () => {
+  const html = read('index.html');
+  assert.doesNotMatch(html, /\$\d{3}/);
+  assert.doesNotMatch(html, /href="\/?join\.html/);
+  assert.doesNotMatch(html, /class="passport-pricing"|id="privePopup"/);
+});
+
+test('homepage closing CTA is "Get the app"', () => {
+  const closing = read('index.html').match(/<section class="closing-cta">[\s\S]*?<\/section>/)?.[0] ?? '';
+  assert.match(closing, /<a [^>]*data-app-link[^>]*>Get the app<\/a>/);
+});
+
+test('hero leads with the app, then Miami', () => {
+  const slides = read('data/hero-slides.js');
+  assert.match(slides, /primaryLabel:\s+'Get the app',\s+primaryHref:\s+'app'/);
+  assert.match(slides, /secondaryLabel:\s+'Book Miami',\s+secondaryHref:\s+'https:\/\/playtomic\.com\//);
+  assert.match(slides, /eyebrow: '40\+ destinations · Montauk · Miami · Turks and Caicos'/);
+});

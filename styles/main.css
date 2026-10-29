@@ -2505,7 +2505,8 @@ nav.nav-dark .nav-hamburger span { background: var(--ink); }
   .hc-slide-right { display:none; }
   .hc-slide-hl { font-size:clamp(38px,10vw,52px); }
   .hc-slide-sub { font-size:15px; }
-  .hc-slide-actions { flex-direction:column; gap:12px; }
+  .hc-slide-actions { flex-direction:column; gap:12px; align-items:stretch; }
+  .hc-slide-actions .btn-ghost { justify-content:center; }
   .hc-dots { bottom:24px; }
 
   .brand-anchor { height:70vh; min-height:520px; }
