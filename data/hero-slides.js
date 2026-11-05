@@ -8,7 +8,7 @@ window.HERO_SLIDES = [
   {
     eyebrow: 'PRIVÉ PASSPORT',
     headline: 'The world\'s first <em>Padel&nbsp;Passport.</em>',
-    sub:      'One membership. Forty-nine hotels and resorts across eighteen countries — and a court waiting at every one.',
+    sub:      'One membership. Fifty hotels and resorts across twenty countries — and a court waiting at every one.',
     primaryLabel:    'Get Your Passport',
     primaryHref:     'join.html',
     secondaryLabel:  'Explore the Network',
